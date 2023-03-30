@@ -11,7 +11,7 @@ import './index.css';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <BrowserRouter basename="/so-yummy-app">
+      <BrowserRouter basename="/command_project_React_Node">
         <App />
       </BrowserRouter>
     </ThemeProvider>
