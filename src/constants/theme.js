@@ -48,6 +48,7 @@ export const theme = Object.freeze({
     xxxl: '16px',
     round: '50%',
   },
+  
   border: {
     checkbox: '2px solid rgba(126, 126, 126, 0.5)',
     searchBar: ' 1px solid #F0F0F0',
