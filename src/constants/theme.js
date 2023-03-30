@@ -26,7 +26,7 @@ export const theme = Object.freeze({
     whiteText: '#ffffff',
 
     normalDark: '#1E1F28', // buttons
-    normalGrey: '#D9D9D9', // buttons
+    normalGrey: '#D9D9D9', // buttons, background in add recipy
     darkAccent: '#22252A', // footer
     greenAccent: '#8BAA36', // buttons  , footer in darkTheme
 
@@ -48,4 +48,10 @@ export const theme = Object.freeze({
     xxxl: '16px',
     round: '50%',
   },
+  border: {
+    checkbox: '2px solid rgba(126, 126, 126, 0.5)',
+    searchBar: ' 1px solid #F0F0F0',
+    emailSubscription: '1px solid #FAFAFA',
+    userProfile : ' 1px solid #23262A',
+
 });
