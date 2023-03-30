@@ -10,9 +10,7 @@ import { RecipePage } from 'pages/RecipePage';
 import { SearchPage } from 'pages/SearchPage';
 import { ShoppingListPage } from 'pages/ShoppingListPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
-// import { WelcomePage } from 'pages/WelcomePage';
-// import { RegisterPage } from 'pages/RegisterPage';
-// import { SigninPage } from 'pages/SigninPage';
+
 
 import { GlobalStyle } from './GlobalStyle';
 
@@ -21,11 +19,7 @@ export const App = () => {
     <div>
       <GlobalStyle />
       <Routes>
-        {/* routing changes depending on authorizing of user */}
-        {/* <Route path="/" element={<WelcomePage />}>
-          <Route path="register" element={<RegisterPage />} />
-          <Route path="signin" element={<SigninPage />} />
-        </Route> */}
+
         <Route path="/" element={<SharedLayout />}>
           <Route path="main" element={<MainPage />} />
           <Route path="categories/:categoryName" element={<CategoriesPage />} />
