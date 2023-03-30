@@ -52,6 +52,6 @@ export const theme = Object.freeze({
     checkbox: '2px solid rgba(126, 126, 126, 0.5)',
     searchBar: ' 1px solid #F0F0F0',
     emailSubscription: '1px solid #FAFAFA',
-    userProfile : ' 1px solid #23262A',
-
+    userProfile: '1px solid #23262A'
+  }
 });
