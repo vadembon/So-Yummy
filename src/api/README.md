@@ -106,7 +106,8 @@ mutate({ email, password });
 ```js
 import { useLogOut } from './api/hooks';
 
-const { data, error, isLoading } = useLogOut();
+const { mutate, error, isLoading } = useLogOut();
+mutate();
 ```
 
 ---
@@ -143,9 +144,9 @@ mutate({ name, avatar });
 - **response**: `{days, recipes, favorites, shoppingLists}`
 
 ```js
-import { useSummary } from './api/hooks';
+import { useStatistics } from './api/hooks';
 
-const { data, error, isLoading } = useSummary();
+const { data, error, isLoading } = useStatistics();
 ```
 
 ### _Subscribe_: `POST /subscribe`
