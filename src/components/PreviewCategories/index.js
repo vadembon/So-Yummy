@@ -1,1 +1,1 @@
-export { PreviewCategories } from './PreviewCategories';
+export { default } from './PreviewCategories';

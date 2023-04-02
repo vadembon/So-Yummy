@@ -1,1 +1,1 @@
-export { ChooseYourBreakfast } from './ChooseYourBreakfast';
+export { default } from './ChooseYourBreakfast';
