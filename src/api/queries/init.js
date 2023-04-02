@@ -1,7 +1,7 @@
 import globalAxios from 'axios';
 
 export const axios = globalAxios.create({
-  baseURL: 'http://localhost:3003',
+  baseURL: process.env.REACT_APP_SERVER_URL,
 });
 
 export const setToken = token => {

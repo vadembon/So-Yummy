@@ -1,6 +1,8 @@
 import { useRegister, useSignIn, useLogOut } from '../hooks';
+import { useIsUserAuth } from 'redux/useIsUserAuth';
 
 export const ApiTest = () => {
+  const isUserAuth = useIsUserAuth();
   const userReg = {
     name: 'Olena',
     email: 'olena@gmail.com',
@@ -34,6 +36,7 @@ export const ApiTest = () => {
       <button onClick={() => logOut.mutate()}>Log out</button>
       {error && <p>Error {error.message}</p>}
       {isLoading && <p>Loading... </p>}
+      {isUserAuth && <p>User is Authorized</p>}
     </>
   );
 };

@@ -1,9 +1,15 @@
 import { logOut, clearToken } from 'api/queries';
 import { useMutate } from './useMutate';
+import { clearUser } from 'redux/userSlice';
+import { useDispatch } from 'react-redux';
 
-const fn = async () => {
-  await logOut();
-  clearToken();
+export const useLogOut = cb => {
+  const dispatch = useDispatch();
+
+  const fn = async () => {
+    await logOut();
+    clearToken();
+    dispatch(clearUser());
+  };
+  return useMutate(fn, cb);
 };
-
-export const useLogOut = cb => useMutate(fn, cb);

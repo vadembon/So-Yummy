@@ -23,6 +23,3 @@ export const useMutate = (fn, cb) => {
 
   return { mutate, error, isLoading };
 };
-
-// {
-// }
