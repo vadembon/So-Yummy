@@ -13,6 +13,7 @@ export * from './useIngredients';
 export * from './useRecipes';
 export * from './useRecipeDetails';
 export * from './usePopular';
+export * from './useMainRecipes';
 
 export * from './useFavorite';
 export * from './useAddFavorite';
