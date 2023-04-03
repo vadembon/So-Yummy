@@ -1,7 +1,8 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { lazy } from 'react';
 
 import { SharedLayout } from './SharedLayout';
-import { MainPage } from 'pages/MainPage';
+// import { MainPage } from 'pages/MainPage';
 import { CategoriesPage } from 'pages/CategoriesPage';
 import { AddRecipePage } from 'pages/AddRecipePage';
 import { FavoritePage } from 'pages/FavoritePage';
@@ -13,6 +14,7 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 import { ApiTest } from 'api/testComponents/ApiTest';
 
 import { GlobalStyle } from './GlobalStyle';
+const MainPage = lazy(() => import('../pages/MainPage'));
 
 export const App = () => {
   return (
