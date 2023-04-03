@@ -1,5 +1,13 @@
-import { ChooseYourBreakfast } from 'components/ChooseYourBreakfast';
+import MainPageHero from 'components/MainPageHero';
+import PreviewCategories from 'components/PreviewCategories';
 
-export const MainPage = () => {
-  return <ChooseYourBreakfast />;
+const MainPage = () => {
+  return (
+    <>
+      <MainPageHero />
+      <PreviewCategories />
+    </>
+  );
 };
+
+export default MainPage;
