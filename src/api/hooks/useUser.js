@@ -1,10 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import { getUser } from '../queries/getUser';
-// import { user } from './stubs.js';
+import { getUser } from '../queries';
 
 export const useUser = (cb = {}) => {
   const { data, error, isLoading } = useQuery({
-    queryKeys: ['user'],
+    queryKey: ['user'],
     queryFn: getUser,
     ...cb,
   });

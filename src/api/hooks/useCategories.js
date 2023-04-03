@@ -1,6 +1,12 @@
-import { categories } from './stubs.js';
-export const useCategories = cb => {
-  const data = categories;
-  cb?.onSuccess?.(data);
-  return { data, error: null, isLoading: false };
+import { useQuery } from '@tanstack/react-query';
+import { getCategories } from '../queries';
+
+export const useCategories = (cb = {}) => {
+  const { data, error, isLoading } = useQuery({
+    queryKey: ['categories'],
+    queryFn: getCategories,
+    ...cb,
+  });
+
+  return { data, error, isLoading };
 };
