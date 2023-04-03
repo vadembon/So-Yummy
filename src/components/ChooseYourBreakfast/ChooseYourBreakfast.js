@@ -1,19 +1,23 @@
 import {
-  ChooseYourBreakfastSection,
-  ChooseYourBreakfastTitle,
+  ChooseYourBreakfastContainer,
   ChooseYourBreakfastText,
+  ChooseYourBreakfastLink,
 } from './ChooseYourBreakfast.styled';
+import { ReactComponent as Icon } from '../../images/commonSvgImg/icon-arrow-right-black.svg';
 
-export const ChooseYourBreakfast = () => {
+const ChooseYourBreakfast = () => {
   return (
-    <ChooseYourBreakfastSection>
-      <ChooseYourBreakfastTitle>
-        So<span>Yummy</span>
-      </ChooseYourBreakfastTitle>
+    <ChooseYourBreakfastContainer>
       <ChooseYourBreakfastText>
-        "What to cook?" is not only a recipe app, it is, in fact, your cookbook.
-        You can add your own recipes to save them for the future.
+        <span>Delicious and healthy</span> way to enjoy <br />a variety of fresh
+        ingredients in one satisfying meal
       </ChooseYourBreakfastText>
-    </ChooseYourBreakfastSection>
+      <ChooseYourBreakfastLink to="/categories">
+        See recipes
+        <Icon width="18px" height="18px" />
+      </ChooseYourBreakfastLink>
+    </ChooseYourBreakfastContainer>
   );
 };
+
+export default ChooseYourBreakfast;
