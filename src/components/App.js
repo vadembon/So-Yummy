@@ -1,8 +1,9 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { SharedLayout } from './SharedLayout';
-import { MainPage } from 'pages/MainPage';
+
 import { CategoriesPage } from 'pages/CategoriesPage';
+import MainPage from 'pages/MainPage/MainPage';
 import { AddRecipePage } from 'pages/AddRecipePage';
 import FavoritePage from 'pages/FavoritePage';
 import { MyRecipesPage } from 'pages/MyRecipesPage';
@@ -11,7 +12,6 @@ import { SearchPage } from 'pages/SearchPage';
 import { ShoppingListPage } from 'pages/ShoppingListPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ApiTest } from 'api/testComponents/ApiTest';
-
 
 import { GlobalStyle } from './GlobalStyle';
 
