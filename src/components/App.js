@@ -13,13 +13,14 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 
 
 import { GlobalStyle } from './GlobalStyle';
+import { RegisterPage } from 'pages/RegisterPage';
 
 export const App = () => {
   return (
     <div>
       <GlobalStyle />
       <Routes>
-
+        <Route path='/register' element={<RegisterPage/>}/>
         <Route path="/" element={<SharedLayout />}>
           <Route path="main" element={<MainPage />} />
           <Route path="categories/:categoryName" element={<CategoriesPage />} />

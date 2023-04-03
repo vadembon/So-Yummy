@@ -14,7 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <BrowserRouter basename="/command_project_React_Node">
         <App />
         {/* строку ниже убрать не забудь */}
-        <RegisterForm/>
+        {/* <RegisterForm/> */}
       </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>
