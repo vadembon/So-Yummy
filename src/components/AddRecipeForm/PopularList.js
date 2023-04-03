@@ -9,7 +9,7 @@ export const PopularList = ({ arrayItem }) => {
 };
 
 const Item = ({ id, image, title, about }) => {
-  console.log(title);
+  // console.log(title);
   return (
     <div style={{ display: 'flex' }}>
       <div>text</div>

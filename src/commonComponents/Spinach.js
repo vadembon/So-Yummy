@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import img from 'simpleImages/spinach.png';
+import img from 'images/spinach.png';
 
 export const Spinach = styled.div`
   position: absolute;

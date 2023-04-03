@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { stheme } from 'simpleImages/stheme';
 
 export const Button = styled.button`
   color: ${({ theme: { colors } }) => colors.primaryLightText};
@@ -11,7 +10,6 @@ export const Button = styled.button`
   width: 161px;
   height: 52px;
   /* font-size: ${props => props.theme.fontSizes[4]}; */
-  font-size: ${stheme.fontSizes.normal};
 
   /* margin: 1em; */
   /* border: none; */

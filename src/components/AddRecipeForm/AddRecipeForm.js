@@ -7,10 +7,10 @@ import { Button } from 'commonComponents/Button';
 import { ImageButton } from 'commonComponents/ImageButton';
 import { InputForm, TextForm, SelectForm } from 'commonComponents/InputForm';
 
-import image from 'simpleImages/food-blank.svg';
+import image from 'images/food-blank.svg';
 
-import { categories, recipes } from '../../api/hooks/stubs.js';
-import ingredientsTmpl from '../../simpleImages/ingredients.json';
+import { categories, recipes } from './stubs.js';
+import ingredientsTmpl from './ingredients.json';
 import { PageTitle } from 'commonComponents/PageTitle';
 
 import { IngredientList } from './IngredientList';
@@ -86,13 +86,13 @@ export const AddRecipeForm = () => {
     // formData.append('file', data.foodImage[0]);
     // console.log(data.foodImage[0]);
     // console.log(formData);
-    console.log(data);
+    // console.log(data);
 
     reset();
   };
 
   const hanleClick = () => {
-    console.log(recipes);
+    // console.log(recipes);
   };
 
   const handlePick = () => {

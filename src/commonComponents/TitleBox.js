@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { stheme } from 'simpleImages/stheme';
 
 export const TitleBox = styled.div`
   position: relative;
@@ -10,12 +9,12 @@ export const TitleBox = styled.div`
   /* color: ${({ theme: { colors } }) => colors.primaryLightText}; */
   /* background: ${({ theme: { colors } }) => colors.backgroundLight}; */
 
-  @media (min-width: ${stheme.devices.tablet}) {
+  @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
     height: 176px;
     padding: 100px 32px 0px;
   }
 
-  @media (min-width: ${stheme.devices.desktop}) {
+  @media (min-width: ${({ theme: { devices } }) => devices.desktop}) {
     height: 200px;
   }
 `;

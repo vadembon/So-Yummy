@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { stheme } from 'simpleImages/stheme';
 
 const dotY = [{ top: '10px' }, { top: '44px' }, { top: '80px' }];
 const dotX = [{ left: '104px' }, { right: '-2px' }, { right: '120px' }];
@@ -29,7 +28,7 @@ export const Dot = styled.div`
   ${({ dotNumber }) => dotH[dotNumber]}
   ${({ dotNumber }) => dotColor[dotNumber]}
 
-  @media (min-width: ${stheme.devices.tablet}) {
+  @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
     ${({ dotNumber }) => dotXt[dotNumber]}
     ${({ dotNumber }) => dotYt[dotNumber]}
   ${({ dotNumber }) => dotWt[dotNumber]}
