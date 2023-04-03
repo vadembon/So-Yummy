@@ -12,6 +12,7 @@ import { SearchPage } from 'pages/SearchPage';
 import { ShoppingListPage } from 'pages/ShoppingListPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ApiTest } from 'api/testComponents/ApiTest';
+import { AuthPage } from 'pages/AuthPage/AuthPage';
 
 import { GlobalStyle } from './GlobalStyle';
 
@@ -20,6 +21,11 @@ export const App = () => {
     <div>
       <GlobalStyle />
       <Routes>
+
+        <Route path="signin" element={<AuthPage type='signin'/>}/>
+        <Route path="register" element={<AuthPage type='register' />}/>
+
+
         <Route path="/" element={<SharedLayout />}>
           <Route path="main" element={<MainPage />} />
           <Route path="categories/:categoryName" element={<CategoriesPage />} />
