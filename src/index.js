@@ -8,13 +8,14 @@ import { Provider } from 'react-redux';
 
 import { App } from 'components/App';
 import { theme } from './constants';
-
+import { RegisterForm } from 'components/RegisterForm';
 import './index.css';
 
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={theme}>
@@ -24,5 +25,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </ThemeProvider>
       </QueryClientProvider>
     </Provider>
+
   </React.StrictMode>
 );
