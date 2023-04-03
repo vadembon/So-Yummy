@@ -10,7 +10,7 @@ import { RecipePage } from 'pages/RecipePage';
 import { SearchPage } from 'pages/SearchPage';
 import { ShoppingListPage } from 'pages/ShoppingListPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
-import { AuthPage } from 'pages/AuthPage/AuthPage';
+
 
 import { GlobalStyle } from './GlobalStyle';
 
@@ -19,9 +19,6 @@ export const App = () => {
     <div>
       <GlobalStyle />
       <Routes>
-        
-      <Route path="signin" element={<AuthPage type='signin'/>}/>
-        <Route path="register" element={<AuthPage type='register' />}/>
 
         <Route path="/" element={<SharedLayout />}>
           <Route path="main" element={<MainPage />} />
