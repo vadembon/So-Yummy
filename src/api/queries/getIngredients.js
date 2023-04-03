@@ -1,9 +1,9 @@
 import { axios } from './init';
 import { createError } from './createError';
 
-export const updateUser = async user => {
+export const getIngredients = async () => {
   try {
-    const { data } = await axios.patch('/user', user);
+    const { data } = await axios.get('/recipes/ingredients');
     return data.data;
   } catch (err) {
     throw createError(err);
