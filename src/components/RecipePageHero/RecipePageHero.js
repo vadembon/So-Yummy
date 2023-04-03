@@ -1,3 +1,8 @@
+import { HeroPageFoto } from './RecipePageHero.styled';
+
 export const RecipePageHero = () => {
-  return <div>RecipePageHero</div>;
+  return (
+    <HeroPageFoto></HeroPageFoto>
+  )
+  
 };
