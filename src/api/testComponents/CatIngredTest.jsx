@@ -20,7 +20,7 @@ export const CatIngredTest = () => {
       <h3>Ingredients</h3>
       <p>
         {/* {JSON.stringify(ingredients.data.map(({ _id, ttl }) => ({ _id, ttl })))} */}
-        {JSON.stringify(ingredients.data.length)}
+        {JSON.stringify(ingredients?.data?.length)}
       </p>
 
       {error && <p>Error {error.message}</p>}

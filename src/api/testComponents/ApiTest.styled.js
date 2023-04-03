@@ -10,6 +10,7 @@ export const List = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
+  max-width: 100%;
 `;
 export const Title = styled.h2`
   margin-bottom: 1rem;
