@@ -1,6 +1,12 @@
-import { ingredients } from './stubs.js';
-export const useIngredients = cb => {
-  const data = ingredients;
-  cb?.onSuccess?.(data);
-  return { data, error: null, isLoading: false };
+import { useQuery } from '@tanstack/react-query';
+import { getIngredients } from '../queries';
+
+export const useIngredients = (cb = {}) => {
+  const { data, error, isLoading } = useQuery({
+    queryKey: ['ingredients'],
+    queryFn: getIngredients,
+    ...cb,
+  });
+
+  return { data, error, isLoading };
 };
