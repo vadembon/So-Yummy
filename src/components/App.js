@@ -1,4 +1,7 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, 
+  Route, 
+  Navigate 
+} from 'react-router-dom';
 
 import { SharedLayout } from './SharedLayout';
 
@@ -22,11 +25,9 @@ export const App = () => {
     <div>
       <GlobalStyle />
       <Routes>
-
+        <Route path="welcome" element={<WelcomePage />}/> 
         <Route path="signin" element={<AuthPage type='signin'/>}/>
         <Route path="register" element={<AuthPage type='register' />}/>
-        <Route path="welcome" element={<WelcomePage />}/>
-
         <Route path="/" element={<SharedLayout />}>
           <Route path="main" element={<MainPage />} />
           <Route path="categories/:categoryName" element={<CategoriesPage />} />
