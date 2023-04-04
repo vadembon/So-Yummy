@@ -8,7 +8,7 @@ import { AddRecipePage } from 'pages/AddRecipePage';
 import FavoritePage from 'pages/FavoritePage';
 import { MyRecipesPage } from 'pages/MyRecipesPage';
 import { RecipePage } from 'pages/RecipePage';
-import  SearchPage  from 'pages/SearchPage/SearchPage';
+import { SearchPage } from 'pages/SearchPage';
 import { ShoppingListPage } from 'pages/ShoppingListPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ApiTest } from 'api/testComponents/ApiTest';
@@ -21,8 +21,10 @@ export const App = () => {
     <div>
       <GlobalStyle />
       <Routes>
-        <Route path="signin" element={<AuthPage type="signin" />} />
-        <Route path="register" element={<AuthPage type="register" />} />
+
+        <Route path="signin" element={<AuthPage type='signin'/>}/>
+        <Route path="register" element={<AuthPage type='register' />}/>
+
 
         <Route path="/" element={<SharedLayout />}>
           <Route path="main" element={<MainPage />} />
