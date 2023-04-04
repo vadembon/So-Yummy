@@ -1,10 +1,9 @@
 import { axios } from './init';
 import { createError } from './createError';
 
-export const getRecipeDetails = async ({ queryKey }) => {
+export const deleteFavorite = async id => {
   try {
-    const id = [...queryKey].pop();
-    const { data } = await axios.get(`/recipes/id/${id}`);
+    const { data } = await axios.delete(`/recipes/favorite/${id}`);
     return data.data;
   } catch (err) {
     throw createError(err);
