@@ -5,6 +5,7 @@ export const useFavorite = (filter, cb = {}) => {
   const { data, error, isLoading } = useQuery({
     queryKey: ['recipes', 'favorite', filter],
     queryFn: getFavorite,
+    keepPreviousData: true,
     ...cb,
   });
 
