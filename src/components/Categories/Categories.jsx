@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Container } from '../../components/Container/Container';
 import { CategoriesList } from 'components/CategoriesList/CategoriesList';
 import {DishList, DishItem} from "./Categories.styled";
-// import { DishCard } from 'components/DishCard/DishCard';
+import { DishCard } from 'components/DishCard/DishCard';
 import { BackgroundDots } from 'commonComponents/BackgroundDots/BackgroundDots';
 // import { Dot } from 'commonComponents/Dot';
 
@@ -27,9 +27,11 @@ export const Categories = () => {
           <DishList>
             {recipes?.map(({ id, title, image }) =>
               <DishItem key={id}>
-                {/* <DishCard/> */}
-                <img width={300} height={300} src={image} alt={title} />
-                {title}
+                <DishCard id={id}
+                  title={title}
+                  image={image}/>
+                {/* <img width={300} height={300} src={image} alt={title} />
+                {title} */}
               </DishItem>
             )}
           </DishList>
