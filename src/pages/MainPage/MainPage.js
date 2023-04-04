@@ -1,7 +1,7 @@
 import MainPageHero from 'components/MainPageHero';
 import PreviewCategories from 'components/PreviewCategories';
 
-const MainPage = () => {
+export const MainPage = () => {
   return (
     <>
       <MainPageHero />
@@ -10,4 +10,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+
