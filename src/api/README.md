@@ -309,9 +309,9 @@ const { data, error, isLoading } = useOwnRecipes({ page: 1, limit: 4 });
 
 - **header**: `{Authorization: 'Bearer <token>'}`
 - **body**:
-  `{ title, image, about, category, cookingTime, preparation, ingredients: [{id, name, image, quantity, unit}]}`
+  `{ title, image, about, category, cookingTime, preparation, ingredients: [{id, measure}]}`
 - **response**:
-  `{id, title, image, about, category, cookingTime, preparation, ingredients: [{id, name, image, quantity, unit}]}` -
+  `{id, title, image, about, category, cookingTime, preparation, ingredients: [{id, measure}]}` -
   об'єкт recipe
 
 ```js
