@@ -8,3 +8,7 @@ export * from './getIngredients';
 export * from './getRecipes';
 export * from './getRecipeDetails';
 export * from './getPopular';
+export * from './getMainRecipes';
+export * from './getFavorite';
+export * from './addFavorite';
+export * from './deleteFavorite';

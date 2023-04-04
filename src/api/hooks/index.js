@@ -13,11 +13,11 @@ export * from './useIngredients'; //+
 export * from './useRecipes'; //+
 export * from './useRecipeDetails'; //+
 export * from './usePopular'; //+
-export * from './useMainRecipes';
+export * from './useMainRecipes'; //+
 
-export * from './useFavorite';
-export * from './useAddFavorite';
-export * from './useDeleteFavorite';
+export * from './useFavorite'; // +
+export * from './useAddFavorite'; //+
+export * from './useDeleteFavorite'; //+
 
 export * from './useOwnRecipes';
 export * from './useAddOwnRecipe';

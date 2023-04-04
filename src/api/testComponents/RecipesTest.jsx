@@ -1,4 +1,10 @@
-import { useRecipes, useRecipeDetails, usePopular } from '../hooks';
+import {
+  useRecipes,
+  useRecipeDetails,
+  usePopular,
+  useMainRecipes,
+  useFavorite,
+} from '../hooks';
 import { useState } from 'react';
 
 export const RecipesTest = () => {
@@ -11,6 +17,15 @@ export const RecipesTest = () => {
     onSuccess: console.log,
     onError: console.log,
   });
+  const favorite = useFavorite({
+    onSuccess: console.log,
+    onError: console.log,
+  });
+
+  const mainRecipes = useMainRecipes({
+    onSuccess: console.log,
+    onError: console.log,
+  });
 
   const recipeDetail = useRecipeDetails('640cd5ac2d9fecf12e8897fc', {
     onSuccess: console.log,
@@ -18,8 +33,17 @@ export const RecipesTest = () => {
   });
 
   const isLoading =
-    recipes.isLoading || recipeDetail.isLoading || popular.isLoading;
-  const error = recipes.error || recipeDetail.error || popular.error;
+    recipes.isLoading ||
+    recipeDetail.isLoading ||
+    popular.isLoading ||
+    mainRecipes.isLoading ||
+    favorite.isLoading;
+  const error =
+    recipes.error ||
+    recipeDetail.error ||
+    popular.error ||
+    mainRecipes.error ||
+    favorite.error;
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -66,6 +90,12 @@ export const RecipesTest = () => {
 
       <h3>Popular recipe </h3>
       <p>{JSON.stringify(popular?.data?.length)}</p>
+
+      <h3>Main recipes </h3>
+      <p>{JSON.stringify(mainRecipes?.data?.length)}</p>
+
+      <h3>Favorite recipes </h3>
+      <p>{JSON.stringify(favorite?.data?.length)}</p>
 
       <h3>Recipe details</h3>
       <p>{JSON.stringify(recipeDetail.data)}</p>
