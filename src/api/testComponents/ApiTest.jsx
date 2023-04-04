@@ -1,6 +1,7 @@
 import { AuthTest } from './AuthTest';
 import { UserTest } from './UserTest';
 import { CatIngredTest } from './CatIngredTest';
+import { RecipesTest } from './RecipesTest';
 import { List, Item, Title } from './ApiTest.styled';
 
 export const ApiTest = () => {
@@ -17,6 +18,10 @@ export const ApiTest = () => {
       <Item>
         <Title>Categories & Ingredients</Title>
         <CatIngredTest />
+      </Item>
+      <Item>
+        <Title>Recipes</Title>
+        <RecipesTest />
       </Item>
     </List>
   );

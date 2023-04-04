@@ -1,1 +1,1 @@
-export { SearchPage } from './SearchPage';
+import { SearchPage } from './SearchPage';
