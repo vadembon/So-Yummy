@@ -15,6 +15,7 @@ import { ApiTest } from 'api/testComponents/ApiTest';
 import { AuthPage } from 'pages/AuthPage/AuthPage';
 
 import { GlobalStyle } from './GlobalStyle';
+import { WelcomePage } from 'pages/WelcomePage/WelcomePage';
 
 export const App = () => {
   return (
@@ -24,7 +25,7 @@ export const App = () => {
 
         <Route path="signin" element={<AuthPage type='signin'/>}/>
         <Route path="register" element={<AuthPage type='register' />}/>
-
+        <Route path="welcome" element={<WelcomePage />}/>
 
         <Route path="/" element={<SharedLayout />}>
           <Route path="main" element={<MainPage />} />
