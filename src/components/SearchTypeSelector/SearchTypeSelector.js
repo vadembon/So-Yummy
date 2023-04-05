@@ -110,7 +110,7 @@ const SearchTypeSelector = ({ onChange }) => {
     console.log(option);
     // console.log(selectedOption);
     setSelectedOption(option);
-    onChange(selectedOption);
+    onChange(option);
   };
 
   return (
