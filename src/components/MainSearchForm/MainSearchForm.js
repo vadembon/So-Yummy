@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import {
-  SearchFormSection,
-  SearchInput,
-  SearchButton,
-} from './SearchForm.styled';
+  MainSearchFormSection,
+  MainSearchInput,
+  MainSearchButton,
+} from './MainSearchForm.styled';
 
 const SearchForm = () => {
   const navigate = useNavigate();
@@ -20,10 +20,10 @@ const SearchForm = () => {
 
   return (
     <>
-      <SearchFormSection onSubmit={handleSubmit}>
-        <SearchInput placeholder="Beef" searchQuery="" name="search" />
-        <SearchButton type="submit">Search</SearchButton>
-      </SearchFormSection>
+      <MainSearchFormSection onSubmit={handleSubmit}>
+        <MainSearchInput placeholder="Beef" searchQuery="" name="search" />
+        <MainSearchButton type="submit">Search</MainSearchButton>
+      </MainSearchFormSection>
     </>
   );
 };
