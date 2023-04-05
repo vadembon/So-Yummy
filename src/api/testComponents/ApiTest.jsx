@@ -1,42 +1,33 @@
-import { useRegister, useSignIn, useLogOut } from '../hooks';
-import { useIsUserAuth } from 'redux/useIsUserAuth';
+import { AuthTest } from './AuthTest';
+import { UserTest } from './UserTest';
+import { CatIngredTest } from './CatIngredTest';
+import { RecipesTest } from './RecipesTest';
+import { FavoriteTest } from './FavoriteTest';
+import { List, Item, Title } from './ApiTest.styled';
 
 export const ApiTest = () => {
-  const isUserAuth = useIsUserAuth();
-  const userReg = {
-    name: 'Olena',
-    email: 'olena@gmail.com',
-    password: 'password',
-  };
-  const userSingin = {
-    email: 'olena@gmail.com',
-    password: 'password',
-  };
-
-  const register = useRegister({
-    onSuccess: console.log,
-    onError: console.log,
-  });
-  const signIn = useSignIn({
-    onSuccess: console.log,
-    onError: console.log,
-  });
-  const logOut = useLogOut({
-    onSuccess: console.log,
-    onError: console.log,
-  });
-
-  const isLoading = register.isLoading || signIn.isLoading || logOut.isLoading;
-  const error = register.error || signIn.error || logOut.error;
-
   return (
-    <>
-      <button onClick={() => register.mutate(userReg)}>Register</button>
-      <button onClick={() => signIn.mutate(userSingin)}>Sign in</button>
-      <button onClick={() => logOut.mutate()}>Log out</button>
-      {error && <p>Error {error.message}</p>}
-      {isLoading && <p>Loading... </p>}
-      {isUserAuth && <p>User is Authorized</p>}
-    </>
+    <List>
+      <Item>
+        <Title>Auth</Title>
+        <AuthTest />
+      </Item>
+      <Item>
+        <Title>User</Title>
+        <UserTest />
+      </Item>
+      <Item>
+        <Title>Categories & Ingredients</Title>
+        <CatIngredTest />
+      </Item>
+      <Item>
+        <Title>Recipes</Title>
+        <RecipesTest />
+      </Item>
+      <Item>
+        <Title>Favorite recipes</Title>
+        <FavoriteTest />
+      </Item>
+    </List>
   );
 };

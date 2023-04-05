@@ -1,57 +1,66 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const ChooseYourBreakfastSection = styled.section`
+export const ChooseYourBreakfastContainer = styled.div`
   position: absolute;
-  width: 375px;
-  height: 777px;
-  left: 0px;
-  top: 0px;
+  width: 225px;
+  height: 92px;
+  left: 116px;
+  top: 380px;
+  padding: 8px;
 
-  background-color: #fafafa;
-`;
+  background: #fafafa;
+  border-radius: 8px;
 
-export const ChooseYourBreakfastTitle = styled.h1`
-  position: absolute;
-  width: 303px;
-  height: 60px;
-  left: 36px;
-  top: 132px;
+  @media (min-width: 768px) {
+  }
 
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 60px;
-  line-height: 60px;
-  /* identical to box height, or 100% */
-
-  text-align: center;
-  letter-spacing: -0.005em;
-
-  color: #8baa36;
-
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-  & span {
-    color: #22252a;
+  @media (min-width: 1280px) {
   }
 `;
 
 export const ChooseYourBreakfastText = styled.p`
-  position: absolute;
-  width: 248px;
-  height: 72px;
-  left: 64px;
-  top: 206px;
-
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
+  width: 209px;
+  font-weight: 500;
+  font-size: 13.5px;
   line-height: 18px;
-  /* or 129% */
+  /* or 150% */
 
-  text-align: center;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.24px;
 
-  color: #23262a;
+  & span {
+    color: #8baa36;
+  }
+
+  @media (min-width: 768px) {
+  }
+
+  @media (min-width: 1280px) {
+  }
+`;
+
+export const ChooseYourBreakfastLink = styled(Link)`
+  font-size: 10px;
+  line-height: 12px;
+  /* identical to box height, or 120% */
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  letter-spacing: 0.2px;
+
+  color: #3e4462;
+
+  gap: 4px;
+
+  &:hover {
+    color: #8baa36;
+    fill: #8baa36;
+  }
+
+  @media (min-width: 768px) {
+  }
+
+  @media (min-width: 1280px) {
+  }
 `;

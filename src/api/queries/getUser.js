@@ -1,14 +1,11 @@
 import { axios } from './init';
+import { createError } from './createError';
 
 export const getUser = async () => {
   try {
     const { data } = await axios.get('/user');
-    return data;
+    return data.data;
   } catch (err) {
-    const message = err.response?.data.message ?? err.message;
-    const error = new Error(message);
-    error.status = err.response?.status;
-    error.code = err.code;
-    throw error;
+    throw createError(err);
   }
 };
