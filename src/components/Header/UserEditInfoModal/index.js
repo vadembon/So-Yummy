@@ -1,0 +1,1 @@
+export { UserEditInfoModal } from './UserEditInfoModal';
