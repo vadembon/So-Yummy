@@ -10,9 +10,13 @@ import { useRecipes } from 'api/hooks';
 export const SearchBar = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { data } = useRecipes(searchParams);
+  // console.log(data);
+
   const search = searchParams.get('search');
+  // console.log(search);
+
   // const type = searchParams.get('value');
-  console.log(searchParams);
+  // console.log(searchParams);
 
   const updateSearch = search => {
     // console.log(search);
@@ -21,15 +25,15 @@ export const SearchBar = () => {
 
   const handleTypeChange = ({ value }) => {
     console.log(value);
-
     if (value === 'title') {
       setSearchParams({
         [value]: search,
       });
+    } else if (value === 'ingredient') {
+      setSearchParams({
+        [value]: search,
+      });
     }
-    setSearchParams({
-      [value]: search,
-    });
   };
 
   return (
