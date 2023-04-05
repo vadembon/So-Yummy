@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useAuth } from '../../auth';
+import { useNavigate } from 'react-router-dom';
 import { isNil } from 'lodash/lang';
 import { validateFormFields } from '../../core/utils/validateFormFields';
 import { HiOutlineMail } from 'react-icons/hi';
@@ -9,10 +11,15 @@ import { ERROR_COLOR, SIGNIN_DEFAULT_ERROR_STATE } from '../../constants/form';
 import { useSignIn } from 'api/hooks';
 
 export const SigninForm = () => {
+  
   const [signInData, setSignInData] = useState({
     email: '',
     password: '',
   });
+
+  const { fn } = useSignIn();
+  const auth = useAuth();
+  const navigate = useNavigate();
 
   const [signInErrors, setSignInErrors] = useState(SIGNIN_DEFAULT_ERROR_STATE);
 
@@ -20,9 +27,7 @@ export const SigninForm = () => {
 
   const { emailError, passwordError } = signInErrors;
 
-  const { mutate } = useSignIn();
-
-  const handleSignIn = () => {
+  const handleSignIn = async () => {
     const errors = validateFormFields(signInData);
 
     if (!isNil(errors)) {
@@ -30,7 +35,14 @@ export const SigninForm = () => {
     }
 
     setSignInErrors(SIGNIN_DEFAULT_ERROR_STATE);
-    mutate({ email, password });
+
+    const { token } = await fn(signInData);
+
+    if (!isNil(token)) {
+      auth.login(token);
+
+      navigate('/main', { replace: true });
+    }
   };
 
   return (
