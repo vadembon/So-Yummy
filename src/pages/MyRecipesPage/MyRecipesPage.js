@@ -1,3 +1,6 @@
+import React from 'react';
+import { MyRecipesList } from '../../components/MyRecipesList';
+
 export const MyRecipesPage = () => {
-  return <div>MyRecipesPage</div>;
+  return <MyRecipesList />;
 };
