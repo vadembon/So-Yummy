@@ -51,6 +51,6 @@ export const ContainerDots = styled.div`
 
 export const Title = styled.h2`
   font-size: ${props => props.theme.fontSizes[10]}px;
-  font: ${props => props.theme.fonts.primary};
+  font-family: ${props => props.theme.fonts.primary};
   margin-top: 104px;
 `;
