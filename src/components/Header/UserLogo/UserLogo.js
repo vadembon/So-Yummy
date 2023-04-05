@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useUser } from 'api/hooks/useUser';
+// import { useUser } from 'api/hooks/useUser';
 
 import { UserEditInfoModal } from '../UserEditInfoModal/UserEditInfoModal';
 import { UserLogoModal } from '../UserLogoModal/UserLogoModal';
