@@ -1,6 +1,7 @@
-import React from 'react';
+import { useState } from 'react';
 import Select from 'react-select';
-import styled from 'styled-components';
+// import { useSearchParams } from 'react-router-dom';
+// import styled from 'styled-components';
 
 const customStyles = {
   control: (provided, state) => ({
@@ -66,45 +67,56 @@ const customStyles = {
   }),
 };
 
-const StyledSelect = styled(Select)`
-  .react-select__control {
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    &:hover {
-      border: none;
-    }
-  }
-  .react-select__menu {
-    border: none;
-    box-shadow: none;
-    margin-top: 0;
-  }
-  .react-select__option {
-    color: #000;
-    &:hover {
-      background-color: #f2f2f2;
-    }
-  }
+// const StyledSelect = styled(Select)`
+//   .react-select__control {
+//     border: none;
+//     border-radius: 0;
+//     box-shadow: none;
+//     &:hover {
+//       border: none;
+//     }
+//   }
+//   .react-select__menu {
+//     border: none;
+//     box-shadow: none;
+//     margin-top: 0;
+//   }
+//   .react-select__option {
+//     color: #000;
+//     &:hover {
+//       background-color: #f2f2f2;
+//     }
+//   }
 
-  .Select__menu {
-    color: #3c3d3e;
-    height: 49px;
-    width: 198px;
-  }
-`;
+//   .Select__menu {
+//     color: #3c3d3e;
+//     height: 49px;
+//     width: 198px;
+//   }
+// `;
 
-const SearchTypeSelector = ({ defaultValue, onChange }) => {
+const SearchTypeSelector = ({ onChange }) => {
   const options = [
     { value: 'title', label: 'Title' },
-    { value: 'ingridients', label: 'Ingredients' },
+    { value: 'ingridient', label: 'Ingredients' },
   ];
+  // const [searchParams, setSearchParams] = useSearchParams();
+  const [selectedOption, setSelectedOption] = useState();
+
+  const handleOptionChange = option => {
+    console.log(option);
+    console.log(selectedOption);
+    setSelectedOption(option);
+    onChange(selectedOption);
+  };
+
   return (
-    <StyledSelect
+    <Select
       // classNamePrefix="Select"
       options={options}
-      defaultValue={defaultValue}
-      onChange={onChange}
+      value={selectedOption}
+      onChange={handleOptionChange}
+      defaultValue={{ value: 'title', label: 'Title' }}
       styles={customStyles}
       isSearchable
     />
@@ -112,21 +124,3 @@ const SearchTypeSelector = ({ defaultValue, onChange }) => {
 };
 
 export default SearchTypeSelector;
-{
-  /* <Select
-  ...
-  optionStyle={{backgroundColor: 'transparent'}}
-/>
-const [selectedOption, setSelectedOption] = useState(null);
-
-const handleOptionSelect = (selectedOption) => {
-  setSelectedOption(selectedOption);
-  const selectElement = document.querySelector('.Select-option.is-focused');
-  selectElement.style.backgroundColor = 'transparent';
-}
-
-<Select
-  ...
-  onChange={handleOptionSelect}
-/> */
-}

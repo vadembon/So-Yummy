@@ -6,7 +6,6 @@ export const RecipePage = () => {
     <div>
       {/* <RecipePageHero></RecipePageHero> */}
       <RecipeIngredientsList></RecipeIngredientsList>
-      
     </div>
   );
 };

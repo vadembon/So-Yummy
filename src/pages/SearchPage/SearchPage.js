@@ -1,16 +1,13 @@
 import { MainPageTitle } from 'components/MainPageTitle';
 import { SearchBar } from 'components/SearchBar';
-import { Container } from 'components/Container/Container';
-import { WrapperSearchBar } from 'components/SearchBar/SearchBar.styled';
+// import { Container } from 'components/Container/Container';
 
 const SearchPage = () => {
   return (
-    <Container>
+    <>
       <MainPageTitle title="Search" />
-      <WrapperSearchBar>
-        <SearchBar />
-      </WrapperSearchBar>
-    </Container>
+      <SearchBar />
+    </>
   );
 };
 export default SearchPage;

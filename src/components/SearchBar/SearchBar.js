@@ -4,36 +4,67 @@ import { SearchForm } from 'components/SearchForm';
 import SearchTypeSelector from 'components/SearchTypeSelector/SearchTypeSelector';
 
 import { WrapperSearchBar } from './SearchBar.styled';
+import { SearchedRecipesList } from 'components/SearchedRecipesList';
+import { useRecipes } from 'api/hooks';
 
 export const SearchBar = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const search = searchParams.get('query');
+  const { data } = useRecipes(searchParams);
+  const search = searchParams.get('search');
+  // const type = searchParams.get('value');
+  console.log(searchParams);
 
-  const updateSearch = query => {
-    console.log(query);
-    setSearchParams({
-      query,
-    });
+  const updateSearch = search => {
+    // console.log(search);
+    setSearchParams(search !== '' ? { search } : {});
   };
 
-  const handleTypeChange = option => {
-    console.log(option);
+  const handleTypeChange = ({ value }) => {
+    console.log(value);
+
+    if (value === 'title') {
+      setSearchParams({
+        [value]: search,
+      });
+    }
+    setSearchParams({
+      [value]: search,
+    });
   };
 
   return (
     <WrapperSearchBar>
       <SearchForm onSubmit={updateSearch} />
-      <SearchTypeSelector
-        defaultValue={{ value: 'title', label: 'Title' }}
-        onChange={handleTypeChange}
-      />
+      <div style={{ display: 'flex' }}>
+        <span style={{ fontSize: '18px', fontWeight: '500' }}>Search by:</span>
+        <SearchTypeSelector onChange={handleTypeChange} />
+      </div>
+      <SearchedRecipesList items={data} />
     </WrapperSearchBar>
   );
 };
 
-// options = { options };
-// defaultValue = { defaultValue };
-// value = { value };
-// onChange = { onChange };
-// styles = { customStyles };
-// isSearchable;
+// import { useRecipes } from '../hooks';
+// import { useState } from 'react';
+
+// export const RecipesTest = () => {
+//   const [filter, setFilter] = useState({
+//     title: '',
+//     ingredient: '',
+//     page: 1,
+//     limit: 12,
+//   });
+//   const { data, isLoading } = useRecipes(filter);
+
+//   return (
+//     <>
+//       <button
+//         onClick={() => setFilter(prev => ({ ...prev, title: 'chicken' }))}
+//       >
+//         Search
+//       </button>
+//       {isLoading && <p>Loading... </p>}
+//       {data && data.map(item => <div>{item.title}</div>)}
+//     </>
+//   );
+// };

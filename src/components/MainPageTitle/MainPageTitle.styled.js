@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { theme } from '../../constants/theme';
 
 import greenDot_mob_1 from '../../images/background/dot_green_mob_1x.png';
 // import greenDot_mob_2 from '../images/background/dot_green_mob_2x.png';
@@ -38,6 +37,8 @@ export const ContainerDots = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
+    left: 50%;
+    transform: translate(-50%);
     width: 1180px;
     height: 240px;
     background-image: url(${greenDot_desk_1}), url(${blackDot_desk_1}),
