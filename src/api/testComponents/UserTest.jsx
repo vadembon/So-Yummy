@@ -1,4 +1,4 @@
-import { useUser, useUpdateUser, useStatistics } from '../hooks';
+import { useUser, useUpdateUser, useStatistics, useSubscribe } from '../hooks';
 
 export const UserTest = () => {
   const user = useUser({
@@ -13,9 +13,18 @@ export const UserTest = () => {
     onSuccess: console.log,
     onError: console.log,
   });
+
+  const subscribe = useSubscribe({
+    onSuccess: console.log,
+    onError: console.log,
+  });
   const isLoading =
-    user.isLoading || updateUser.isLoading || statistics.isLoading;
-  const error = user.error || updateUser.error || statistics.error;
+    user.isLoading ||
+    updateUser.isLoading ||
+    statistics.isLoading ||
+    subscribe.isLoading;
+  const error =
+    user.error || updateUser.error || statistics.error || subscribe.error;
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -28,16 +37,15 @@ export const UserTest = () => {
     updateUser.mutate(formData);
   };
 
+  const handleSubscribe = () => {
+    subscribe.mutate('user10@mail.com');
+  };
+
   return (
     <>
       <p>{JSON.stringify(user.data)}</p>
       <p>{JSON.stringify(statistics.data)}</p>
-      {/* <button onClick={() => updateUser.mutate({ name: 'Ann' })}>
-        Change user Name Ann
-      </button>
-      <button onClick={() => updateUser.mutate({ name: 'Olena' })}>
-        Change user Name Olena
-      </button> */}
+
       <form onSubmit={handleSubmit}>
         <label>
           Name
@@ -47,14 +55,8 @@ export const UserTest = () => {
         <button>Submit</button>
       </form>
 
-      {/* <button onClick={() => updateUser.mutate({ avatar: '' })}>
-        Delete avatar
-      </button>
-      <button
-        onClick={() => updateUser.mutate({ avatar: 'https://pin.it/1CT1WFj' })}
-      >
-        Restore avatar
-      </button> */}
+      <button onClick={handleSubscribe}>Subscribe user10@mail.com</button>
+
       {error && <p>Error {error.message}</p>}
       {isLoading && <p>Loading... </p>}
     </>

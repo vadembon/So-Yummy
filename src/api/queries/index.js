@@ -12,3 +12,4 @@ export * from './getMainRecipes';
 export * from './getFavorite';
 export * from './addFavorite';
 export * from './deleteFavorite';
+export * from './subscribe';

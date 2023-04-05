@@ -5,7 +5,7 @@ export * from './useLogOut'; //+
 export * from './useUser'; //+
 export * from './useUpdateUser'; //+
 export * from './useStatistics'; //+
-export * from './useSubscribe'; // TODO
+export * from './useSubscribe'; // +
 
 export * from './useCategories'; //+
 export * from './useIngredients'; //+
