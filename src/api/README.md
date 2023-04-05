@@ -138,7 +138,7 @@ const { mutate, error, isLoading } = useUpdateUser();
 mutate({ name, avatar });
 ```
 
-### _User statistics_: `GET /statistics`
+### _User statistics_: `GET /user/statistics`
 
 - **header**: `{Authorization: 'Bearer <token>'}`
 - **response**: `{days, recipes, favorites, shoppingLists}`
@@ -149,7 +149,7 @@ import { useStatistics } from './api/hooks';
 const { data, error, isLoading } = useStatistics();
 ```
 
-### _Subscribe_: `POST /subscribe`
+### _Subscribe_: `POST /user/subscribe`
 
 - **header**: `{Authorization: 'Bearer <token>'}`
 - **body**: `{email}`
@@ -166,7 +166,7 @@ mutate(email);
 
 ## Categories
 
-### _Categories list_: `GET /categories`
+### _Categories list_: `GET /recipes/categories`
 
 - **header**: `{Authorization: 'Bearer <token>'}`
 - **response**: `[{id, name}]`
@@ -181,7 +181,7 @@ const { data, error, isLoading } = useCategories();
 
 ## Ingredients
 
-### _Ingredients list_: `GET /ingredients`
+### _Ingredients list_: `GET /recipes/ingredients`
 
 - **header**: `{Authorization: 'Bearer <token>'}`
 - **response**: `[{id, name, image}]`
@@ -215,7 +215,7 @@ const filter = {
 const { data, error, isLoading } = useRecipes(filter);
 ```
 
-### _Recipe details_: `GET /recipes/:id`
+### _Recipe details_: `GET /recipes/id/:id`
 
 - **header**: `{Authorization: 'Bearer <token>'}`
 - **response**:
@@ -226,6 +226,17 @@ const { data, error, isLoading } = useRecipes(filter);
 import { useRecipeDetails } from './api/hooks';
 
 const { data, error, isLoading } = useRecipeDetails(id);
+```
+
+### _Main page recipes list_: `GET /recipes/main-page`
+
+- **header**: `{Authorization: 'Bearer <token>'}`
+- **response**: `[{id, title, image, category ...}]` - масив об'єктів recipe
+
+```js
+import { useMainRecipes } from './api/hooks';
+
+const { data, error, isLoading } = useMainRecipes();
 ```
 
 ### _Popular recipes list_: `GET /recipes/popular`
