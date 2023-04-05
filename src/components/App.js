@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { lazy } from 'react';
 
 import {
   RestrictedRoute,
@@ -6,7 +7,7 @@ import {
 } from 'service/routes';
 
 import { SharedLayout } from './SharedLayout';
-import { MainPage } from 'pages/MainPage';
+// import { MainPage } from 'pages/MainPage';
 import { CategoriesPage } from 'pages/CategoriesPage';
 import { AddRecipePage } from 'pages/AddRecipePage';
 import { FavoritePage } from 'pages/FavoritePage';
@@ -19,6 +20,7 @@ import { WelcomePage } from 'pages/WelcomePage';
 import { AuthPage } from 'pages/AuthPage';
 
 import { GlobalStyle } from './GlobalStyle';
+const MainPage = lazy(() => import('../pages/MainPage'));
 
 // const AuthPage = lazy(() => import('pages/AuthPage/AuthPage'));
 // const MainPage = lazy(() => import('pages/MainPage/MainPage'));
