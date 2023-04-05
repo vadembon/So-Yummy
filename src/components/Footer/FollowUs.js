@@ -3,29 +3,31 @@ import facebook from '../../images/footer/facebook.svg';
 import twitter from '../../images/footer/twitter.svg';
 import youtube from '../../images/footer/youtube.svg';
 
+import { IconList, IconItem, IconImg } from './Footer.styled';
+
 export const FollowUs = () => {
   return (
-    <ul>
-      <li>
+    <IconList>
+      <IconItem>
         <a href="https://www.facebook.com/">
-          <img src={facebook} alt="facebook" />
+          <IconImg src={facebook} alt="facebook" />
         </a>
-      </li>
-      <li>
+      </IconItem>
+      <IconItem>
         <a href="https://www.youtube.com/">
-          <img src={youtube} alt="youtube" />
+          <IconImg src={youtube} alt="youtube" />
         </a>
-      </li>
-      <li>
+      </IconItem>
+      <IconItem>
         <a href="https://twitter.com/">
-          <img src={twitter} alt="twitter" />
+          <IconImg src={twitter} alt="twitter" />
         </a>
-      </li>
-      <li>
+      </IconItem>
+      <IconItem>
         <a href="https://www.instagram.com/">
-          <img src={instagram} alt="instagram" />
+          <IconImg src={instagram} alt="instagram" />
         </a>
-      </li>
-    </ul>
+      </IconItem>
+    </IconList>
   );
 };

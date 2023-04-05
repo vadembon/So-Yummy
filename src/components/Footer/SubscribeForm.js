@@ -1,16 +1,29 @@
 import React, { useState } from 'react';
+import { useSubscribe } from 'api/hooks/useSubscribe';
 
+// import emailIcon from '../../images/footer/email.svg';
 import { Form, Input, Btn } from './Footer.styled';
+
+// const useSubscribe = cb => {
+//   const mutate = email => {
+//     cb?.onSuccess?.(email);
+//   };
+//   return { mutate, error: null, isLoading: false };
+// };
 
 export const SubscribeForm = () => {
   const [email, setEmail] = useState('');
   const [isValid, setIsValid] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const { mutate } = useSubscribe();
+
   const handleSubmit = e => {
     e.preventDefault();
     setIsSubmitted(true);
+    mutate(email);
     setEmail('');
+    setIsValid(false);
   };
 
   const handleChange = e => {
@@ -30,14 +43,13 @@ export const SubscribeForm = () => {
         onChange={handleChange}
         required
       />
-      {/* <span style={{ position: 'absolute', left: '10px' }}>
+      {/* <span style={{ position: 'absolute', left: '510px', top: '305px' }}>
         <img src={emailIcon} alt="email icon" />
       </span> */}
       <Btn type="submit" disabled={!isValid}>
         Submit
       </Btn>
       {isSubmitted && <p>Thank you for subscribing to our newsletter!</p>}
-      {!isValid && isSubmitted && <p>Please enter a valid email address.</p>}
     </Form>
   );
 };

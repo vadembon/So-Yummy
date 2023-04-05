@@ -1,11 +1,13 @@
-import { All } from './Footer.styled';
+import { RightsBox, RightsText, Span, ImgRights } from './Footer.styled';
+import spinach from '../../images/footer/spinach.png';
 
 export const Rights = () => {
   return (
-    <All>
-      <p>
-        © 2023 All Rights Reserved. <span>Terms of Service</span>{' '}
-      </p>
-    </All>
+    <RightsBox>
+      <RightsText>
+        <b>© 2023 All Rights Reserved.</b> <Span>Terms of Service</Span>
+      </RightsText>
+      <ImgRights src={spinach} alt="spinach"></ImgRights>
+    </RightsBox>
   );
 };
