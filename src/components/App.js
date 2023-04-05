@@ -8,7 +8,7 @@ import { FavoritePage } from 'pages/FavoritePage';
 import { MyRecipesPage } from 'pages/MyRecipesPage';
 import { RecipePage } from 'pages/RecipePage';
 import { SearchPage } from 'pages/SearchPage';
-import { ShoppingListPage } from 'pages/ShoppingListPage';
+import ShoppingListPage from 'pages/ShoppingListPage/ShoppingListPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ApiTest } from 'api/testComponents/ApiTest';
 
