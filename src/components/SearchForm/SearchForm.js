@@ -15,7 +15,6 @@ const SearchForm = () => {
     event.preventDefault();
     if (!event.currentTarget.value) {
       return console.log(`Oops, type something`);
-      // Надо подключить Toast для ошибки
     }
     dispatch(updateSearchQuery(event.target.search.value));
     navigate('/search');

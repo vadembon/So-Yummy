@@ -44,7 +44,6 @@ export const SearchButton = styled.button`
   height: 52px;
   font-size: 14px;
   line-height: 21px;
-  /* identical to box height */
   cursor: pointer;
   color: #fafafa;
   background: #22252a;
