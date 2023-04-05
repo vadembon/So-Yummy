@@ -5,6 +5,8 @@ import { RecipesTest } from './RecipesTest';
 import { FavoriteTest } from './FavoriteTest';
 import { OwnRecipesTest } from './OwnRecipesTest';
 import { List, Item, Title } from './ApiTest.styled';
+import { Message } from 'components/Message/Message';
+import { toast } from 'react-hot-toast';
 
 export const ApiTest = () => {
   return (
@@ -28,6 +30,22 @@ export const ApiTest = () => {
       <Item>
         <Title>Favorite recipes</Title>
         <FavoriteTest />
+      </Item>
+      <Item>
+        <Message />
+        <button
+          onClick={() =>
+            toast(<Message />, {
+              style: {
+                padding: 0,
+                background: 'transparent',
+                boxShadow: 'none',
+              },
+            })
+          }
+        >
+          Press me
+        </button>
       </Item>
       <Item>
         <Title>Own recipes</Title>
