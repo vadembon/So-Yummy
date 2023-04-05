@@ -1,7 +1,10 @@
+import { createPortal } from 'react-dom';
 import { MainPictureDiv } from './MainPicture.styled';
 
+const mainContainer = document.querySelector('#main-bg');
+
 const MainPicture = () => {
-  return <MainPictureDiv></MainPictureDiv>;
+  return createPortal(<MainPictureDiv></MainPictureDiv>, mainContainer);
 };
 
 export default MainPicture;

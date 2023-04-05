@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { theme } from '../../constants/theme';
 
 export const CategoriesList = styled.ul`
   margin-bottom: 40px;
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
   }
 
-  @media screen and (min-width: 1440px) {
+  @media (min-width: 1280px) {
   }
 `;
 
@@ -24,13 +23,13 @@ export const CategoriesLink = styled(Link)`
   height: 38px;
 
   background: #8aa936;
-  color: ${theme.colors.whiteText};
+  color: white;
   border-radius: 6px;
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
   }
 
-  @media screen and (min-width: 1440px) {
+  @media (min-width: 1280px) {
   }
 `;
 
@@ -43,14 +42,14 @@ export const OtherCategories = styled(Link)`
   line-height: 21px;
   text-align: center;
 
-  color: ${theme.colors.darkAccent};
+  color: #22252a;
 
   border: 2px solid #8baa36;
-  border-radius: 60px 140px 60px 140px;
+  border-radius: 9% 21% 10% 22% / 39% 63% 30% 59%;
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
   }
 
-  @media screen and (min-width: 1440px) {
+  @media (min-width: 1280px) {
   }
 `;
