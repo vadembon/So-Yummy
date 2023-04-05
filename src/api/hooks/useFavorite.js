@@ -1,6 +1,13 @@
-import { recipes } from './stubs.js';
-export const useFavorite = ({ page, limit }, cb) => {
-  const data = recipes;
-  cb?.onSuccess?.(data);
-  return { data, error: null, isLoading: false };
+import { useQuery } from '@tanstack/react-query';
+import { getFavorite } from '../queries';
+
+export const useFavorite = (filter, cb = {}) => {
+  const { data, error, isLoading } = useQuery({
+    queryKey: ['recipes', 'favorite', filter],
+    queryFn: getFavorite,
+    keepPreviousData: true,
+    ...cb,
+  });
+
+  return { data, error, isLoading };
 };

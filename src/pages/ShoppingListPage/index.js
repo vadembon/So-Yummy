@@ -1,1 +1,1 @@
-export { ShoppingListPage } from './ShoppingListPage';
+export {default as ShoppingListPage } from './ShoppingListPage';

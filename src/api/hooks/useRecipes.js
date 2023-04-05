@@ -1,6 +1,13 @@
-import { recipes } from './stubs.js';
-export const useRecipes = (filter, cb) => {
-  const data = recipes;
-  cb?.onSuccess?.(data);
-  return { data, error: null, isLoading: false };
+import { useQuery } from '@tanstack/react-query';
+import { getRecipes } from '../queries';
+
+export const useRecipes = (filter, cb = {}) => {
+  const { data, error, isLoading } = useQuery({
+    queryKey: ['recipes', filter],
+    queryFn: getRecipes,
+    keepPreviousData: true,
+    ...cb,
+  });
+
+  return { data, error, isLoading };
 };

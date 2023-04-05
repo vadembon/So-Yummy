@@ -1,5 +1,5 @@
-import { useFavorite } from './api/hooks';
-import { useDeleteFavorite } from './api/hooks';
+// import { useFavorite } from './api/hooks';
+// import { useDeleteFavorite } from './api/hooks';
 import { FavoriteList, FavoriteItem } from './Favorites.styled';
 
 const Favotite = () => {
