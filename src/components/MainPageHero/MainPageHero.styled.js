@@ -1,32 +1,26 @@
 import styled from 'styled-components';
-import { theme } from '../../constants/theme';
 
 export const HeroSection = styled.section`
   position: relative;
   display: flex;
   flex-direction: column;
+
   align-items: center;
-  padding: 68px 16px 83px;
 
-  margin: 0px auto 64px;
+  padding-top: 68px;
+  padding-bottom: 83px;
 
-  @media screen and (min-width: 768px) {
-    align-items: start;
-    max-width: 768px;
-    padding: 140px 32px 195px;
+  margin-bottom: 500px;
 
-    margin: 0px auto 72px;
+  @media (min-width: 768px) {
   }
 
-  @media screen and (min-width: 1440px) {
-    max-width: 1440px;
-    padding: 162px 100px 267px;
+  @media (min-width: 1280px) {
   }
 `;
 
 export const HeroTitle = styled.h1`
-  min-width: 303px;
-
+  font-style: normal;
   font-weight: 400;
   font-size: 60px;
   line-height: 60px;
@@ -34,36 +28,24 @@ export const HeroTitle = styled.h1`
   text-align: center;
   letter-spacing: -0.005em;
 
-  color: ${theme.colors.greenAccent};
+  color: #8baa36;
 
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin-bottom: 14px;
 
   & span {
-    color: ${theme.colors.secondaryDarkBackground};
+    color: #22252a;
   }
 
-  @media screen and (min-width: 768px) {
-    width: 364px;
-    height: 72px;
-
-    font-size: 72px;
-    line-height: 72px;
-    text-align: left;
-    margin-bottom: 22px;
+  @media (min-width: 768px) {
   }
 
-  @media screen and (min-width: 1440px) {
-    width: 505px;
-    height: 100px;
-    font-size: 100px;
-    line-height: 100px;
-
-    margin-bottom: 14px;
+  @media (min-width: 1280px) {
   }
 `;
 
 export const HeroText = styled.p`
-  width: 230px;
+  width: 248px;
   height: 72px;
 
   font-style: normal;
@@ -75,25 +57,11 @@ export const HeroText = styled.p`
   text-align: center;
   letter-spacing: -0.02em;
 
-  color: ${theme.colors.primaryDarkText};
+  color: #23262a;
 
-  @media screen and (min-width: 768px) {
-    width: 320px;
-    height: 54px;
-
-    font-size: 14px;
-    line-height: 18px;
-
-    text-align: left;
-    margin-bottom: 32px;
+  @media (min-width: 768px) {
   }
 
-  @media screen and (min-width: 1440px) {
-    width: 410px;
-    height: 72px;
-
-    font-size: 18px;
-    line-height: 24px;
-    margin-bottom: 49px;
+  @media (min-width: 1280px) {
   }
 `;

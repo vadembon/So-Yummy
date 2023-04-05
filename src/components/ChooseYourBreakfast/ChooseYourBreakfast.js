@@ -1,9 +1,9 @@
-import { ReactComponent as Icon } from '../../images/commonSvgImg/icon-arrow-right.svg';
 import {
   ChooseYourBreakfastContainer,
   ChooseYourBreakfastText,
   ChooseYourBreakfastLink,
 } from './ChooseYourBreakfast.styled';
+import { ReactComponent as Icon } from '../../images/commonSvgImg/icon-arrow-right-black.svg';
 
 const ChooseYourBreakfast = () => {
   return (
@@ -14,7 +14,7 @@ const ChooseYourBreakfast = () => {
       </ChooseYourBreakfastText>
       <ChooseYourBreakfastLink to="/categories">
         See recipes
-        <Icon style={{ stroke: 'inherit' }} />
+        <Icon width="18px" height="18px" />
       </ChooseYourBreakfastLink>
     </ChooseYourBreakfastContainer>
   );

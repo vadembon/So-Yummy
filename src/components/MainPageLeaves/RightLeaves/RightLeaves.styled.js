@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import imgMob from '../../../images/soYummy/spinach_top_right_1x_mob.png';
-import imgTab from '../../../images/soYummy/spinach_top_right_1x_tab.png';
-import imgDesk from '../../../images/soYummy/spinach_top_right_1x_desk.png';
+import img from '../../../images/soYummy/spinach_top_right_2x_mob.png';
 
 export const RightLeavesDiv = styled.div`
   position: absolute;
@@ -12,23 +10,14 @@ export const RightLeavesDiv = styled.div`
   z-index: -2;
   margin-left: 0;
 
-  background-image: url(${imgMob});
+  background-image: url(${img});
   filter: blur(2px);
 
   background-size: cover;
 
-  @media screen and (min-width: 768px) {
-    top: -40px;
-    min-width: 605px;
-    min-height: 690px;
-    background-image: url(${imgTab});
-    filter: blur(0px);
+  @media (min-width: 768px) {
   }
 
-  @media screen and (min-width: 1440px) {
-    top: 0px;
-    min-width: 914px;
-    min-height: 799px;
-    background-image: url(${imgDesk});
+  @media (min-width: 1280px) {
   }
 `;
