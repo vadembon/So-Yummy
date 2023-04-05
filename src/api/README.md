@@ -215,7 +215,7 @@ const filter = {
 const { data, error, isLoading } = useRecipes(filter);
 ```
 
-### _Recipe details_: `GET /recipes/:id`
+### _Recipe details_: `GET /recipes/id/:id`
 
 - **header**: `{Authorization: 'Bearer <token>'}`
 - **response**:

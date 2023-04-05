@@ -1,8 +1,18 @@
-import { recipes } from './stubs.js';
+import { useMutation } from '@tanstack/react-query';
+import { deleteFavorite } from '../queries';
+import { useQueryClient } from '@tanstack/react-query';
 
 export const useDeleteFavorite = cb => {
-  const mutate = id => {
-    cb?.onSuccess?.(recipes[0]);
-  };
-  return { mutate, error: null, isLoading: false };
+  const queryClient = useQueryClient();
+
+  const { mutate, error, isLoading } = useMutation({
+    mutationFn: deleteFavorite,
+    onSuccess: data => {
+      queryClient.invalidateQueries({ queryKey: ['recipes', 'favorite'] });
+      cb?.onSuccess?.(data);
+    },
+    onError: cb?.onError,
+  });
+
+  return { mutate, error, isLoading };
 };
