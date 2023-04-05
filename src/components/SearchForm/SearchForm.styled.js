@@ -66,3 +66,4 @@ export const SearchButton = styled.button`
     height: 70px;
   }
 `;
+
