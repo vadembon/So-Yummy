@@ -1,9 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import {
-  RestrictedRoute,
-  PrivateRoute,
-} from 'service/routes';
+import { RestrictedRoute } from 'service/routes';
 
 import { SharedLayout } from './SharedLayout';
 import { MainPage } from 'pages/MainPage';
@@ -39,29 +36,45 @@ export const App = () => {
       <div>
         <GlobalStyle />
         <Routes>
-          <Route path="/welcome" element={<RestrictedRoute component={<WelcomePage />} />} />
-          <Route path="/register" element={<RestrictedRoute component={<AuthPage type="register" />} />}/>
-          <Route path="/signin" element={<RestrictedRoute component={<AuthPage type="signin" />} />}/>
+          <Route
+            path="/welcome"
+            element={<RestrictedRoute component={<WelcomePage />} />}
+          />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute component={<AuthPage type="register" />} />
+            }
+          />
+          <Route
+            path="/signin"
+            element={<RestrictedRoute component={<AuthPage type="signin" />} />}
+          />
 
-          <Route path="/" element={<RequireAuth><SharedLayout /></RequireAuth>}>
+          <Route
+            path="/"
+            element={
+              <RequireAuth>
+                <SharedLayout />
+              </RequireAuth>
+            }
+          >
             <Route index element={<MainPage />} />
-              <Route path="main" element={<MainPage />} />
-              <Route path="categories/:categoryName" element={<CategoriesPage />} />
-              <Route path="add" element={<AddRecipePage />} />
-              <Route path="favorite" element={<FavoritePage />} />
-              <Route path="recipe/:recipeId" element={<RecipePage />} />
-              <Route path="my" element={<MyRecipesPage />} />
-              <Route path="search" element={<SearchPage />} />
-              <Route path="shopping-list" element={<ShoppingListPage />} />
-              <Route path="*" element={<Navigate to={<NotFoundPage />} />} />
-          </Route> 
+            <Route path="main" element={<MainPage />} />
+            <Route
+              path="categories/:categoryName"
+              element={<CategoriesPage />}
+            />
+            <Route path="add" element={<AddRecipePage />} />
+            <Route path="favorite" element={<FavoritePage />} />
+            <Route path="recipe/:recipeId" element={<RecipePage />} />
+            <Route path="my" element={<MyRecipesPage />} />
+            <Route path="search" element={<SearchPage />} />
+            <Route path="shopping-list" element={<ShoppingListPage />} />
+            <Route path="*" element={<Navigate to={<NotFoundPage />} />} />
+          </Route>
         </Routes>
       </div>
     </AuthProvider>
   );
 };
-
-
-
-
-
