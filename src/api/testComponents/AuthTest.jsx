@@ -10,7 +10,7 @@ export const AuthTest = () => {
   };
   const userSingin = {
     email: 'olena@gmail.com',
-    password: 'password',
+    password: 'password1',
   };
 
   const register = useRegister({
