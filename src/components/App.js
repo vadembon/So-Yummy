@@ -9,7 +9,7 @@ import { AddRecipePage } from 'pages/AddRecipePage';
 import { FavoritePage } from 'pages/FavoritePage';
 import { MyRecipesPage } from 'pages/MyRecipesPage';
 import { RecipePage } from 'pages/RecipePage';
-import { SearchPage } from 'pages/SearchPage';
+import SearchPage from '../pages/SearchPage/SearchPage';
 import ShoppingListPage from 'pages/ShoppingListPage/ShoppingListPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { WelcomePage } from 'pages/WelcomePage';

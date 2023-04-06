@@ -1,17 +1,20 @@
-import { FormStyled, InputStyled } from './SearchForm.styled';
-import { Button } from 'commonComponents/Button';
+import {
+  SearchFormSection,
+  SearchInput,
+  SearchButton,
+} from './SearchForm.styled';
 
 export const SearchForm = ({ onSubmit, onChange }) => {
   return (
-    <FormStyled onSubmit={onSubmit}>
-      <InputStyled
-        name="searchQuery"
+    <SearchFormSection onSubmit={onSubmit}>
+      <SearchInput
+        name="query"
         // value={searchQuery}
         onChange={onChange}
         required
       />
-      <Button type="submit">Search</Button>
-    </FormStyled>
+      <SearchButton type="submit">Search</SearchButton>
+    </SearchFormSection>
   );
 };
 
@@ -43,3 +46,24 @@ export const SearchForm = ({ onSubmit, onChange }) => {
 //     </FormStyled>
 //   );
 // };
+
+//Олексія форма
+// import { useNavigate } from 'react-router-dom';
+// import {
+//   SearchFormSection,
+//   SearchInput,
+//   SearchButton,
+// } from './SearchForm.styled';
+
+// const SearchForm = () => {
+//   const navigate = useNavigate();
+
+//   const handleSubmit = event => {
+//     event.preventDefault();
+
+//     // if (!event.currentTarget.value) {
+//     //   return console.log(`Oops, type something`);
+//     // }
+
+//     navigate('/search');
+//   };

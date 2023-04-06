@@ -1,56 +1,66 @@
 import styled from 'styled-components';
 
-import greenDot_mob_1 from '../../images/background/dot_green_mob_1x.png';
-// import greenDot_mob_2 from '../images/background/dot_green_mob_2x.png';
-import greenDot_tab_1 from '../../images/background/dot_green_tab_1x.png';
-// import greenDot_tab_2 from '../images/background/dot_green_tab_2x.png';
-import greenDot_desk_1 from '../../images/background/dot_green_desk_1x.png';
-// import greenDot_desk_2 from '../images/background/dot_green_desk_2x.png';
-import blackDot_mob_1 from '../../images/background/dot_black_mob_1x.png';
-// import blackDot_mob_2 from '../images/background/dot_black_mob_2x.png';
-import blackDot_tab_1 from '../../images/background/dot_black_tab_1x.png';
-// import blackDot_tab_2 from '../images/background/dot_black_tab_2x.png';
-import blackDot_desk_1 from '../../images/background/dot_black_desk_1x.png';
-// import blackDot_desk_2 from '../images/background/dot_black_desk_2x.png';
+const dotY = [{ top: '10px' }, { top: '44px' }, { top: '80px' }];
+const dotX = [{ left: '104px' }, { right: '-2px' }, { right: '120px' }];
+const dotColor = [
+  { background: '#8BAA36' },
+  { background: '#8BAA36' },
+  { background: '#22252A' },
+];
+const dotW = [{ width: '8px' }, { width: '8px' }, { width: '6px' }];
+const dotH = [{ height: '8px' }, { height: '8px' }, { height: '6px' }];
 
-export const ContainerDots = styled.div`
-  z-index: -1;
+//tablet
+const dotYt = [{ top: '21px' }, { top: '34px' }, { top: '91px' }];
+const dotXt = [{ left: '187px' }, { right: '-8px' }, { right: '284px' }];
+
+const dotWt = [{ width: '14px' }, { width: '14px' }, { width: '12px' }];
+const dotHt = [{ height: '14px' }, { height: '14px' }, { height: '12px' }];
+
+export const Dot = styled.div`
   position: absolute;
-  width: 345px;
-  height: 192px;
+  transform: rotate(-25deg);
+  border-radius: 3px;
 
-  background-image: url(${greenDot_mob_1}), url(${blackDot_mob_1}),
-    url(${greenDot_mob_1});
-  background-repeat: no-repeat;
-  background-size: 10px 10px, 7px 7px, 10px 10px;
-  background-position: left 105px top 14px, left 231px top 79px,
-    left 332px top 46px;
+  ${({ dotNumber }) => dotX[dotNumber]}
+  ${({ dotNumber }) => dotY[dotNumber]}
+  ${({ dotNumber }) => dotW[dotNumber]}
+  ${({ dotNumber }) => dotH[dotNumber]}
+  ${({ dotNumber }) => dotColor[dotNumber]}
 
-  @media screen and (min-width: 768px) {
-    width: 718px;
-    height: 240px;
-    background-image: url(${greenDot_tab_1}), url(${blackDot_tab_1}),
-      url(${greenDot_tab_1});
-    background-size: 18px 18px, 15px 15px, 18px 18px;
-    background-position: left 189px top 17px, left 407px top 87px,
-      left 695px top 31px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    left: 50%;
-    transform: translate(-50%);
-    width: 1180px;
-    height: 240px;
-    background-image: url(${greenDot_desk_1}), url(${blackDot_desk_1}),
-      url(${greenDot_desk_1});
-    background-size: 18px 18px, 15px 15px, 18px 18px;
-    background-position: left 228px top 56px, left 706px top 139px,
-      left 1149px top 69px;
+  @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
+    ${({ dotNumber }) => dotXt[dotNumber]}
+    ${({ dotNumber }) => dotYt[dotNumber]}
+  ${({ dotNumber }) => dotWt[dotNumber]}
+  ${({ dotNumber }) => dotHt[dotNumber]}
   }
 `;
 
 export const Title = styled.h2`
-  font-size: ${props => props.theme.fontSizes[10]}px;
+  /* align-self: flex-start; */
   font-family: ${props => props.theme.fonts.primary};
-  margin-top: 104px;
+  font-size: ${props => props.theme.fontSizes[10]}px;
+
+  // font-weight: ${({ theme: { fontWeights } }) => fontWeights.semibold};
+  /* text-align: center; */
+  // color: ${({ theme: { colors } }) => colors.tertiaryDarkText};
+`;
+
+export const TitleBox = styled.div`
+  position: relative;
+  height: 150px;
+  padding: 100px 16px 0px;
+  /* display: flex; */
+  /* align-items: center; */
+  /* color: ${({ theme: { colors } }) => colors.primaryLightText}; */
+  /* background: ${({ theme: { colors } }) => colors.backgroundLight}; */
+
+  @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
+    height: 176px;
+    padding: 100px 32px 0px;
+  }
+
+  @media (min-width: ${({ theme: { devices } }) => devices.desktop}) {
+    height: 200px;
+  }
 `;

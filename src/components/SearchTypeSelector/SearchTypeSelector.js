@@ -98,7 +98,7 @@ const customStyles = {
 const SearchTypeSelector = ({ onChange }) => {
   const options = [
     { value: 'title', label: 'Title' },
-    { value: 'ingredient', label: 'Ingredients' },
+    { value: 'ingredients', label: 'Ingredients' },
   ];
   // const [searchParams, setSearchParams] = useSearchParams();
   const [selectedOption, setSelectedOption] = useState({
@@ -107,7 +107,7 @@ const SearchTypeSelector = ({ onChange }) => {
   });
 
   const handleOptionChange = option => {
-    console.log(option);
+    // console.log(option);
     // console.log(selectedOption);
     setSelectedOption(option);
     onChange(option);
