@@ -1,21 +1,35 @@
 import styled from 'styled-components';
-import img from '../../../images/soYummy/bowl_veg_top_right_1x_mob.png';
+import imgMob from '../../../images/soYummy/bowl_veg_top_right_1x_mob.png';
+import imgTab from '../../../images/soYummy/bowl_veg_top_right_1x_tab.png';
+import imgDesk from '../../../images/soYummy/bowl_veg_top_right_1x_desk.png';
 
 export const MainPictureDiv = styled.div`
   position: absolute;
   width: 320px;
   height: 296px;
+  top: 250px;
   left: 50%;
-  top: 268px;
 
   z-index: -1;
+  background-size: contain;
 
-  background-image: url(${img});
+  background-image: url(${imgMob});
   transform: translateX(-50%);
 
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
+    width: 378px;
+    height: 351px;
+    left: 100%;
+    top: 140px;
+    transform: translateX(-100%);
+    background-image: url(${imgTab});
   }
 
-  @media (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
+    width: 578px;
+    height: 539px;
+    left: 90%;
+    top: 126px;
+    background-image: url(${imgDesk});
   }
 `;
