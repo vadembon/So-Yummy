@@ -47,6 +47,7 @@ export const App = () => {
 
         <Route path="/" element={<PrivateRoute component={<SharedLayout />} />}>
           <Route index element={<MainPage />} />
+
             <Route path="main" element={<MainPage />} />
             <Route path="categories" element={<CategoriesPage />} />
             <Route path="categories/:categoryName" element={<CategoriesPage />} />
@@ -58,6 +59,7 @@ export const App = () => {
             <Route path="shopping-list" element={<ShoppingListPage />} />
             <Route path="*" element={<Navigate to={<NotFoundPage />} />} />
         </Route> 
+
 
       </Routes>
     </div>
