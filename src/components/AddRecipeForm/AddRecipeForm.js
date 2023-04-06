@@ -86,8 +86,7 @@ export const AddRecipeForm = () => {
     const newData = {
       ...data,
       ingredients,
-      thumb:
-        'https://www.themealdb.com/images/media/meals/qtuwxu1468233098.jpg',
+      thumb: selectedImage,
     };
 
     // const formData = getFormData(newData);
