@@ -1,9 +1,9 @@
 import { axios } from './init';
 import { createError } from './createError';
 
-export const updateUser = async user => {
+export const addOwnRecipe = async recipe => {
   try {
-    const { data } = await axios.patchForm('/user', user);
+    const { data } = await axios.postForm('/own-recipes', recipe);
     return data.data;
   } catch (err) {
     throw createError(err);
