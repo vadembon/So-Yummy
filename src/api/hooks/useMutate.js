@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { showError } from 'components/Message';
 
 export const useMutate = (fn, cb) => {
   const [error, setError] = useState(null);
@@ -16,6 +17,7 @@ export const useMutate = (fn, cb) => {
       error.status = err.response?.status;
       error.code = err.code;
       setError(error);
+      showError(error);
       cb?.onError?.(error);
     }
     setIsLoading(false);

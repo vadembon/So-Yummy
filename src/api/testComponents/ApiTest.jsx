@@ -5,6 +5,7 @@ import { RecipesTest } from './RecipesTest';
 import { FavoriteTest } from './FavoriteTest';
 import { OwnRecipesTest } from './OwnRecipesTest';
 import { List, Item, Title } from './ApiTest.styled';
+import { Message, showError, showMessage } from 'components/Message';
 
 export const ApiTest = () => {
   return (
@@ -28,6 +29,12 @@ export const ApiTest = () => {
       <Item>
         <Title>Favorite recipes</Title>
         <FavoriteTest />
+      </Item>
+      <Item>
+        <Message isError />
+        <Message />
+        <button onClick={() => showError()}>Press me</button>
+        <button onClick={() => showMessage()}>Press me</button>
       </Item>
       <Item>
         <Title>Own recipes</Title>

@@ -29,8 +29,7 @@ export const Categories = () => {
         <CategoriesList value={categoryName} categories={categories} />
 
         <RecipiesList categoryId={category._id} />
-
       </Container>
     </div>
-  )
+  );
 };

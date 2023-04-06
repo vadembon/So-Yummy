@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { store } from 'redux/store';
 import { Provider } from 'react-redux';
-
+import { Toaster } from 'react-hot-toast';
 import { App } from 'components/App';
 import { theme } from './constants';
 
@@ -21,6 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <ThemeProvider theme={theme}>
           <BrowserRouter basename="/command_project_React_Node">
             <App />
+            <Toaster position="bottom-right" gutter={1} />
           </BrowserRouter>
         </ThemeProvider>
         <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
