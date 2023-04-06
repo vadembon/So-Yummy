@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 // export const DishList = styled.ul`
 //   display: flex;
@@ -11,7 +11,7 @@ import styled from 'styled-components';
 //   margin-right: auto;
 //   row-gap: 28px;
 //   justify-content: center;
-  
+
 //   // align-items: center;
 //   @media screen and (min-width: 768px) {
 //     width: 768px;
@@ -20,15 +20,13 @@ import styled from 'styled-components';
 //   @media screen and (min-width: 1440px) {
 //     width: 1240px;
 //     row-gap: 100px;
-//     column-gap: 12px; 
+//     column-gap: 12px;
 //   }
 
 // `;
 
 // export const DishItem = styled.li`
 //   // margin-bottom: 28px;
-
- 
 
 //   @media screen and (min-width: 1440px) {
 //     // margin-bottom: 100px;
