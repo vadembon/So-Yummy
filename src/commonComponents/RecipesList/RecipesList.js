@@ -1,7 +1,7 @@
 export const RecipesList = ({ items = [] }) => {
-  const elements = items.map(({ id, title, image }) => (
+  const elements = items.map(({ id, title, image, category }) => (
     <li key={id}>
-      <div>{image}</div>
+      <img src={image} alt={category} />
       <div>{title}</div>
     </li>
   ));

@@ -10,7 +10,8 @@ import { useRecipes } from 'api/hooks';
 export const SearchBar = () => {
   const [query, setQuery] = useState('');
   const [searchParams, setSearchParams] = useSearchParams({});
-  const { data } = useRecipes(searchParams);
+  const { data, isLoading } = useRecipes(searchParams);
+  console.log(data);
 
   const handleChange = ({ target }) => {
     const { value } = target;
@@ -18,13 +19,15 @@ export const SearchBar = () => {
   };
 
   const handleSubmit = e => {
+    // console.log(query);
     e.preventDefault();
-    setSearchParams({ search: query });
+    setSearchParams({ title: query });
+    setQuery(query);
   };
 
   const handleTypeChange = ({ value }) => {
-    const firstParam = searchParams.get('search');
-    const newArr = { search: firstParam, [value]: firstParam };
+    const newArr = { [value]: query, [value]: query };
+    console.log(newArr);
 
     setSearchParams(newArr);
   };
@@ -36,7 +39,8 @@ export const SearchBar = () => {
         <span style={{ fontSize: '18px', fontWeight: '500' }}>Search by:</span>
         <SearchTypeSelector onChange={handleTypeChange} />
       </div>
-      <SearchedRecipesList items={data} />
+      {isLoading && <div>Loading...</div>}
+      {data && <SearchedRecipesList items={data} />}
     </WrapperSearchBar>
   );
 };
@@ -77,6 +81,41 @@ export const SearchBar = () => {
 //   return (
 //     <WrapperSearchBar>
 //       <SearchForm onSubmit={updateSearch} />
+//       <div style={{ display: 'flex' }}>
+//         <span style={{ fontSize: '18px', fontWeight: '500' }}>Search by:</span>
+//         <SearchTypeSelector onChange={handleTypeChange} />
+//       </div>
+//       <SearchedRecipesList items={data} />
+//     </WrapperSearchBar>
+//   );
+// };
+
+// моя форма первоначальная
+// export const SearchBar = () => {
+//   const [query, setQuery] = useState('');
+//   const [searchParams, setSearchParams] = useSearchParams({});
+//   const { data } = useRecipes(searchParams);
+
+//   const handleChange = ({ target }) => {
+//     const { value } = target;
+//     setQuery(value);
+//   };
+
+//   const handleSubmit = e => {
+//     e.preventDefault();
+//     setSearchParams({ search: query });
+//   };
+
+//   const handleTypeChange = ({ value }) => {
+//     const firstParam = searchParams.get('search');
+//     const newArr = { search: firstParam, [value]: firstParam };
+
+//     setSearchParams(newArr);
+//   };
+
+//   return (
+//     <WrapperSearchBar>
+//       <SearchForm onSubmit={handleSubmit} onChange={handleChange} />
 //       <div style={{ display: 'flex' }}>
 //         <span style={{ fontSize: '18px', fontWeight: '500' }}>Search by:</span>
 //         <SearchTypeSelector onChange={handleTypeChange} />
