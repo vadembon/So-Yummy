@@ -2,10 +2,10 @@ import { Dot } from 'commonComponents/Dot';
 import { TitleBox } from './TitleBox';
 import { PageTitle } from './PageTitle';
 
-export const TopBox = ({ pageTitle }) => {
+export const TopBox = () => {
   return (
     <TitleBox>
-      <PageTitle>{pageTitle}</PageTitle>
+      <PageTitle>Add recipe</PageTitle>
       <Dot dotNumber={0} />
       <Dot dotNumber={1} />
       <Dot dotNumber={2} />

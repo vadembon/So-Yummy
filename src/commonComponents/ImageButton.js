@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
 export const ImageButton = styled.img`
-  display: block;
   width: 279px;
   height: 268px;
   align-self: center;
   margin-bottom: 32px;
   object-fit: contain;
-  alt: 'food';
+  alt: 'image';
   @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
     align-self: start;
   }
