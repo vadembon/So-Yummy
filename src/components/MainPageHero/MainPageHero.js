@@ -1,10 +1,22 @@
+import { useNavigate } from 'react-router-dom';
 import ChooseYourBreakfast from 'components/ChooseYourBreakfast';
 import MainPageLeaves from 'components/MainPageLeaves/MainPageLeaves';
 import MainPicture from 'components/MainPageLeaves/MainPicture';
-import MainSearchForm from 'components/MainSearchForm';
 import { HeroSection, HeroTitle, HeroText } from './MainPageHero.styled';
+import { SearchForm } from 'components/SearchForm/SearchForm';
 
 const MainPageHero = () => {
+  const navigate = useNavigate();
+
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    const searchQuery = event.currentTarget.elements.query.value;
+    console.log(searchQuery);
+
+    navigate(`/search?title=${searchQuery}`);
+  };
+
   return (
     <>
       <HeroSection>
@@ -16,7 +28,7 @@ const MainPageHero = () => {
           cookbook. You can add your own recipes to save them for the future.
         </HeroText>
         <ChooseYourBreakfast />
-        <MainSearchForm />
+        <SearchForm onSubmit={handleSubmit} color={'#22252a'} />
         <MainPageLeaves />
         <MainPicture />
       </HeroSection>

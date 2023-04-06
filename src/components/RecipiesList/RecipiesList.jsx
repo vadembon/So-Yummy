@@ -4,7 +4,12 @@ import { Loader } from 'components/Loader/Loader';
 import { useRecipes } from '../../api/hooks';
 
 export const RecipiesList = ({ categoryId }) => {
-  const { data: recipes, error, isFetching, isError } = useRecipes({ category: categoryId });
+  const {
+    data: recipes,
+    error,
+    isFetching,
+    isError,
+  } = useRecipes({ category: categoryId });
 
   if (isError) {
     return <div>Error: {error.message}</div>;
@@ -12,18 +17,16 @@ export const RecipiesList = ({ categoryId }) => {
 
   return (
     <>
-    {isFetching && <Loader />}
-    {recipes &&
-      <DishList>
-        {recipes?.map(({ _id: id, title, thumb }) =>
-          <DishItem key={id}>
-            <DishCard id={id}
-                      title={title}
-                      image={thumb} />
-          </DishItem>,
-        )}
-      </DishList>
-    }
+      {isFetching && <Loader />}
+      {recipes && (
+        <DishList>
+          {recipes?.map(({ _id: id, title, thumb }) => (
+            <DishItem key={id}>
+              <DishCard id={id} title={title} image={thumb} />
+            </DishItem>
+          ))}
+        </DishList>
+      )}
     </>
   );
 };
