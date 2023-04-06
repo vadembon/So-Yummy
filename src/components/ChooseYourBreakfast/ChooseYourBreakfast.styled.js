@@ -1,26 +1,38 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { theme } from '../../constants/theme';
 
 export const ChooseYourBreakfastContainer = styled.div`
-  position: absolute;
+  position: relative;
   width: 225px;
   height: 92px;
-  left: 116px;
-  top: 380px;
   padding: 8px;
 
-  background: #fafafa;
+  margin: 157px 7px 115px 88px;
+  background: ${theme.colors.lightBackground};
   border-radius: 8px;
 
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    padding: 12px;
+    width: 261px;
+    height: 100px;
+    right: 40px;
+    top: 353px;
+    margin: 0px;
   }
 
-  @media (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
+    padding: 16px;
+    width: 298px;
+    height: 114px;
+    right: 80px;
+    top: 460px;
   }
 `;
 
 export const ChooseYourBreakfastText = styled.p`
-  width: 209px;
+  width: auto;
   font-weight: 500;
   font-size: 13.5px;
   line-height: 18px;
@@ -29,13 +41,16 @@ export const ChooseYourBreakfastText = styled.p`
   letter-spacing: -0.24px;
 
   & span {
-    color: #8baa36;
+    color: ${theme.colors.greenAccent};
   }
 
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
+    width: auto;
+    font-size: 14px;
   }
 
-  @media (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
+    line-height: 20px;
   }
 `;
 
@@ -49,18 +64,18 @@ export const ChooseYourBreakfastLink = styled(Link)`
   justify-content: flex-end;
   letter-spacing: 0.2px;
 
-  color: #3e4462;
-
+  color: ${theme.colors.secondaryDarkText};
+  stroke: ${theme.colors.secondaryDarkText};
   gap: 4px;
 
   &:hover {
-    color: #8baa36;
-    fill: #8baa36;
+    color: ${theme.colors.greenAccent};
+    stroke: ${theme.colors.greenAccent};
   }
 
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
   }
 
-  @media (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
   }
 `;

@@ -1,16 +1,8 @@
-import { FavoriteTitle, FavoriteConteiner } from './FavoritePage.styled';
-import { FavoriteItem } from 'components/Favorites/Favorites.styled';
-
+// import { Favorites } from 'components/Favorites/Favorites';
+import { FavoritesItem } from 'components/Favorites/FavoritesItem';
 export const FavoritePage = () => {
-  return (
-    <FavoriteConteiner>
-      <FavoriteTitle>Favorites</FavoriteTitle>
-      <FavoriteItem />
-      {/* <FavoriteList>FavoriteList</FavoriteList> */}
-
-      {/* <div>Pagination</div> */}
-    </FavoriteConteiner>
-  );
+  return <FavoritesItem />;
+  // <Favorites />;
 };
 
 // export default FavoritePage;

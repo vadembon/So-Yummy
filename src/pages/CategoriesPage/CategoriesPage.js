@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Categories } from 'components/Categories/Categories';
 import { Loader } from 'components/Loader/Loader';
+import { Categories } from 'components/Categories/Categories';
 
 
 export const CategoriesPage = () => {
