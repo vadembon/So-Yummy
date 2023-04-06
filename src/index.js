@@ -21,7 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <ThemeProvider theme={theme}>
           <BrowserRouter basename="/command_project_React_Node">
             <App />
-            <Toaster />
+            <Toaster position="bottom-right" gutter={1} />
           </BrowserRouter>
         </ThemeProvider>
         <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />

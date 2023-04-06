@@ -5,7 +5,7 @@ import { RecipesTest } from './RecipesTest';
 import { FavoriteTest } from './FavoriteTest';
 import { OwnRecipesTest } from './OwnRecipesTest';
 import { List, Item, Title } from './ApiTest.styled';
-import { Message } from 'components/Message/Message';
+import { Message, showError, showMessage } from 'components/Message/Message';
 import { toast } from 'react-hot-toast';
 
 export const ApiTest = () => {
@@ -32,20 +32,10 @@ export const ApiTest = () => {
         <FavoriteTest />
       </Item>
       <Item>
+        <Message isError />
         <Message />
-        <button
-          onClick={() =>
-            toast(<Message />, {
-              style: {
-                padding: 0,
-                background: 'transparent',
-                boxShadow: 'none',
-              },
-            })
-          }
-        >
-          Press me
-        </button>
+        <button onClick={() => showError()}>Press me</button>
+        <button onClick={() => showMessage()}>Press me</button>
       </Item>
       <Item>
         <Title>Own recipes</Title>
