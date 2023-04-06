@@ -8,7 +8,7 @@ import { Loader } from 'components/Loader/Loader';
 // import { Dot } from 'commonComponents/Dot';
 
 export const Categories = () => {
-  const { categoryName: categoryName = 'Beef' } = useParams();
+  const { categoryName = 'Beef' } = useParams();
 
   const { data: categories, isLoading, isError, error } = useCategories();
   const category = categories?.find(({ name }) => name === categoryName);
