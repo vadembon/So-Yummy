@@ -3,14 +3,9 @@ import styled from 'styled-components';
 export const PageTitle = styled.h2`
   /* align-self: flex-start; */
   font-family: ${({ theme: { fonts } }) => fonts.primary};
-  font-size: 28px;
-  font-weight: ${({ theme: { fontWeights } }) => fontWeights.semibold};
-  color: ${({ theme: { colors } }) => colors.tertiaryDarkText};
+  /* font-size: ${props => props.theme.fontSizes[9]}; */
 
-  @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
-    font-size: 32px;
-  }
-  @media (min-width: ${({ theme: { devices } }) => devices.desktop}) {
-    font-size: 44px;
-  }
+  font-weight: ${({ theme: { fontWeights } }) => fontWeights.semibold};
+  /* text-align: center; */
+  color: ${({ theme: { colors } }) => colors.tertiaryDarkText};
 `;
