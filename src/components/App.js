@@ -47,16 +47,18 @@ export const App = () => {
 
         <Route path="/" element={<PrivateRoute component={<SharedLayout />} />}>
           <Route index element={<MainPage />} />
-          <Route path="main" element={<MainPage />} />
-          <Route path="categories/:categoryName" element={<CategoriesPage />} />
-          <Route path="add" element={<AddRecipePage />} />
-          <Route path="favorite" element={<FavoritePage />} />
-          <Route path="recipe/:recipeId" element={<RecipePage />} />
-          <Route path="my" element={<MyRecipesPage />} />
-          <Route path="search" element={<SearchPage />} />
-          <Route path="shopping-list" element={<ShoppingListPage />} />
-          <Route path="*" element={<Navigate to={<NotFoundPage />} />} />
-        </Route>
+            <Route path="main" element={<MainPage />} />
+            <Route path="categories" element={<CategoriesPage />} />
+            <Route path="categories/:categoryName" element={<CategoriesPage />} />
+            <Route path="add" element={<AddRecipePage />} />
+            <Route path="favorite" element={<FavoritePage />} />
+            <Route path="recipe/:recipeId" element={<RecipePage />} />
+            <Route path="my" element={<MyRecipesPage />} />
+            <Route path="search" element={<SearchPage />} />
+            <Route path="shopping-list" element={<ShoppingListPage />} />
+            <Route path="*" element={<Navigate to={<NotFoundPage />} />} />
+        </Route> 
+
       </Routes>
     </div>
   );
