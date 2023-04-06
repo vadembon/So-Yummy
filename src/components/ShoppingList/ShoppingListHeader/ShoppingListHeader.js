@@ -3,14 +3,19 @@ import {
   ProductsHeader,
   NumberHeader,
   RemoveHeader,
+  NumberProductWrapper
 } from './ShoppingListHeader.styled';
+
 
 export const ShoppingListHeader = () => {
   return (
     <HeaderWrapper>
       <ProductsHeader>Product</ProductsHeader>
-      <NumberHeader>Number</NumberHeader>
-      <RemoveHeader>Remove</RemoveHeader>
+
+      <NumberProductWrapper>
+        <NumberHeader>Number</NumberHeader>
+        <RemoveHeader>Remove</RemoveHeader>
+      </NumberProductWrapper>
     </HeaderWrapper>
   );
 };
