@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { usePopular } from 'api/hooks';
 import { Loader } from 'components/Loader';
+import { useNavigate } from 'react-router-dom';
 
 export const PopularRecipe = () => {
   const { data, isLoading } = usePopular();
@@ -22,9 +23,16 @@ const ListBox = styled.ul`
   min-width: 80%;
 `;
 
-const Item = ({ preview, title, description }) => {
+const Item = ({ key, preview, title, description, _id }) => {
+  console.log(key);
+  console.log(_id);
+  const navigate = useNavigate();
+  const handlerOnClick = () => {
+    navigate(`/recipe/:${_id}`);
+  };
+
   return (
-    <RecipeItem>
+    <RecipeItem onClick={handlerOnClick}>
       <ImageBox src={preview} alt={title} width={90} />
       <TextBox>
         <TitleBox>{title}</TitleBox>

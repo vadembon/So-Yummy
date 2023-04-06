@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { useForm } from 'react-hook-form';
 import { Form } from './AddRecipeForm.styled';
@@ -27,6 +28,7 @@ const times = [
 
 export const AddRecipeForm = () => {
   const filePicker = useRef(null);
+  const navigate = useNavigate();
   const [categoryList, setCategoryList] = useState([]);
   const [ingredientList, setIngredientList] = useState([]);
   const [addIngredient, setAddIngredient] = useState(false);
@@ -50,8 +52,8 @@ export const AddRecipeForm = () => {
 
   const {
     mutate: saveRecipe,
-    // error: errSaveRecipe,
-    // isLoading: saveRecipeInProgress,
+    error: errSaveRecipe,
+    isLoading: saveRecipeInProgress,
   } = useAddOwnRecipe();
 
   const defaultValues = {
@@ -93,9 +95,7 @@ export const AddRecipeForm = () => {
     // formData.append('file', data.selectedImage);
 
     saveRecipe({ ...newData });
-    // !errSaveRecipe && !saveRecipeInProgress
-    //   ? alert('Ok')
-    //   : alert('something is wrong');
+    !errSaveRecipe && !saveRecipeInProgress && navigate('/my');
 
     reset();
   };
