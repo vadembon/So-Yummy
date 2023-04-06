@@ -94,9 +94,9 @@ export const AddRecipeForm = () => {
     // formData.append('file', data.selectedImage);
 
     saveRecipe({ ...newData });
-    !errSaveRecipe && !saveRecipeInProgress
-      ? alert('Ok')
-      : alert('something is wrong');
+    // !errSaveRecipe && !saveRecipeInProgress
+    //   ? alert('Ok')
+    //   : alert('something is wrong');
 
     reset();
   };
