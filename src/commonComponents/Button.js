@@ -1,31 +1,53 @@
 import styled from 'styled-components';
 
+const primeryColor = ({ theme: { colors } }) => colors.primaryLightText;
+const greenColor = ({ theme: { colors } }) => colors.greenAccent;
+const darkColor = ({ theme: { colors } }) => colors.darkAccent;
+
 export const Button = styled.button`
-  color: ${({ theme: { colors } }) => colors.primaryLightText};
+  color: ${primeryColor};
   /* border: 2px solid ${({ theme: { colors } }) => colors.darkAccent}; */
   border: 2px solid transparent;
-  background: ${({ theme: { colors } }) => colors.darkAccent};
-  /* background: ${({ theme: { colors } }) => colors.greenAccent}; */
+  /* background: ${({ theme: { colors } }) => colors.darkAccent}; */
+  background: ${({ greenButton }) => (greenButton ? greenColor : darkColor)};
 
-  width: 161px;
-  height: 52px;
-  /* font-size: ${props => props.theme.fontSizes[4]}; */
-
-  /* margin: 1em; */
-  /* border: none; */
-  /* padding: 50px 42px; */
+  width: 129px;
+  height: 46px;
+  font-size: 16px;
 
   ${({ largeButton }) =>
     largeButton &&
     `
-     width: 300px;
-     height: 52px;
+      width: 300px;
+      height: 52px;
   `}
-
   ${({ styledButton }) =>
     styledButton &&
-    `
-    height: 100px;
-    clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%); 
+    `  
+      height: 100px;
+      clip-path: inset(25% 0 25% 0 round 15% 35% 15% 30%); 
+  `};
+
+  @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
+    width: 161px;
+    height: 52px;
+
+    ${({ largeButton }) =>
+      largeButton &&
+      `
+      width: 400px;
+      height: 52px;
   `}
+
+    ${({ styledButton }) =>
+      styledButton &&
+      `  
+      height: 112px;
+  `};
+  }
 `;
+
+//  /* padding: 50px 42px; */
+// /* border: none; */
+// /* font-size: ${props => props.theme.fontSizes[4]}; */
+// /* margin: 1em; */

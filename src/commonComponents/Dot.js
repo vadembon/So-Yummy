@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const dotY = [{ top: '10px' }, { top: '44px' }, { top: '80px' }];
+const dotY = [{ top: '110px' }, { top: '144px' }, { top: '180px' }];
 const dotX = [{ left: '104px' }, { right: '-2px' }, { right: '120px' }];
 const dotColor = [
   { background: '#8BAA36' },
@@ -11,7 +11,7 @@ const dotW = [{ width: '8px' }, { width: '8px' }, { width: '6px' }];
 const dotH = [{ height: '8px' }, { height: '8px' }, { height: '6px' }];
 
 //tablet
-const dotYt = [{ top: '21px' }, { top: '34px' }, { top: '91px' }];
+const dotYt = [{ top: '121px' }, { top: '134px' }, { top: '191px' }];
 const dotXt = [{ left: '187px' }, { right: '-8px' }, { right: '284px' }];
 
 const dotWt = [{ width: '14px' }, { width: '14px' }, { width: '12px' }];
