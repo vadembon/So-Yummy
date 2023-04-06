@@ -11,7 +11,7 @@ export const AddRecipePage = () => {
       <MainTitle titleName={'Add recipe'} />
       <Box>
         <AddRecipeForm />
-        {/* <SectionTitle>Popular recipe</SectionTitle> */}
+        <SectionTitle>Popular recipe</SectionTitle>
         <PopularRecipe />
         <Spinach />
       </Box>
