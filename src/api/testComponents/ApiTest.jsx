@@ -3,6 +3,7 @@ import { UserTest } from './UserTest';
 import { CatIngredTest } from './CatIngredTest';
 import { RecipesTest } from './RecipesTest';
 import { FavoriteTest } from './FavoriteTest';
+import { OwnRecipesTest } from './OwnRecipesTest';
 import { List, Item, Title } from './ApiTest.styled';
 
 export const ApiTest = () => {
@@ -27,6 +28,10 @@ export const ApiTest = () => {
       <Item>
         <Title>Favorite recipes</Title>
         <FavoriteTest />
+      </Item>
+      <Item>
+        <Title>Own recipes</Title>
+        <OwnRecipesTest />
       </Item>
     </List>
   );

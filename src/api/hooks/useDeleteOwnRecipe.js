@@ -1,8 +1,18 @@
-import { recipes } from './stubs.js';
+import { useMutation } from '@tanstack/react-query';
+import { useQueryClient } from '@tanstack/react-query';
+import { deleteOwnRecipe } from '../queries';
 
 export const useDeleteOwnRecipe = cb => {
-  const mutate = id => {
-    cb?.onSuccess?.(recipes[0]);
-  };
-  return { mutate, error: null, isLoading: false };
+  const queryClient = useQueryClient();
+
+  const { mutate, error, isLoading } = useMutation({
+    mutationFn: deleteOwnRecipe,
+    onSuccess: data => {
+      queryClient.invalidateQueries({ queryKey: ['recipes', 'own'] });
+      cb?.onSuccess?.(data);
+    },
+    onError: cb?.onError,
+  });
+
+  return { mutate, error, isLoading };
 };
