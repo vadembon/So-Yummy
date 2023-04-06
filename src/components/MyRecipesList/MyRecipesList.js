@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { useOwnRecipes, useDeleteOwnRecipe } from '../../api/hooks';
 
 export const MyRecipesList = () => {
-  const [data, setData] = useState(null);
+  const [data] = useState(null);
   const { data: ownRecipes } = useOwnRecipes({ page: 1, limit: 4 });
   const { mutate: deleteRecipe } = useDeleteOwnRecipe();
 

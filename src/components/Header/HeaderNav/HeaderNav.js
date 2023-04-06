@@ -30,10 +30,7 @@ export const HeaderNavigation = ({setShowMenu}) => {
     return (
         <Navigation>
             <LocationLink
-                onClick={() => {
-                    setShowMenu(false);
-                }}
-                to="/categories"
+                to="/categories/"
                 selection={(active === "categories").toString()}
             >
                 Categories

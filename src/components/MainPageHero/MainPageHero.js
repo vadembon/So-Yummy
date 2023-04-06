@@ -1,5 +1,7 @@
 import ChooseYourBreakfast from 'components/ChooseYourBreakfast';
 import MainPageLeaves from 'components/MainPageLeaves/MainPageLeaves';
+import MainPicture from 'components/MainPageLeaves/MainPicture';
+import MainSearchForm from 'components/MainSearchForm';
 import { HeroSection, HeroTitle, HeroText } from './MainPageHero.styled';
 
 const MainPageHero = () => {
@@ -10,18 +12,14 @@ const MainPageHero = () => {
           So<span>Yummy</span>
         </HeroTitle>
         <HeroText>
-          "What to cook?" is not only a recipe
-          <br />
-          app, it is, in fact, your cookbook. You
-          <br />
-          can add your own recipes to save
-          <br />
-          them for the future.
+          "What to cook?" is not only a recipe app, it is, in fact, your
+          cookbook. You can add your own recipes to save them for the future.
         </HeroText>
+        <ChooseYourBreakfast />
+        <MainSearchForm />
+        <MainPageLeaves />
+        <MainPicture />
       </HeroSection>
-      <ChooseYourBreakfast />
-      Search
-      <MainPageLeaves />
     </>
   );
 };
