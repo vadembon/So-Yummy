@@ -1,4 +1,4 @@
-import { Container } from 'commonComponents/Container';
+
 import { ShoppingListHeader } from './ShoppingListHeader/ShoppingListHeader';
 import { useShoppingList } from 'api/hooks';
 import { ShoppingListItem } from './ShoppingListItem';
@@ -7,6 +7,8 @@ import {SectionTitle} from 'commonComponents/SectionTitle'
 import {theme} from "constants/theme"
 
 import { Box } from './ShoppingList.styled'
+// import { ContainerDots } from 'commonComponents/BackgroundDots/BackgroundDots.styled';
+ import { Container } from 'commonComponents/Container';
  
 export const ShoppingList = () => {
   const { data: ingredients, error, isLoading } = useShoppingList();
@@ -44,22 +46,24 @@ export const ShoppingList = () => {
 
   return (
     <Container>
-      <Box>
-        <SectionTitle style={titleStyle}>Shopping List</SectionTitle>
-      </Box>
-      <ShoppingListHeader />
+      {/* <ContainerDots> */}
+        <Box>
+          <SectionTitle style={titleStyle}>Shopping List</SectionTitle>
+        </Box>
+        <ShoppingListHeader />
 
-      <ul>
-        {ingredients.map(ingredient => (
-          <ShoppingListItem
-            key={ingredient.id}
-            name={ingredient.name}
-            quantity={ingredient.quantity}
-            unit={ingredient.unit}
-            image={ingredient.image}
-          />
-        ))}
-      </ul>
+        <ul>
+          {ingredients.map(ingredient => (
+            <ShoppingListItem
+              key={ingredient.id}
+              name={ingredient.name}
+              quantity={ingredient.quantity}
+              unit={ingredient.unit}
+              image={ingredient.image}
+            />
+          ))}
+        </ul>
+      {/* </ContainerDots> */}
     </Container>
   );
 };

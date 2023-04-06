@@ -11,7 +11,8 @@ import {
 
 
 export const ShoppingListItem = ({ name, quantity, unit, image, id }) => {
-    return (
+  return (
+      
       <ShoppingItemContainer>
         <li>
           <ProductFotoWrapper>
