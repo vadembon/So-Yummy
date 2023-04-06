@@ -3,18 +3,16 @@ import { useState, useRef, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Form } from './AddRecipeForm.styled';
 
+import { useIngredients, useCategories, useAddOwnRecipe } from 'api/hooks';
+
 import { Button } from 'commonComponents/Button';
 import { ImageButton } from 'commonComponents/ImageButton';
 import { InputForm, TextForm, SelectForm } from 'commonComponents/InputForm';
+import { SectionTitle } from 'commonComponents/SectionTitle';
+import { AddIngredientForm } from './AddIngredientForm';
+import { IngredientList } from './IngredientList';
 
 import image from 'images/food-blank.svg';
-
-import { categories, recipes } from './stubs.js';
-import ingredientsTmpl from './ingredients.json';
-import { PageTitle } from 'commonComponents/PageTitle';
-
-import { IngredientList } from './IngredientList';
-import { PopularList } from './PopularList';
 
 const times = [
   { t: 5 },
@@ -26,44 +24,39 @@ const times = [
   { t: 50 },
   { t: 60 },
 ];
-const units = [
-  { t: 'g' },
-  { t: 'kg' },
-  { t: 'liter' },
-  { t: 'ml' },
-  { t: 'tbs' },
-  { t: 'tsp' },
-];
-
-// const options = [
-//   { value: 'chocolate', label: 'Chocolate' },
-//   { value: 'strawberry', label: 'Strawberry' },
-//   { value: 'vanilla', label: 'Vanilla' },
-// ];
-
-const ingredientsSelect = ingredientsTmpl.map(item => {
-  item.value = item.id;
-  item.label = item.ttl;
-  return item;
-});
-
-// const ingredientsSelect = JSON.parse(ingredients);
-// console.log(ingredientsSelect);
 
 export const AddRecipeForm = () => {
   const filePicker = useRef(null);
+  const [categoryList, setCategoryList] = useState([]);
+  const [ingredientList, setIngredientList] = useState([]);
+  const [addIngredient, setAddIngredient] = useState(false);
   const [myIngredients, setMyIngredients] = useState([]);
-  const [filter, setFilter] = useState('');
   const [selectedImage, setSelectedImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(image);
 
+  const { data: iList } = useIngredients();
+  useEffect(() => {
+    if (iList) {
+      setIngredientList(iList);
+    }
+  }, [iList]);
+
+  const { data: iCat } = useCategories();
+  useEffect(() => {
+    if (iCat) {
+      setCategoryList(iCat);
+    }
+  }, [iCat]);
+
+  const {
+    mutate: saveRecipe,
+    error: errSaveRecipe,
+    isLoading: saveRecipeInProgress,
+  } = useAddOwnRecipe();
+
   const defaultValues = {
-    foodImage: null,
-    itemTitle: '',
+    title: '',
     aboutRecipe: '',
-    category: '',
-    cookingTime: '',
-    ingredients: '',
   };
 
   const myStyle = {
@@ -75,47 +68,76 @@ export const AddRecipeForm = () => {
     textAlign: 'center',
   };
 
-  const filteredIngredients = ingredientsSelect.filter(item =>
-    item.label.toLowerCase().includes(filter.toLowerCase())
-  );
-
   const { register, handleSubmit, reset } = useForm(defaultValues);
 
+  // *********************
+  // const getFormData = object =>
+  //   Object.keys(object).reduce((formData, key) => {
+  //     formData.append(key, object[key]);
+  //     return formData;
+  //   }, new FormData());
+  // ***********************
+
   const onSubmit = data => {
-    // const formData = new FormData();
-    // formData.append('file', data.foodImage[0]);
-    // console.log(data.foodImage[0]);
-    // console.log(formData);
-    // console.log(data);
+    const ingredients = myIngredients.map(item => {
+      return { id: item.id, measure: `${item.quantity} ${item.unit}` };
+    });
+
+    const newData = {
+      ...data,
+      ingredients,
+      thumb:
+        'https://www.themealdb.com/images/media/meals/qtuwxu1468233098.jpg',
+    };
+
+    // const formData = getFormData(newData);
+    // formData.append('file', data.selectedImage);
+
+    saveRecipe({ ...newData });
+    !errSaveRecipe && !saveRecipeInProgress
+      ? alert('Ok')
+      : alert('something is wrong');
 
     reset();
-  };
-
-  const hanleClick = () => {
-    // console.log(recipes);
   };
 
   const handlePick = () => {
     filePicker.current.click();
   };
 
-  const handleChange = e => {
+  const handleChangeImage = e => {
     setSelectedImage(e.target.files[0]);
   };
-  const handleFilter = e => {
-    setFilter(e.target.value);
-  };
+
   const handleMinus = () => {
     setMyIngredients([...myIngredients.slice(0, myIngredients.length - 1)]);
-    // console.log(myIngredients);
   };
   const handlePlus = () => {
-    setMyIngredients([
-      ...myIngredients,
-      { id: myIngredients.length + 1, l: '5', k: 10 },
-    ]);
-    // console.log(myIngredients);
+    setAddIngredient(true);
   };
+
+  const handleIngredientComplite = () => {
+    setAddIngredient(false);
+  };
+  const handleIngradientDelete = idx => {
+    setMyIngredients([
+      ...myIngredients.slice(0, idx),
+      ...myIngredients.slice(idx + 1),
+    ]);
+  };
+  const handleIngredientAdd = ingt => {
+    if (ingt.quantity > 0) {
+      const newIngt = {
+        ...ingt,
+        id: ingredientList[ingt.index]._id,
+        ttl: ingredientList[ingt.index].ttl,
+        thb: ingredientList[ingt.index].thb,
+        desc: ingredientList[ingt.index].desc,
+      };
+      setMyIngredients([...myIngredients, newIngt]);
+    }
+  };
+
   useEffect(() => {
     if (selectedImage) {
       setImageUrl(URL.createObjectURL(selectedImage));
@@ -126,35 +148,35 @@ export const AddRecipeForm = () => {
     <>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <ImageButton src={imageUrl} onClick={handlePick} />
-
         <input
-          {...register('foodImage')}
+          // {...register('foodImage')}
           ref={filePicker}
+          name="foodImage"
           hidden
           type="file"
           accept="image/*"
-          onChange={handleChange}
+          onChange={handleChangeImage}
         ></input>
-        <InputForm {...register('itemTitle')} placeholder="Enter item title" />
+        <InputForm {...register('title')} placeholder="Enter item title" />
         <TextForm
-          {...register('aboutRecipe')}
+          {...register('description')}
           placeholder="Enter about recipe"
         />
         <SelectForm {...register('category', { required: true })}>
-          {categories.map(item => (
-            <option key={item.id} value={item.id}>
+          {categoryList.map(item => (
+            <option key={item._id} value={item._id}>
               {item.name}
             </option>
           ))}
         </SelectForm>
-        <SelectForm {...register('cookingTime', { required: true })}>
+        <SelectForm {...register('time', { required: true })}>
           {times.map((item, idx) => (
             <option key={idx} value={item.t}>
               {item.t} min
             </option>
           ))}
         </SelectForm>
-        <PageTitle>Ingredients</PageTitle>
+        <SectionTitle>Ingredients</SectionTitle>
         <div style={{ display: 'flex' }}>
           <div style={myStyle} onClick={handleMinus}>
             -
@@ -164,60 +186,36 @@ export const AddRecipeForm = () => {
             +
           </div>
         </div>
-        <InputForm
-          {...register('filter')}
-          type="text"
-          // name="filter"
-          placeholder="Type something here"
-          // size="lg"
-          value={filter}
-          variant="flushed"
-          autoComplete="off"
-          onChange={handleFilter}
-          fontSize="2xl"
-        />
-        <SelectForm
-          // multiple
-          // size="20"
-          // height="156px"
-          {...register('ingredients', { required: true })}
-        >
-          {filteredIngredients.map(item => (
-            <option key={item.label} value={item.label}>
-              {item.name}
-            </option>
-          ))}
-        </SelectForm>
 
-        <SelectForm {...register('units', { required: true })}>
-          {units.map((item, idx) => (
-            <option key={idx} value={item.t}>
-              {item.t}
-            </option>
-          ))}
-        </SelectForm>
+        {addIngredient && (
+          <AddIngredientForm
+            ingredientList={ingredientList}
+            handleIngredientComplite={handleIngredientComplite}
+            handleIngredientAdd={handleIngredientAdd}
+          />
+        )}
+        {myIngredients.length !== 0 && (
+          <IngredientList
+            itemArray={myIngredients}
+            handleIngradientDelete={handleIngradientDelete}
+          />
+        )}
 
-        <PageTitle>Recipe preparation</PageTitle>
+        <SectionTitle>Recipe preparation</SectionTitle>
         <TextForm
           height="156px"
-          {...register('ingredients')}
-          placeholder="Enter ingredients"
+          {...register('instructions')}
+          placeholder="Enter instructions"
         />
-        <IngredientList arrayItem={myIngredients} />
         <Button
           styledButton
           // largeButton
+          // greenButton
           type="submit"
         >
           Add
         </Button>
-
-        <button type="button" onClick={hanleClick} width="20px" height="20px">
-          TEST
-        </button>
       </Form>
-      <PageTitle>Popular recipe</PageTitle>
-      <PopularList arrayItem={recipes} />
     </>
   );
 };
