@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SearchFormSection = styled.form`
+export const MainSearchFormSection = styled.form`
   position: relative;
   width: 295px;
   height: 52px;
@@ -16,7 +16,7 @@ export const SearchFormSection = styled.form`
   }
 `;
 
-export const SearchInput = styled.input`
+export const MainSearchInput = styled.input`
   padding: 0px 32px;
   font-size: 12px;
   line-height: 18px;
@@ -37,7 +37,7 @@ export const SearchInput = styled.input`
   }
 `;
 
-export const SearchButton = styled.button`
+export const MainSearchButton = styled.button`
   position: absolute;
   right: 0px;
   width: 113px;

@@ -1,19 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useParams, /* useLocation, Link */ } from 'react-router-dom';
+import { useParams /* useLocation, Link */ } from 'react-router-dom';
 // import axios from 'axios';
 
 import { RecipeIngredientsList } from 'components/RecipeIngredientsList';
 import { RecipePageHero } from 'components/RecipePageHero';
 import { RecipePreparation } from 'components/RecipePreparation';
 
-
-
-const getRecipeById = async (id) => {
-  
-};
+const getRecipeById = async id => {};
 
 export const RecipePage = () => {
-
   const { recipeId } = useParams();
   const [recipe, setRecipe] = useState([]);
 
@@ -27,7 +22,7 @@ export const RecipePage = () => {
         }
         setRecipe(resipeResult);
       } catch (error) {
-        console.error("Something went wrong! Please try again.");
+        console.error('Something went wrong! Please try again.');
       }
     }
     getRecipe();
@@ -52,8 +47,10 @@ export const RecipePage = () => {
         time={time}
       ></RecipePageHero>
       <RecipeIngredientsList ingredients={ingredients}></RecipeIngredientsList>
-      <RecipePreparation description={instructions} foto={thumb}></RecipePreparation>
+      <RecipePreparation
+        description={instructions}
+        foto={thumb}
+      ></RecipePreparation>
     </div>
   );
 };
-

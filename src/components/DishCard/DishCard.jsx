@@ -16,7 +16,6 @@ import { scrollUp } from 'utils/scrollUp';
 //   const { data: recipes, error, isLoading } = useRecipes({ category: categoryId });
 
 export const DishCard = ({ id, title, image }) => {
-    console.log(image);
   return (
     <CardDish>
       <Link to={`/recipe/${title}`} onClick={scrollUp}>

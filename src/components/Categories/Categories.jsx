@@ -1,43 +1,36 @@
-import { useRecipes } from '../../api/hooks';
+import { useCategories } from '../../api/hooks';
 import { useParams } from 'react-router-dom';
-import { Container } from '../../components/Container/Container';
+import { Container } from 'components/Container/Container';
 import { CategoriesList } from 'components/CategoriesList/CategoriesList';
-import {DishList, DishItem} from "./Categories.styled";
-import { DishCard } from 'components/DishCard/DishCard';
 import { BackgroundDots } from 'commonComponents/BackgroundDots/BackgroundDots';
+import { RecipiesList } from 'components/RecipiesList/RecipiesList';
+import { Loader } from 'components/Loader/Loader';
 // import { Dot } from 'commonComponents/Dot';
 
 export const Categories = () => {
-  const { categoryName: categoryId } = useParams();
+  const { categoryName: categoryName = 'Beef' } = useParams();
 
-  const { data: recipes, error, isLoading } = useRecipes({ category: categoryId });
+  const { data: categories, isLoading, isError, error } = useCategories();
+  const category = categories?.find(({ name }) => name === categoryName);
 
-  return <>
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (isError) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  return (
     <div>
       <Container>
-        <BackgroundDots/>
-        
-        <CategoriesList value={categoryId} />
+        <BackgroundDots />
 
-        {error && <div>{error}</div>}
-        {isLoading ? (
-          <div>Loading...</div>
-        ) : (
-          recipes &&
-          <DishList>
-            {recipes?.map(({ id, title, image }) =>
-              <DishItem key={id}>
-                <DishCard id={id}
-                  title={title}
-                  image={image}/>
-                {/* <img width={300} height={300} src={image} alt={title} />
-                {title} */}
-              </DishItem>
-            )}
-          </DishList>
-        )}
+        <CategoriesList value={categoryName} categories={categories} />
+
+        <RecipiesList categoryId={category._id} />
 
       </Container>
     </div>
-  </>;
+  )
 };

@@ -14,13 +14,8 @@ export const useSignIn = cb => {
     setToken(token);
     dispatch(setUser(token));
     queryClient.setQueryData(['user'], user);
-    return { user, token };
+    return user;
   };
 
-  // There is no need to mutate data
-  //return useMutate(fn, cb);
-
-  return {
-    fn,
-  };
+  return useMutate(fn, cb);
 };
