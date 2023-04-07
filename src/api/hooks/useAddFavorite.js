@@ -1,6 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import { addFavorite } from '../queries';
 import { useQueryClient } from '@tanstack/react-query';
+import { showError } from 'components/Message';
 
 export const useAddFavorite = cb => {
   const queryClient = useQueryClient();
@@ -11,7 +12,10 @@ export const useAddFavorite = cb => {
       queryClient.invalidateQueries({ queryKey: ['recipes', 'favorite'] });
       cb?.onSuccess?.(data);
     },
-    onError: cb?.onError,
+    onError: error => {
+      showError(error);
+      cb?.onError();
+    },
   });
 
   return { mutate, error, isLoading };

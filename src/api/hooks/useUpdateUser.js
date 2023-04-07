@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { updateUser } from 'api/queries';
+import { showError } from 'components/Message';
 
 export const useUpdateUser = cb => {
   const queryClient = useQueryClient();
@@ -9,7 +10,10 @@ export const useUpdateUser = cb => {
       queryClient.setQueryData(['user'], data);
       cb?.onSuccess?.(data);
     },
-    onError: cb?.onError,
+    onError: error => {
+      showError(error);
+      cb?.onError();
+    },
   });
 
   return { mutate, error, isLoading };

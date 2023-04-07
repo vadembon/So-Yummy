@@ -13,3 +13,6 @@ export * from './getFavorite';
 export * from './addFavorite';
 export * from './deleteFavorite';
 export * from './subscribe';
+export * from './getOwnRecipes';
+export * from './addOwnRecipe';
+export * from './deleteOwnRecipe';

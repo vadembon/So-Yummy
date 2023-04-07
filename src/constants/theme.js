@@ -37,6 +37,7 @@ export const theme = Object.freeze({
     lightBackground: '#fafafa',
     primaryDarkBackground: '#1E1F28',
     secondaryDarkBackground: '#22252A',
+    messageBackground: '#455A6488',
   },
   radii: {
     none: '0',

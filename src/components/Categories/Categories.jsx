@@ -9,7 +9,7 @@ import { Loader } from 'components/Loader/Loader';
 
 
 export const Categories = () => {
-  const { categoryName: categoryName = 'Beef' } = useParams();
+  const { categoryName = 'Beef' } = useParams();
 
   const { data: categories, isLoading, isError, error } = useCategories();
   const category = categories?.find(({ name }) => name === categoryName);
@@ -30,8 +30,7 @@ export const Categories = () => {
         <CategoriesList value={categoryName} categories={categories} />
 
         <RecipiesList categoryId={category._id} />
-
       </Container>
     </div>
-  )
+  );
 };
