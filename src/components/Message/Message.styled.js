@@ -15,12 +15,14 @@ export const Card = styled.div`
 `;
 
 export const Text = styled.p`
+  padding-bottom: 2px;
   font-family: ${p => p.theme.fonts.primary};
   font-size: ${p => p.theme.fontSizes[8]}px;
   font-weight: ${p => p.theme.fontWeights.semibold};
   line-height: 1.07;
   letter-spacing: -0.02em;
   color: ${p => p.theme.colors.whiteText};
+  overflow: hidden;
 
   display: -webkit-box;
   -webkit-line-clamp: 4;
