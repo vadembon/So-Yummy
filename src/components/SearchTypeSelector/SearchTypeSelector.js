@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import Select from 'react-select';
 // import { useSearchParams } from 'react-router-dom';
 // import styled from 'styled-components';
@@ -95,21 +95,21 @@ const customStyles = {
 //   }
 // `;
 
-const SearchTypeSelector = ({ onChange }) => {
+const SearchTypeSelector = ({ onChange, selectedOption }) => {
   const options = [
     { value: 'title', label: 'Title' },
-    { value: 'ingredients', label: 'Ingredients' },
+    { value: 'ingredient', label: 'Ingredients' },
   ];
   // const [searchParams, setSearchParams] = useSearchParams();
-  const [selectedOption, setSelectedOption] = useState({
-    value: 'title',
-    label: 'Title',
-  });
+  // const [selectedOption, setSelectedOption] = useState({
+  //   value: 'title',
+  //   label: 'Title',
+  // });
 
   const handleOptionChange = option => {
     // console.log(option);
     // console.log(selectedOption);
-    setSelectedOption(option);
+    // setSelectedOption(option);
     onChange(option);
   };
 
