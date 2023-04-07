@@ -28,7 +28,7 @@ const Item = ({ key, preview, title, description, _id }) => {
   console.log(_id);
   const navigate = useNavigate();
   const handlerOnClick = () => {
-    navigate(`/recipe/:${_id}`);
+    navigate(`/recipe/${_id}`);
   };
 
   return (
