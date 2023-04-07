@@ -19,16 +19,16 @@ const customStyles = {
 
   option: (provided, state) => ({
     ...provided,
-    // backgroundColor: 'transparent',
-    // color: state.isSelected ? '#fff' : '#000',
-
     width: 198,
     userSelect: 'none',
     cursor: 'pointer',
-
     backgroundColor: 'white',
     color: 'black',
     fontSize: '14px',
+    outline: 'none',
+    ':active': {
+      backgroundColor: '#e6e6e6',
+    },
   }),
 
   dropdownIndicator: provided => ({
@@ -98,7 +98,7 @@ const customStyles = {
 const SearchTypeSelector = ({ onChange, selectedOption }) => {
   const options = [
     { value: 'title', label: 'Title' },
-    { value: 'ingredient', label: 'Ingredients' },
+    { value: 'ingredients', label: 'Ingredients' },
   ];
   // const [searchParams, setSearchParams] = useSearchParams();
   // const [selectedOption, setSelectedOption] = useState({
