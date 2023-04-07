@@ -46,12 +46,13 @@ export const SearchButton = styled.button`
   line-height: 21px;
   cursor: pointer;
   color: #fafafa;
-  background: #22252a;
+  background: ${props => props.color};
   border: 1px solid transparent;
   border-radius: 60px 120px 60px 120px;
 
   &:hover {
-    background: #8baa36;
+    background-color: ${props =>
+      props.color === '#8baa36' ? '#22252a' : '#8baa36'};
   }
 
   @media screen and (min-width: 768px) {
@@ -66,3 +67,6 @@ export const SearchButton = styled.button`
     height: 70px;
   }
 `;
+// Alex background: #22252a;
+
+//  hover:  background: #8baa36;

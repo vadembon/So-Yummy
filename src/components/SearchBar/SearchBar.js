@@ -8,33 +8,51 @@ import { SearchedRecipesList } from 'components/SearchedRecipesList';
 import { useRecipes } from 'api/hooks';
 
 export const SearchBar = () => {
-  const [query, setQuery] = useState('');
+  // const [query, setQuery] = useState('');
+  const [selectedOption, setSelectedOption] = useState({
+    value: 'title',
+    label: 'Title',
+  });
   const [searchParams, setSearchParams] = useSearchParams({});
-  const { data, isLoading } = useRecipes(searchParams);
-  console.log(data);
+  const title = searchParams.get('title') ?? '';
+  const ingredient = searchParams.get('ingredient') ?? '';
+  const filter = ingredient ? { ingredient } : { title };
+  const { data, isLoading } = useRecipes(filter);
 
-  const handleChange = ({ target }) => {
-    const { value } = target;
-    setQuery(value);
-  };
+  console.log(data);
+  // console.log(filter);
+  // const handleChange = ({ target }) => {
+  //   const { value } = target;
+  //   setQuery(value);
+  // };
 
   const handleSubmit = e => {
-    // console.log(query);
+    // console.log(e);
     e.preventDefault();
-    setSearchParams({ title: query });
-    setQuery(query);
+    const form = e.currentTarget;
+    const valueForm = form.elements.query.value;
+    // console.log(valueForm);
+    // setQuery(valueForm);
+    setSearchParams({ [selectedOption.value]: valueForm });
+    // setQuery(valueForm);
+    form.reset();
   };
 
-  const handleTypeChange = ({ value }) => {
-    const newArr = { [value]: query, [value]: query };
-    console.log(newArr);
-
-    setSearchParams(newArr);
+  const handleTypeChange = option => {
+    setSelectedOption(option);
+    // const newArr = { [value]: query };
+    // console.log(newArr);
+    // setSearchParams(newArr);
   };
 
   return (
     <WrapperSearchBar>
-      <SearchForm onSubmit={handleSubmit} onChange={handleChange} />
+      <SearchForm
+        onSubmit={handleSubmit}
+        // onChange={handleChange}
+        color={'#8baa36'}
+        defaultValue={title ? title : ingredient}
+      />
       <div style={{ display: 'flex' }}>
         <span style={{ fontSize: '18px', fontWeight: '500' }}>Search by:</span>
         <SearchTypeSelector onChange={handleTypeChange} />

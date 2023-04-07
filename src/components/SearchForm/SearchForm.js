@@ -4,16 +4,18 @@ import {
   SearchButton,
 } from './SearchForm.styled';
 
-export const SearchForm = ({ onSubmit, onChange }) => {
+export const SearchForm = ({ onSubmit, color, defaultValue = '' }) => {
   return (
     <SearchFormSection onSubmit={onSubmit}>
       <SearchInput
         name="query"
-        // value={searchQuery}
-        onChange={onChange}
+        defaultValue={defaultValue}
+        // onChange={onChange}
         required
       />
-      <SearchButton type="submit">Search</SearchButton>
+      <SearchButton type="submit" color={color}>
+        Search
+      </SearchButton>
     </SearchFormSection>
   );
 };
