@@ -1,9 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import {
-  RestrictedRoute,
-  PrivateRoute,
-} from 'service/routes';
+import { RestrictedRoute, PrivateRoute } from 'service/routes';
 
 import { SharedLayout } from './SharedLayout';
 import { MainPage } from 'pages/MainPage';
@@ -12,8 +9,8 @@ import { AddRecipePage } from 'pages/AddRecipePage';
 import { FavoritePage } from 'pages/FavoritePage';
 import { MyRecipesPage } from 'pages/MyRecipesPage';
 import { RecipePage } from 'pages/RecipePage';
-import { SearchPage } from 'pages/SearchPage';
-import { ShoppingListPage } from 'pages/ShoppingListPage';
+import SearchPage from '../pages/SearchPage/SearchPage';
+import ShoppingListPage from 'pages/ShoppingListPage/ShoppingListPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { WelcomePage } from 'pages/WelcomePage';
 import { AuthPage } from 'pages/AuthPage';
@@ -35,13 +32,24 @@ export const App = () => {
     <div>
       <GlobalStyle />
       <Routes>
-        <Route path="/welcome" element={<RestrictedRoute component={<WelcomePage />} />} />
-        <Route path="/register" element={<RestrictedRoute component={<AuthPage type="register" />} />}/>
-        <Route path="/signin" element={<RestrictedRoute component={<AuthPage type="signin" />} />}/>
+        <Route
+          path="/welcome"
+          element={<RestrictedRoute component={<WelcomePage />} />}
+        />
+        <Route
+          path="/register"
+          element={<RestrictedRoute component={<AuthPage type="register" />} />}
+        />
+        <Route
+          path="/signin"
+          element={<RestrictedRoute component={<AuthPage type="signin" />} />}
+        />
 
         <Route path="/" element={<PrivateRoute component={<SharedLayout />} />}>
           <Route index element={<MainPage />} />
+
             <Route path="main" element={<MainPage />} />
+            <Route path="categories" element={<CategoriesPage />} />
             <Route path="categories/:categoryName" element={<CategoriesPage />} />
             <Route path="add" element={<AddRecipePage />} />
             <Route path="favorite" element={<FavoritePage />} />
@@ -51,12 +59,9 @@ export const App = () => {
             <Route path="shopping-list" element={<ShoppingListPage />} />
             <Route path="*" element={<Navigate to={<NotFoundPage />} />} />
         </Route> 
+
+
       </Routes>
     </div>
   );
 };
-
-
-
-
-

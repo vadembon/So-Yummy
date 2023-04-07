@@ -1,25 +1,32 @@
-export const IngredientList = ({ arrayItem }) => {
+export const IngredientList = ({ itemArray, handleIngradientDelete }) => {
   return (
     <ul>
-      {arrayItem.map(item => (
-        <Item key={item.id} {...item}></Item>
+      {itemArray.map((item, idx) => (
+        <Item
+          key={idx}
+          {...item}
+          idx={idx}
+          Delete={handleIngradientDelete}
+        ></Item>
       ))}
     </ul>
   );
 };
 
-const Item = ({ id, l, k }) => {
+const Item = ({ idx, ttl, quantity, unit, Delete }) => {
   return (
-    <div style={{ display: 'flex' }}>
-      <p>{l}</p>
-      <p>{k}</p>
+    <li style={{ display: 'flex' }}>
+      <p style={{ color: 'black', width: '30px' }}>{idx}</p>
+      <p style={{ color: 'black', width: '40%' }}>{ttl}</p>
+      <p style={{ color: 'black', width: '100px' }}>{quantity}</p>
+      <p style={{ color: 'black', width: '100px' }}>{unit}</p>
       <button
         aria-label="delete contact"
         // icon={<DeleteIcon />}
-        // onClick={handleDelete}
+        onClick={() => Delete(idx)}
       >
         Delete
       </button>
-    </div>
+    </li>
   );
 };

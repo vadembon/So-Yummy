@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { 
@@ -5,13 +6,19 @@ import {
   LocationLink } from "./HeaderNav.styled";
 
 
-import icon_search from "images/commonSvgImg/icon-search.svg";
+import icon_search from 'images/commonSvgImg/icon-search.svg';
+
+export const HeaderNavigation = ({ setShowMenu }) => {
+  const { pathname } = useLocation();
+  const [active, setActive] = useState('');
+
 
 export const HeaderNavigation = ({setShowBurgerMenu}) => {
     const { pathname } = useLocation();
     const [active, setActive] = useState('');
 
      useEffect(() => {
+
     if (pathname.includes('/categories')) {
       setActive('categories');
     } else if (pathname.includes('/add')) {

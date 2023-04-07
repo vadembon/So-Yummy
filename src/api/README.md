@@ -200,7 +200,7 @@ const { data, error, isLoading } = useIngredients();
 
 - **header**: `{Authorization: 'Bearer <token>'}`
 - **query**: `{category, title, ingredient, page, limit}`
-- **response**: `[{id, title, image, ...}]` - масив об'єктів recipe
+- **response**: `[{id, title, thumb, ...}]` - масив об'єктів recipe
 
 ```js
 import { useRecipes } from './api/hooks';
@@ -219,8 +219,7 @@ const { data, error, isLoading } = useRecipes(filter);
 
 - **header**: `{Authorization: 'Bearer <token>'}`
 - **response**:
-  `{id, title, image, about, category, cookingTime, preparation, ingredients: [{id, name, image, quantity, unit}]}` -
-  об'єкт recipe
+  `{id, title, category, instructions, description, thumb, time,ingredients: [{id, image, measure}] }`
 
 ```js
 import { useRecipeDetails } from './api/hooks';
@@ -231,7 +230,9 @@ const { data, error, isLoading } = useRecipeDetails(id);
 ### _Main page recipes list_: `GET /recipes/main-page`
 
 - **header**: `{Authorization: 'Bearer <token>'}`
-- **response**: `[{id, title, image, category ...}]` - масив об'єктів recipe
+- **response**:
+  `[{id, title, category, instructions, description, thumb, time,ingredients: [{id, measure}] }]` -
+  масив об'єктів recipe
 
 ```js
 import { useMainRecipes } from './api/hooks';
@@ -242,7 +243,8 @@ const { data, error, isLoading } = useMainRecipes();
 ### _Popular recipes list_: `GET /recipes/popular`
 
 - **header**: `{Authorization: 'Bearer <token>'}`
-- **response**: `[{id, title, image, ...}]` - масив об'єктів recipe
+- **response**:
+  `[{id, title, category, instructions, description, thumb, time,ingredients: [{id, measure}] }]`
 
 ```js
 import { usePopular } from './api/hooks';
@@ -254,8 +256,8 @@ const { data, error, isLoading } = usePopular();
 
 - **header**: `{Authorization: 'Bearer <token>'}`
 - **query**: `{page, limit}`
-- **response**: `[{id, title, image, about,cookingTime, ...}]` - масив об'єктів
-  recipe
+- **response**:
+  `[{id, title, category, instructions, description, thumb, time,ingredients: [{id, measure}] }]`
 
 ```js
 import { useFavorite } from './api/hooks';
@@ -267,7 +269,8 @@ const { data, error, isLoading } = useFavorite({ page: 1, limit: 4 });
 
 - **header**: `{Authorization: 'Bearer <token>'}`
 - **body**: `{id}`
-- **response**: `{id, title, image, about,cookingTime, ...}` - об'єкт recipe
+- **response**:
+  `{id, title, category, instructions, description, thumb, time, ingredients: [{id, measure}] }`
 
 ```js
 import { useFavorite } from './api/hooks';
@@ -279,7 +282,8 @@ mutate(id);
 ### _Delete favorite recipe_: `DELETE /recipes/favorite/:id`
 
 - **header**: `{Authorization: 'Bearer <token>'}`
-- **response**: `{id, title, image, about,cookingTime, ...}` - об'єкт recipe
+- **response**:
+  `{id, title, category, instructions, description, thumb, time,ingredients: [{id, measure}] }`
 
 ```js
 import { useDeleteFavorite } from './api/hooks';
@@ -296,8 +300,8 @@ mutate(id);
 
 - **header**: `{Authorization: 'Bearer <token>'}`
 - **query**: `{page, limit}`
-- **response**: `[{id, title, image, about, cookingTime, ... }]` - масив
-  об'єктів recipe
+- **response**:
+  `[{id, title, category, instructions, description, thumb, time,ingredients: [{id, measure}] }]`
 
 ```js
 import { useOwnRecipes } from './api/hooks';
@@ -309,10 +313,8 @@ const { data, error, isLoading } = useOwnRecipes({ page: 1, limit: 4 });
 
 - **header**: `{Authorization: 'Bearer <token>'}`
 - **body**:
-  `{ title, image, about, category, cookingTime, preparation, ingredients: [{id, name, image, quantity, unit}]}`
+  `{ title, category, instructions, description, thumb, time,ingredients: [{id, measure}]}`
 - **response**:
-  `{id, title, image, about, category, cookingTime, preparation, ingredients: [{id, name, image, quantity, unit}]}` -
-  об'єкт recipe
 
 ```js
 import { useAddOwnRecipe } from './api/hooks';
@@ -320,12 +322,12 @@ import { useAddOwnRecipe } from './api/hooks';
 const { mutate, error, isLoading } = useAddOwnRecipe();
 mutate({
   title,
-  image,
-  about,
   category,
-  cookingTime,
-  preparation,
-  ingredients: [{ id, name, image, quantity, unit }],
+  instructions,
+  description,
+  thumb,
+  time,
+  ingredients: [{ id, measure }],
 });
 ```
 
@@ -333,8 +335,7 @@ mutate({
 
 - **header**: `{Authorization: 'Bearer <token>'}`
 - **response**:
-  `{id, title, image, about, category, cookingTime, preparation, ingredients: [{id, name, image, quantity, unit}]}` -
-  об'єкт recipe
+  `{ title, category, instructions, description, thumb, time, ingredients: [{ id, measure }], }`
 
 ```js
 import { useDeleteOwnRecipe } from './api/hooks';
@@ -350,7 +351,7 @@ mutate(id);
 ### _Shopping list_: `GET/shopping-list`
 
 - **header**: `{Authorization: 'Bearer <token>'}`
-- **response**: `[{id, name, image, quantity, unit}]`
+- **response**: `[{id, ttl, thb, recipe, measure}]`
 
 ```js
 import { useShoppingList } from './api/hooks';
@@ -361,20 +362,20 @@ const { data, error, isLoading } = useShoppingList();
 ### _Add to shopping list_: `POST/shopping-list`
 
 - **header**: `{Authorization: 'Bearer <token>'}`
-- **body**: `{id, quantity, unit}`
-- **response**: `{id, name, image, quantity, unit}`
+- **body**: `{id, recipe, measure}`
+- **response**: `{id, ttl, thb, recipe, measure}`
 
 ```js
 import { useAddShoppingList } from './api/hooks';
 
 const { mutate, error, isLoading } = useAddShoppingList();
-mutate({ id, quantity, unit });
+mutate({ id, recipe, measure });
 ```
 
 ### _Delete from shopping list_: `DELETE/shopping-list/:id`
 
 - **header**: `{Authorization: 'Bearer <token>'}`
-- **response**: `{id, name, image, quantity, unit}`
+- **response**: `{id, ttl, thb, recipe, measure}`
 
 ```js
 import { useDeleteShoppingList } from './api/hooks';
