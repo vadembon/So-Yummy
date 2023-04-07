@@ -1,22 +1,18 @@
 import { useEffect, useState } from 'react';
-// import { useUser } from 'api/hooks/useUser';
+import { useUser } from 'api/hooks/useUser';
 
-import { UserEditInfoModal } from '../UserEditInfoModal/UserEditInfoModal';
+import { UserInfoModal } from '../UserInfoModal/UserInfoModal';
 import { UserLogoModal } from '../UserLogoModal/UserLogoModal';
-
-import icon_user from "images/commonSvgImg/icon_user.svg";
 
 import {
   Wrapper,
   Button,
 } from './UserLogo.styled';
 
-export const UserLogo = ({
-  name = 'User',
-  avatarUrl = icon_user,
-}) => {
+export const UserLogo = () => {
+  const { data } = useUser();
   const [showUserMenu, setShowUserMenu] = useState(false);
-  const [showUserModal, setShowUserModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [statusModal, setStatusModal] = useState('');
 
   const toggleUserEditMenu = e => {
@@ -24,7 +20,7 @@ export const UserLogo = ({
   };
 
   const toggleUserModal = status => {
-    setShowUserModal(!showUserModal);
+    setShowModal(!showModal);
     setStatusModal(status);
     setShowUserMenu(false);
   };
@@ -57,8 +53,8 @@ export const UserLogo = ({
           onClick={toggleUserEditMenu}
           onBlur={handleBlur}
         >
-          <img src={avatarUrl} alt={name} />
-          <p>{name}</p>
+          <img src={data.avatar} alt={data.name} />
+          <p>{data.name}</p>
         </Button>
 
         {showUserMenu && (
@@ -69,10 +65,10 @@ export const UserLogo = ({
         )}
       </Wrapper>
 
-      {showUserModal && (
-        <UserEditInfoModal
-          name={name}
-          avatarUrl={avatarUrl}
+      {showModal && (
+        <UserInfoModal
+          name={data.name}
+          avatarUrl={data.avatar}
           closeModal={toggleUserModal}
           status={statusModal}
         />
