@@ -4,6 +4,21 @@ import { theme } from '../../constants/theme';
 
 export const CategoriesList = styled.ul`
   margin-bottom: 40px;
+  display: flex;
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1440px) {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 14px;
+    grid-row-gap: 100px;
+  }
+`;
+
+export const CategoriesItem = styled.li`
+  gap: 14px;
 
   @media screen and (min-width: 768px) {
   }
