@@ -37,7 +37,6 @@ export const theme = Object.freeze({
     lightBackground: '#fafafa',
     primaryDarkBackground: '#1E1F28',
     secondaryDarkBackground: '#22252A',
-    messageBackground: '#455A6488',
   },
   radii: {
     none: '0',
@@ -68,5 +67,8 @@ export const theme = Object.freeze({
     mobile: '350px',
     tablet: '700px',
     desktop: '900px',
+  },
+  transitions: {
+    main: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)',
   },
 });
