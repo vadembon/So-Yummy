@@ -8,6 +8,7 @@ import {
   CategoryList,
   CategoryListItem,
   CategoryLink,
+  
 } from './CategoriesList.styled';
 
 // export const CategoriesList = (props) => {

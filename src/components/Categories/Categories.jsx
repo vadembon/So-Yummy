@@ -5,7 +5,8 @@ import { CategoriesList } from 'components/CategoriesList/CategoriesList';
 import { BackgroundDots } from 'commonComponents/BackgroundDots/BackgroundDots';
 import { RecipiesList } from 'components/RecipiesList/RecipiesList';
 import { Loader } from 'components/Loader/Loader';
-// import { Dot } from 'commonComponents/Dot';
+// import { TopBox } from 'commonComponents/TopBox';
+
 
 export const Categories = () => {
   const { categoryName = 'Beef' } = useParams();
@@ -24,7 +25,7 @@ export const Categories = () => {
   return (
     <div>
       <Container>
-        <BackgroundDots />
+        <BackgroundDots/>
 
         <CategoriesList value={categoryName} categories={categories} />
 
