@@ -3,7 +3,7 @@ import { SearchBar } from 'components/SearchBar';
 import { Container } from 'components/Container/Container';
 // import { Box } from 'commonComponents/Box';
 
-const SearchPage = () => {
+export const SearchPage = () => {
   return (
     <Container>
       <MainPageTitle title="Search" />

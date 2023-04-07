@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import img from '../../../images/soYummy/bg_top_right_1x_mob.png';
+import imgMob from '../../../images/soYummy/bg_top_right_1x_mob.png';
+import imgTab from '../../../images/soYummy/bg_top_right_1x_tab.png';
+import imgDesk from '../../../images/soYummy/bg_top_right_1x_desk.png';
 
 export const Backgroundleaves = styled.div`
   position: absolute;
@@ -12,14 +14,20 @@ export const Backgroundleaves = styled.div`
   /* transform: rotate(42deg); */
   z-index: -4;
 
-  background-image: url(${img});
+  background-image: url(${imgMob});
   background-repeat: no-repeat;
   background-position: right;
   /* background-size: cover; */
 
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
+    top: 0px;
+    background-image: url(${imgTab});
   }
 
-  @media (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
+    top: -55px;
+    min-width: 914px;
+    min-height: 799px;
+    background-image: url(${imgDesk});
   }
 `;
