@@ -1,19 +1,17 @@
 import { useState } from 'react';
 
 import { useUser } from 'api/hooks/useUser';
-import { useMediaQuery } from 'api/hooks/useMediaQuery';
 
 import {
   HeaderStyled,
   HeaderWrapper,
   HeaderWrapperLogo,
   HeaderLogo,
-  // UserWrapper,
-  BurgerWrapper,
+  UserWrapper,
   BurgerButton,
   MobileMenuWrapper,
   MobileMenuHeaderContainer,
-  // MobileMenuThemeTogglerWrapper,
+  MobileMenuThemeTogglerWrapper,
 } from './Header.styled';
 
 import logo_desk from "images/commonSvgImg/logo_desk.svg";
@@ -26,9 +24,13 @@ import { ThemeToggler } from 'components/ThemeToggler/ThemeToggler';
 import { CloseButton } from 'components/CloseButton/CloseButton';
 
 export const Header = () => {
-  const { data } = useUser();
+
   const [showBurgerMenu, setShowBurgerMenu] = useState(false);
-  const isMediaBased = useMediaQuery('(min-width: 1440px)');
+  const menuIsOpen = useUser();
+
+
+//   const userName = useSelector(getName);
+//   const userAvatar = useSelector(getAvatar);
 
   const toggleMenu = event => {
     setShowBurgerMenu(!showBurgerMenu);
@@ -36,7 +38,7 @@ export const Header = () => {
 
    return (
      <>
-       {isMediaBased ? (
+       {menuIsOpen ? (
          <HeaderStyled>
            <Container>
              <HeaderWrapper>
@@ -44,14 +46,13 @@ export const Header = () => {
                  <HeaderLogo to="/main">
                    <img src={logo_desk} alt="logo" />
                  </HeaderLogo>
+                
                </HeaderWrapperLogo>
-
                <HeaderNavigation />
                <UserLogo
-                name={data.name}
-                avatarUrl={data.avatar}
+               //  name={name}
+               //  avatarUrl={avatar}
                />
-
                <ThemeToggler />
              </HeaderWrapper>
            </Container>
@@ -66,10 +67,10 @@ export const Header = () => {
                      <img src={logo_desk} alt="logo" />
                    </HeaderLogo>
                  </HeaderWrapperLogo>
-                 <BurgerWrapper>
-                 <UserLogo
-                   name={data.name}
-                   avatarUrl={data.avatar}
+                 <UserWrapper>
+                   <UserLogo
+                   // name={userName}
+                   // avatarUrl={userAvatar}
                    />
                    <BurgerButton
                      type="button"
@@ -77,10 +78,7 @@ export const Header = () => {
                    >
                        <img src={iconburger_menu} alt="burger" />
                    </BurgerButton>
-                 </BurgerWrapper>
-                 {/* <UserWrapper> */}
-                   
-                 {/* </UserWrapper> */}
+                 </UserWrapper>
                </HeaderWrapper>
              </Container>
            </HeaderStyled>
@@ -101,9 +99,9 @@ export const Header = () => {
              <HeaderNavigation
                setShowBurgerMenu={setShowBurgerMenu}
              />
-             {/* <MobileMenuThemeTogglerWrapper>
+             <MobileMenuThemeTogglerWrapper>
                <ThemeToggler />
-             </MobileMenuThemeTogglerWrapper> */}
+             </MobileMenuThemeTogglerWrapper>
            </MobileMenuWrapper>
          </>
        )}
