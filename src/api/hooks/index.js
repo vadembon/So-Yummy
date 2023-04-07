@@ -26,8 +26,3 @@ export * from './useDeleteOwnRecipe'; //+
 export * from './useShoppingList';
 export * from './useAddShoppingList';
 export * from './useDeleteShoppingList';
-
-// ------------react-responsive------------
-
-export * from './useMediaQuery';
-export * from './useMedia';
