@@ -13,6 +13,7 @@ export const Button = styled.button`
   gap: 14px;
   font-size: 14px;
   cursor: pointer;
+  transition: ${p => p.theme.transitions.main};
 
   & img {
     width: 34px;
