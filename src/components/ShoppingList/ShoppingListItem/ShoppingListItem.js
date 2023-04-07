@@ -4,20 +4,30 @@ import {
   ProductNumber,
   RemoveItemButton,
   ShoppingItemContainer,
+  ProductFotoWrapper,
+  RemoveIconWrapper
 } from './ShoppingListItem.styled';
 
 
 
 export const ShoppingListItem = ({ name, quantity, unit, image, id }) => {
-    return (
+  return (
+      
       <ShoppingItemContainer>
         <li>
-          <ProductFoto src={image} alt={name} />
+          <ProductFotoWrapper>
+            <ProductFoto src={image} alt={name} />
+          </ProductFotoWrapper>
+
           <ProductName>{name}</ProductName>
+
           <ProductNumber>
             {quantity} {unit}
           </ProductNumber>
-          <RemoveItemButton id={id} />
+          <RemoveItemButton id={id}>
+            {' '}
+            <RemoveIconWrapper />
+           </RemoveItemButton>
         </li>
       </ShoppingItemContainer>
     );
