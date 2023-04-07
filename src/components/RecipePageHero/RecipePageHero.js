@@ -8,12 +8,10 @@ import {
   TimeText,
 } from './RecipePageHero.styled';
 import { BsClock } from 'react-icons/bs';
-
 export const RecipePageHero = ({ title, description, favorites, time }) => {
   const addToFavorite = () => {
     console.log('add');
   };
-
   return (
     <SectionHero>
       <Container>
