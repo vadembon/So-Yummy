@@ -10,8 +10,8 @@ export const CategoriesList = styled.ul`
 
   @media screen and (min-width: 1440px) {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
     grid-column-gap: 14px;
     grid-row-gap: 100px;
   }

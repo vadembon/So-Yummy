@@ -24,16 +24,51 @@ const PreviewCategories = () => {
         <div>
           <h2>Breakfast</h2>
           <CategoriesList>
-            {recipes?.map(({ _id: id, title, thumb }) => (
-              <CategoriesItem key={id}>
-                <DishCard id={id} title={title} image={thumb} />
-              </CategoriesItem>
-            ))}
+            {recipes
+              .filter(({ category }) => category === 'Breakfast')
+              .map(({ _id: id, title, thumb }) => (
+                <CategoriesItem key={id}>
+                  <DishCard id={id} title={title} image={thumb} />
+                </CategoriesItem>
+              ))}
           </CategoriesList>
         </div>
-        <h2>Miscellaneous</h2>
-        <h2>Chicken</h2>
-        <h2>Desserts</h2>
+        <div>
+          <h2>Miscellaneous</h2>
+          <CategoriesList>
+            {recipes
+              ?.filter(({ category }) => category === 'Miscellaneous')
+              .map(({ _id: id, title, thumb }) => (
+                <CategoriesItem key={id}>
+                  <DishCard id={id} title={title} image={thumb} />
+                </CategoriesItem>
+              ))}
+          </CategoriesList>
+        </div>
+        <div>
+          <h2>Chicken</h2>
+          <CategoriesList>
+            {recipes
+              ?.filter(({ category }) => category === 'Chicken')
+              .map(({ _id: id, title, thumb }) => (
+                <CategoriesItem key={id}>
+                  <DishCard id={id} title={title} image={thumb} />
+                </CategoriesItem>
+              ))}
+          </CategoriesList>
+        </div>
+        <div>
+          <h2>Desserts</h2>
+          <CategoriesList>
+            {recipes
+              ?.filter(({ category }) => category === 'Dessert')
+              .map(({ _id: id, title, thumb }) => (
+                <CategoriesItem key={id}>
+                  <DishCard id={id} title={title} image={thumb} />
+                </CategoriesItem>
+              ))}
+          </CategoriesList>
+        </div>
         <OtherCategories to="/categories">Other categories</OtherCategories>
       </div>
     </>
