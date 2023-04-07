@@ -24,6 +24,16 @@ export const EditBtn = styled.button`
   justify-content: space-between;
   white-space: nowrap;
   cursor: pointer;
+  transition: ${p => p.theme.transitions.main};
+  & svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+  }
+  &:hover,
+  &:focus {
+    color: ${p => p.theme.colors.greenAccent};
+  }
 `;
 
 export const LogOutBtn = styled.button`
@@ -43,6 +53,18 @@ export const LogOutBtn = styled.button`
   border-bottom-right-radius: 30px;
   text-align: center;
   cursor: pointer;
+  transition: ${p => p.theme.transitions.main};
+
+  &:hover svg,
+  &:focus svg {
+    stroke: ${p => p.theme.colors.mainSerchHoverText};
+  }
+  & svg {
+    width: 18px;
+    height: 18px;
+    stroke: ${p => p.theme.colors.btnTextLight};
+    transition: ${p => p.theme.transitions.main};
+  }
 
   @media screen and (min-width: 768px) {
     font-size: 14px;

@@ -40,7 +40,7 @@ export const HeaderLogo = styled(NavLink)`
   }
 `;
 
-export const UserWrapper = styled.div`
+export const BurgerWrapper = styled.div`
   display: flex;
   align-items: center;
 `;
@@ -81,22 +81,22 @@ export const MobileMenuWrapper = styled.div`
   align-items: space-between;
 
  
-  background-position: bottom right;
+  /* background-position: bottom right;
   background-repeat: no-repeat;
-  background-size: contain;
-  @media (min-device-pixel-ratio: 2),
+  background-size: contain; */
+  /* @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
+    (min-resolution: 2dppx) { */
 
-  }
+  /* } */
   @media screen and (min-width: 768px) {
     padding: 18px 32px;
 
-    @media (min-device-pixel-ratio: 2),
+    /* @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
 
-    }
+    } */
   }
 `;
 
@@ -106,6 +106,7 @@ export const MobileMenuHeaderContainer = styled.div`
   align-items: center;
 `;
 
-export const MobileMenuThemeTogglerWrapper = styled.div`
-  display: flex;
-`;
+ 
+// export const MobileMenuThemeTogglerWrapper = styled.div`
+//   display: flex;
+// `;
