@@ -18,7 +18,7 @@ export const ApiTest = () => {
         <Title>User</Title>
         <UserTest />
       </Item>
-      {/* <Item>
+      <Item>
         <Title>Categories & Ingredients</Title>
         <CatIngredTest />
       </Item>
@@ -35,7 +35,7 @@ export const ApiTest = () => {
         <Message />
         <button onClick={() => showError()}>Press me</button>
         <button onClick={() => showMessage()}>Press me</button>
-      </Item> */}
+      </Item>
       <Item>
         <Title>Own recipes</Title>
         <OwnRecipesTest />

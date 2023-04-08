@@ -1,23 +1,23 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-// export const Navigation = styled.nav`
-// display: flex; 
-// align-items: center; 
-// justify-content: center;
-// flex-direction: column;
-// gap: 32px;
-//    @media screen and (min-width: 768px) {
-//      gap: 40px;
-//    }
-//    @media screen and (min-width: 1440px) {
-//     flex-direction: row;
-//     gap: 30px;
-//     justify-content: space-between;
-//     margin-left: 180px;
-//     margin-right: 220px;
-//   }
-// `;
+export const Navigation = styled.nav`
+display: flex; 
+align-items: center; 
+justify-content: center;
+flex-direction: column;
+gap: 32px;
+   @media screen and (min-width: 768px) {
+     gap: 40px;
+   }
+   @media screen and (min-width: 1440px) {
+    flex-direction: row;
+    gap: 30px;
+    justify-content: space-between;
+    margin-left: 180px;
+    margin-right: 220px;
+  }
+`;
 
 export const LocationLink = styled(NavLink)`
   display: flex;

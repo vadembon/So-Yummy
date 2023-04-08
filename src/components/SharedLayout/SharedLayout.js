@@ -5,9 +5,9 @@ import { PageLoader } from 'components/PageLoader';
 import { useUser } from 'api/hooks';
 
 export const SharedLayout = () => {
-  const { data, isLoading } = useUser();
+  const { data, isLoading, isError } = useUser();
 
-  if (isLoading) {
+  if (isLoading || isError) {
     return <PageLoader />;
   }
 

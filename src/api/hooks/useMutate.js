@@ -15,7 +15,11 @@ export const useMutate = (fn, cb) => {
     } catch (axiosError) {
       const error = createError(axiosError);
       setError(error);
-      showError(error);
+      showError(
+        Number(error.status) >= 500
+          ? 'Something went wrong. Try again later.'
+          : error
+      );
       cb?.onError?.(error);
     }
     setIsLoading(false);

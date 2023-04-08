@@ -10,9 +10,9 @@ export const CloseButtonStyled = styled.button`
   box-sizing: border-box;
   cursor: pointer;
 
-  & svg {
+  /* & svg {
     width: ${p => (p.location === 'modal' ? '24px' : '32px')};
     height: ${p => (p.location === 'modal' ? '24px' : '32px')};
-    stroke: ${p => p.theme.colors.blackText};
-  }
+    stroke: ${p => p.theme.colors.mainDark};
+  } */
 `;

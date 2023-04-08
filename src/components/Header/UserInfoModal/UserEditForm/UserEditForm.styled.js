@@ -46,3 +46,51 @@ export const Button = styled.button`
     font-size: 16px;
   }
 `;
+
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 56px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 49px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-bottom: 52px;
+  }
+`;
+
+export const InputsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  @media screen and (min-width: 768px) {
+    gap: 33px;
+  }
+  @media screen and (min-width: 1440px) {
+    gap: 32px;
+  }
+`;
+
+export const Form = styled.form`
+  input[type='file'] {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    display: block;
+    padding: 0;
+  }
+  & img {
+    width: 88px;
+    height: 88px;
+    border-radius: ${p => p.theme.radii.round};
+    @media screen and (min-width: 768px) {
+      width: 103px;
+      height: 103px;
+    }
+  }
+`;

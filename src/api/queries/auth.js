@@ -11,5 +11,7 @@ export const signIn = async user => {
 };
 
 export const logOut = async () => {
-  await axios.get('/auth/logout');
+  try {
+    await axios.get('/auth/logout');
+  } catch (error) {}
 };

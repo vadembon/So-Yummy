@@ -5,6 +5,8 @@ import {
     Avatar,
     Input,
     Button,
+    Wrapper,
+    Form
   } from './UserEditForm.styled';
 
 export const UserEditForm= () => {
@@ -20,13 +22,13 @@ export const UserEditForm= () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <Form onSubmit={handleSubmit}>
+      <Wrapper>
         <label htmlFor="avatar">
         <Avatar src={avatar} alt="avatar" onChange={(e) => setAvatar(e.target.value)} />
         </label>
           
-      </div>
+      </Wrapper>
       <div>
         <label htmlFor="name"></label>
         <Input
@@ -40,6 +42,6 @@ export const UserEditForm= () => {
       <Button type="submit" disabled={isLoading}>
       </Button>
       {error}
-    </form>
+    </Form>
   );
 };
