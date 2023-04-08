@@ -1,20 +1,22 @@
-import { Box } from 'commonComponents/Box';
+import { PageBox } from 'commonComponents/PageBox';
 import { Container } from 'commonComponents/Container';
 import { Spinach } from 'commonComponents/Spinach';
 import { AddRecipeForm } from 'components/AddRecipeForm';
-import { MainTitle, PopularRecipe } from 'components';
-import { SectionTitle } from 'commonComponents/SectionTitle';
+import { InfoBox } from './InfoBox';
+import { MainTitle, PopularRecipe, FollowUs } from 'components';
 
 export const AddRecipePage = () => {
   return (
     <Container>
-      <MainTitle titleName={'Add recipe'} />
-      <Box>
+      <MainTitle>Add recipe</MainTitle>
+      <PageBox>
         <AddRecipeForm />
-        <SectionTitle>Popular recipe</SectionTitle>
-        <PopularRecipe />
+        <InfoBox>
+          <FollowUs size={26} />
+          <PopularRecipe />
+        </InfoBox>
         <Spinach />
-      </Box>
+      </PageBox>
     </Container>
   );
 };
