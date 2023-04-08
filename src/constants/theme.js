@@ -60,13 +60,13 @@ export const theme = Object.freeze({
     minDevice: '320px',
     mobile: '425px',
     tablet: '768px',
-    desktop: '1024px',
+    desktop: '1440px',
   },
 
   breakPoints: {
-    mobile: '350px',
-    tablet: '700px',
-    desktop: '900px',
+    mobile: '425px',
+    tablet: '768px',
+    desktop: '1440px',
   },
   transitions: {
     main: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)',
