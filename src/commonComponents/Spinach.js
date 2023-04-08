@@ -10,4 +10,5 @@ export const Spinach = styled.div`
   height: 392px;
   background-image: url(${img});
   background-size: contain;
+  pointer-events: none;
 `;

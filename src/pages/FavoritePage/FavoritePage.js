@@ -1,8 +1,9 @@
-// import { Favorites } from 'components/Favorites/Favorites';
-import { FavoritesItem } from 'components/Favorites/FavoritesItem';
-export const FavoritePage = () => {
-  return <FavoritesItem />;
-  // <Favorites />;
-};
+import { FavoritesList } from 'components/FavoritesList/FavoritesList';
 
-// export default FavoritePage;
+export const FavoritePage = () => {
+  return (
+    <>
+      <FavoritesList />
+    </>
+  );
+};
