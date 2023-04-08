@@ -11,7 +11,7 @@ export const Button = styled.button`
   /* background: ${({ theme: { colors } }) => colors.darkAccent}; */
   background: ${({ greenButton }) => (greenButton ? greenColor : darkColor)};
 
-  width: 129px;
+  width: 130px;
   height: 46px;
   font-size: 16px;
 
@@ -29,7 +29,7 @@ export const Button = styled.button`
   `};
 
   @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
-    width: 161px;
+    width: 160px;
     height: 52px;
 
     ${({ largeButton }) =>

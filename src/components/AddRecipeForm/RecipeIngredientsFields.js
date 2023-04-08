@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { InputForm, SelectForm } from 'commonComponents/InputForm';
+import { useState, useEffect } from 'react';
+import { InputForm, SelectForm } from './AddRecipeForm.styled';
 
 const units = [
   { t: 'g' },
@@ -10,20 +10,8 @@ const units = [
   { t: 'tsp' },
 ];
 
-const myStyle = {
-  display: 'inline-block',
-  width: '40px',
-  height: '40px',
-  backgroundColor: 'DodgerBlue',
-  fontSize: '30px',
-  borderRadius: '50%',
-  textAlign: 'center',
-  alignSelf: 'flex-end',
-};
-
-export const AddIngredientForm = ({
+export const RecipeIngredientsFields = ({
   ingredientList,
-  handleIngredientComplite,
   handleIngredientAdd,
 }) => {
   const defaultValues = {
@@ -32,37 +20,30 @@ export const AddIngredientForm = ({
     unit: '',
   };
 
-  const [filter, setFilter] = useState('');
+  // const [filter, setFilter] = useState('');
   const [data, setData] = useState(defaultValues);
 
-  const filteredingredientList = ingredientList.filter(item =>
-    item.ttl.toLowerCase().includes(filter.toLowerCase())
-  );
+  // const filteredingredientList = ingredientList.filter(item =>
+  //   item.ttl.toLowerCase().includes(filter.toLowerCase())
+  // );
 
-  const handleFilter = e => {
-    setFilter(e.target.value);
-  };
-
-  const handleIndex = e => {
-    setData({ ...data, index: e.target.value });
+  const handleFormData = ({ target: { name, value } }) => {
+    setData({ ...data, [name]: value });
   };
 
-  const handleQuantity = e => {
-    setData({ ...data, quantity: e.target.value });
-  };
-  const handleUnit = e => {
-    setData({ ...data, unit: e.target.value });
-  };
+  // const handleFilter = e => {
+  //   setFilter(e.target.value);
+  // };
 
-  const onSubmit = () => {
-    handleIngredientAdd(data);
-    handleIngredientComplite();
-  };
+  useEffect(() => {
+    if (data.quantity && data.unit) {
+      handleIngredientAdd(data);
+    }
+  }, [data, handleIngredientAdd]);
 
   return (
     <>
-      {' '}
-      <InputForm
+      {/* <InputForm
         type="text"
         name="filter"
         placeholder="Type something here"
@@ -71,19 +52,20 @@ export const AddIngredientForm = ({
         variant="flushed"
         autoComplete="off"
         onChange={handleFilter}
-        fontSize="2xl"
-      />
+        // fontSize="2xl"
+      /> */}
       <div>
         <SelectForm
           name="index"
-          onChange={handleIndex}
+          onChange={handleFormData}
           required
+          width="40%"
           // multiple
           // size="20"
           // height="156px"
           // {...register('index', { required: true })}
         >
-          {filteredingredientList.map((item, idx) => (
+          {ingredientList.map((item, idx) => (
             <option key={idx} value={idx}>
               {item.ttl}
             </option>
@@ -92,9 +74,9 @@ export const AddIngredientForm = ({
         <InputForm
           // {...register('quantity')}
           name="quantity"
-          type="text"
+          type="number"
           placeholder="Type quantity here"
-          onChange={handleQuantity}
+          onChange={handleFormData}
           required
           // size="lg"
           // value={quantity}
@@ -107,10 +89,13 @@ export const AddIngredientForm = ({
           width={'150px'}
           // type="submit"
           name="unit"
-          onChange={handleUnit}
+          onChange={handleFormData}
           required
           // {...register('unit', { required: true })}
         >
+          <option key="a" value="">
+            Select please
+          </option>
           {units.map((item, idx) => (
             <option key={idx} value={item.t}>
               {item.t}
@@ -118,9 +103,6 @@ export const AddIngredientForm = ({
           ))}
         </SelectForm>
       </div>
-      <p type="button" style={myStyle} onClick={onSubmit}>
-        Ok
-      </p>
     </>
   );
 };
