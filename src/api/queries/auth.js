@@ -7,10 +7,11 @@ export const register = async user => {
 
 export const signIn = async user => {
   const { data } = await axios.post('/auth/signin', user);
-  
   return data;
 };
 
 export const logOut = async () => {
-  await axios.get('/auth/logout');
+  try {
+    await axios.get('/auth/logout');
+  } catch (error) {}
 };

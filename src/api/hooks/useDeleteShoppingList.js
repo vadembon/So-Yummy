@@ -1,8 +1,8 @@
 import { shoppingList } from './stubs.js';
 
-export const useDeleteShoppingList = cb => {
+export const useDeleteShoppingList = options => {
   const mutate = ({ id, quantity, unit }) => {
-    cb?.onSuccess?.(shoppingList[0]);
+    options?.onSuccess?.(shoppingList[0]);
   };
   return { mutate, error: null, isLoading: false };
 };

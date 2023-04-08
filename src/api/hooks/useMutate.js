@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { showError } from 'components/Message';
+import { createError } from 'api/helpers';
 
 export const useMutate = (fn, cb) => {
   const [error, setError] = useState(null);
@@ -11,13 +12,14 @@ export const useMutate = (fn, cb) => {
       setError(null);
       const result = await fn(...args);
       cb?.onSuccess?.(result);
-    } catch (err) {
-      const message = err.response?.data.message ?? err.message;
-      const error = new Error(message);
-      error.status = err.response?.status;
-      error.code = err.code;
+    } catch (axiosError) {
+      const error = createError(axiosError);
       setError(error);
-      showError(error);
+      showError(
+        Number(error.status) >= 500
+          ? 'Something went wrong. Try again later.'
+          : error
+      );
       cb?.onError?.(error);
     }
     setIsLoading(false);
