@@ -1,19 +1,14 @@
 import { useMutation } from '@tanstack/react-query';
 import { subscribe } from 'api/queries';
-import { showError, showMessage } from 'components/Message';
+import { showMessage } from 'components/Message';
 
-export const useSubscribe = cb => {
-  const { mutate, error, isLoading } = useMutation({
+export const useSubscribe = options => {
+  return useMutation({
+    ...options,
     mutationFn: subscribe,
     onSuccess: () => {
       showMessage('You`ve successfully subscribed.');
-      cb?.onSuccess();
-    },
-    onError: error => {
-      showError(error);
-      cb?.onError();
+      options?.onSuccess();
     },
   });
-
-  return { mutate, error, isLoading };
 };

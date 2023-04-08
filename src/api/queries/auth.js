@@ -7,7 +7,6 @@ export const register = async user => {
 
 export const signIn = async user => {
   const { data } = await axios.post('/auth/signin', user);
-  
   return data;
 };
 
