@@ -1,99 +1,62 @@
-// import { useState } from 'react';
-import Select from 'react-select';
-// import { useSearchParams } from 'react-router-dom';
-// import styled from 'styled-components';
+import React from 'react';
 
-const customStyles = {
-  control: (provided, state) => ({
-    ...provided,
+import { StyledSelect } from './SearchTypeSelector.styled';
 
-    border: 'none',
-    boxShadow: 'none',
-    borderBottom: state.isFocused ? 'none' : '1px solid #ccc',
-    borderRadius: '5px',
-    minHeight: 'initial',
-    backgroundColor: '#d9d9d9',
-    width: '198px',
-    height: '49px',
-  }),
+// const customStyles = {
+//   control: (provided, state) => ({
+//     ...provided,
 
-  option: (provided, state) => ({
-    ...provided,
-    width: 198,
-    userSelect: 'none',
-    cursor: 'pointer',
-    backgroundColor: 'white',
-    color: 'black',
-    fontSize: '14px',
-    outline: 'none',
-    ':active': {
-      backgroundColor: '#e6e6e6',
-    },
-  }),
+//     border: 'none',
+//     boxShadow: 'none',
+//     borderBottom: state.isFocused ? 'none' : '1px solid #ccc',
+//     borderRadius: '5px',
+//     minHeight: 'initial',
+//     backgroundColor: '#d9d9d9',
+//     width: '198px',
+//     height: '49px',
+//   }),
 
-  dropdownIndicator: provided => ({
-    ...provided,
-    color: '#8BAA36',
-    paddingRight: '14px',
-    paddingLeft: 0,
-    ':before': {
-      content: 'none',
-    },
-    ':after': {
-      content: 'none',
-    },
-  }),
+//   option: (provided, state) => ({
+//     ...provided,
+//     width: 198,
+//     userSelect: 'none',
+//     cursor: 'pointer',
+//     backgroundColor: 'white',
+//     color: 'black',
+//     fontSize: '14px',
+//     outline: 'none',
+//     ':active': {
+//       backgroundColor: '#e6e6e6',
+//     },
+//   }),
 
-  // singleValue: (provided, state) => ({
-  //   ...provided,
-  //   // backgroundColor: 'yellow', // изменение цвета выделения
-  //   color: 'black', // изменение цвета текста выбранного значения
-  //   fontWeight: 'bold', // изменение стиля шрифта
-  //   fontSize: '18px', // изменение размера шрифта
-  // }),
+//   dropdownIndicator: provided => ({
+//     ...provided,
+//     color: '#8BAA36',
+//     paddingRight: '14px',
+//     paddingLeft: 0,
+//     ':before': {
+//       content: 'none',
+//     },
+//     ':after': {
+//       content: 'none',
+//     },
+//   }),
 
-  menu: provided => ({
-    ...provided,
-    width: 198, // задаем желаемую ширину
-    border: 'none', // убираем рамку
-    boxShadow: 'none', // убираем тень
-    backgroundColor: 'white',
-    color: 'black',
-  }),
+//   menu: provided => ({
+//     ...provided,
+//     width: 198, // задаем желаемую ширину
+//     border: 'none', // убираем рамку
+//     boxShadow: 'none', // убираем тень
+//     backgroundColor: 'white',
+//     color: 'black',
+//   }),
 
-  indicatorSeparator: provided => ({
-    ...provided,
-    display: 'none',
-  }),
-};
-
-// const StyledSelect = styled(Select)`
-//   .react-select__control {
-//     border: none;
-//     border-radius: 0;
-//     box-shadow: none;
-//     &:hover {
-//       border: none;
-//     }
-//   }
-//   .react-select__menu {
-//     border: none;
-//     box-shadow: none;
-//     margin-top: 0;
-//   }
-//   .react-select__option {
-//     color: #000;
-//     &:hover {
-//       background-color: #f2f2f2;
-//     }
-//   }
-
-//   .Select__menu {
-//     color: #3c3d3e;
-//     height: 49px;
-//     width: 198px;
-//   }
-// `;
+//   indicatorSeparator: provided => ({
+//     ...provided,
+//     display: 'none',
+//   }),
+// };
 
 const SearchTypeSelector = ({ onChange, selectedOption }) => {
   const options = [
@@ -114,13 +77,12 @@ const SearchTypeSelector = ({ onChange, selectedOption }) => {
   };
 
   return (
-    <Select
-      // classNamePrefix="Select"
+    <StyledSelect
+      classNamePrefix="Select"
       options={options}
       value={selectedOption}
       onChange={handleOptionChange}
       defaultValue={{ value: 'title', label: 'Title' }}
-      styles={customStyles}
       isSearchable
     />
   );

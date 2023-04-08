@@ -26,7 +26,7 @@ export const theme = Object.freeze({
     whiteText: '#ffffff',
 
     normalDark: '#1E1F28', // buttons
-    normalGrey: '#D9D9D9', // buttons, background in add recipy
+    normalGrey: '#f0f0f0', // buttons, background in add recipy, search
     darkAccent: '#22252A', // footer
     greenAccent: '#8BAA36', // buttons  , footer in darkTheme
 
