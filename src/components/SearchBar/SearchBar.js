@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+// import { ToastContainer, toast } from 'react-toastify';
 
-import 'react-toastify/dist/ReactToastify.css';
+// import 'react-toastify/dist/ReactToastify.css';
 
 import { SearchForm } from 'components/SearchForm';
 import SearchTypeSelector from 'components/SearchTypeSelector/SearchTypeSelector';
@@ -12,7 +12,7 @@ import { useRecipes } from 'api/hooks';
 
 export const SearchBar = () => {
   const { state } = useLocation();
-  const [recipes, setRecipes] = useState([]);
+  // const [recipes, setRecipes] = useState([]);
   const [selectedOption, setSelectedOption] = useState({
     value: state ? 'ingredient' : 'title',
     label: state ? 'Ingredient' : 'Title',
@@ -25,13 +25,13 @@ export const SearchBar = () => {
   const { data, isLoading } = useRecipes(filter);
 
   console.log(data);
-  useEffect(() => {
-    if (!data || data.length === 0) {
-      toast('Not found recipes! Try again!');
-    } else {
-      setRecipes(data);
-    }
-  }, [data]);
+  // useEffect(() => {
+  //   if (!data || data.length === 0) {
+  //     toast('Not found recipes! Try again!');
+  //   } else {
+  //     setRecipes(data);
+  //   }
+  // }, [data]);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -65,10 +65,10 @@ export const SearchBar = () => {
             selectedOption={selectedOption}
           />
         </WrapperSelector>
-        <ToastContainer />
+        {/* <ToastContainer /> */}
       </WrapperSearchBar>
       {isLoading && <div>Loading...</div>}
-      {data && <SearchedRecipesList items={recipes} />}
+      {data && <SearchedRecipesList items={data} />}
     </>
   );
 };
