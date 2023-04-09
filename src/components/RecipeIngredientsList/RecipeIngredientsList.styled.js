@@ -3,7 +3,8 @@ import { BsCheck } from 'react-icons/bs';
 
 export const IngredientsList = styled.div`
   margin-bottom: 24px;
-
+  margin-top: 50px;
+  
   background-color: #8baa36;
   border-radius: 8px;
 
@@ -14,8 +15,8 @@ export const IngredientsList = styled.div`
 `;
 
 export const Ingredients = styled.p`
-  ${props => props.theme.fonts.primary}
-  ${props => props.theme.fontSizes[3]}px;
+  font-family: ${props => props.theme.fonts.primary};
+  font-size: ${props => props.theme.fontSizes[3]};
   line-height: 27px;
   padding-top: 21px;
   padding-bottom: 21px;
@@ -31,8 +32,8 @@ export const Ingredients = styled.p`
 `;
 
 export const Number = styled.p`
-  ${props => props.theme.fonts.primary}
-  ${props => props.theme.fontSizes[3]}px;
+  font-family: ${props => props.theme.fonts.primary};
+  font-size: ${props => props.theme.fontSizes[3]};
   line-height: 27px;
   color: #fafafa;
   padding-top: 21px;
@@ -46,8 +47,8 @@ export const Number = styled.p`
 `;
 
 export const AddToList = styled.p`
-  ${props => props.theme.fonts.primary}
-  ${props => props.theme.fontSizes[3]}px;
+  font-family: ${props => props.theme.fonts.primary};
+  font-size: ${props => props.theme.fontSizes[3]};
   line-height: 27px;
   color: #fafafa;
   padding-top: 21px;
@@ -72,6 +73,8 @@ export const IngedientsListUl = styled.ul`
 `;
 
 export const IngedientsItemLi = styled.li`
+border-radius: 8px;
+  background: #ebf3d4;
   display: flex;
   width: 100%;
   padding: 14px 29px 14px 14px;
@@ -106,8 +109,8 @@ export const Wrap = styled.div`
 `;
 
 export const IngedientsTitle = styled.p`
-  ${props => props.theme.fonts.primary}
-  ${props => props.theme.fontSizes[3]}px;
+  font-family: ${props => props.theme.fonts.primary};
+  font-size: ${props => props.theme.fontSizes[3]};
 
   line-height: 1.16;
   max-width: 200px;
@@ -125,8 +128,10 @@ export const IngedientsMeasure = styled.span`
   margin-right: 28px;
   border-radius: 4px;
   padding: 4px;
-  ${props => props.theme.fonts.primary}
-  ${props => props.theme.fontSizes[3]}px;
+  font-family: ${props => props.theme.fonts.primary};
+  font-size: ${props => props.theme.fontSizes[3]};
+  background-color: #8baa36;
+  color: #fafafa;
   line-height: 1.5;
   @media (min-width: 768px) {
     font-size: 18px;
@@ -170,7 +175,7 @@ export const IngedientsCheck = styled.input`
 export const CheckBoxLabel = styled.label`
   display: flex;
   ${IngedientsCheck}:checked + ${CheckBoxWrap} {
-    /* color: ${({ theme }) => `${theme.colors.accent}`}; */
+    color: #8baa36;
   }
 `;
 

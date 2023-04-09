@@ -28,17 +28,17 @@ export const RecipeIngredientsList = ({ ingredients }) => {
 
       <IngedientsListUl>
         {ingredients &&
-          ingredients.map(({ thb, _id, measure, desc }) => {
+          ingredients.map(({ thb, _id, measure, ttl }) => {
             return (
               <IngedientsItemLi key={_id}>
                 <Wrap>
                   {<IngedientsImg src={thb ? thb : ''} alt="Ingredient" />}
-                  <IngedientsTitle>{desc}</IngedientsTitle>
+                  <IngedientsTitle>{ttl}</IngedientsTitle>
                 </Wrap>
                 <Wrap>
                   <IngedientsMeasure>{measure}</IngedientsMeasure>
-                  <CheckBoxLabel htmlFor={desc}>
-                    <IngedientsCheck type="checkbox" id={desc} />
+                  <CheckBoxLabel htmlFor={ttl}>
+                    <IngedientsCheck type="checkbox" id={ttl} />
                     <CheckBoxWrap>
                       <CheckMarkIcon />
                     </CheckBoxWrap>
