@@ -61,7 +61,7 @@ import { StyledSelect } from './SearchTypeSelector.styled';
 const SearchTypeSelector = ({ onChange, selectedOption }) => {
   const options = [
     { value: 'title', label: 'Title' },
-    { value: 'ingredients', label: 'Ingredients' },
+    { value: 'ingredient', label: 'Ingredients' },
   ];
   // const [searchParams, setSearchParams] = useSearchParams();
   // const [selectedOption, setSelectedOption] = useState({
@@ -83,6 +83,7 @@ const SearchTypeSelector = ({ onChange, selectedOption }) => {
       value={selectedOption}
       onChange={handleOptionChange}
       defaultValue={{ value: 'title', label: 'Title' }}
+      // styles={customStyles}
       isSearchable
     />
   );

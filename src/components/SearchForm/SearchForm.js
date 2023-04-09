@@ -8,7 +8,7 @@ export const SearchForm = ({ onSubmit, color, defaultValue = '' }) => {
   return (
     <SearchFormSection onSubmit={onSubmit}>
       <SearchInput
-        name="searchQuery"
+        name="query"
         defaultValue={defaultValue}
         // onChange={onChange}
         required

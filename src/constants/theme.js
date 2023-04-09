@@ -60,7 +60,7 @@ export const theme = Object.freeze({
     minDevice: '320px',
     mobile: '425px',
     tablet: '768px',
-    desktop: '1024px',
+    desktop: '1440px',
   },
 
   breakPoints: {
