@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 import { theme } from '../../constants/theme';
 
 export const ChooseYourBreakfastContainer = styled.div`
-  position: relative;
+  z-index: 5;
+  position: absolute;
+  right: 25px;
+  top: 280px;
   width: 225px;
   height: 92px;
   padding: 8px;
@@ -18,7 +21,7 @@ export const ChooseYourBreakfastContainer = styled.div`
     width: 261px;
     height: 100px;
     right: 40px;
-    top: 353px;
+    top: 372px;
     margin: 0px;
   }
 
@@ -26,15 +29,15 @@ export const ChooseYourBreakfastContainer = styled.div`
     padding: 16px;
     width: 298px;
     height: 114px;
-    right: 80px;
-    top: 460px;
+    right: 122px;
+    top: 462px;
   }
 `;
 
 export const ChooseYourBreakfastText = styled.p`
   width: auto;
   font-weight: 500;
-  font-size: 13.5px;
+  font-size: 12px;
   line-height: 18px;
   /* or 150% */
 
@@ -45,7 +48,6 @@ export const ChooseYourBreakfastText = styled.p`
   }
 
   @media screen and (min-width: 768px) {
-    width: auto;
     font-size: 14px;
   }
 
@@ -55,9 +57,11 @@ export const ChooseYourBreakfastText = styled.p`
 `;
 
 export const ChooseYourBreakfastLink = styled(Link)`
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
   font-size: 10px;
   line-height: 12px;
-  /* identical to box height, or 120% */
 
   display: flex;
   align-items: center;
@@ -74,8 +78,12 @@ export const ChooseYourBreakfastLink = styled(Link)`
   }
 
   @media screen and (min-width: 768px) {
+    right: 12px;
+    bottom: 12px;
   }
 
   @media screen and (min-width: 1440px) {
+    right: 16px;
+    bottom: 16px;
   }
 `;

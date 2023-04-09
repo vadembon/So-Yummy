@@ -5,7 +5,7 @@ import imgDesk from '../../../images/soYummy/spinach_top_left_1x_desk.png';
 
 export const LeftleavesDiv = styled.div`
   position: absolute;
-  top: 0px;
+  top: 35px;
   left: 0;
   z-index: -2;
   width: 48px;

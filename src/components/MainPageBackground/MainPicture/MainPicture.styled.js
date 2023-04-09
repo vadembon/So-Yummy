@@ -7,9 +7,8 @@ export const MainPictureDiv = styled.div`
   position: absolute;
   width: 320px;
   height: 296px;
-  top: 250px;
+  top: 322px;
   left: 50%;
-
   z-index: -1;
   background-size: contain;
 
@@ -20,7 +19,7 @@ export const MainPictureDiv = styled.div`
     width: 378px;
     height: 351px;
     left: 100%;
-    top: 140px;
+    top: 159px;
     transform: translateX(-100%);
     background-image: url(${imgTab});
   }
@@ -28,7 +27,7 @@ export const MainPictureDiv = styled.div`
   @media screen and (min-width: 1440px) {
     width: 578px;
     height: 539px;
-    left: 90%;
+    left: 87%;
     top: 126px;
     background-image: url(${imgDesk});
   }

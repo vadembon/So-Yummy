@@ -27,11 +27,15 @@ export const SearchInput = styled.input`
   border-radius: 60px 120px 60px 120px;
 
   @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 24px;
     width: 369px;
     height: 59px;
   }
 
   @media screen and (min-width: 1440px) {
+    font-size: 16px;
+    line-height: 24px;
     width: 510px;
     height: 70px;
   }

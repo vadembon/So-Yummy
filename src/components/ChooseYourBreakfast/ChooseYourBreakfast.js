@@ -1,3 +1,4 @@
+import { createPortal } from 'react-dom';
 import { ReactComponent as Icon } from '../../images/commonSvgImg/icon-arrow-right.svg';
 import {
   ChooseYourBreakfastContainer,
@@ -5,8 +6,10 @@ import {
   ChooseYourBreakfastLink,
 } from './ChooseYourBreakfast.styled';
 
+const mainContainer = document.querySelector('#main-bg');
+
 const ChooseYourBreakfast = () => {
-  return (
+  return createPortal(
     <ChooseYourBreakfastContainer>
       <ChooseYourBreakfastText>
         <span>Delicious and healthy</span> way to enjoy <br />a variety of fresh
@@ -16,7 +19,8 @@ const ChooseYourBreakfast = () => {
         See recipes
         <Icon style={{ stroke: 'inherit' }} />
       </ChooseYourBreakfastLink>
-    </ChooseYourBreakfastContainer>
+    </ChooseYourBreakfastContainer>,
+    mainContainer
   );
 };
 
