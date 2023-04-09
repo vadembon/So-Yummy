@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import { ToastContainer } from 'react-toastify';
 
@@ -59,7 +59,8 @@ export const App = () => {
           <Route path="my" element={<MyRecipesPage />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="shopping-list" element={<ShoppingListPage />} />
-          <Route path="*" element={<Navigate to={<NotFoundPage />} />} />
+          <Route path="404" element={<NotFoundPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
       <ToastContainer />

@@ -4,21 +4,17 @@ import { useRecipeDetails } from 'api/hooks';
 import { RecipeIngredientsList } from 'components/RecipeIngredientsList';
 import { RecipePageHero } from 'components/RecipePageHero';
 import { RecipePreparation } from 'components/RecipePreparation';
-
- /* export const RecipePage = () => {
- const recipe = useRecipeDetails('640cd5ac2d9fecf12e8897fc'); */
+import { Loader } from 'components/Loader';
 
 export const RecipePage = () => {
   const { recipeId } = useParams();
   const recipe = useRecipeDetails(recipeId);
 
   if (recipe.isLoading) {
-    // Данные с сервера еще не загрузились, нужно показывать лоадер
-    return <p>Loading... Когда начнет приходить id из строки браузера, страница будет рендерится. </p>;
+    return <Loader></Loader>;
   }
 
   if (recipe.data) {
-    // Данные уже пришли, рендерим рецепт
     /* const {
       title,
       description,
@@ -29,7 +25,7 @@ export const RecipePage = () => {
       ingredients,
     } = recipe.data; */
 
-  //  console.log(recipe.data[0].title);
+    //  console.log(recipe.data[0].ingredients);
 
     return (
       <div>

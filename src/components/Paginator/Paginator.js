@@ -1,57 +1,24 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Container, Button } from './Paginator.styled.js';
 
-export const Paginator = ({ count }) => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const queryParams = new URLSearchParams(location.search);
-  const currentPage = parseInt(queryParams.get('page') || 1);
-
-  const handlePageChange = newPage => {
-    const newQueryParams = new URLSearchParams(location.search);
-    newQueryParams.set('page', newPage);
-    navigate.push(`${location.pathname}?${newQueryParams.toString()}`);
-  };
-
-  const handlePrevClick = () => {
-    if (currentPage > 1) {
-      handlePageChange(currentPage - 1);
-    }
-  };
-
-  const handleNextClick = () => {
-    if (currentPage < count) {
-      handlePageChange(currentPage + 1);
-    }
-  };
-
-  if (count <= 1) {
-    return null;
-  }
-
+export const Paginator = ({
+  page,
+  handleNextPage,
+  handlePrevPage,
+  ownRecipes,
+  limit,
+}) => {
   return (
-    <div className="flex justify-center mt-4">
-      <button
-        className={`mr-4 ${
-          currentPage === 1 ? 'opacity-50 cursor-default' : ''
-        }`}
-        onClick={handlePrevClick}
-        disabled={currentPage === 1}
-      >
+    <Container>
+      <Button disabled={page === 1} onClick={handlePrevPage}>
         Prev
-      </button>
-      <span className="text-gray-500">
-        Page {currentPage} of {count}
-      </span>
-      <button
-        className={`ml-4 ${
-          currentPage === count ? 'opacity-50 cursor-default' : ''
-        }`}
-        onClick={handleNextClick}
-        disabled={currentPage === count}
+      </Button>
+      <Button
+        disabled={!ownRecipes || ownRecipes.length < limit}
+        onClick={handleNextPage}
       >
         Next
-      </button>
-    </div>
+      </Button>
+    </Container>
   );
 };
