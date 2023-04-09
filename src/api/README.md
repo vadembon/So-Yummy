@@ -346,7 +346,7 @@ mutate(id);
 
 ---
 
-## SHOPIING LIST
+## SHOPPING LIST
 
 ### _Shopping list_: `GET/shopping-list`
 
@@ -362,14 +362,14 @@ const { data, error, isLoading } = useShoppingList();
 ### _Add to shopping list_: `POST/shopping-list`
 
 - **header**: `{Authorization: 'Bearer <token>'}`
-- **body**: `{id, recipe, measure}`
+- **body**: `{id, ttl, thb, recipe, measure}`
 - **response**: `{id, ttl, thb, recipe, measure}`
 
 ```js
 import { useAddShoppingList } from './api/hooks';
 
 const { mutate, error, isLoading } = useAddShoppingList();
-mutate({ id, recipe, measure });
+mutate({ id, ttl, thb, recipe, measure });
 ```
 
 ### _Delete from shopping list_: `DELETE/shopping-list/:id`
