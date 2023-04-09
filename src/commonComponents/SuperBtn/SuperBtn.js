@@ -14,6 +14,8 @@ const SuperBtn = ({
   disabled = false,
   children,
   statefrom,
+  color,
+  hoverColor,
 }) => {
   const SuperButton = styled(lnk ? Link : 'button')`
     display: inline-flex;
@@ -26,10 +28,10 @@ const SuperBtn = ({
     font-size: inherit;
     line-height: inherit;
     cursor: pointer;
-    background-color: #8baa36;
+    background-color: ${color || '#8baa36'};
     &:hover {
       color: white;
-      background-color: grey;
+      background-color: ${hoverColor || 'grey'};
       scale: 1.1;
     }
     ${otln &&
@@ -39,7 +41,7 @@ const SuperBtn = ({
       background-color: transparent;
       &:hover {
         color: white;
-        background-color: #8baa36;
+        background-color: ${color || '#8baa36'};
       }
     `}
     ${otlnInv &&
@@ -47,7 +49,7 @@ const SuperBtn = ({
       border: 2px solid white;
       background-color: transparent;
       &:hover {
-        border: 2px solid #8baa36;
+        border: 2px solid ${color || '#8baa36'};
         color: green;
         background-color: transparent;
       }
@@ -56,7 +58,7 @@ const SuperBtn = ({
     css`
       background-color: black;
       &:hover {
-        background-color: #8baa36;
+        background-color: ${color || '#8baa36'};
       }
     `}
     ${welcome &&
@@ -68,7 +70,7 @@ const SuperBtn = ({
       }
     `}
     &:hover:disabled {
-      background-color: grey;
+      background-color: ${hoverColor || 'grey'};
     }
     ${lnk &&
     css`
@@ -80,12 +82,12 @@ const SuperBtn = ({
     css`
       border: none;
       &:disabled {
-        background-color: grey;
+        background-color: ${hoverColor || 'grey'};
         color: black;
         cursor: not-allowed;
       }
     `}
-    background-color: ${lnk ? '#8baa36' : 'transparent'};
+    background-color: ${lnk ? color || '#8baa36' : 'transparent'};
     color: ${lnk ? 'white' : 'inherit'};
   `;
 
