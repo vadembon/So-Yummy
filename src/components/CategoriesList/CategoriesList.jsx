@@ -3,6 +3,8 @@
 
 // import { Link } from 'react-router-dom';
 // import { useEffect } from 'react';
+import { useRef } from 'react';
+import { useDraggable } from 'react-use-draggable-scroll';
 import {
   CategoriesListWrap,
   CategoryList,
@@ -32,13 +34,17 @@ import {
 // };
 
 export const CategoriesList = props => {
+
+  const tabRef = useRef();
+  const { events } = useDraggable(tabRef);
   return (
     <>
       <CategoriesListWrap>
-        <CategoryList value={props.value}>
+        <CategoryList value={props.value} {...events} ref={tabRef}>
           {props.categories?.map(({ _id: id, name }) => (
             <CategoryListItem key={id}>
               <CategoryLink
+                className={props.value === name ? 'active' : ''}
                 label={name}
                 value={name}
                 to={`/categories/${name}`}
