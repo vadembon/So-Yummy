@@ -6,9 +6,9 @@ import imgDesk from '../../../images/soYummy/bg_top_right_1x_desk.png';
 export const Backgroundleaves = styled.div`
   position: absolute;
   min-width: 306px;
-  height: 620px;
+  height: 660px;
   left: 68px;
-  top: 120px;
+  top: 175px;
   right: 0px;
 
   /* transform: rotate(42deg); */
@@ -20,13 +20,14 @@ export const Backgroundleaves = styled.div`
   /* background-size: cover; */
 
   @media screen and (min-width: 768px) {
-    top: 0px;
+    top: -10px;
     background-image: url(${imgTab});
   }
 
   @media screen and (min-width: 1440px) {
     top: -55px;
-    min-width: 914px;
+    mix-width: 730px;
+    left: 710px;
     min-height: 799px;
     background-image: url(${imgDesk});
   }

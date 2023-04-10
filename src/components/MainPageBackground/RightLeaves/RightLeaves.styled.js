@@ -7,7 +7,7 @@ export const RightLeavesDiv = styled.div`
   position: absolute;
   min-width: 375px;
   min-height: 713px;
-  top: 0px;
+  top: 50px;
   right: 0px;
   z-index: -2;
   margin-left: 0;
@@ -18,7 +18,7 @@ export const RightLeavesDiv = styled.div`
   background-size: cover;
 
   @media screen and (min-width: 768px) {
-    top: -40px;
+    top: -35px;
     min-width: 605px;
     min-height: 690px;
     background-image: url(${imgTab});
