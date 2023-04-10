@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
-import { useOwnRecipes } from '../../api/hooks';
+import { useOwnRecipes, useDeleteOwnRecipe } from '../../api/hooks';
 import { MyRecipesItem } from '../MyRecipesItem/MyRecipesItem';
 import { Paginator } from '../Paginator/Paginator';
-import {
-  MyRecipe,
-  // NoRecipesImg,
-  // Image,
-  CardList,
-  NoRecipesText,
-} from './MyRecipesList.styled.js';
-// import noRecipesImage from '../../images/norecipes/noRecipesImg.png';
+import { MyRecipe, CardList, NoRecipesText } from './MyRecipesList.styled.js';
 
 export const MyRecipesList = () => {
   const [page, setPage] = useState(1);
   const [limit] = useState(4);
 
   const { data: ownRecipes, isLoading } = useOwnRecipes({ page, limit });
+
+  const { mutate } = useDeleteOwnRecipe();
+
+  const deleteRecipe = id => {
+    mutate(id);
+  };
 
   const handleNextPage = () => {
     setPage(page => page + 1);
@@ -30,24 +29,21 @@ export const MyRecipesList = () => {
       <div>
         <CardList>
           {isLoading && <p>Loading...</p>}
-          {!isLoading && ownRecipes && ownRecipes.length === 0 && (
-            <>
-              {/* <NoRecipesImg /> */}
-              {/* <Image src={noRecipesImage} /> */}
-              <NoRecipesText>You don't have any recipe.</NoRecipesText>
-            </>
+          {!isLoading && ownRecipes.length === 0 && (
+            <NoRecipesText>You don't have any recipe.</NoRecipesText>
           )}
           {!isLoading &&
             ownRecipes &&
             ownRecipes.map(recipe => (
               <MyRecipesItem
-                key={recipe.id}
+                id={recipe._id}
                 thumb={recipe.thumb}
                 category={recipe.category}
                 title={recipe.title}
                 description={recipe.description}
                 time={recipe.time}
                 previewHeight="auto"
+                handleDelete={() => deleteRecipe(recipe._id)}
               />
             ))}
         </CardList>

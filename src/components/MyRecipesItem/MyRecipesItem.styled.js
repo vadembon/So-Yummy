@@ -4,27 +4,19 @@ export const CardItem = styled.li`
   display: flex;
   list-style-type: none;
   justify-content: space-between;
-   background: #ffffff;
-    border-radius: 8px;
-    // padding: 14px;
-  // :first-child {
-  //   margin-top: 50px;
-  // }
-  // :not(:last-child) {
-  //   margin-bottom: 18px;
-  // :last-child{
-  //   margin-bottom: 0;
+  height: 152px;
+  padding: 14px 9px;
+  background: #ffffff;
+  border-radius: 8px;
   }
   @media screen and (min-width: 768px) {
     height: 288px;
     margin-bottom: 40px;
-    padding: 28px;
+    padding: 28px 24px;
   }
   @media screen and (min-width: 1440px) {
     height: 404px;
     margin-bottom: 50px;
-    padding: 40px;
-      width: 1240px;
   }
 `;
 
@@ -47,24 +39,26 @@ export const ImgContainer = styled.div`
 `;
 
 export const ImageCard = styled.img`
-  //   height: 100%;
+  // object-fit: cover;
+  // width: 318px;
+  // height: 324px;
+  // flex: none;
+  // order: 0;
+  // flex-grow: 0;
+  display: block;
+  height: auto;
   border-radius: 8px;
   object-fit: cover;
-  width: 318px;
-  height: 324px;
-  //   background: url(mink-mingle-LGNxQzYmeUk-unsplash.jpg);
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  // @media screen and (min-width: 768px) {
-  //   width: 250px;
-  //   height: 288px;
-  // }
-
-  // @media screen and (min-width: 1440px) {
-  //   width: 340px;
-  //   height: 372px;
-  // }
+  width: 124px;
+  heigth: 124px;
+  @media screen and (min-width: 768px) {
+    width: 228px;
+    heigth: 232px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 318px;
+    heigth: 324px;
+  }
 `;
 
 export const MainContainer = styled.div`
@@ -75,26 +69,6 @@ export const MainContainer = styled.div`
   padding: 40px 0px 40px 40px;
   gap: 14px;
   position: relative;
-  // height: 404px;
-  // flex-direction: row;
-  // align-items: flex-start;
-  // left: 100px;
-  // top: 762px;
-  // width: 209px;
-  // height: 152px;
-  // padding: 14px;
-  // @media screen and (min-width: 768px) {
-  //   padding-left: 24px;
-  //   width: 446px;
-  //   height: 288px;
-  //   padding: 28px;
-  // }
-  // @media screen and (min-width: 1440px) {
-  //   padding-left: 54px;
-  //   width: 886px;
-  //   height: 372px;
-  //   padding: 40px;
-  // }
 `;
 
 export const WrapperButtons = styled.div`
@@ -107,23 +81,8 @@ export const WrapperButtons = styled.div`
 
 export const TitleRecipe = styled.h3`
   display: block;
-  //   font-size: 14px;
-  //   line-height: 14px;
-  //   letter-spacing: -0.02em;
-  //   left: 14px;
-  //   padding-right: 24px;
-  //   @media screen and (min-width: 768px) {
-  //     left: 24px;
-  //     font-size: 24px;
-  //     line-height: 24px;
-  //     padding-right: 38px;
-  //   }
-  //   @media screen and (min-width: 1440px) {
-  //     left: 54px;
-  //     padding-right: 44px;
-  //   }
   position: absolute;
-  width: 271px;
+  width: 301px;
   height: 24px;
   left: 40px;
   top: 0px;
@@ -173,10 +132,6 @@ export const ButtonDelete = styled.div`
 `;
 
 export const Text = styled.p`
-  // display: block;
-  //   font-size: 8px;
-  //   line-height: 10px;
-  //   letter-spacing: -0.02em;
   overflow: auto;
   width: 806px;
   height: 72px;
@@ -194,15 +149,9 @@ export const WrapperUp = styled.div`
   flex-grow: 2;
   justify-content: space-between;
   align-items: flex-end;
-  // margin-top: 8px;
 `;
 
 export const Time = styled.p`
-  //   display: flex;
-  //   flex-grow: 2;
-  //   justify-content: space-between;
-  //   align-items: flex-end;
-  //   margin-top: 8px;
   width: 67px;
   height: 20px;
   font-family: 'Poppins';
@@ -215,15 +164,6 @@ export const Time = styled.p`
   flex: none;
   order: 0;
   flex-grow: 0;
-  // @media screen and (min-width: 768px) {
-  //   font-size: 14px;
-  //   line-height: 20px;
-  // }
-
-  // @media screen and (min-width: 1440px) {
-  //   font-size: 14px;
-  //   line-height: 20px;
-  // }
 `;
 
 // export const BtnWrapper = styled.div`
@@ -253,13 +193,7 @@ export const SuperBtnWrapper = styled.div`
 `;
 
 export const BtnSeeRecipe = styled.button`
-  //   width: 24px;
-  //   height: 24px;
-  //   border-radius: 4px;
-  //   border: none;
   outline: none;
-  //   padding: 5px;
-  //   color: green;
   position: absolute;
   width: 172px;
   height: 59px;
