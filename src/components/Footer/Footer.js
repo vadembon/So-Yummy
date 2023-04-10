@@ -6,23 +6,30 @@ import { SubscribeForm } from './SubscribeForm';
 import { FollowUs } from './FollowUs';
 import { Rights } from './Rights';
 
-import { ContainerDots } from 'commonComponents/BackgroundDots/BackgroundDots.styled';
-import { FoterStyle, FoterBox } from './Footer.styled';
+// import { Container } from 'commonComponents/Container';
+import {
+  FooterStyle,
+  FoterBox,
+  TitleContainer,
+  MainFooterContainer,
+} from './Footer.styled';
 
 export const Footer = () => {
   return (
-    <ContainerDots>
-      <FoterStyle>
-        <FoterBox>
-          <Title />
-
-          <Navigation />
-
+    // <Container>
+    <FooterStyle>
+      <FoterBox>
+        <MainFooterContainer>
+          <TitleContainer>
+            <Title />
+            <Navigation />
+          </TitleContainer>
           <SubscribeForm />
-          <FollowUs />
-        </FoterBox>
-        <Rights />
-      </FoterStyle>
-    </ContainerDots>
+        </MainFooterContainer>
+        <FollowUs />
+      </FoterBox>
+      <Rights />
+    </FooterStyle>
+    // </Container>
   );
 };
