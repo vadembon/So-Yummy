@@ -15,7 +15,7 @@ export const RecipePage = () => {
   }
 
   if (recipe.data) {
-    /* const {
+    const {
       title,
       description,
       favorites,
@@ -23,24 +23,30 @@ export const RecipePage = () => {
       instructions,
       thumb,
       ingredients,
-    } = recipe.data; */
+      isFavorite,
+      _id,
+    } = recipe.data;
 
-    //  console.log(recipe.data[0].ingredients);
+    console.log(recipe.data._id);
+    console.log(recipe.data.isFavorite);
+    console.log(recipe.data);
 
     return (
       <div>
         <RecipePageHero
-          title={recipe.data[0].title}
-          description={recipe.data[0].description}
-          favorites={recipe.data[0].favorites}
-          time={recipe.data[0].time}
+          _id={_id}
+          isFavorite={isFavorite}
+          title={title}
+          description={description}
+          favorites={favorites}
+          time={time}
         ></RecipePageHero>
         <RecipeIngredientsList
-          ingredients={recipe.data[0].ingredients}
+          ingredients={ingredients}
         ></RecipeIngredientsList>
         <RecipePreparation
-          description={recipe.data[0].instructions}
-          foto={recipe.data[0].thumb}
+          description={instructions}
+          foto={thumb}
         ></RecipePreparation>
       </div>
     );
