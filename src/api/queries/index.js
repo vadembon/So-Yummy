@@ -16,3 +16,6 @@ export * from './subscribe';
 export * from './getOwnRecipes';
 export * from './addOwnRecipe';
 export * from './deleteOwnRecipe';
+export * from './getShoppingList';
+export * from './addShoppingList';
+export * from './deleteShoppingList';
