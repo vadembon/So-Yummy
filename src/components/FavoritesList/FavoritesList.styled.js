@@ -1,32 +1,76 @@
 import styled from 'styled-components';
 
 export const FavoritesContainer = styled.div`
+  padding: 50px 0px 100px;
   display: flex;
+  align-items: center;
   flex-direction: column;
-  padding: 50px 16px 100px;
+  width: 343px;
+  height: auto;
+  margin: 0 auto;
   @media screen and (min-width: 768px) {
+    padding: 72px 0px 200px;
+    width: 704px;
   }
 
   @media screen and (min-width: 1440px) {
+    padding: 100px 0px 100px;
+    width: 1240px;
+  }
+`;
+
+export const FavoritTitle = styled.h3`
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  color: #001833;
+
+  margin: 50px auto 50px 0px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
+    line-height: 32px;
+
+    margin: 72px auto 100px 0px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 44px;
+    line-height: 44px;
+
+    margin: 100px auto 100px 0px;
   }
 `;
 
 export const FavoritesListContent = styled.ul`
-  display: grid;
-  grid-template-columns: 343px;
-  grid-template-rows: repeat(4, 152px);
-  grid-column-gap: 0px;
-  grid-row-gap: 18px;
+  display: flex;
+  flex-direction: column;
+  width: 343px;
+  gap: 18px;
 
   @media screen and (min-width: 768px) {
-    grid-template-columns: 704px;
-    grid-template-rows: repeat(4, 228px);
-    grid-row-gap: 40px;
+    width: 704px;
+    gap: 40px;
   }
 
   @media screen and (min-width: 1440px) {
-    grid-template-columns: 1240px;
-    grid-template-rows: repeat(4, 404px);
-    grid-row-gap: 50px;
+    width: 1240px;
+    gap: 50px;
+  }
+`;
+
+export const FavoritesItemContent = styled.div`
+  min-width: 343px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    padding: 28px 24px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 1240px;
+    padding: 40px;
   }
 `;

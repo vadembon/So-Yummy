@@ -1,19 +1,37 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import {
+  ImageFavoriteCard,
+  FavoritesContentWrapper,
+  FavoriteDishTitel,
+  FavoriteDescription,
+  FavoriteTime,
+} from './FavoritesItem.styled';
+import SuperBtn from 'commonComponents/SuperBtn/SuperBtn';
 
-export const FavoritesItem = ({ id, image, title }) => {
+export const FavoritesItem = ({
+  id,
+  image,
+  title,
+  time,
+  description,
+  handleDelete,
+}) => {
   return (
     <>
-      <div>
-        <Link to={`/recipe/${title}`}>
-          <img src={image} alt={title} />
-          <h3>{title}</h3>
-          {title.length > 30 && (
-            <div>
-              <p>{title}</p>
-            </div>
-          )}
-        </Link>
-      </div>
+      <FavoritesContentWrapper>
+        <ImageFavoriteCard src={image} alt={title} />
+        <div>
+          <FavoriteDishTitel to={`/recipe/${id}`}>{title}</FavoriteDishTitel>
+          <FavoriteDescription>{description}</FavoriteDescription>
+          <FavoriteTime>{time} min</FavoriteTime>
+          <SuperBtn
+            color="#22252A"
+            hoverColor="#8baa36"
+            title="See recipe"
+            lnk
+          />
+        </div>
+      </FavoritesContentWrapper>
     </>
   );
 };

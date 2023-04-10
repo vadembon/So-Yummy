@@ -1,4 +1,83 @@
-// import styled from 'styled-components';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+export const ImageFavoriteCard = styled.img`
+  width: 124px;
+  height: 124px;
+  border-radius: 8px;
+  @media screen and (min-width: 768px) {
+    width: 228px;
+    height: 232px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 318px;
+    height: 324px;
+  }
+`;
+
+export const FavoriteDishTitel = styled(Link)`
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: -0.24px;
+  color: #3e4462;
+  padding-bottom: 14px;
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    margin-bottom: 28px;
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: 24px;
+    margin-bottom: 50px;
+  }
+`;
+
+export const FavoritesContentWrapper = styled.div`
+  display: flex;
+  gap: 14px;
+  @media screen and (min-width: 768px) {
+    gap: 24px;
+  }
+  @media screen and (min-width: 1440px) {
+    gap: 24px;
+  }
+`;
+
+export const FavoriteDescription = styled.p`
+  overflow: auto;
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 10px;
+  letter-spacing: -0.02em;
+  color: #23262a;
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  @media screen and (min-width: 1440px) {
+    overflow: auto;
+    width: 806px;
+    height: 72px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+`;
+export const FavoriteTime = styled.p`
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 14px;
+  letter-spacing: -0.24px;
+  color: #3e4462;
+  @media screen and (min-width: 768px) {
+  }
+  font-size: 14px;
+  line-height: 20px;
+  @media screen and (min-width: 1440px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
+`;
+//  OLD STYLE: //
 
 // export const FavoriteItem = styled.li`
 //   width: calc(375px - 32px);
