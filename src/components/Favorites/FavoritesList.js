@@ -10,7 +10,7 @@ import { Loader } from 'components/Loader/Loader';
 import { Title } from './FavoritesItem.styled';
 
 export const FavoritesList = ({ favorite }) => {
-  const { data, error, isError, isLoading } = useFavorite({
+  const { error, isError, isLoading } = useFavorite({
     favorite,
     page: 1,
     limit: 4,
