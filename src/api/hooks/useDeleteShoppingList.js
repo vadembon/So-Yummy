@@ -1,8 +1,16 @@
-import { shoppingList } from './stubs.js';
+import { useMutation } from '@tanstack/react-query';
+import { useQueryClient } from '@tanstack/react-query';
+import { deleteShoppingList } from '../queries';
 
 export const useDeleteShoppingList = options => {
-  const mutate = ({ id, quantity, unit }) => {
-    options?.onSuccess?.(shoppingList[0]);
-  };
-  return { mutate, error: null, isLoading: false };
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    ...options,
+    mutationFn: deleteShoppingList,
+    onSuccess: data => {
+      queryClient.invalidateQueries({ queryKey: ['shopping'] });
+      options?.onSuccess?.(data);
+    },
+  });
 };

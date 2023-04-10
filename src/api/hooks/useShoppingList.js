@@ -1,6 +1,10 @@
-import { shoppingList } from './stubs.js';
-export const useShoppingList = cb => {
-  const data = shoppingList;
-  cb?.onSuccess?.(data);
-  return { data, error: null, isLoading: false };
+import { useQuery } from '@tanstack/react-query';
+import { getShoppingList } from 'api/queries';
+
+export const useShoppingList = options => {
+  return useQuery({
+    ...options,
+    queryKey: ['shopping'],
+    queryFn: getShoppingList,
+  });
 };
