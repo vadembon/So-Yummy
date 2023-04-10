@@ -35,6 +35,7 @@ export const SearchInput = styled.input`
   }
 
   @media screen and (min-width: 1440px) {
+
     font-size: ${props => props.theme.fontSizes[5]}px;
     width: 510px;
     height: 70px;
