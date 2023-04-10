@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import { InputForm, SelectForm } from './AddRecipeForm.styled';
+import { InputForm, IngredBox } from './AddRecipeForm.styled';
+import { AutoInput } from 'commonComponents/AutoInput';
+import { InputBox } from 'components/AddRecipeForm/InputBox';
 
 const units = [
   { t: 'g' },
@@ -11,98 +12,85 @@ const units = [
 ];
 
 export const RecipeIngredientsFields = ({
+  idx,
   ingredientList,
-  handleIngredientAdd,
+  handleAutoinput,
 }) => {
-  const defaultValues = {
-    index: 0,
-    quantity: 0,
-    unit: '',
+  const handleInput = ({ target: { name, value } }) => {
+    handleAutoinput({
+      name,
+      value,
+      idx,
+      element: null,
+    });
   };
 
+  const handleAuto = item => {
+    handleAutoinput({ ...item, idx });
+  };
+
+  // const defaultValues = {
+  //   index: 0,
+  //   quantity: 0,
+  //   unit: '',
+  // };
+
   // const [filter, setFilter] = useState('');
-  const [data, setData] = useState(defaultValues);
+  // const [data, setData] = useState(defaultValues);
 
   // const filteredingredientList = ingredientList.filter(item =>
   //   item.ttl.toLowerCase().includes(filter.toLowerCase())
   // );
 
-  const handleFormData = ({ target: { name, value } }) => {
-    setData({ ...data, [name]: value });
-  };
+  // const handleFormData = ({ target: { name, value } }) => {
+  //   setData({ ...data, [name]: value });
+  // };
 
   // const handleFilter = e => {
   //   setFilter(e.target.value);
   // };
 
-  useEffect(() => {
-    if (data.quantity && data.unit) {
-      handleIngredientAdd(data);
-    }
-  }, [data, handleIngredientAdd]);
+  // useEffect(() => {
+  //   if (data.quantity && data.unit) {
+  //     handleIngredientAdd(data);
+  //   }
+  // }, [data, handleIngredientAdd]);
 
   return (
-    <>
-      {/* <InputForm
+    <IngredBox>
+      <InputBox w="50%" h="40px">
+        <AutoInput
+          list={ingredientList}
+          field="ttl"
+          inputName="ingredient"
+          handleAutoinput={handleAuto}
+          select
+          required
+          width="300px"
+        />{' '}
+      </InputBox>
+      <InputForm
+        name="quantity"
         type="text"
-        name="filter"
-        placeholder="Type something here"
-        // size="lg"
-        value={filter}
+        placeholder="quantity"
+        onChange={handleInput}
+        required
         variant="flushed"
         autoComplete="off"
-        onChange={handleFilter}
+        width="50px"
+        height="50px"
         // fontSize="2xl"
-      /> */}
-      <div>
-        <SelectForm
-          name="index"
-          onChange={handleFormData}
+      />
+      <InputBox w="80px" h="40px">
+        <AutoInput
+          list={units}
+          field="t"
+          inputName="unit"
+          handleAutoinput={handleAuto}
+          select
           required
-          width="40%"
-          // multiple
-          // size="20"
-          // height="156px"
-          // {...register('index', { required: true })}
-        >
-          {ingredientList.map((item, idx) => (
-            <option key={idx} value={idx}>
-              {item.ttl}
-            </option>
-          ))}
-        </SelectForm>
-        <InputForm
-          // {...register('quantity')}
-          name="quantity"
-          type="number"
-          placeholder="Type quantity here"
-          onChange={handleFormData}
-          required
-          // size="lg"
-          // value={quantity}
-          variant="flushed"
-          autoComplete="off"
-          // onChange={handleFilter}
-          fontSize="2xl"
         />
-        <SelectForm
-          width={'150px'}
-          // type="submit"
-          name="unit"
-          onChange={handleFormData}
-          required
-          // {...register('unit', { required: true })}
-        >
-          <option key="a" value="">
-            Select please
-          </option>
-          {units.map((item, idx) => (
-            <option key={idx} value={item.t}>
-              {item.t}
-            </option>
-          ))}
-        </SelectForm>
-      </div>
-    </>
+      </InputBox>
+    </IngredBox>
   );
 };

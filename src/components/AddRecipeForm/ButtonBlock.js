@@ -1,21 +1,41 @@
 import styled from 'styled-components';
 
-export const ButtonBlock = ({ close, handleMinus, handlePlus, number }) => {
+export const ButtonBlock = ({ handleMinus, handlePlus, number }) => {
   return (
-    <div style={{ display: 'flex' }}>
+    <ControlBox>
       <ControlButton onClick={handleMinus}>-</ControlButton>
-      <ControlButton onClick={close}> {number} </ControlButton>
+      <ControlButton> {number} </ControlButton>
       <ControlButton onClick={handlePlus}>+</ControlButton>
-    </div>
+    </ControlBox>
   );
 };
 
 const ControlButton = styled.div`
-  width: 40px;
-  height: 40px;
-  font-size: 40px;
+  /* width: 30px; */
+  /* height: 30px; */
+  font-size: 16px;
   border-radius: 50%;
-  text-align: center;
-  color: ${({ theme: { colors } }) => colors.greenAccent};
-  background: ${({ theme: { colors } }) => colors.backgroundLight};
+  /* text-align: center; */
+  /* color: ${({ theme: { colors } }) => colors.greenAccent}; */
+  /* background: ${({ theme: { colors } }) => colors.backgroundLight}; */
+  cursor: pointer;
+`;
+
+const ControlBox = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items:center; 
+  width: 92px;
+  height: 28px;
+  border: 1px solid;
+  border-radius: 20px;
+  color: ${({ theme: { colors } }) => colors.greenAccent}; 
+  border-color: color: ${({ theme: { colors } }) => colors.greenAccent};
+
+  @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
+    width: 110px;
+  height: 32px;
+  }
+
+  
 `;
