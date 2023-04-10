@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { theme } from '../../constants/theme';
 
 export const ChooseYourBreakfastContainer = styled.div`
   z-index: 5;
@@ -12,7 +11,8 @@ export const ChooseYourBreakfastContainer = styled.div`
   padding: 8px;
 
   margin: 157px 7px 115px 88px;
-  background: ${theme.colors.lightBackground};
+
+  background: ${p => p.theme.colors.lightBackground};
   border-radius: 8px;
 
   @media screen and (min-width: 768px) {
@@ -36,7 +36,7 @@ export const ChooseYourBreakfastContainer = styled.div`
 
 export const ChooseYourBreakfastText = styled.p`
   width: auto;
-  font-weight: 500;
+  font-weight: ${p => p.theme.fontWeights.medium};
   font-size: 12px;
   line-height: 18px;
   /* or 150% */
@@ -44,7 +44,7 @@ export const ChooseYourBreakfastText = styled.p`
   letter-spacing: -0.24px;
 
   & span {
-    color: ${theme.colors.greenAccent};
+    color: ${p => p.theme.colors.greenAccent};
   }
 
   @media screen and (min-width: 768px) {
@@ -68,13 +68,13 @@ export const ChooseYourBreakfastLink = styled(Link)`
   justify-content: flex-end;
   letter-spacing: 0.2px;
 
-  color: ${theme.colors.secondaryDarkText};
-  stroke: ${theme.colors.secondaryDarkText};
+  color: ${p => p.theme.colors.secondaryDarkText};
+  stroke: ${p => p.theme.colors.secondaryDarkText};
   gap: 4px;
 
   &:hover {
-    color: ${theme.colors.greenAccent};
-    stroke: ${theme.colors.greenAccent};
+    color: ${p => p.theme.colors.greenAccent};
+    stroke: ${p => p.theme.colors.greenAccent};
   }
 
   @media screen and (min-width: 768px) {

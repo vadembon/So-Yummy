@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { theme } from '../../constants/theme';
 
 export const HeroSection = styled.section`
   position: relative;
@@ -24,19 +23,19 @@ export const HeroSection = styled.section`
 export const HeroTitle = styled.h1`
   min-width: 303px;
 
-  font-weight: 400;
+  font-weight: ${p => p.theme.fontWeights.regular};
   font-size: 60px;
   line-height: 60px;
 
   text-align: center;
   letter-spacing: -0.005em;
 
-  color: ${theme.colors.greenAccent};
+  color: ${p => p.theme.colors.greenAccent};
 
   margin-bottom: 14px;
 
   & span {
-    color: ${theme.colors.secondaryDarkBackground};
+    color: ${p => p.theme.colors.secondaryDarkBackground};
   }
 
   @media screen and (min-width: 768px) {
@@ -67,13 +66,12 @@ export const HeroText = styled.p`
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
-  /* or 129% */
 
   text-align: center;
   letter-spacing: -0.02em;
   margin-bottom: 364px;
 
-  color: ${theme.colors.primaryDarkText};
+  color: ${p => p.theme.colors.primaryDarkText};
 
   @media screen and (min-width: 768px) {
     width: 346px;
