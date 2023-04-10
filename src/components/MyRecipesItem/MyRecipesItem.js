@@ -24,6 +24,7 @@ export const MyRecipesItem = ({
   description,
   time,
   handleDelete,
+  id,
 }) => {
   const location = useLocation();
 
@@ -36,7 +37,13 @@ export const MyRecipesItem = ({
         <WrapperButtons>
           <TitleRecipe>{title}</TitleRecipe>
           <ButtonDelete>
-            <ButtonDel handleDelete={handleDelete} />
+            <ButtonDel
+              handleDelete={handleDelete}
+              bgColor="#8baa36"
+              hoverColor="#EBF3D4"
+              iconColor="white"
+              iconHoverColor="black"
+            />
           </ButtonDelete>
         </WrapperButtons>
         <Text>{description}</Text>
@@ -44,11 +51,9 @@ export const MyRecipesItem = ({
           <Time>{time} min</Time>
           <SuperBtnWrapper>
             <SuperBtn
-              color="#22252A"
-              hoverColor="#8baa36"
               title="See recipe"
               lnk
-              // to={`/recipe/${id}`}
+              to={`/recipe/${id}`}
               statefrom={{ from: location }}
             />
           </SuperBtnWrapper>
@@ -59,5 +64,3 @@ export const MyRecipesItem = ({
 };
 
 export default MyRecipesItem;
-
-<SuperBtn title="See recipe" lnk />;

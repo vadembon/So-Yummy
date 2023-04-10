@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const BtnDel = styled.button`
-  background: #8baa36;
+  background: ${props => props.bgColor || '#EBF3D4'};
   width: 24px;
   height: 24px;
   border-radius: 4px;
@@ -14,11 +14,12 @@ export const BtnDel = styled.button`
   right: 0;
   padding: 5px;
   margin: 0 auto;
-  color: white;
+  color: ${props => props.iconColor || 'black'};
   :hover,
   :focus {
     scale: 1.2;
-    background-color: gray;
+    background-color: ${props => props.hoverColor || '#8baa36'};
+    color: ${props => props.iconHoverColor || 'white'};
   }
   @media screen and (min-width: 768px) {
     width: 38px;
