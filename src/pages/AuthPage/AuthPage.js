@@ -4,20 +4,20 @@ import { SigninForm } from '../../components/SigninForm/SigninForm';
 import { RegisterForm } from '../../components/RegisterForm/RegisterForm';
 import { SIGNIN_TYPE } from '../../constants/form';
 
-import './style.sass';
+import {AuthPageStyle,InnerWrapper,FlexAuth} from './AuthPage.styled'
 
 export const AuthPage = ({ type }) => {
   return (
-    <div className="auth-page">
-      <div className="inn">
-        <div className="flex">
+    <AuthPageStyle >
+      <InnerWrapper >
+        <FlexAuth >
           <div className="flex-image">
             <img src={AUTH_IMG_PATH} alt="" />
           </div>
 
           {type === SIGNIN_TYPE ? <SigninForm /> : <RegisterForm />}
-        </div>
-      </div>
-    </div>
+        </FlexAuth>
+      </InnerWrapper>
+    </AuthPageStyle>
   );
 };
