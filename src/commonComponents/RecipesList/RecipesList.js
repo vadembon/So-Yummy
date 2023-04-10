@@ -1,14 +1,17 @@
-import { DishItem, DishList } from './RecipesList.styled';
+import {
+  DishItem,
+  DishList,
+  DefaultImageContainer,
+} from './RecipesList.styled';
 import { DishCard } from 'components/DishCard/DishCard';
-import posterDefault from '../../images/search/bucket_veggies_desk_2x.png';
 
 export const RecipesList = ({ items = [] }) => {
   return (
     <>
-      <DishList>
+      <DishList isEmpty={items?.length === 0}>
         {items?.length === 0 ? (
           <DishItem>
-            <img src={posterDefault} alt="Default" />
+            <DefaultImageContainer />
             <span>Try looking for something else..</span>
           </DishItem>
         ) : (
