@@ -6,6 +6,7 @@ import { FavoriteTest } from './FavoriteTest';
 import { OwnRecipesTest } from './OwnRecipesTest';
 import { List, Item, Title } from './ApiTest.styled';
 import { Message, showError, showMessage } from 'components/Message';
+import { ShoppingListTest } from './ShoppingListTest';
 
 export const ApiTest = () => {
   return (
@@ -39,6 +40,10 @@ export const ApiTest = () => {
       <Item>
         <Title>Own recipes</Title>
         <OwnRecipesTest />
+      </Item>
+      <Item>
+        <Title>ShoppingList</Title>
+        <ShoppingListTest />
       </Item>
     </List>
   );
