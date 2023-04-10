@@ -3,15 +3,10 @@ import styled from 'styled-components';
 export const TitleBar = styled.div`
   position: relative;
   height: 22px;
-  /* padding-top: 64px; */
-
   padding-left: 16px;
   padding-right: 16px;
 
-  /* display: flex; */
-  /* align-items: center; */
-  /* color: ${({ theme: { colors } }) => colors.primaryLightText}; */
-  /* background: ${({ theme: { colors } }) => colors.backgroundLight}; */
+  background-color: ${({ theme: { colors } }) => colors.lightBackground};
 
   @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
     height: 60px;

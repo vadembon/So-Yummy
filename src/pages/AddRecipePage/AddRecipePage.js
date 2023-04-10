@@ -10,7 +10,7 @@ export const AddRecipePage = () => {
   return (
     <Container>
       <MainTitle>Add recipe</MainTitle>
-      <TitleBar />
+      <TitleBar tm="22" ht="60" hd="50" />
       <PageBox>
         <AddRecipeForm />
         <InfoBox>
