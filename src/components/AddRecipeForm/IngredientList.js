@@ -1,32 +1,61 @@
-export const IngredientList = ({ itemArray, handleIngradientDelete }) => {
+import styled from 'styled-components';
+import { RecipeIngredientsFields } from './RecipeIngredientsFields';
+import iconClose from 'images/commonSvgImg/Icon_close.svg';
+
+export const IngredientList = ({
+  ingredientList,
+  myIngredients,
+  handleIngradientDelete,
+  handleAutoinput,
+}) => {
   return (
-    <ul>
-      {itemArray.map((item, idx) => (
+    <List>
+      {myIngredients.map((item, idx) => (
         <Item
           key={idx}
           {...item}
           idx={idx}
           Delete={handleIngradientDelete}
+          handleAutoinput={handleAutoinput}
+          ingredientList={ingredientList}
         ></Item>
       ))}
-    </ul>
+    </List>
   );
 };
 
-const Item = ({ idx, ttl, quantity, unit, Delete }) => {
+const Item = ({ idx, Delete, ingredientList, handleAutoinput }) => {
   return (
-    <li style={{ display: 'flex' }}>
-      <p style={{ color: 'black', width: '30px' }}>{idx}</p>
-      <p style={{ color: 'black', width: '40%' }}>{ttl}</p>
-      <p style={{ color: 'black', width: '100px' }}>{quantity}</p>
-      <p style={{ color: 'black', width: '100px' }}>{unit}</p>
-      <button
-        aria-label="delete contact"
-        // icon={<DeleteIcon />}
+    <ListItem>
+      <RecipeIngredientsFields
+        idx={idx}
+        ingredientList={ingredientList}
+        handleAutoinput={handleAutoinput}
+      />
+      <Close
+        src={iconClose}
+        alt="delete ingredient"
         onClick={() => Delete(idx)}
-      >
-        Delete
-      </button>
-    </li>
+      />
+    </ListItem>
   );
 };
+
+const List = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+`;
+
+const ListItem = styled.li`
+  display: flex;
+  gap: 10px;
+`;
+
+const Close = styled.img`
+  width: 10px;
+  /* height: auto; */
+  /* border-radius: 50%; */
+  /* transition: transform 0.5s ease-in-out; // add a transition for smooth animation */
+  /* transform: ${({ rotate }) => rotate === 'true' && 'rotate(180deg)'}; */
+`;

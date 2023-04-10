@@ -1,5 +1,8 @@
 import React from 'react';
-import { ReactComponent as TrashIconSvg } from '../../images/commonSvgImg/icon-trash.svg';
+import { useLocation } from 'react-router-dom';
+import { ButtonDel } from '../../commonComponents/ButtonDelete/ButtonDelete';
+import SuperBtn from '../../commonComponents/SuperBtn/SuperBtn';
+
 import {
   CardItem,
   ImageCard,
@@ -7,44 +10,54 @@ import {
   MainContainer,
   WrapperButtons,
   TitleRecipe,
-  TrashButton,
   Text,
   WrapperUp,
   Time,
-  BtnWrapper,
-  BtnSeeRecipe,
+  ButtonDelete,
+  SuperBtnWrapper,
 } from './MyRecipesItem.styled.js';
 
 export const MyRecipesItem = ({
-  image,
+  thumb,
   category,
   title,
-  handelDelete,
-  about,
-  cookingTime,
+  description,
+  time,
+  handleDelete,
 }) => {
+  const location = useLocation();
+
   return (
     <CardItem>
       <ImgContainer>
-        <ImageCard src={image} alt={category} />
+        <ImageCard src={thumb} alt={category} />
       </ImgContainer>
       <MainContainer>
         <WrapperButtons>
           <TitleRecipe>{title}</TitleRecipe>
-          <TrashButton type="button" onDelete={handelDelete}>
-            <TrashIconSvg />
-          </TrashButton>
+          <ButtonDelete>
+            <ButtonDel handleDelete={handleDelete} />
+          </ButtonDelete>
         </WrapperButtons>
-        <Text>{about}</Text>
+        <Text>{description}</Text>
         <WrapperUp>
-          <Time>{cookingTime}</Time>
+          <Time>{time} min</Time>
+          <SuperBtnWrapper>
+            <SuperBtn
+              color="#22252A"
+              hoverColor="#8baa36"
+              title="See recipe"
+              lnk
+              // to={`/recipe/${id}`}
+              statefrom={{ from: location }}
+            />
+          </SuperBtnWrapper>
         </WrapperUp>
-        <BtnWrapper>
-          <BtnSeeRecipe>See reecipe</BtnSeeRecipe>
-        </BtnWrapper>
       </MainContainer>
     </CardItem>
   );
 };
 
 export default MyRecipesItem;
+
+<SuperBtn title="See recipe" lnk />;

@@ -8,10 +8,22 @@ import {
   TimeText,
 } from './RecipePageHero.styled';
 import { BsClock } from 'react-icons/bs';
-export const RecipePageHero = ({ title, description, favorites, time }) => {
-  const addToFavorite = () => {
+import { addFavorite } from 'api/queries';
+
+export const RecipePageHero = ({ title, description, favorites, time, isFavorite, _id }) => {
+  
+  const isFavoriteAdded = () => {
+    if (isFavorite === true) {
+      return {disabled: true};
+    }
+  }
+   const addToFavorite = () => {
     console.log('add');
-  };
+     if (isFavorite === false) {
+     return addFavorite(_id)
+    }
+    
+  }; 
   return (
     <SectionHero>
       <Container>
@@ -19,10 +31,11 @@ export const RecipePageHero = ({ title, description, favorites, time }) => {
         <SectionHeroDesc>{description}</SectionHeroDesc>
         {favorites && (
           <SectionHeroBtn
+          disabled={isFavoriteAdded()}
             type="button"
             aria-label="Add to favorite"
             onClick={() => {
-              addToFavorite();
+            addToFavorite();
             }}
           >
             Add to favorite recipes

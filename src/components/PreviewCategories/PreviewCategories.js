@@ -1,76 +1,49 @@
 import { useMainRecipes } from '../../api/hooks';
 import { Loader } from 'components/Loader/Loader';
 import {
-  CategoriesList,
-  OtherCategories,
-  CategoriesItem,
+  PreviewCategoriesMain,
+  PreviewCategoriesContainer,
+  PreviewCategoriesList,
+  PreviewCategoriesTitle,
+  PreviewOtherCategories,
+  PreviewCategoriesItem,
+  PreviewCategoriesLink,
 } from './PreviewCategories.styled';
 import { DishCard } from 'components/DishCard/DishCard';
 
 const PreviewCategories = () => {
-  const { data: recipes, error, isLoading } = useMainRecipes();
+  const { data: recipes, isLoading } = useMainRecipes();
 
   if (isLoading) {
     return <Loader />;
   }
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
+  const categoryNames = ['Breakfast', 'Miscellaneous', 'Chicken', 'Dessert'];
 
   return (
     <>
-      <div>
-        <div>
-          <h2>Breakfast</h2>
-          <CategoriesList>
-            {recipes
-              .filter(({ category }) => category === 'Breakfast')
-              .map(({ _id: id, title, thumb }) => (
-                <CategoriesItem key={id}>
-                  <DishCard id={id} title={title} image={thumb} />
-                </CategoriesItem>
-              ))}
-          </CategoriesList>
-        </div>
-        <div>
-          <h2>Miscellaneous</h2>
-          <CategoriesList>
-            {recipes
-              ?.filter(({ category }) => category === 'Miscellaneous')
-              .map(({ _id: id, title, thumb }) => (
-                <CategoriesItem key={id}>
-                  <DishCard id={id} title={title} image={thumb} />
-                </CategoriesItem>
-              ))}
-          </CategoriesList>
-        </div>
-        <div>
-          <h2>Chicken</h2>
-          <CategoriesList>
-            {recipes
-              ?.filter(({ category }) => category === 'Chicken')
-              .map(({ _id: id, title, thumb }) => (
-                <CategoriesItem key={id}>
-                  <DishCard id={id} title={title} image={thumb} />
-                </CategoriesItem>
-              ))}
-          </CategoriesList>
-        </div>
-        <div>
-          <h2>Desserts</h2>
-          <CategoriesList>
-            {recipes
-              ?.filter(({ category }) => category === 'Dessert')
-              .map(({ _id: id, title, thumb }) => (
-                <CategoriesItem key={id}>
-                  <DishCard id={id} title={title} image={thumb} />
-                </CategoriesItem>
-              ))}
-          </CategoriesList>
-        </div>
-        <OtherCategories to="/categories">Other categories</OtherCategories>
-      </div>
+      <PreviewCategoriesMain>
+        {categoryNames.map(categoryName => (
+          <PreviewCategoriesContainer key={categoryName}>
+            <PreviewCategoriesTitle>{categoryName}</PreviewCategoriesTitle>
+            <PreviewCategoriesList>
+              {recipes
+                .filter(({ category }) => category === categoryName)
+                .map(({ _id: id, title, thumb }) => (
+                  <PreviewCategoriesItem key={id}>
+                    <DishCard id={id} title={title} image={thumb} />
+                  </PreviewCategoriesItem>
+                ))}
+            </PreviewCategoriesList>
+            <PreviewCategoriesLink to={`/categories/${categoryName}`}>
+              See all
+            </PreviewCategoriesLink>
+          </PreviewCategoriesContainer>
+        ))}
+        <PreviewOtherCategories to="/categories">
+          Other categories
+        </PreviewOtherCategories>
+      </PreviewCategoriesMain>
     </>
   );
 };
