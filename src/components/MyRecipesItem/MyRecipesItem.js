@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { ButtonDel } from '../../commonComponents/ButtonDelete/ButtonDelete';
 import SuperBtn from '../../commonComponents/SuperBtn/SuperBtn';
+
 import {
   CardItem,
   ImageCard,
@@ -20,9 +21,9 @@ export const MyRecipesItem = ({
   thumb,
   category,
   title,
-  handleDelete,
   description,
   time,
+  handleDelete,
 }) => {
   const location = useLocation();
 
@@ -35,11 +36,7 @@ export const MyRecipesItem = ({
         <WrapperButtons>
           <TitleRecipe>{title}</TitleRecipe>
           <ButtonDelete>
-            <ButtonDel
-              handleDelete={e => {
-                handleDelete(e);
-              }}
-            />
+            <ButtonDel handleDelete={handleDelete} />
           </ButtonDelete>
         </WrapperButtons>
         <Text>{description}</Text>
@@ -47,6 +44,8 @@ export const MyRecipesItem = ({
           <Time>{time} min</Time>
           <SuperBtnWrapper>
             <SuperBtn
+              color="#22252A"
+              hoverColor="#8baa36"
               title="See recipe"
               lnk
               // to={`/recipe/${id}`}
@@ -60,3 +59,5 @@ export const MyRecipesItem = ({
 };
 
 export default MyRecipesItem;
+
+<SuperBtn title="See recipe" lnk />;

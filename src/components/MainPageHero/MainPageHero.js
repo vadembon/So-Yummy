@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import ChooseYourBreakfast from 'components/ChooseYourBreakfast';
-import MainPageLeaves from 'components/MainPageLeaves/MainPageLeaves';
-import MainPicture from 'components/MainPageLeaves/MainPicture';
+import MainPageBackground from 'components/MainPageBackground/MainPageBackground';
+import MainPicture from 'components/MainPageBackground/MainPicture';
 import { HeroSection, HeroTitle, HeroText } from './MainPageHero.styled';
 import { SearchForm } from 'components/SearchForm/SearchForm';
 
@@ -27,10 +26,9 @@ const MainPageHero = () => {
           "What to cook?" is not only a recipe app, it is, in fact, your
           cookbook. You can add your own recipes to save them for the future.
         </HeroText>
-        <ChooseYourBreakfast />
         <SearchForm onSubmit={handleSubmit} color={'#22252a'} />
-        <MainPageLeaves />
         <MainPicture />
+        <MainPageBackground />
       </HeroSection>
     </>
   );
