@@ -1,11 +1,13 @@
 import { useRef, useState, useEffect } from 'react';
-// import { getIngredients } from 'api/queries';
 import { showError } from 'components/Message';
 
 //+
-import { useNavigate } from 'react-router-dom';
-import { addOwnRecipe, getIngredients } from 'api/queries';
+// import { useNavigate } from 'react-router-dom';
+// import { addOwnRecipe, getIngredients } from 'api/queries';
 //+
+//-
+import { getIngredients } from 'api/queries';
+//-
 
 import { Button } from 'commonComponents/Button';
 import { ButtonBlock } from './ButtonBlock';
@@ -14,7 +16,8 @@ import { RecipeInstructiosFields } from './RecipeInstructionsFields';
 import { RecipeDescriptionFields } from './RecipeDescriptionFields';
 import { ImageButton } from 'commonComponents/ImageButton';
 import { IngredientList } from './IngredientList';
-import { Box, TitleBox, InstructionBox } from './AddRecipeForm.styled';
+import { Box, TitleBox, InstructionBox, Form } from './AddRecipeForm.styled';
+import { fQ } from './lib';
 
 import image from 'images/food-blank.svg';
 
@@ -28,12 +31,12 @@ export const AddRecipeForm = () => {
     thumb: null,
   });
 
-  // +
-  const navigate = useNavigate();
-  // +
-
-  const [myIngredients, setMyIngredients] = useState([]);
+  const [myIngredients, setMyIngredients] = useState([{}, {}, {}]);
   const [imageUrl, setImageUrl] = useState(image);
+
+  // +
+  // const navigate = useNavigate();
+  // +
 
   useEffect(() => {
     getIngredients()
@@ -50,7 +53,7 @@ export const AddRecipeForm = () => {
   const onSubmit = e => {
     e.preventDefault();
     const ingredients = myIngredients.map(item => {
-      return { id: item.id, measure: `${item.quantity} ${item.unit}` };
+      return { id: item.id, measure: `${fQ(item.quantity)} ${item.unit}` };
     });
 
     const newData = {
@@ -58,15 +61,15 @@ export const AddRecipeForm = () => {
       ingredients,
     };
     // -
-    // console.log(newData);
+    console.log(newData);
     // -
 
     // +
-    addOwnRecipe({ ...newData })
-      .then(() => {
-        navigate('/my');
-      })
-      .catch(err => showError(err));
+    // addOwnRecipe({ ...newData })
+    //   .then(() => {
+    //     navigate('/my');
+    //   })
+    //   .catch(err => showError(err));
     // +
   };
 
@@ -108,7 +111,7 @@ export const AddRecipeForm = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <Form onSubmit={onSubmit}>
       <Box>
         <ImageButton src={imageUrl} onClick={handlePick} />
         <input
@@ -140,7 +143,9 @@ export const AddRecipeForm = () => {
         handleAutoinput={handleAutoinput}
       />
       <InstructionBox>
-        <SectionTitle>Recipe preparation</SectionTitle>
+        <TitleBox>
+          <SectionTitle>Recipe preparation</SectionTitle>
+        </TitleBox>
         <RecipeInstructiosFields handleFormData={handleFormData} />
         <Button
           styledButton
@@ -152,6 +157,6 @@ export const AddRecipeForm = () => {
           Add
         </Button>
       </InstructionBox>
-    </form>
+    </Form>
   );
 };

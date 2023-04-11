@@ -50,6 +50,7 @@ const List = styled.ul`
 const ListItem = styled.li`
   display: flex;
   gap: 10px;
+  justify-content: space-between;
 `;
 
 const Close = styled.img`
