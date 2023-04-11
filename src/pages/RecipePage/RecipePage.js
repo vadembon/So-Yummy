@@ -5,6 +5,7 @@ import { RecipeIngredientsList } from 'components/RecipeIngredientsList';
 import { RecipePageHero } from 'components/RecipePageHero';
 import { RecipePreparation } from 'components/RecipePreparation';
 import { Loader } from 'components/Loader';
+import { Container } from 'components/Container';
 
 export const RecipePage = () => {
   const { recipeId } = useParams();
@@ -25,14 +26,16 @@ export const RecipePage = () => {
       ingredients,
       isFavorite,
       _id,
+      preview,
     } = recipe.data;
 
     console.log(recipe.data._id);
     console.log(recipe.data.isFavorite);
+    console.log(recipe.data.preview);
     console.log(recipe.data);
 
     return (
-      <div>
+      <>
         <RecipePageHero
           _id={_id}
           isFavorite={isFavorite}
@@ -41,14 +44,17 @@ export const RecipePage = () => {
           favorites={favorites}
           time={time}
         ></RecipePageHero>
-        <RecipeIngredientsList
-          ingredients={ingredients}
-        ></RecipeIngredientsList>
-        <RecipePreparation
-          description={instructions}
-          foto={thumb}
-        ></RecipePreparation>
-      </div>
+        <Container>
+          <RecipeIngredientsList
+            ingredients={ingredients}
+          ></RecipeIngredientsList>
+          <RecipePreparation
+            preview={preview}
+            description={instructions}
+            foto={thumb}
+          ></RecipePreparation>
+        </Container>
+      </>
     );
   }
 };
