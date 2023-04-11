@@ -19,6 +19,8 @@ import { persistor } from 'redux/store';
 import { handleErrors } from 'api/helpers';
 import './index.css';
 
+const baseURL = '/command_project_React_Node';
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -26,10 +28,12 @@ const queryClient = new QueryClient({
     },
   },
   queryCache: new QueryCache({
-    onError: axiosError => handleErrors({ axiosError, store, queryClient }),
+    onError: axiosError =>
+      handleErrors({ axiosError, store, queryClient, baseURL }),
   }),
   mutationCache: new MutationCache({
-    onError: axiosError => handleErrors({ axiosError, store, queryClient }),
+    onError: axiosError =>
+      handleErrors({ axiosError, store, queryClient, baseURL }),
   }),
 });
 
@@ -39,7 +43,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <PersistGate loading={null} persistor={persistor}>
         <QueryClientProvider client={queryClient}>
           <ThemeProvider theme={theme}>
-            <BrowserRouter basename="/command_project_React_Node">
+            <BrowserRouter basename={baseURL}>
               <App />
               <Toaster position="bottom-right" />
             </BrowserRouter>

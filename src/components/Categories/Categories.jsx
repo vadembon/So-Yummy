@@ -2,7 +2,7 @@ import { useCategories } from '../../api/hooks';
 import { useParams } from 'react-router-dom';
 import { Container } from 'components/Container/Container';
 import { CategoriesList } from 'components/CategoriesList/CategoriesList';
-// import { BackgroundDots } from 'commonComponents/BackgroundDots/BackgroundDots';
+
 import { RecipiesList } from 'components/RecipiesList/RecipiesList';
 import { Loader } from 'components/Loader/Loader';
 import { SectionTitle, Spinach } from './Categories.styled';

@@ -1,8 +1,16 @@
-import { shoppingList } from './stubs.js';
+import { useMutation } from '@tanstack/react-query';
+import { addShoppingList } from '../queries';
+import { useQueryClient } from '@tanstack/react-query';
 
 export const useAddShoppingList = options => {
-  const mutate = ({ id, quantity, unit }) => {
-    options?.onSuccess?.(shoppingList[0]);
-  };
-  return { mutate, error: null, isLoading: false };
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    ...options,
+    mutationFn: addShoppingList,
+    onSuccess: data => {
+      queryClient.invalidateQueries({ queryKey: ['shopping'] });
+      options?.onSuccess?.(data);
+    },
+  });
 };

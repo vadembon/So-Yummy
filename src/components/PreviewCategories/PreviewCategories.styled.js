@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { theme } from '../../constants/theme';
 
 export const PreviewCategoriesMain = styled.div`
   padding: 64px 16px 100px;
@@ -57,7 +56,7 @@ export const PreviewCategoriesList = styled.ul`
 `;
 
 export const PreviewCategoriesTitle = styled.h2`
-  font-weight: 600;
+  font-weight: ${p => p.theme.fontWeights.semibold};
   font-size: 28px;
   line-height: 28px;
   letter-spacing: -0.02em;
@@ -107,7 +106,8 @@ export const PreviewCategoriesLink = styled(Link)`
   align-items: center;
   text-align: center;
   background: #8aa936;
-  color: ${theme.colors.whiteText};
+
+  color: ${p => p.theme.colors.whiteText};
   border-radius: 6px;
   margin-left: auto;
 
@@ -135,7 +135,7 @@ export const PreviewOtherCategories = styled(Link)`
   line-height: 21px;
   text-align: center;
 
-  color: ${theme.colors.darkAccent};
+  color: ${p => p.theme.colors.darkAccent};
 
   border: 2px solid #8baa36;
   border-radius: 60px 140px 60px 140px;
@@ -143,8 +143,8 @@ export const PreviewOtherCategories = styled(Link)`
   margin: auto;
 
   &:hover {
-    color: #fafafa;
-    background: #8baa36;
+    color: ${p => p.theme.colors.primaryLightText};
+    background: ${p => p.theme.colors.greenAccent};
   }
 
   @media screen and (min-width: 768px) {
