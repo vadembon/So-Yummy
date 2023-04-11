@@ -10,6 +10,11 @@ export const SIGNIN_DEFAULT_ERROR_STATE = {
   emailError: '',
   passwordError: '',
 }
+export const SIGNUP_DEFAULT_ERROR_STATE = {
+  nameError: '',
+  emailError: '',
+  passwordError: '',
+}
 
 export const ERROR_COLOR = '#E74A3B';
 export const SUCCESS_COLOR = '#3CBC81';

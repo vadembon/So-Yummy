@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { ReactComponent as RemoveIcon } from 'images/commonSvgImg/Icon_close.svg';
+// import { style } from '@mui/system';
 
 export const ShoppingItemContainer = styled.div`
   height: 84px;
@@ -7,19 +8,22 @@ export const ShoppingItemContainer = styled.div`
   flex-direction: row;
   align-items: center;
   height: 140px;
-  margin: 0 16px;
+  margin: 0 16px 24px 0;
   background-color: ${({ theme }) => theme.colors.primaryLightText};
-  margin-bottom: 24px;
+  
   border-bottom: 1px solid #e0e0e0;
   gap: 24px;
 
-  @media ${({ theme }) => theme.devices.tablet} {
+  @media screen and (min-width: 768px) {
     height: 140px;
     margin: 0 32px;
     gap: 44px;
+    padding-top: 44px;
   }
-  @media ${({ theme }) => theme.devices.desktop} {
+
+  @media screen and (min-width: 1440px) {
     margin: 0 140px;
+    /* padding-bottom: 42px; */
   }
 
   li {
@@ -30,8 +34,9 @@ export const ShoppingItemContainer = styled.div`
   }
 `;
 
+
 export const ProductFotoWrapper = styled.div`
-  background: #ebf3d4;
+  background: '#ebf3d4';
   width: 60px;
   height: 60px;
   border-radius: 6px;
@@ -40,13 +45,11 @@ export const ProductFotoWrapper = styled.div`
   align-items: center;
   margin-bottom: 24px;
 
-  @media ${({ theme }) => theme.devices.tablet} {
-    width: 93px;
-    height: 97px;
+  @media screen and (min-width: 768px) {
+    width: 94px;
+    height: 98px;
     border-radius: 8px;
     margin-bottom: 42px;
-  }
-  @media ${({ theme }) => theme.devices.desktop} {
   }
 `;
 
@@ -55,12 +58,9 @@ export const ProductFoto = styled.img`
   height: 50px;
   object-fit: cover;
 
-  @media ${({ theme }) => theme.devices.tablet} {
-    width: 81px;
-    height: 81px;
-  }
-
-  @media ${({ theme }) => theme.devices.desktop} {
+  @media screen and (min-width: 768px) {
+    width: 82px;
+    height: 82px;
   }
 `;
 
@@ -73,22 +73,25 @@ export const ProductName = styled.p`
   margin-left: 10px;
   margin-right: auto;
 
-  @media ${({ theme }) => theme.devices.tablet} {
+  @media screen and (min-width: 768px) {
     font-size: 16px;
     line-height: 24px;
   }
-  @media ${({ theme }) => theme.devices.desktop} {
-  }
 `;
+  export const Box = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  `;
 
 export const ProductNumber = styled.p`
   font-size: ${({ theme }) => theme.fontSizes[1]}px;
   line-height: 15px;
   font-weight: ${({ theme }) => theme.fontWeights.semibold};
   color: ${({ theme }) => theme.colors.primaryLightText};
-  width: 37px;
-  height: 23px;
-  margin-right: 49px;
+  width: 38px;
+  height: 24px;
+  margin-right: 50px;
   text-align: center;
   background: ${({ theme }) => theme.colors.greenAccent};
   border-radius: ${({ theme }) => theme.radii.m};
@@ -97,7 +100,7 @@ export const ProductNumber = styled.p`
   align-items: center;
   margin-bottom: 61px;
 
-  @media ${({ theme }) => theme.devices.tablet} {
+  @media screen and (min-width: 768px) {
     width: 68px;
     height: 35px;
     margin-right: 114px;
@@ -105,33 +108,45 @@ export const ProductNumber = styled.p`
     line-height: 27px;
     margin-bottom: 105px;
   }
-  @media ${({ theme }) => theme.devices.desktop} {
+
+  @media screen and (min-width: 1440px) {
     margin-right: 178px;
     margin-bottom: 105px;
-  }` 
-
-
-export const RemoveIconWrapper = styled(RemoveIcon)`
-  width: 7.88px; /* mobile size */
-
-  @media screen and (min-width: ${({ theme }) => theme.devices.tablet}) {
-    width: 11px; /* tablet size */
   }
 `;
 export const RemoveItemButton = styled.button`
-  width: 7.88px; /* mobile size */
-
+  /* mobile size */
+  width: 8 px;
+  height: 8 px;
   border: none;
   cursor: pointer;
   background: transparent;
   margin-right: 38px;
   margin-bottom: 73px;
-  @media screen and (min-width: ${({ theme }) => theme.devices.tablet}) {
-    margin-right: 81px;
+
+  @media screen and (min-width: 768px) {
+    /* tablet size */
+    margin-right: 80px;
     margin-bottom: 124px;
+    width: 12px;
+    height: 12px;
   }
-  @media screen and (min-width: ${({ theme }) => theme.devices.desktop}) {
+
+  @media screen and (min-width: 1440px) {
     margin-right: 172px;
     margin-bottom: 124px;
   }
 `;
+
+
+export const RemoveIconWrapper = styled(RemoveIcon)`
+  width: 8px;
+  height: 8px;
+
+  @media screen and (min-width: 768px) {
+    width: 12px;
+    height: 12px;
+  }
+`;
+
+ 

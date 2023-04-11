@@ -1,4 +1,3 @@
-import { Container } from 'commonComponents/Container';
 import {
   SectionHero,
   SectionHeroTitle,
@@ -8,31 +7,47 @@ import {
   TimeText,
 } from './RecipePageHero.styled';
 import { BsClock } from 'react-icons/bs';
-export const RecipePageHero = ({ title, description, favorites, time }) => {
+import { addFavorite } from 'api/queries';
+
+export const RecipePageHero = ({
+  title,
+  description,
+  favorites,
+  time,
+  isFavorite,
+  _id,
+}) => {
+  const isFavoriteAdded = () => {
+    if (isFavorite === true) {
+      return { disabled: true };
+    }
+  };
   const addToFavorite = () => {
     console.log('add');
+    if (isFavorite === false) {
+      return addFavorite(_id);
+    }
   };
   return (
     <SectionHero>
-      <Container>
-        <SectionHeroTitle children={title} />
-        <SectionHeroDesc>{description}</SectionHeroDesc>
-        {favorites && (
-          <SectionHeroBtn
-            type="button"
-            aria-label="Add to favorite"
-            onClick={() => {
-              addToFavorite();
-            }}
-          >
-            Add to favorite recipes
-          </SectionHeroBtn>
-        )}
-        <TimeBlock>
-          <BsClock size="14px" fill="#23262A" />
-          <TimeText>{time} min</TimeText>
-        </TimeBlock>
-      </Container>
+      <SectionHeroTitle children={title} />
+      <SectionHeroDesc>{description}</SectionHeroDesc>
+      {favorites && (
+        <SectionHeroBtn
+          disabled={isFavoriteAdded()}
+          type="button"
+          aria-label="Add to favorite"
+          onClick={() => {
+            addToFavorite();
+          }}
+        >
+          Add to favorite recipes
+        </SectionHeroBtn>
+      )}
+      <TimeBlock>
+        <BsClock size="14px" fill="#23262A" />
+        <TimeText>{time} min</TimeText>
+      </TimeBlock>
     </SectionHero>
   );
 };

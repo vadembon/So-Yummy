@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-const dotY = [{ top: '110px' }, { top: '144px' }, { top: '180px' }];
-const dotX = [{ left: '104px' }, { right: '-2px' }, { right: '120px' }];
+const dotY = [{ top: '76px' }, { top: '109px' }, { top: '142px' }];
+const dotX = [{ left: '120px' }, { right: '16px' }, { right: '120px' }];
 const dotColor = [
   { background: '#8BAA36' },
   { background: '#8BAA36' },
@@ -11,8 +11,12 @@ const dotW = [{ width: '8px' }, { width: '8px' }, { width: '6px' }];
 const dotH = [{ height: '8px' }, { height: '8px' }, { height: '6px' }];
 
 //tablet
-const dotYt = [{ top: '121px' }, { top: '134px' }, { top: '191px' }];
-const dotXt = [{ left: '187px' }, { right: '-8px' }, { right: '284px' }];
+const dotYt = [{ top: '85px' }, { top: '98px' }, { top: '155px' }];
+const dotXt = [{ left: '219px' }, { right: '23px' }, { right: '315px' }];
+
+//desktop
+const dotYd = [{ top: '116px' }, { top: '126px' }, { top: '199px' }];
+const dotXd = [{ left: '328px' }, { right: '171px' }, { right: '617px' }];
 
 const dotWt = [{ width: '14px' }, { width: '14px' }, { width: '12px' }];
 const dotHt = [{ height: '14px' }, { height: '14px' }, { height: '12px' }];
@@ -33,5 +37,10 @@ export const Dot = styled.div`
     ${({ dotNumber }) => dotYt[dotNumber]}
   ${({ dotNumber }) => dotWt[dotNumber]}
   ${({ dotNumber }) => dotHt[dotNumber]}
+
+  @media (min-width: ${({ theme: { devices } }) => devices.desktop}) {
+      ${({ dotNumber }) => dotXd[dotNumber]}
+      ${({ dotNumber }) => dotYd[dotNumber]}
+    }
   }
 `;

@@ -1,5 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 
+import { ToastContainer } from 'react-toastify';
+
 import { RestrictedRoute, PrivateRoute } from 'service/routes';
 
 import { SharedLayout } from './SharedLayout';
@@ -61,6 +63,7 @@ export const App = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
+      <ToastContainer />
     </div>
   );
 };

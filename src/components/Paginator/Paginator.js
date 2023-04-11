@@ -1,57 +1,107 @@
-import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
+import {
+  PaginationContainer,
+  PaginationButton,
+  PaginationNumbers,
+} from './Paginator.styled';
 
-export const Paginator = ({ count }) => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const queryParams = new URLSearchParams(location.search);
-  const currentPage = parseInt(queryParams.get('page') || 1);
+export const Paginator = ({ currentPage, totalPages, onPageChange }) => {
+  const [displayedPages, setDisplayedPages] = useState([1, 2, 3]);
 
-  const handlePageChange = newPage => {
-    const newQueryParams = new URLSearchParams(location.search);
-    newQueryParams.set('page', newPage);
-    navigate.push(`${location.pathname}?${newQueryParams.toString()}`);
+  const handlePageClick = page => {
+    onPageChange(page);
+    updateDisplayedPages(page);
   };
+
+  const updateDisplayedPages = page => {
+    const totalPagesToDisplay = 5;
+    const halfTotalPagesToDisplay = Math.floor(totalPagesToDisplay / 2);
+
+    let startPage = page - halfTotalPagesToDisplay;
+    if (startPage < 1) {
+      startPage = 1;
+    }
+
+    let endPage = startPage + totalPagesToDisplay - 1;
+    if (endPage > totalPages) {
+      endPage = totalPages;
+      startPage = endPage - totalPagesToDisplay + 1;
+      if (startPage < 1) {
+        startPage = 1;
+      }
+    }
+
+    const newDisplayedPages = [];
+    for (let i = startPage; i <= endPage; i++) {
+      newDisplayedPages.push(i);
+    }
+    setDisplayedPages(newDisplayedPages);
+  };
+
+  // const handlePrevClick = () => {
+  //   if (currentPage > 1) {
+  //     onPageChange(currentPage - 1);
+  //     updateDisplayedPages(currentPage - 1);
+  //   }
+  // };
+
+  // const handlePrevClick = () => {
+  //   const prevPage = currentPage - 1;
+  //   if (prevPage > 0) {
+  //     onPageChange(prevPage);
+  //     updateDisplayedPages(prevPage);
+  //   }
+  // };
 
   const handlePrevClick = () => {
     if (currentPage > 1) {
-      handlePageChange(currentPage - 1);
+      onPageChange(currentPage - 1);
+      updateDisplayedPages(currentPage - 1);
     }
   };
 
   const handleNextClick = () => {
-    if (currentPage < count) {
-      handlePageChange(currentPage + 1);
-    }
+    // if (currentPage < totalPages) {
+    onPageChange(currentPage + 1);
+    updateDisplayedPages(currentPage + 1);
+    // }
   };
 
-  if (count <= 1) {
-    return null;
-  }
+  // const handleNextClick = () => {
+  //   const nextPage = currentPage + 1;
+  //   if (nextPage <= totalPages) {
+  //     onPageChange(nextPage);
+  //     updateDisplayedPages(nextPage);
+  //   }
+  // };
+
+  // const handleNextClick = () => {
+  //   if (currentPage < totalPages) {
+  //     onPageChange(currentPage + 1);
+  //     updateDisplayedPages(currentPage + 1);
+  //   }
+  // };
 
   return (
-    <div className="flex justify-center mt-4">
-      <button
-        className={`mr-4 ${
-          currentPage === 1 ? 'opacity-50 cursor-default' : ''
-        }`}
-        onClick={handlePrevClick}
-        disabled={currentPage === 1}
-      >
-        Prev
-      </button>
-      <span className="text-gray-500">
-        Page {currentPage} of {count}
-      </span>
-      <button
-        className={`ml-4 ${
-          currentPage === count ? 'opacity-50 cursor-default' : ''
-        }`}
-        onClick={handleNextClick}
-        disabled={currentPage === count}
-      >
-        Next
-      </button>
-    </div>
+    <PaginationContainer>
+      <PaginationButton onClick={handlePrevClick}>
+        <BsChevronLeft />
+      </PaginationButton>
+      <PaginationNumbers>
+        {displayedPages.map(page => (
+          <PaginationButton
+            key={page}
+            onClick={() => handlePageClick(page)}
+            active={currentPage === page}
+          >
+            {page}
+          </PaginationButton>
+        ))}
+      </PaginationNumbers>
+      <PaginationButton onClick={handleNextClick}>
+        <BsChevronRight />
+      </PaginationButton>
+    </PaginationContainer>
   );
 };

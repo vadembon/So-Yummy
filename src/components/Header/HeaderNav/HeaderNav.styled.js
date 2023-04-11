@@ -25,11 +25,15 @@ export const LocationLink = styled(NavLink)`
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  font-size: 18px;
-  font-weight: ${p => p.theme.fontWeights.regular};
+  font-family: ${p => p.theme.fonts.primary};
+  font-weight: ${p => p.theme.fontWeights.medium};
+  letter-spacing: ${p => p.theme.letterSpacings.content};
+  line-height: ${p => p.theme.lineHeights.subheader};
   transition: ${p => p.theme.transitions.main};
-  :hover:not(.active),
-  :focus-visible:not(.active) {
+  font-size: 18px;
+  
+  :hover,
+  :focus-visible {
      color: ${p => p.theme.colors.greenAccent};
    }
    &:hover svg,

@@ -5,13 +5,10 @@ export const PageBox = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  min-height: 100vh;
-  // ---
-  padding-top: 100px;
-  // ---
-  padding-bottom: 100px;
+  /* min-height: 100vh; */
+  /* padding-bottom: 100px; */
   color: ${({ theme: { colors } }) => colors.primaryLightText};
-  /* background: ${({ theme: { colors } }) => colors.backgroundLight}; */
+  background-color: ${({ theme: { colors } }) => colors.lightBackground};
   overflow: hidden;
   padding-left: 16px;
   padding-right: 16px;
@@ -22,7 +19,7 @@ export const PageBox = styled.div`
   }
 
   @media (min-width: ${({ theme: { devices } }) => devices.desktop}) {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
   }
 `;

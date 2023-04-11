@@ -8,7 +8,6 @@ import {
   HeaderWrapper,
   HeaderWrapperLogo,
   HeaderLogo,
-  // UserWrapper,
   BurgerWrapper,
   BurgerButton,
   MobileMenuWrapper,
@@ -78,9 +77,6 @@ export const Header = () => {
                        <img src={iconburger_menu} alt="burger" />
                    </BurgerButton>
                  </BurgerWrapper>
-                 {/* <UserWrapper> */}
-                   
-                 {/* </UserWrapper> */}
                </HeaderWrapper>
              </Container>
            </HeaderStyled>

@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Navigation, LocationLink } from './HeaderNav.styled';
 
-import icon_search from 'images/commonSvgImg/icon-search.svg';
+import { AiOutlineSearch} from 'react-icons/ai';
+
+import { 
+  // Navigation, 
+  LocationLink } from './HeaderNav.styled';
 
 export const HeaderNavigation = ({ setShowBurgerMenu = () => {} }) => {
   const { pathname } = useLocation();
@@ -27,7 +30,7 @@ export const HeaderNavigation = ({ setShowBurgerMenu = () => {} }) => {
   }, [pathname]);
 
   return (
-    <Navigation>
+    // <Navigation>
       <>
         <LocationLink
           onClick={() => {
@@ -81,9 +84,9 @@ export const HeaderNavigation = ({ setShowBurgerMenu = () => {} }) => {
           to="/search?query=&type=title"
           selection={(active === 'search').toString()}
         >
-          <img src={icon_search} alt="search" />
+        < AiOutlineSearch />
         </LocationLink>
       </>
-    </Navigation>
+    // </Navigation>
   );
 };

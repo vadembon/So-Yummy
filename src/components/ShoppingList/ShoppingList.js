@@ -1,69 +1,41 @@
-
+import { useShoppingList } from '../../api/hooks/useShoppingList';
 import { ShoppingListHeader } from './ShoppingListHeader/ShoppingListHeader';
-import { useShoppingList } from 'api/hooks';
 import { ShoppingListItem } from './ShoppingListItem';
-// import { PageTitle } from 'commonComponents/PageTitle';
-import {SectionTitle} from 'commonComponents/SectionTitle'
-import {theme} from "constants/theme"
 
-import { Box } from './ShoppingList.styled'
-// import { ContainerDots } from 'commonComponents/BackgroundDots/BackgroundDots.styled';
- import { Container } from 'commonComponents/Container';
- 
+// import { Box } from './ShoppingList.styled';
+import { Container } from 'commonComponents/Container';
+import { Loader } from 'components/Loader';
+
 export const ShoppingList = () => {
-  const { data: ingredients, error, isLoading } = useShoppingList();
+  const {data, isLoading} = useShoppingList()
+  const shoppingList = data
+    // const summaryList = []
+    // console.log(shoppingList);
+  
+  // console.log(error);
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
+    if (isLoading) {
+      return <Loader/>
+        }
 
-  if (error) {
-    return <p>Error: {error.message}</p>;
-  }
- const titleStyle = {
-  display: 'flex',
-  marginTop: '106px',
-  marginBottom: '50px',
-  fontSize: theme.fontSizes[10] + 'px',
-  fontFamily: theme.fonts.primary,
-  fontWeight: theme.fontWeights.semibold,
-  color: theme.colors.tertiaryDarkText,
-
-  [theme.devices.tablet]: {
-    marginTop: '73px',
-    marginBottom: '72px',
-    fontSize: theme.fontSizes[11] + 'px',
-    lineHeight: '32px',
-  },
-
-  [theme.devices.desktop]: {
-    marginTop: '102px',
-    marginBottom: '72px',
-    fontSize: theme.fontSizes[12] + 'px',
-    lineHeight: '44px',
-  }
-};
-
+     console.log(shoppingList);
   return (
     <Container>
-      {/* <ContainerDots> */}
-        <Box>
-          <SectionTitle style={titleStyle}>Shopping List</SectionTitle>
-        </Box>
-        <ShoppingListHeader />
-
-        <ul>
-          {ingredients.map(ingredient => (
+      <ShoppingListHeader />
+      <ul>
+        {shoppingList &&
+          shoppingList.map(item => (
             <ShoppingListItem
-              key={ingredient.id}
-              name={ingredient.name}
-              quantity={ingredient.quantity}
-              unit={ingredient.unit}
-              image={ingredient.image}
+              key={item.id}
+              id={item.id}
+              name={item.ttl}
+              unit={item.measure}
+              image={item.thb}
+              recipe={item.recipe}
             />
           ))}
-        </ul>
-      {/* </ContainerDots> */}
+      </ul>
     </Container>
   );
-};
+}
+        

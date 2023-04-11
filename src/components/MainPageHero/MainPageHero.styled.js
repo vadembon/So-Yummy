@@ -1,45 +1,41 @@
 import styled from 'styled-components';
-import { theme } from '../../constants/theme';
 
 export const HeroSection = styled.section`
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 68px 16px 83px;
-
-  margin: 0px auto 64px;
+  padding: 132px 16px 83px;
+  margin: 0 auto;
 
   @media screen and (min-width: 768px) {
     align-items: start;
     max-width: 768px;
-    padding: 140px 32px 195px;
-
-    margin: 0px auto 72px;
+    padding: 204px 32px 195px;
   }
 
   @media screen and (min-width: 1440px) {
     max-width: 1440px;
-    padding: 162px 100px 267px;
+    padding: 226px 100px 267px;
   }
 `;
 
 export const HeroTitle = styled.h1`
   min-width: 303px;
 
-  font-weight: 400;
+  font-weight: ${p => p.theme.fontWeights.regular};
   font-size: 60px;
   line-height: 60px;
 
   text-align: center;
   letter-spacing: -0.005em;
 
-  color: ${theme.colors.greenAccent};
+  color: ${p => p.theme.colors.greenAccent};
 
   margin-bottom: 14px;
 
   & span {
-    color: ${theme.colors.secondaryDarkBackground};
+    color: ${p => p.theme.colors.secondaryDarkBackground};
   }
 
   @media screen and (min-width: 768px) {
@@ -63,23 +59,23 @@ export const HeroTitle = styled.h1`
 `;
 
 export const HeroText = styled.p`
-  width: 230px;
+  width: 248px;
   height: 72px;
 
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
-  /* or 129% */
 
   text-align: center;
   letter-spacing: -0.02em;
+  margin-bottom: 364px;
 
-  color: ${theme.colors.primaryDarkText};
+  color: ${p => p.theme.colors.primaryDarkText};
 
   @media screen and (min-width: 768px) {
-    width: 320px;
-    height: 54px;
+    width: 346px;
+    height: 56px;
 
     font-size: 14px;
     line-height: 18px;
@@ -89,8 +85,8 @@ export const HeroText = styled.p`
   }
 
   @media screen and (min-width: 1440px) {
-    width: 410px;
-    height: 72px;
+    width: 441px;
+    height: 73px;
 
     font-size: 18px;
     line-height: 24px;

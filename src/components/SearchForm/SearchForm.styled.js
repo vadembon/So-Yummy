@@ -18,20 +18,24 @@ export const SearchFormSection = styled.form`
 
 export const SearchInput = styled.input`
   padding: 0px 32px;
-  font-size: 12px;
+  font-size: ${props => props.theme.fontSizes[3]}px;
+  font-family: ${props => props.theme.fonts.primary};
   line-height: 18px;
-  color: #bdbdbd;
+  color: ${props => props.theme.colors.secondaryDarkText};
   width: 295px;
   height: 52px;
   border: 1px solid #f0f0f0;
   border-radius: 60px 120px 60px 120px;
+  outline: none;
 
   @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes[4]}px;
     width: 369px;
     height: 59px;
   }
 
   @media screen and (min-width: 1440px) {
+    font-size: ${props => props.theme.fontSizes[5]}px;
     width: 510px;
     height: 70px;
   }
@@ -42,12 +46,13 @@ export const SearchButton = styled.button`
   right: 0px;
   width: 113px;
   height: 52px;
-  font-size: 14px;
+  font-family: ${props => props.theme.fonts.primary};
+  font-size: ${props => props.theme.fontSizes[4]}px;
   line-height: 21px;
   cursor: pointer;
-  color: #fafafa;
+  color: ${props => props.theme.colors.primaryLightText};
   background: ${props => props.color};
-  border: 1px solid transparent;
+  border: 1px solid #f0f0f0;
   border-radius: 60px 120px 60px 120px;
 
   &:hover {
@@ -56,7 +61,7 @@ export const SearchButton = styled.button`
   }
 
   @media screen and (min-width: 768px) {
-    font-size: 16px;
+    font-size: ${props => props.theme.fontSizes[5]}px;
     line-height: 24px;
     width: 161px;
     height: 59px;
@@ -65,8 +70,20 @@ export const SearchButton = styled.button`
   @media screen and (min-width: 1440px) {
     width: 161px;
     height: 70px;
+
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+
+    :hover {
+      box-shadow: ${props =>
+        props.color === '#8baa36'
+          ? '0 0 40px 40px #22252a inset'
+          : '0 0 40px 40px #8baa36 inset'};
+    }
   }
 `;
 // Alex background: #22252a;
 
 //  hover:  background: #8baa36;
+//  font-family: ${props => props.theme.fonts.primary};
+//   font-size: ${props => props.theme.fontSizes[10]}px;

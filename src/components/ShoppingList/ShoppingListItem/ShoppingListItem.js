@@ -1,3 +1,4 @@
+import { useDeleteShoppingList } from 'api/hooks/useDeleteShoppingList';
 import {
   ProductFoto,
   ProductName,
@@ -5,30 +6,44 @@ import {
   RemoveItemButton,
   ShoppingItemContainer,
   ProductFotoWrapper,
-  RemoveIconWrapper
+  RemoveIconWrapper,
+  // Box
 } from './ShoppingListItem.styled';
 
+import { Loader } from 'components/Loader';
 
+export const ShoppingListItem = ({ id, name, unit, image, recipe }) => {
+  const { mutate, isLoading } = useDeleteShoppingList();
 
-export const ShoppingListItem = ({ name, quantity, unit, image, id }) => {
+  const handleDeleteClick = e => {
+    mutate([{ id, recipe }]);
+    
+    if (isLoading) {
+      return <Loader />;
+    }
+  };
+
   return (
-      
-      <ShoppingItemContainer>
-        <li>
-          <ProductFotoWrapper>
-            <ProductFoto src={image} alt={name} />
-          </ProductFotoWrapper>
+    <ShoppingItemContainer>
+      <li>
+        <ProductFotoWrapper>
+          <ProductFoto src={image} alt={name} />
+        </ProductFotoWrapper>
 
-          <ProductName>{name}</ProductName>
+        <ProductName>{name}</ProductName>
 
-          <ProductNumber>
-            {quantity} {unit}
-          </ProductNumber>
-          <RemoveItemButton id={id}>
-            {' '}
-            <RemoveIconWrapper />
-           </RemoveItemButton>
-        </li>
-      </ShoppingItemContainer>
-    );
+        {/* <Box> */}
+        <ProductNumber>{unit}</ProductNumber>
+        <RemoveItemButton
+          type="button"
+          id={id}
+          onClick={handleDeleteClick}
+          disabled={isLoading}
+        >
+          {isLoading ? <Loader /> : <RemoveIconWrapper />}
+        </RemoveItemButton>
+        {/* </Box> */}
+      </li>
+    </ShoppingItemContainer>
+  );
 };

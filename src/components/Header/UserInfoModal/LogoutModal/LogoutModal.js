@@ -1,7 +1,7 @@
 import { useLogOut } from 'api/hooks/useLogOut';
 
 import {
-    ContentWrapper ,
+    Wrapper ,
     Text,   
     ButtonWrapper,
     Button,
@@ -15,12 +15,12 @@ export const LogoutModal = ({ closeModal }) => {
     closeModal();
   };
   return (
-    <ContentWrapper >
+    <Wrapper >
       <Text> Are you sure you want to log out?</Text>
       <ButtonWrapper>
         <Button onClick={onLogOutBtnClick}>Log out</Button>
         <Button status="cancel" onClick={closeModal}>Cancel</Button>
       </ButtonWrapper>
-    </ContentWrapper >
+    </Wrapper >
   );
 };
