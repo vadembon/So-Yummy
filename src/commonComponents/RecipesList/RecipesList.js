@@ -2,6 +2,7 @@ import {
   DishItem,
   DishList,
   DefaultImageContainer,
+  WrapperLookingFor,
 } from './RecipesList.styled';
 import { DishCard } from 'components/DishCard/DishCard';
 
@@ -12,7 +13,9 @@ export const RecipesList = ({ items = [] }) => {
         {items?.length === 0 ? (
           <li>
             <DefaultImageContainer />
-            <span>Try looking for something else..</span>
+            <WrapperLookingFor>
+              Try looking for something else..
+            </WrapperLookingFor>
           </li>
         ) : (
           items?.map(({ _id: id, title, thumb }) => (
