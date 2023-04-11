@@ -1,6 +1,6 @@
 import { RightsBox, RightsText, Span } from './Footer.styled';
 // import spinach from '../../images/footer/spinach.png';
-
+// import FooterPageBackground from '../MainPageBackground/FooterPageBackground';
 export const Rights = () => {
   return (
     <RightsBox>

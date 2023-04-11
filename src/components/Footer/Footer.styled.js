@@ -6,6 +6,7 @@ import emailIcon from '../../images/footer/email.svg';
 import spinachMob from '../../images/background/spinach_bottom_right_mob_1x.png';
 import spinachTab from '../../images/background/spinach_bottom_right_tab_1x.png';
 import spinachDesk from '../../images/background/spinach_bottom_right_desk_1x.png';
+// import upSpinach from '../../images/background/spinach_bottom_left_mob_1x.png';
 
 export const FooterStyle = styled.footer`
   font-family: ${p => p.theme.fonts.primary};
@@ -59,6 +60,7 @@ export const TitleBox = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 32px;
+
   @media screen and (min-width: 768px) {
     justify-content: start;
     align-items: center;
