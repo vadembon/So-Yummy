@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { getCategories } from 'api/queries';
 import { showError } from 'components/Message';
-import { VBox, InputForm } from './AddRecipeForm.styled';
-import { AutoInput } from 'commonComponents/AutoInput';
+import { VBox, InputForm, LabelBox, Label } from './AddRecipeForm.styled';
+import { AutoInput } from './AutoInput';
 
 const times = [
   { t: '5' },
@@ -35,32 +35,43 @@ export const RecipeDescriptionFields = ({
         name="title"
         placeholder="Enter item title"
         onChange={handleFormData}
+        autoComplete="off"
         required
+        height="43px"
       />
-
       <InputForm
         name="description"
         placeholder="Enter about recipe"
         onChange={handleFormData}
+        autoComplete="off"
         required
+        height="43px"
       />
-      <AutoInput
-        list={categoryList}
-        field="name"
-        inputName="category"
-        handleAutoinput={handleAutoinput}
-        select
-        required
-      />
-      <AutoInput
-        list={times}
-        field="t"
-        addText=" min"
-        inputName="time"
-        handleAutoinput={handleAutoinput}
-        select
-        required
-      />
+      <LabelBox>
+        <Label>Category</Label>
+        <AutoInput
+          list={categoryList}
+          field="name"
+          inputName="category"
+          handleAutoinput={handleAutoinput}
+          required
+          width="123px"
+          height="43px"
+        />
+      </LabelBox>
+      <LabelBox>
+        <Label>Cooking time</Label>
+        <AutoInput
+          list={times}
+          field="t"
+          addText=" min"
+          inputName="time"
+          handleAutoinput={handleAutoinput}
+          required
+          width="123px"
+          height="43px"
+        />
+      </LabelBox>
     </VBox>
   );
 };

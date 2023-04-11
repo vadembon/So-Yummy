@@ -49,7 +49,7 @@ export const Text = styled.p`
   margin-left: 14px;
   font-size: 12px;
   line-height: 1.33;
-  color: rgba(0, 0, 0, 0.8);;
+  color: rgba(0, 0, 0, 0.8);
   @media (min-width: 768px) {
     font-size: 14px;
     line-height: 1.2;

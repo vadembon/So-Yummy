@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
-import chevron from 'images/commonSvgImg/chevron.svg';
+import chevron from './chevron.svg';
 
 export const AutoInput = ({
   list,
@@ -9,94 +9,75 @@ export const AutoInput = ({
   addText = '',
   inputName,
   handleAutoinput,
-  select,
+  height,
+  width,
+  flexGrow,
 }) => {
-  const [inputValue, setInputValue] = useState({ value: '', selected: false });
+  const [inputValue, setInputValue] = useState('');
+  const [selectValue, setSelectValue] = useState('');
   const [isOptionsListOpen, setIsOptionsListOpen] = useState(false);
   const [options, setOptions] = useState([]);
   const ref = useRef(null);
 
-  // useEffect(() => {
-  //   // add event listener to document object
-  //   document.addEventListener('mousedown', handleClickOutside);
-
-  //   // cleanup function to remove event listener
-  //   return () => {
-  //     document.removeEventListener('mousedown', handleClickOutside);
-  //   };
-  // }, []);
-
-  // const handleClickOutside = event => {
-  //   ref.current &&
-  //     !ref.current.contains(event.target) &&
-  //     handleControlButtonClick();
-  // };
-
-  const handleInputChange = event => {
-    const iValue = event.target.value;
-    setInputValue({ value: iValue, selected: false });
-
-    // select &&
-    //   !inputValue.selected &&
-    //   setInputValue({ value: '', selected: false });
-    // setOptions(list);
-    // console.log(select, inputValue.selected);
-
-    handleAutoinput({
-      name: inputName,
-      value: iValue,
-      element: null,
-    });
-    setOptions(
-      list.filter(item =>
-        item[field].toLowerCase().includes(inputValue.value.toLowerCase())
-      )
-    );
-    setIsOptionsListOpen(true);
-  };
-
-  const handleOptionClick = index => {
-    const iValue = `${options[index][field]}${addText}`;
-    setInputValue({ value: iValue, selected: true });
+  const handleOptionClick = idx => {
+    const sValue = `${options[idx][field]}${addText}`;
+    setSelectValue(sValue);
+    setInputValue(sValue);
     setIsOptionsListOpen(false);
+
     handleAutoinput({
       name: inputName,
-      value: options[index][field],
-      element: options[index],
+      value: options[idx][field],
+      element: options[idx],
     });
-  };
-
-  const handleControlButtonClick = () => {
-    setIsOptionsListOpen(prev => !prev);
-  };
-
-  const handleBlur = () => {
-    // select &&
-    //   !inputValue.selected &&
-    //   setInputValue({ value: '', selected: false });
-    // setOptions(list);
-    // console.log(select, inputValue.selected);
-    setIsOptionsListOpen(prev => !prev);
   };
 
   useEffect(() => {
-    setOptions(list);
-  }, [list]);
+    !isOptionsListOpen && inputValue !== selectValue && setInputValue('');
+  }, [inputValue, selectValue, isOptionsListOpen]);
+
+  useEffect(() => {
+    setOptions(
+      list.filter(item =>
+        item[field].toLowerCase().includes(inputValue.toLowerCase())
+      )
+    );
+  }, [list, field, inputValue]);
+
+  useEffect(() => {
+    const handleClickOutside = e => {
+      if (ref.current && !ref.current.contains(e.target)) {
+        setIsOptionsListOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [ref]);
 
   return (
-    <Wrapper>
+    <Wrapper ref={ref}>
       <InputWrapper>
         <Input
           name={inputName}
           type="text"
-          value={inputValue.value}
+          value={inputValue}
           autoComplete="off"
           required
-          onChange={handleInputChange}
-          onClick={handleControlButtonClick}
-          onBlur={handleBlur}
+          height={height}
+          width={width}
+          onChange={e => setInputValue(e.target.value)}
+          onClick={() => {
+            setIsOptionsListOpen(true);
+          }}
         />
-        <ControlButton type="button" onClick={handleControlButtonClick}>
+        <ControlButton
+          type="button"
+          onClick={() => {
+            setIsOptionsListOpen(s => !s);
+          }}
+        >
           <Chevron
             src={chevron}
             alt="open list"
@@ -107,11 +88,7 @@ export const AutoInput = ({
       {isOptionsListOpen && (
         <OptionsList>
           {options.map((option, index) => (
-            <Option
-              key={index}
-              onClick={() => handleOptionClick(index)}
-              ref={ref}
-            >
+            <Option key={index} onClick={() => handleOptionClick(index)}>
               {option[field]}
               {addText}
             </Option>
@@ -124,6 +101,9 @@ export const AutoInput = ({
 
 const Wrapper = styled.div`
   position: relative;
+  display: flex;
+  /* flex-grow: 1; */
+  /* width: ${({ width }) => (width ? width : '100%')}; */
   /* width: 100%; */
   /* color: black; */
   color: ${({ theme: { colors } }) => colors.blackText};
@@ -132,16 +112,22 @@ const Wrapper = styled.div`
 
 const InputWrapper = styled.div`
   display: flex;
+  /* flex: 1; */
+  /* width: ${({ width }) => (width ? width : '100%')}; */
 `;
 
 const Input = styled.input`
-  width: 100%;
+  /* width: 100%; */
+  width: ${({ width }) => (width ? width : '100%')};
+  /* width: 50px; */
   /* flex: 1; */
-  padding: 16px;
-
+  /* padding: 16px; */
+  /* height: 53px; */
+  outline: none;
+  height: ${({ height }) => (height ? height : '40px')};
   border: none;
   border-bottom: 1px solid black;
-  border-radius: 4px 4px 0 0;
+  /* border-radius: 4px 4px 0 0; */
   /* background-color: #d9d9d9; */
 `;
 
@@ -151,8 +137,9 @@ const ControlButton = styled.button`
   right: 2px;
 
   border: none;
-  border-radius: 4px;
-  background-color: #d9d9d9;
+  background-color: inherit;
+  /* border-radius: 4px; */
+  /* background-color: #d9d9d9; */
   transform: translateY(-50%);
   cursor: pointer;
 `;
@@ -166,6 +153,7 @@ const OptionsList = styled.ul`
   width: 100%;
   overflow: auto;
   list-style-type: none;
+  outline: none;
   padding: 0;
   margin: 0;
   background-color: #fff;
@@ -192,6 +180,7 @@ const Chevron = styled.img`
   /* width: 200px; */
   /* height: auto; */
   /* border-radius: 50%; */
+  /* width: 20px; */
   transition: transform 0.5s ease-in-out; // add a transition for smooth animation
   transform: ${({ rotate }) => rotate === 'true' && 'rotate(180deg)'};
 `;
