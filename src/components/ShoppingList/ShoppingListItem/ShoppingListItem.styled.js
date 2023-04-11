@@ -68,7 +68,7 @@ export const ProductName = styled.p`
   font-size: 10px;
   line-height: 12px;
   font-weight: 500;
-  color: #3e4462;
+  color: ${({ theme }) => theme.colors.shoppingListProductName};
   margin-bottom: 16px;
   margin-left: 10px;
   margin-right: auto;

@@ -24,7 +24,7 @@ export const FavoritTitle = styled.h3`
   font-size: 28px;
   line-height: 28px;
   letter-spacing: -0.02em;
-  color: #001833;
+  color: ${p => p.theme.colors.tertiaryDarkText};
 
   margin: 50px auto 50px 0px;
 
@@ -63,7 +63,8 @@ export const FavoritesListContent = styled.ul`
 export const FavoritesItemContent = styled.div`
   min-width: 343px;
   border-radius: 8px;
-  background-color: #ffffff;
+  background-color: ${p => p.theme.colors.whiteText};
+
   @media screen and (min-width: 768px) {
     width: 704px;
     padding: 28px 24px;

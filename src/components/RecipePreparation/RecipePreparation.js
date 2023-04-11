@@ -26,7 +26,7 @@ export const RecipePreparation = ({ description, preview }) => {
             );
           })}
         <li>
-          <img style={{ borderRadius: '8px', marginTop: '53px' }} src={preview} alt="preview" />
+          <img style={{ borderRadius: '8px', marginTop: '53px', marginBottom: '100px' }} src={preview} alt="preview" />
         </li>
       </SectionPreparationDescription>
     </>

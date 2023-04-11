@@ -23,6 +23,7 @@ export const lightTheme = {
   whiteText: '#ffffff',
   blackText: '#000000',
   quaternaryDarkText: '#22252A',
+
   greenValidation: '#3CBC81', // in forms
   yellowValidation: '#F6C23E',
   redValidation: '#E74A3B',
@@ -30,7 +31,19 @@ export const lightTheme = {
   lightBackground: '#fafafa',
   primaryDarkBackground: '#1E1F28',
   messageBackground: '#53545599',
+
+  secondaryGrey: '#656565',
+  secondaryGreyBg: '#C4C4C4',
+  darkAccent: '#22252A', // footer
+  lightGray: '#bdbdbd', //categories list text
+  secondaryAccent: '#EBF3D4',
+  whiteBackground: '#ffffff',
+  secondaryLightBackground: '#ECECEC',
+  shoppingListProductName: '#3e4462',
 };
+
+  
+  //////////////////////////////////////////
 
 export const darkTheme = {
   primaryLightText: '#1E1F28', // black background
@@ -40,7 +53,7 @@ export const darkTheme = {
   tertiaryDarkText: ' #FAFAFA', /// title of pages (Favorites, My receipies, categories, search, shopping list
   mainPageButtons: '#8AA936', /// main page buttons except footer!
   greenAccent: '#8BAA36', // buttons  , footer in darkTheme
-  footerSocialIcons: '#FAFAFA',
+  SocialIcons: '#8BAA36', //  footer ND ADD RECEIPE social icons !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   footerSubscribeButtonBG: '#1E1F28', //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   footerTextLight: '#FAFAFA', // in foter text !!!!!!!!!!!!!!!!!!
   footerBG: '#8BAA36',
@@ -63,8 +76,18 @@ export const darkTheme = {
 
   lightBackground: '#fafafa',
   primaryDarkBackground: '#1E1F28',
-
   messageBackground: '#53545599',
+
+  secondaryGrey: '#656565',
+  secondaryGreyBg: '#C4C4C4',
+
+  shoppingListProductName: '#3e4462',
+  darkAccent: '#22252A', // footer
+  lightGray: '#bdbdbd', //categories list text
+  secondaryAccent: '#EBF3D4',
+  whiteBackground: '#ffffff',
+  secondaryLightBackground: '#ECECEC', 
+  shoppingListProductName: '#3e4462',
 };
 
 // white -> black

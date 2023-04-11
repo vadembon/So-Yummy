@@ -13,7 +13,7 @@ export const FooterStyle = styled.footer`
   /* padding-top: 50px; */
   /* padding-bottom: 32px; */
   /* text-align: center; */
-  background-color: ${p => p.theme.colors.darkAccent};
+  background-color: ${p => p.theme.colors.footerBG};
 `;
 
 export const FoterBox = styled.div`

@@ -4,7 +4,7 @@ import { BsCheck } from 'react-icons/bs';
 export const IngredientsList = styled.div`
   margin-bottom: 24px;
   margin-top: 50px;
-  background-color: #8baa36;
+  background-color: ${props => props.theme.colors.greenAccent};
   border-radius: 8px;
   display: grid;
   grid-template-columns: repeat(3, 2fr);
@@ -18,7 +18,7 @@ export const Ingredients = styled.p`
   line-height: 27px;
   padding-top: 21px;
   padding-bottom: 21px;
-  color: #fafafa;
+  color: ${props => props.theme.colors.lightBackground};
   margin-left: 15px;
   display: flex;
   justify-content: left;
@@ -30,7 +30,7 @@ export const Number = styled.p`
   font-family: ${props => props.theme.fonts.primary};
   font-size: ${props => props.theme.fontSizes[3]};
   line-height: 27px;
-  color: #fafafa;
+  color: ${props => props.theme.colors.lightBackground};
   padding-top: 21px;
   padding-bottom: 21px;
   display: flex;
@@ -43,7 +43,7 @@ export const AddToList = styled.p`
   font-family: ${props => props.theme.fonts.primary};
   font-size: ${props => props.theme.fontSizes[3]};
   line-height: 27px;
-  color: #fafafa;
+  color: ${props => props.theme.colors.lightBackground};
   padding-top: 21px;
   padding-bottom: 21px;
   display: flex;
@@ -64,7 +64,7 @@ export const IngedientsListUl = styled.ul`
 
 export const IngedientsItemLi = styled.li`
   border-radius: 8px;
-  background: #ebf3d4;
+  background: ${props => props.theme.colors.secondaryAccent};
   display: flex;
   width: 100%;
   padding: 14px 29px 14px 14px;
@@ -119,8 +119,8 @@ export const IngedientsMeasure = styled.span`
   padding: 4px;
   font-family: ${props => props.theme.fonts.primary};
   font-size: ${props => props.theme.fontSizes[3]};
-  background-color: #8baa36;
-  color: #fafafa;
+  background-color: ${props => props.theme.colors.greenAccent};
+  color: ${props => props.theme.colors.lightBackground};
   line-height: 1.5;
   @media (min-width: 768px) {
     font-size: 18px;
@@ -164,14 +164,14 @@ export const IngedientsCheck = styled.input`
 export const CheckBoxLabel = styled.label`
   display: flex;
   ${IngedientsCheck}:checked + ${CheckBoxWrap} {
-    color: #8baa36;
+    color: ${props => props.theme.colors.greenAccent};
   }
 `;
 
 export const CheckMarkIcon = styled(BsCheck)`
   width: 18px;
   height: 18px;
-  color: #8baa36;
+  color: ${props => props.theme.colors.greenAccent};
   @media (min-width: 768px) {
     width: 35px;
     height: 35px;
