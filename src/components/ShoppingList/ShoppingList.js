@@ -19,7 +19,6 @@ export const ShoppingList = () => {
   }
   const shoppingList = prepareShoppingList(data ?? []);
 
-  console.log(shoppingList);
   return (
     <Container>
       <ShoppingListHeader />
