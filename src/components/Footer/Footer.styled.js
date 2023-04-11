@@ -6,6 +6,7 @@ import emailIcon from '../../images/footer/email.svg';
 import spinachMob from '../../images/background/spinach_bottom_right_mob_1x.png';
 import spinachTab from '../../images/background/spinach_bottom_right_tab_1x.png';
 import spinachDesk from '../../images/background/spinach_bottom_right_desk_1x.png';
+// import upSpinach from '../../images/background/spinach_bottom_left_mob_1x.png';
 
 export const FooterStyle = styled.footer`
   font-family: ${p => p.theme.fonts.primary};
@@ -59,6 +60,7 @@ export const TitleBox = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 32px;
+
   @media screen and (min-width: 768px) {
     justify-content: start;
     align-items: center;
@@ -156,7 +158,7 @@ export const Styledlink = styled(NavLink)`
 
 ///////////////  Styled SubscribeForm /////////
 export const SubscribeContainer = styled.div`
-  display: none;
+  /* display: none; */
   @media screen and (min-width: 1440px) {
     display: flex;
     flex-direction: column;
@@ -166,10 +168,10 @@ export const SubscribeContainer = styled.div`
 `;
 
 export const SubscribeBox = styled.div`
-  /* display: none;
+  display: none;
   @media screen and (min-width: 1440px) {
     display: block;
-  } */
+  }
 `;
 
 export const SubscribeTitle = styled.h3`
@@ -195,11 +197,12 @@ export const Form = styled.form`
   align-items: center;
 
   @media screen and (min-width: 768px) {
-    display: inline-flex;
+    display: block;
     text-align: center;
     margin-bottom: 38px;
   }
   @media screen and (min-width: 1440px) {
+    display: inline-flex;
     text-align: start;
     margin-bottom: 0px;
   }
@@ -227,9 +230,7 @@ export const Input = styled.input`
   &::placeholder {
     font-size: 10px;
     line-height: 1.5;
-
     letter-spacing: -0.02em;
-
     color: ${p => p.theme.colors.primaryLightText};
   }
   &:-webkit-autofill,
@@ -241,6 +242,7 @@ export const Input = styled.input`
     box-shadow: none;
     -webkit-text-fill-color: ${p => p.theme.colors.primaryLightText} !important;
     background-color: transparent !important;
+    background-image: url(${emailIcon});
   }
 
   @media screen and (min-width: 768px) {
