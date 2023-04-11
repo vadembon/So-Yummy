@@ -30,12 +30,12 @@ export const DishList = styled.ul`
   }
 `;
 export const DishItem = styled.li`
-  // margin-bottom: 28px;
+  // // margin-bottom: 28px;
+  // justify-content: center;
 
-  @media screen and (min-width: 1440px) {
-    // margin-bottom: 100px;
-    justify-content: center;
-  }
+  // @media screen and (min-width: 1440px) {
+
+  // }
 `;
 
 export const DefaultImageContainer = styled.div`
@@ -46,7 +46,7 @@ export const DefaultImageContainer = styled.div`
   background-size: cover;
   background-image: url(${bucket_veggies_mob_1x});
 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) {
     width: 350px;
     height: 225px;
     background-image: url(${bucket_veggies_tab_1x});

@@ -3,7 +3,11 @@ import { useSearchParams, useLocation } from 'react-router-dom';
 
 import { SearchForm } from 'components/SearchForm';
 import SearchTypeSelector from 'components/SearchTypeSelector/SearchTypeSelector';
-import { WrapperSearchBar, WrapperSelector } from './SearchBar.styled';
+import {
+  WrapperSearchBar,
+  WrapperSelector,
+  SearchBy,
+} from './SearchBar.styled';
 import { SearchedRecipesList } from 'components/SearchedRecipesList';
 import { useRecipes } from 'api/hooks';
 
@@ -55,9 +59,7 @@ export const SearchBar = () => {
           defaultValue={formValue}
         />
         <WrapperSelector>
-          <span style={{ fontSize: '18px', fontWeight: '500' }}>
-            Search by:
-          </span>
+          <SearchBy>Search by:</SearchBy>
           <SearchTypeSelector
             onChange={handleTypeChange}
             selectedOption={selectedOption}

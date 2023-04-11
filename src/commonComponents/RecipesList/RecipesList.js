@@ -10,10 +10,10 @@ export const RecipesList = ({ items = [] }) => {
     <>
       <DishList isEmpty={items?.length === 0}>
         {items?.length === 0 ? (
-          <DishItem>
+          <li>
             <DefaultImageContainer />
             <span>Try looking for something else..</span>
-          </DishItem>
+          </li>
         ) : (
           items?.map(({ _id: id, title, thumb }) => (
             <DishItem key={id}>
