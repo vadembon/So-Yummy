@@ -31,7 +31,8 @@ export const theme = Object.freeze({
     secondaryDarkText: '#3E4462', /// titles of recipy, ingredients
     tertiaryDarkText: '#001833', /// title of pages (Favorites, My receipies, categories, search, shopping list
     quaternaryDarkText: '#22252A',
-
+    footerBG: '#22252A',
+    
     blackText: '#000000',
 
     primaryLightText: '#FAFAFA', // in footer,  and in darkTheme
@@ -56,6 +57,8 @@ export const theme = Object.freeze({
 
     secondaryLightBackground: '#ECECEC',
     secondaryGreyBg: '#C4C4C4',
+
+    shoppingListProductName: '#3e4462',
   },
   radii: {
     none: '0',
