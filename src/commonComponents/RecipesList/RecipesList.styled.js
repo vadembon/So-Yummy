@@ -30,10 +30,7 @@ export const DishList = styled.ul`
   }
 `;
 export const DishItem = styled.li`
-  // margin-bottom: 28px;
-
   @media screen and (min-width: 1440px) {
-    // margin-bottom: 100px;
     justify-content: center;
   }
 `;
@@ -46,7 +43,7 @@ export const DefaultImageContainer = styled.div`
   background-size: cover;
   background-image: url(${bucket_veggies_mob_1x});
 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) {
     width: 350px;
     height: 225px;
     background-image: url(${bucket_veggies_tab_1x});
@@ -56,5 +53,14 @@ export const DefaultImageContainer = styled.div`
     width: 350px;
     height: 225px;
     background-image: url(${bucket_veggies_desk_1x});
+  }
+`;
+
+export const WrapperLookingFor = styled.span`
+  font-size: ${props => props.theme.fontSizes[3]}px;
+  color: ${props => props.theme.colors.blackText};
+  opacity: 0.5;
+  @media screen and (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes[7]}px;
   }
 `;
