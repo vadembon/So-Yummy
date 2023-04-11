@@ -5,8 +5,8 @@ export const PageBox = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  min-height: 100vh;
-  padding-bottom: 100px;
+  /* min-height: 100vh; */
+  /* padding-bottom: 100px; */
   color: ${({ theme: { colors } }) => colors.primaryLightText};
   background-color: ${({ theme: { colors } }) => colors.lightBackground};
   overflow: hidden;
