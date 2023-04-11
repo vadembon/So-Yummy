@@ -19,7 +19,8 @@ import {
   InputLabel,
   InputField,
   ErrorText,
-  SubmitButton
+  SubmitButton,
+  StyledNavLink
 } from './SigninForm.styled'
 
 export const SigninForm = () => {
@@ -48,6 +49,7 @@ export const SigninForm = () => {
   };
 
   return (
+    <>
     <AuthFormElement >
       <InnerWrapper >
         <AuthForm
@@ -102,5 +104,7 @@ export const SigninForm = () => {
         </AuthForm>
       </InnerWrapper>
     </AuthFormElement>
+          <StyledNavLink to="/register" >Registration</StyledNavLink>   
+</>
   );
 };
