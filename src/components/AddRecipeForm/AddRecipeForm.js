@@ -2,11 +2,11 @@ import { useRef, useState, useEffect } from 'react';
 import { showError } from 'components/Message';
 
 //+
-// import { useNavigate } from 'react-router-dom';
-// import { addOwnRecipe, getIngredients } from 'api/queries';
+import { useNavigate } from 'react-router-dom';
+import { addOwnRecipe, getIngredients } from 'api/queries';
 //+
 //-
-import { getIngredients } from 'api/queries';
+// import { getIngredients } from 'api/queries';
 //-
 
 import { Button } from 'commonComponents/Button';
@@ -35,7 +35,7 @@ export const AddRecipeForm = () => {
   const [imageUrl, setImageUrl] = useState(image);
 
   // +
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   // +
 
   useEffect(() => {
@@ -61,15 +61,15 @@ export const AddRecipeForm = () => {
       ingredients,
     };
     // -
-    console.log(newData);
+    // console.log(newData);
     // -
 
     // +
-    // addOwnRecipe({ ...newData })
-    //   .then(() => {
-    //     navigate('/my');
-    //   })
-    //   .catch(err => showError(err));
+    addOwnRecipe({ ...newData })
+      .then(() => {
+        navigate('/my');
+      })
+      .catch(err => showError(err));
     // +
   };
 
