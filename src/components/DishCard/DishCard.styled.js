@@ -61,7 +61,7 @@ export const CardTitle = styled.div`
   top: 245px;
   left: 18px;
   padding: 16px;
-  background-color: ${p => p.theme.colors.whiteBackground};
+  background-color: ${p => p.theme.colors.whiteBackgroundDish};
   border-radius: 8px;
   width: calc(100% - 36px);
   white-space: nowrap;

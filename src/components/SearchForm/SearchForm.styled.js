@@ -52,6 +52,8 @@ export const SearchButton = styled.button`
   cursor: pointer;
   color: ${props => props.theme.colors.primaryLightText};
   background: ${props => props.color};
+
+  //background: ${props => props.theme.colors.greenAccent},
   border: 1px solid #f0f0f0;
   border-radius: 60px 120px 60px 120px;
 

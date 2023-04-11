@@ -142,7 +142,8 @@ export const RemoveItemButton = styled.button`
 export const RemoveIconWrapper = styled(RemoveIcon)`
   width: 8px;
   height: 8px;
-
+  fill: ${({ theme }) => theme.colors.primaryDarkText};
+ 
   @media screen and (min-width: 768px) {
     width: 12px;
     height: 12px;
