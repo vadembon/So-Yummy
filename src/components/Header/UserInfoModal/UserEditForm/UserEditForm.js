@@ -1,20 +1,26 @@
 import { useState } from 'react';
 import { useUpdateUser } from 'api/hooks/useUpdateUser';
+import { useUser } from 'api/hooks/useUser';
+import { FiUser } from 'react-icons/fi';
+import { FiEdit2 } from 'react-icons/fi';
 
 import {
-    Avatar,
-    Input,
-    Button,
-    Wrapper,
-    Form
+  AvatarWrapper,
+  Form,
+  UserWrapper,
+  NameLabel,
+  UserIcon,
+  NameInput,
+  Button,
+  InputsWrapper,
   } from './UserEditForm.styled';
 
-export const UserEditForm= () => {
-  const [name, setName] = useState('');
-  const [avatar, setAvatar] = useState('');
+export const UserEditForm= ({closeModal}) => {
+  const { data } = useUser();
+  const [name, setName] = useState(data.name);
+  const [avatar, setAvatar] = useState(data.avatar);
 
   const { mutate, error, isLoading } = useUpdateUser();
-  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,24 +29,35 @@ export const UserEditForm= () => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Wrapper>
-        <label htmlFor="avatar">
-        <Avatar src={avatar} alt="avatar" onChange={(e) => setAvatar(e.target.value)} />
+      <AvatarWrapper>
+        <label htmlFor="avatar" id="labelFile">
+          <UserWrapper>
+          <img src={avatar} alt={avatar} />
+          </UserWrapper>
+        <input 
+        type='file'
+        id='avatar'
+        name='avatar'
+        accept="image/png, image/jpeg"
+        onChange={(e) => setAvatar(e.target.files[0])} />
         </label>
-          
-      </Wrapper>
-      <div>
-        <label htmlFor="name"></label>
-        <Input
-          required
+      </AvatarWrapper>
+      <InputsWrapper>
+      <NameLabel htmlFor="name" id="labelName">
+      <UserIcon><FiUser /></UserIcon>
+        <NameInput
           type="name"
           id="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-      </div>
+        <UserIcon><FiEdit2 /></UserIcon>
+      </NameLabel>
+      
       <Button type="submit" disabled={isLoading}>
+      Save changes
       </Button>
+      </InputsWrapper>
       {error}
     </Form>
   );
