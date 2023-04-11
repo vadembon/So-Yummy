@@ -5,14 +5,14 @@ export const BtnDel = styled.button`
   width: 24px;
   height: 24px;
   border-radius: 4px;
-  font-size: 18px;
+  font-size: 14px;
   border: none;
   outline: none;
   text-align: center;
-  //   position: absolute;
+  position: absolute;
   top: 0;
   right: 0;
-  padding: 5px;
+  padding: 4px;
   margin: 0 auto;
   color: ${props => props.iconColor || 'black'};
   :hover,
@@ -25,10 +25,12 @@ export const BtnDel = styled.button`
     width: 38px;
     height: 38px;
     padding: 8px;
+    font-size: 18px;
   }
   @media screen and (min-width: 1440px) {
     width: 44px;
     height: 44px;
     padding: 10px;
+    font-size: 18px;
   }
 `;
