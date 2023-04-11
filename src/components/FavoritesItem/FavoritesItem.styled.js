@@ -107,9 +107,13 @@ export const FavoriteSeeBtn = styled.div`
   right: 0;
   @media screen and (min-width: 768px) {
     bottom: 28px;
+    width: 138px;
+    height: 45px;
   }
   @media screen and (min-width: 1440px) {
     bottom: 40px;
+    width: 172px;
+    height: 59px;
   }
 `;
 

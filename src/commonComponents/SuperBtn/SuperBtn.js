@@ -25,7 +25,7 @@ const SuperBtn = ({
     height: 100%;
     border-radius: 18px 44px;
     font-family: inherit;
-    font-size: inherit;
+    font-size: 12px;
     line-height: inherit;
     cursor: pointer;
     background-color: ${color || '#8baa36'};
@@ -33,6 +33,12 @@ const SuperBtn = ({
       color: white;
       background-color: ${hoverColor || 'grey'};
       scale: 1.1;
+    }
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+    }
+    @media screen and (min-width: 1440px) {
+      font-size: 18px;
     }
     ${otln &&
     css`
