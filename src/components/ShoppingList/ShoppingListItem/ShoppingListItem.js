@@ -7,16 +7,17 @@ import {
   ShoppingItemContainer,
   ProductFotoWrapper,
   RemoveIconWrapper,
-  Box
+  // Box
 } from './ShoppingListItem.styled';
 
 import { Loader } from 'components/Loader';
 
-export const ShoppingListItem = ({ key, name, unit, image, id }) => {
+export const ShoppingListItem = ({ key, name, unit, image, recipe }) => {
   const { mutate, isLoading } = useDeleteShoppingList();
 
   const handleDeleteClick = e => {
-    mutate([{ key: [{ id, key }] }]);
+    mutate([{ key, recipe }]);
+    
     if (isLoading) {
       return <Loader />;
     }
@@ -31,17 +32,17 @@ export const ShoppingListItem = ({ key, name, unit, image, id }) => {
 
         <ProductName>{name}</ProductName>
 
-        <Box>
-          <ProductNumber>{unit}</ProductNumber>
-          <RemoveItemButton
-            type="button"
-            id={id}
-            onClick={handleDeleteClick}
-            disabled={isLoading}
-          >
-            {isLoading ? <Loader /> : <RemoveIconWrapper />}
-          </RemoveItemButton>
-        </Box>
+        {/* <Box> */}
+        <ProductNumber>{unit}</ProductNumber>
+        <RemoveItemButton
+          type="button"
+          id={key}
+          onClick={handleDeleteClick}
+          disabled={isLoading}
+        >
+          {isLoading ? <Loader /> : <RemoveIconWrapper />}
+        </RemoveItemButton>
+        {/* </Box> */}
       </li>
     </ShoppingItemContainer>
   );

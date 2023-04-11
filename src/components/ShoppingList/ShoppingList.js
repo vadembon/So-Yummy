@@ -32,6 +32,7 @@ export const ShoppingList = () => {
               name={item.ttl}
               unit={item.measure}
               image={item.thb}
+              recipe= {item.recipe}
             />
           ))}
       </ul>
