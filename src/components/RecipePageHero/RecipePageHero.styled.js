@@ -42,8 +42,9 @@ export const SectionHero = styled.section`
 `;
 
 export const SectionHeroTitle = styled.h1`
-font-family: ${props => props.theme.fonts.primary};
-font-size: ${props => props.theme.fontSizes[3]};
+  font-family: ${props => props.theme.fonts.primary};
+  font-size: ${props => props.theme.fontSizes[3]};
+  color: ${props => props.theme.colors.greenAccent};
   line-height: 1;
   max-width: 360px;
   margin-right: auto;
@@ -73,12 +74,11 @@ export const SectionHeroDesc = styled.p`
   }
 `;
 
-
 export const SectionHeroBtn = styled.button`
   background-color: transparent;
-  background: #ececec;
+  background: ${props => props.theme.colors.secondaryLightBackground};
   border-radius: 24px 44px;
-  border: 2px solid #8baa36;
+  border: 2px solid ${props => props.theme.colors.greenAccent};
   padding: 10px 18px;
   font-weight: 400;
   font-size: 10px;
@@ -96,8 +96,8 @@ export const SectionHeroBtn = styled.button`
   }
   :hover,
   :focus {
-    background-color: #8baa36;
-    color: #fafafa;
+    background-color: ${props => props.theme.colors.greenAccent};
+    color: ${props => props.theme.colors.lightBackground};
   }
 `;
 
