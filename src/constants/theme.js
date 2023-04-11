@@ -68,6 +68,7 @@ export const theme = Object.freeze({
     xl: '10px',
     xxl: '12px',
     xxxl: '16px',
+    tem: '50px',
     modal: '24px',
     round: '50%',
   },
