@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useUpdateUser } from 'api/hooks/useUpdateUser';
 import { useUser } from 'api/hooks/useUser';
 import { FiUser } from 'react-icons/fi';
+import { FiEdit2 } from 'react-icons/fi';
 
 import {
   AvatarWrapper,
@@ -14,13 +15,13 @@ import {
   InputsWrapper,
   } from './UserEditForm.styled';
 
-export const UserEditForm= () => {
+export const UserEditForm= ({closeModal}) => {
   const { data } = useUser();
-  const [name, setName] = useState('');
-  const [avatar, setAvatar] = useState('');
+  const [name, setName] = useState(data.name);
+  const [avatar, setAvatar] = useState(data.avatar);
 
   const { mutate, error, isLoading } = useUpdateUser();
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     mutate({ name, avatar});
@@ -31,14 +32,14 @@ export const UserEditForm= () => {
       <AvatarWrapper>
         <label htmlFor="avatar" id="labelFile">
           <UserWrapper>
-          <img src={data.avatar} alt={avatar} />
+          <img src={avatar} alt={avatar} />
           </UserWrapper>
         <input 
         type='file'
         id='avatar'
         name='avatar'
         accept="image/png, image/jpeg"
-        onChange={(e) => setAvatar(e.target.value)} />
+        onChange={(e) => setAvatar(e.target.files[0])} />
         </label>
       </AvatarWrapper>
       <InputsWrapper>
@@ -50,7 +51,9 @@ export const UserEditForm= () => {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
+        <UserIcon><FiEdit2 /></UserIcon>
       </NameLabel>
+      
       <Button type="submit" disabled={isLoading}>
       Save changes
       </Button>

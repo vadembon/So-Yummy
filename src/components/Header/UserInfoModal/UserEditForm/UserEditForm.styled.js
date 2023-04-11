@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-import { AiOutlinePlusCircle } from 'react-icons/ai';
+import icon_user_add_foto from 'images/commonSvgImg/icon-user-add-foto.svg';
 
 export const Form  = styled.form`
-   input[type='file'] {
+     input[type='file'] {
      width: 0;
      height: 0;
      opacity: 0;
@@ -11,7 +11,7 @@ export const Form  = styled.form`
      z-index: -1;
      display: block;
      padding: 0;
-   }
+   } 
    & img {
      width: 88px;
      height: 88px;
@@ -20,7 +20,7 @@ export const Form  = styled.form`
        width: 103px;
        height: 103px;
     }
-   }
+   }  
 `;
 
 export const AvatarWrapper = styled.div`
@@ -34,7 +34,7 @@ export const AvatarWrapper = styled.div`
    }
    @media screen and (min-width: 768px) {
     margin-bottom: 52px;
-   }
+   } 
 `;
 
 export const UserWrapper = styled.div`
@@ -52,28 +52,22 @@ export const UserWrapper = styled.div`
     right: 0;
     bottom: -5%;
     transform: translateX(-50%);
-    content: url(${AiOutlinePlusCircle });
+    content: url(${icon_user_add_foto});
     width: 24px;
     height: 24px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    background-color: ${p => p.theme.colors.greenAccent};
-    border-radius: ${p => p.theme.radii.round};
   }
+
   @media screen and (min-width: 768px) {
     width: 103px;
     height: 103px;
-    /* & svg {
+     & svg {
       width: 47px;
       height: 47px;
-    } */
+    } 
   }
-`;
-
-
-export const IconPlus = styled.svg`
-
 `;
 
 export const UserIcon = styled.svg`
@@ -108,6 +102,8 @@ export const Button = styled.button`
   border-radius: ${p => p.theme.radii.l};
   border: inherit;
   font-family: ${p => p.theme.fonts.primary};
+  font-weight: ${p => p.theme.fontWeights.regular};
+  line-height: ${p => p.theme.lineHeights.extraContent};
   font-size: 14px;
   color: ${p => p.theme.colors.primaryLightText};
   white-space: nowrap;
