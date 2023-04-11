@@ -55,6 +55,12 @@ export const Container = styled.div`
       width: 68px;
       height: 68px;
     }
+
+    ${breakpoints.md}{
+      width: 68px;
+      height: 68px;
+    }
+
     ${breakpoints.lg}{
       width: 68px;
       height: 68px;
@@ -128,7 +134,7 @@ margin-top: 14px;
 width: 305px;
 
 ${breakpoints.sm}{
-  width: 505px;
+width: 450px;
 height: 72px;
 
 font-family: 'Poppins';
@@ -142,6 +148,18 @@ text-align: center;
 letter-spacing: -0.02em;
 
 color: #FAFAFA;
+}
+
+${breakpoints.md}{
+  font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 24px;
+text-align: center;
+letter-spacing: -0.02em;
+color: #FAFAFA;
+width: 505px;
 }
 
 ${breakpoints.lg}{
@@ -180,13 +198,13 @@ line-height: 21px;
 
 ${breakpoints.sm}{
   width: 144px;
-  height: 67px;
+  height: 61px;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 ${breakpoints.md}{
   width: 144px;
-  height: 67px;
+  height: 61px;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -229,12 +247,12 @@ line-height: 21px;
 
 ${breakpoints.sm}{
   width: 144px;
-  height: 67px;
+  height: 61px;
 }
 
 ${breakpoints.md}{
   width: 144px;
-  height: 67px;
+  height: 61px;
 }
 
 ${breakpoints.lg}{
