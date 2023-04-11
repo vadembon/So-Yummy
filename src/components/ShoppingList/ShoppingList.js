@@ -21,22 +21,20 @@ export const ShoppingList = () => {
      console.log(shoppingList);
   return (
     <Container>
-
       <ShoppingListHeader />
       <ul>
         {shoppingList &&
-     
           shoppingList.map(item => (
             <ShoppingListItem
               key={item.id}
+              id={item.id}
               name={item.ttl}
               unit={item.measure}
               image={item.thb}
-              recipe= {item.recipe}
+              recipe={item.recipe}
             />
           ))}
       </ul>
- 
     </Container>
   );
 }

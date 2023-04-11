@@ -36,7 +36,7 @@ export const ShoppingItemContainer = styled.div`
 
 
 export const ProductFotoWrapper = styled.div`
-  background: #ebf3d4;
+  background: '#ebf3d4';
   width: 60px;
   height: 60px;
   border-radius: 6px;

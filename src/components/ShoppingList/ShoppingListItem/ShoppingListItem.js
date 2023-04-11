@@ -12,11 +12,11 @@ import {
 
 import { Loader } from 'components/Loader';
 
-export const ShoppingListItem = ({ key, name, unit, image, recipe }) => {
+export const ShoppingListItem = ({ id, name, unit, image, recipe }) => {
   const { mutate, isLoading } = useDeleteShoppingList();
 
   const handleDeleteClick = e => {
-    mutate([{ key, recipe }]);
+    mutate([{ id, recipe }]);
     
     if (isLoading) {
       return <Loader />;
@@ -36,7 +36,7 @@ export const ShoppingListItem = ({ key, name, unit, image, recipe }) => {
         <ProductNumber>{unit}</ProductNumber>
         <RemoveItemButton
           type="button"
-          id={key}
+          id={id}
           onClick={handleDeleteClick}
           disabled={isLoading}
         >
