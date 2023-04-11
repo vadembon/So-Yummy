@@ -29,12 +29,14 @@ export const theme = Object.freeze({
     normalGrey: '#f0f0f0', // buttons, background in add recipy, search
     darkAccent: '#22252A', // footer
     greenAccent: '#8BAA36', // buttons  , footer in darkTheme
+    lightGray: '#bdbdbd',  //categories list text
 
     greenValidation: '#3CBC81', // in forms
     yellowValidation: '#F6C23E',
     redValidation: '#E74A3B',
 
     lightBackground: '#fafafa',
+    whiteBackground: '#ffffff',
     primaryDarkBackground: '#1E1F28',
     secondaryDarkBackground: '#22252A',
     messageBackground: '#53545599',

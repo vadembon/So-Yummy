@@ -7,9 +7,8 @@ import { Categories } from 'components/Categories/Categories';
 export const CategoriesPage = () => {
   return (
     <>
-      <div>CategoriesPage</div>;
       <Categories/>
-      <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
     </>

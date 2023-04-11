@@ -1,7 +1,4 @@
-import { DishItem, DishList, 
-  // RecipiesWrap, 
-   
-} from './RecipiesList.styled';
+import { DishItem, DishList } from './RecipiesList.styled';
 import { DishCard } from 'components/DishCard/DishCard';
 import { Loader } from 'components/Loader/Loader';
 import { useRecipes } from '../../api/hooks';
@@ -30,7 +27,6 @@ export const RecipiesList = ({ categoryId }) => {
           ))}
         </DishList>
       )}
-      {/* <Spinach/> */}
     </>
   );
 };
