@@ -46,6 +46,7 @@ export const RecipePage = () => {
         ></RecipePageHero>
         <Container>
           <RecipeIngredientsList
+            recipeId={recipeId}
             ingredients={ingredients}
           ></RecipeIngredientsList>
           <RecipePreparation
