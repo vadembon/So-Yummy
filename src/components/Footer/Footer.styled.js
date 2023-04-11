@@ -156,7 +156,7 @@ export const Styledlink = styled(NavLink)`
 
 ///////////////  Styled SubscribeForm /////////
 export const SubscribeContainer = styled.div`
-  display: none;
+  /* display: none; */
   @media screen and (min-width: 1440px) {
     display: flex;
     flex-direction: column;
@@ -166,10 +166,10 @@ export const SubscribeContainer = styled.div`
 `;
 
 export const SubscribeBox = styled.div`
-  /* display: none;
+  display: none;
   @media screen and (min-width: 1440px) {
     display: block;
-  } */
+  }
 `;
 
 export const SubscribeTitle = styled.h3`
@@ -195,11 +195,12 @@ export const Form = styled.form`
   align-items: center;
 
   @media screen and (min-width: 768px) {
-    display: inline-flex;
+    display: block;
     text-align: center;
     margin-bottom: 38px;
   }
   @media screen and (min-width: 1440px) {
+    display: inline-flex;
     text-align: start;
     margin-bottom: 0px;
   }
@@ -227,9 +228,7 @@ export const Input = styled.input`
   &::placeholder {
     font-size: 10px;
     line-height: 1.5;
-
     letter-spacing: -0.02em;
-
     color: ${p => p.theme.colors.primaryLightText};
   }
   &:-webkit-autofill,
@@ -241,6 +240,7 @@ export const Input = styled.input`
     box-shadow: none;
     -webkit-text-fill-color: ${p => p.theme.colors.primaryLightText} !important;
     background-color: transparent !important;
+    background-image: url(${emailIcon});
   }
 
   @media screen and (min-width: 768px) {

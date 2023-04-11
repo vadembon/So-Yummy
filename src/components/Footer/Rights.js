@@ -7,6 +7,7 @@ export const Rights = () => {
       <RightsText>
         <b>© 2023 All Rights Reserved.</b> <Span>Terms of Service</Span>
       </RightsText>
+      {/* <FooterPageBackground /> */}
       {/* <ImgRights src={spinach} alt="spinach"></ImgRights> */}
     </RightsBox>
   );
