@@ -1,9 +1,10 @@
 export const lightTheme = {
   primaryLightText: '#FAFAFA', // in footer,  and in darkTheme,
-
+  primaryLightTextNoChange: '#FAFAFA', //  shoppingList
   normalDark: '#1E1F28', // buttons
   primaryDarkText: '#23262A', /// long text of recipy? header text
   secondaryDarkText: '#3E4462', /// titles of recipy, ingredients
+  secondaryDarkTextNoChange: '#3E4462', ///
   tertiaryDarkText: '#001833', /// title of pages (Favorites, My receipies, categories, search, shopping list
   mainPageButtons: '#8AA936', /// main page buttons except footer! also my receipy
   greenAccent: '#8BAA36', // buttons  , footer in darkTheme     !!!!!!!!!!!!!!!!  checkbox
@@ -29,6 +30,7 @@ export const lightTheme = {
   redValidation: '#E74A3B',
 
   lightBackground: '#fafafa',
+  lightBackgroundBody: '#fafafa',
   primaryDarkBackground: '#1E1F28',
   messageBackground: '#53545599',
 
@@ -38,6 +40,7 @@ export const lightTheme = {
   lightGray: '#bdbdbd', //categories list text
   secondaryAccent: '#EBF3D4',
   whiteBackground: '#ffffff',
+  whiteBackgroundDish: '#ffffff',
   secondaryLightBackground: '#ECECEC',
   shoppingListProductName: '#3e4462',
 };
@@ -46,6 +49,7 @@ export const lightTheme = {
 
 export const darkTheme = {
   primaryLightText: '#1E1F28', // black background
+  primaryLightTextNoChange: '#FAFAFA', //  shoppingList
   normalDark: '#1E1F28', // buttons
   primaryDarkText: '#FAFAFA', /// long text of recipy
   secondaryDarkText: '#FAFAFA', /// titles of recipy, ingredients
@@ -74,6 +78,7 @@ export const darkTheme = {
   redValidation: '#E74A3B',
 
   lightBackground: '#fafafa',
+  lightBackgroundBody: '#1E1F28',
   primaryDarkBackground: '#1E1F28',
   messageBackground: '#53545599',
 
@@ -85,6 +90,7 @@ export const darkTheme = {
   lightGray: '#bdbdbd', //categories list text
   secondaryAccent: '#EBF3D4',
   whiteBackground: '#ffffff',
+  whiteBackgroundDish: '#1E1F28',
   secondaryLightBackground: '#ECECEC',
 };
 

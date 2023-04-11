@@ -12,7 +12,7 @@ export const ChooseYourBreakfastContainer = styled.div`
 
   margin: 157px 7px 115px 88px;
 
-  background: ${p => p.theme.colors.lightBackground};
+  background: ${p => p.theme.colors.lightBackgroundBody};
   border-radius: 8px;
 
   @media screen and (min-width: 768px) {

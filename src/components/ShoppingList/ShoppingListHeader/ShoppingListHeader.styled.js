@@ -12,7 +12,7 @@ export const HeaderWrapper = styled.div`
   font-size: 12px;
   line-height: 18px;
   border-radius: 8px;
-  color: ${props => props.theme.colors.primaryLightText};
+  color: ${props => props.theme.colors.primaryLightTextNoChange};
 
   @media screen and (min-width: 768px) {
     margin: 50px 8px 32px 8px;

@@ -68,7 +68,7 @@ export const PreviewCategoriesTitle = styled.h2`
   font-size: 28px;
   line-height: 28px;
   letter-spacing: -0.02em;
-  color: #001833;
+  color: ${p => p.theme.colors.tertiaryDarkText};
   margin-bottom: 32px;
   @media screen and (min-width: 768px) {
     font-size: 44px;
