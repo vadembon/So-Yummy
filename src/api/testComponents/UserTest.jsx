@@ -1,6 +1,9 @@
 import { useUser, useUpdateUser, useStatistics, useSubscribe } from '../hooks';
+import { useUserTheme } from 'redux/useUserTheme';
 
 export const UserTest = () => {
+  const [userTheme, setUserTheme] = useUserTheme();
+
   const user = useUser({
     onSuccess: console.log,
     onError: console.log,
@@ -41,11 +44,16 @@ export const UserTest = () => {
     subscribe.mutate('user10@mail.com');
   };
 
+  const handleChangeTheme = () => {
+    console.log('User Theme', userTheme);
+    const theme = userTheme === 'light' ? 'dark' : 'light';
+    setUserTheme(theme);
+  };
+
   return (
     <>
       <p>{JSON.stringify(user.data)}</p>
       <p>{JSON.stringify(statistics.data)}</p>
-
       <form onSubmit={handleSubmit}>
         <label>
           Name
@@ -54,9 +62,9 @@ export const UserTest = () => {
         <input name="file" type="file" />
         <button>Submit</button>
       </form>
-
       <button onClick={handleSubscribe}>Subscribe user10@mail.com</button>
-
+      <button onClick={handleChangeTheme}>Change theme</button>{' '}
+      <p>{userTheme}</p>
       {error && <p>Error {error.message}</p>}
       {isLoading && <p>Loading... </p>}
     </>

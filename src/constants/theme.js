@@ -1,3 +1,5 @@
+import { lightTheme, darkTheme } from './colors';
+
 export const theme = Object.freeze({
   fonts: {
     primary: 'Poppins, sans-serif',
@@ -32,7 +34,7 @@ export const theme = Object.freeze({
     tertiaryDarkText: '#001833', /// title of pages (Favorites, My receipies, categories, search, shopping list
     quaternaryDarkText: '#22252A',
     footerBG: '#22252A',
-    
+
     blackText: '#000000',
 
     primaryLightText: '#FAFAFA', // in footer,  and in darkTheme
@@ -98,3 +100,8 @@ export const theme = Object.freeze({
     main: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)',
   },
 });
+
+export const getTheme = userTheme => {
+  const colors = userTheme === 'dark' ? darkTheme : lightTheme;
+  return { ...theme, colors };
+};

@@ -80,17 +80,18 @@ export const ShoppingListTest = () => {
   );
 };
 
-//---------RecipeDetails---------
+//---------RecipeDetailsPage---------
 
 // function RecipeDetails() {
 //   const { recipeId } = useParams();
 //   const recipe = useRecipe(recipeId);
+//   //запит до ShoppingList
 //   const shoppingList = useShoppingList();
-
+//   //отримаємо масив id інгредієнтів у ShoppingList доданих зі сторінки поточного рецепта
 //   const selectedIngredientIds = shoppingList.data
 //     .filter(item => item.recipe === recipeId)
 //     .map(item => item.id);
-
+//   // У компонент Ingredient передаємо пропс IsSelected, який буде true, якщо id поточного інгредієнта є у масиві selectedIngredientIds
 //   return (
 //     <>
 //       <h2>{recipe.data.ttl}</h2>
@@ -105,18 +106,24 @@ export const ShoppingListTest = () => {
 //   );
 // }
 
+//---------------------- Ingredient component------------------------------
 // function Ingredient({ key, data, recepeId, isSelected }) {
 //   const deleteShoppingList = useDeleteShoppingList();
 //   const addShoppingList = useAddShoppingList();
 
 //   function handleClick(e) {
+//     // якщо чекбокс був обраний, робимо запит на видалення інгредієнта з ShoppingList
 //     if (e.target.checked) {
 //       deleteShoppingList.mutate({ id: data.id, recipe: recepeId });
+
+//       // якщо чекбокс не був обраний, робимо запит на додавання інгредієнта до ShoppingList
 //     } else {
 //       addShoppingList.mutate(data);
 //     }
 //   }
 
+//   //під час рендеру поки isLoading = true замість чекбоксу показуємо лоадер
+//   //пропс isSelected задає стан чекбоксу: обраний чи ні
 //   return (
 //     <li key={key}>
 //       <p>{data.thb}</p>
@@ -130,12 +137,14 @@ export const ShoppingListTest = () => {
 //     </li>
 //   );
 // }
-//-----------SHOPPING LIST-----------
+//-----------SHOPPING LIST PAGE-----------
 // function ShoppingList() {
+//   //запит до ShoppingList
 //   const shoppingList = useShoppingList();
+//   //визиваємо функцію getSummaryList (Марина пишить функцію) і передаємо до неї дані з ShoppingList. Функція повертає: [{key: [{id, recipe}], ttl, thb, qty, unit}]
+//   const summaryList = getSummaryList(shoppingList.data);
 
-//   const summaryList = getSummaryList(shoppingList.data); // [{key: [{id, recipe}], ttl, thb, qty, unit}]
-
+//   //передаємо у компонент об'єкт інгредієнта
 //   return (
 //     <>
 //       {summaryList.map(item => (
@@ -144,13 +153,17 @@ export const ShoppingListTest = () => {
 //     </>
 //   );
 // }
+// //---------------------- ShoppingItem component------------------------------
 
 // function ShoppingItem({ data, key }) {
 //   const deleteShoppingList = useDeleteShoppingList();
 
 //   function handleClick(e) {
+//     // відправляємо запит на видалення інгредієнта з ShoppingList
 //     deleteShoppingList.mutate(key);
 //   }
+
+//   //під час рендеру поки isLoading = true замість кнопки Х показуємо лоадер
 //   return (
 //     <li key={key}>
 //       <p>{data.thb}</p>

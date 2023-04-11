@@ -42,8 +42,7 @@ export const lightTheme = {
   shoppingListProductName: '#3e4462',
 };
 
-  
-  //////////////////////////////////////////
+//////////////////////////////////////////
 
 export const darkTheme = {
   primaryLightText: '#1E1F28', // black background
@@ -86,8 +85,7 @@ export const darkTheme = {
   lightGray: '#bdbdbd', //categories list text
   secondaryAccent: '#EBF3D4',
   whiteBackground: '#ffffff',
-  secondaryLightBackground: '#ECECEC', 
-  shoppingListProductName: '#3e4462',
+  secondaryLightBackground: '#ECECEC',
 };
 
 // white -> black
