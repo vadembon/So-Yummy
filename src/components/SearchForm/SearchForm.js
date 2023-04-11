@@ -9,7 +9,7 @@ export const SearchForm = ({ onSubmit, color, defaultValue = '' }) => {
     <SearchFormSection onSubmit={onSubmit}>
       <SearchInput
         name="query"
-        placeholder="Beef"
+        // placeholder="Beef"
         defaultValue={defaultValue}
         // onChange={onChange}
         required

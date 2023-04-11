@@ -8,6 +8,7 @@ import {
   WrapperSelector,
   SearchBy,
 } from './SearchBar.styled';
+import { Loader } from 'components/Loader';
 import { SearchedRecipesList } from 'components/SearchedRecipesList';
 import { useRecipes } from 'api/hooks';
 
@@ -66,7 +67,7 @@ export const SearchBar = () => {
           />
         </WrapperSelector>
       </WrapperSearchBar>
-      {isLoading && <div>Loading...</div>}
+      {isLoading && <Loader />}
       {data && <SearchedRecipesList items={data} />}
     </>
   );

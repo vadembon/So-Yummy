@@ -70,6 +70,16 @@ export const SearchButton = styled.button`
   @media screen and (min-width: 1440px) {
     width: 161px;
     height: 70px;
+
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+
+    :hover {
+      box-shadow: ${props =>
+        props.color === '#8baa36'
+          ? '0 0 40px 40px #22252a inset'
+          : '0 0 40px 40px #8baa36 inset'};
+    }
   }
 `;
 // Alex background: #22252a;
