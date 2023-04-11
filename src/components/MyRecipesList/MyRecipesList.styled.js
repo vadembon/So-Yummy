@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import bucket_veggies_mob_1x from '../../images/search/bucket_veggies_mob_1x.png';
-import bucket_veggies_tab_1x from '../../images/search/bucket_veggies_tab_1x.png';
-import bucket_veggies_desk_1x from '../../images/search/bucket_veggies_desk_1x.png';
+// import bucket_veggies_mob_1x from '../../images/search/bucket_veggies_mob_1x.png';
+// import bucket_veggies_tab_1x from '../../images/search/bucket_veggies_tab_1x.png';
+// import bucket_veggies_desk_1x from '../../images/search/bucket_veggies_desk_1x.png';
 
 export const MyRecipe = styled.div`
   padding: 20px 0px 100px;
@@ -36,25 +36,25 @@ export const CardList = styled.ul`
   }
 `;
 
-export const NoRecipesImg = styled.div`
-  width: 208px;
-  height: 133px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  margin: 40px;
-  background-image: url(${bucket_veggies_mob_1x});
-  @media screen and (max-width: 768px) {
-    width: 350px;
-    height: 225px;
-    background-image: url(${bucket_veggies_tab_1x});
-  }
-  @media screen and (min-width: 1440px) {
-    width: 520px;
-    height: 333px;
-    background-image: url(${bucket_veggies_desk_1x});
-  }
-`;
+// export const NoRecipesImg = styled.div`
+//   width: 208px;
+//   height: 133px;
+//   background-repeat: no-repeat;
+//   background-position: center center;
+//   background-size: cover;
+//   margin: 40px;
+//   background-image: url(${bucket_veggies_mob_1x});
+//   @media screen and (max-width: 768px) {
+//     width: 350px;
+//     height: 225px;
+//     background-image: url(${bucket_veggies_tab_1x});
+//   }
+//   @media screen and (min-width: 1440px) {
+//     width: 520px;
+//     height: 333px;
+//     background-image: url(${bucket_veggies_desk_1x});
+//   }
+// `;
 
 export const NoRecipesText = styled.p`
   text-align: center;

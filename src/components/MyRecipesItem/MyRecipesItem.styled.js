@@ -70,9 +70,12 @@ export const TitleRecipe = styled(Link)`
 `;
 
 export const ButtonDelete = styled.div`
+  border: none;
+  outline: none;
   position: absolute;
-  right: 0;
   bottom: 14px;
+  right: 0;
+  top: 0px;
   @media screen and (min-width: 768px) {
     top: 28px;
   }
@@ -116,6 +119,7 @@ export const Time = styled.p`
 export const SuperBtnWrapper = styled.div`
   position: absolute;
   right: 0;
+  bottom: 0;
   width: 87px;
   height: 27px;
   @media screen and (min-width: 768px) {

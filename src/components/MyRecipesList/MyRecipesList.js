@@ -2,12 +2,8 @@ import React, { useState } from 'react';
 import { Loader } from 'components/Loader/Loader';
 import { useOwnRecipes, useDeleteOwnRecipe } from '../../api/hooks';
 import { MyRecipesItem } from '../MyRecipesItem/MyRecipesItem';
-import {
-  MyRecipe,
-  CardList,
-  NoRecipesText,
-  NoRecipesImg,
-} from './MyRecipesList.styled.js';
+import { MyRecipe, CardList, NoRecipesText } from './MyRecipesList.styled.js';
+import { NoRecipesImg } from './NoRecipesImg.styled.js';
 import { Paginator } from '../Paginator/Paginator';
 
 export const MyRecipesList = () => {
