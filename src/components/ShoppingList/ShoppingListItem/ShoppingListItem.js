@@ -12,12 +12,12 @@ import {
 
 import { Loader } from 'components/Loader';
 
-export const ShoppingListItem = ({ id, name, unit, image, recipe }) => {
+export const ShoppingListItem = ({ ids, name, sum, unit, image }) => {
   const { mutate, isLoading } = useDeleteShoppingList();
 
   const handleDeleteClick = e => {
-    mutate([{ id, recipe }]);
-    
+    mutate(ids);
+
     if (isLoading) {
       return <Loader />;
     }
@@ -33,10 +33,10 @@ export const ShoppingListItem = ({ id, name, unit, image, recipe }) => {
         <ProductName>{name}</ProductName>
 
         {/* <Box> */}
-        <ProductNumber>{unit}</ProductNumber>
+        <ProductNumber>{`${sum} ${unit}`}</ProductNumber>
         <RemoveItemButton
           type="button"
-          id={id}
+          // id={ids}
           onClick={handleDeleteClick}
           disabled={isLoading}
         >

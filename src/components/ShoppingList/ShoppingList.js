@@ -5,20 +5,21 @@ import { ShoppingListItem } from './ShoppingListItem';
 // import { Box } from './ShoppingList.styled';
 import { Container } from 'commonComponents/Container';
 import { Loader } from 'components/Loader';
+import { prepareShoppingList } from 'utils/prepareShoppingList';
 
 export const ShoppingList = () => {
-  const {data, isLoading} = useShoppingList()
-  const shoppingList = data
-    // const summaryList = []
-    // console.log(shoppingList);
-  
+  const { data, isLoading } = useShoppingList();
+  // const shoppingList = data;
+  // const summaryList = []
+  // console.log(shoppingList);
+
   // console.log(error);
+  if (isLoading) {
+    return <Loader />;
+  }
+  const shoppingList = prepareShoppingList(data ?? []);
 
-    if (isLoading) {
-      return <Loader/>
-        }
-
-     console.log(shoppingList);
+  console.log(shoppingList);
   return (
     <Container>
       <ShoppingListHeader />
@@ -26,16 +27,15 @@ export const ShoppingList = () => {
         {shoppingList &&
           shoppingList.map(item => (
             <ShoppingListItem
-              key={item.id}
-              id={item.id}
+              key={item.keys}
+              ids={item.keys}
               name={item.ttl}
-              unit={item.measure}
+              sum={item.sum}
+              unit={item.unit}
               image={item.thb}
-              recipe={item.recipe}
             />
           ))}
       </ul>
     </Container>
   );
-}
-        
+};

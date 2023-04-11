@@ -1,4 +1,4 @@
-const theme = Object.freeze({
+export const theme = Object.freeze({
   fonts: {
     primary: 'Poppins, sans-serif',
     secondary: 'Montserrat, sans-serif',
