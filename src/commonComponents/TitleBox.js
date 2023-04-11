@@ -8,10 +8,8 @@ export const TitleBox = styled.div`
   padding-left: 16px;
   padding-right: 16px;
 
-  /* display: flex; */
-  /* align-items: center; */
-  /* color: ${({ theme: { colors } }) => colors.primaryLightText}; */
-  /* background: ${({ theme: { colors } }) => colors.backgroundLight}; */
+  color: ${({ theme: { colors } }) => colors.primaryLightText};
+  background-color: ${({ theme: { colors } }) => colors.lightBackground};
 
   @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
     height: 208px;

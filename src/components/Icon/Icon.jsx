@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { InputIcon } from './Icon.styled';
 
 export const Icon = ({
   element: Element,
@@ -7,12 +8,12 @@ export const Icon = ({
   size,
 }) => {
   return (
-    <span className="icon">
+    <InputIcon >
       <Element
         color={color}
         size={size}
       />
-    </span>
+    </InputIcon>
   );
 };
 

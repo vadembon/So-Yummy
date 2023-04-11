@@ -39,9 +39,10 @@ export const theme = Object.freeze({
     whiteText: '#ffffff',
 
     normalDark: '#1E1F28', // buttons
-    normalGrey: '#D9D9D9', // buttons, background in add recipy
+    normalGrey: '#f0f0f0', // buttons, background in add recipy, search
     darkAccent: '#22252A', // footer
     greenAccent: '#8BAA36', // buttons  , footer in darkTheme
+    lightGray: '#bdbdbd',  //categories list text
 
     greenValidation: '#3CBC81', // in forms
     yellowValidation: '#F6C23E',
@@ -49,6 +50,7 @@ export const theme = Object.freeze({
     secondaryAccent: '#EBF3D4',
 
     lightBackground: '#fafafa',
+    whiteBackground: '#ffffff',
     primaryDarkBackground: '#1E1F28',
     secondaryDarkBackground: '#22252A',
 

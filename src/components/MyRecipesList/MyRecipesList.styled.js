@@ -33,7 +33,7 @@ export const MyRecipe = styled.section`
   // @media screen and (min-width: 1440px) {
   //   margin-bottom: 200px;
   // }
-  text-align: center;
+  // text-align: center;
   padding-left: 100px;
 `;
 

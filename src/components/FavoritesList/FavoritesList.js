@@ -1,18 +1,18 @@
-import { useFavorite } from 'api/hooks';
+import { useFavorite, useDeleteFavorite } from 'api/hooks';
 import { Loader } from 'components/Loader/Loader';
 import { FavoritesItem } from '../FavoritesItem/FavoritesItem';
 import {
   FavoritesContainer,
+  FavoritTitle,
   FavoritesListContent,
 } from './FavoritesList.styled';
 
 export const FavoritesList = ({ favorite }) => {
-  const {
-    data: recipes,
-    error,
-    isError,
-    isLoading,
-  } = useFavorite({
+  const { mutate } = useDeleteFavorite();
+  const deleteRecipe = id => {
+    mutate(id);
+  };
+  const { data: recipes, isLoading } = useFavorite({
     favorite,
     page: 1,
     limit: 4,
@@ -20,24 +20,25 @@ export const FavoritesList = ({ favorite }) => {
   if (isLoading) {
     return <Loader />;
   }
-  if (isError) {
-    return <div>Error: {error.message}</div>;
-  }
+
   return (
-    <>
-      <FavoritesContainer>
-        <h2>Favorites</h2>
-        {recipes && (
-          <FavoritesListContent>
-            {recipes?.map(({ _id: id, title, thumb }) => (
-              <li key={id}>
-                <FavoritesItem id={id} title={title} image={thumb} />
-                <button>Icon</button>
-              </li>
-            ))}
-          </FavoritesListContent>
-        )}
-      </FavoritesContainer>
-    </>
+    <FavoritesContainer>
+      <FavoritTitle>Favorites</FavoritTitle>
+      {recipes && (
+        <FavoritesListContent>
+          {recipes?.map(({ _id: id, title, thumb, time, description }) => (
+            <FavoritesItem
+              key={id}
+              id={id}
+              title={title}
+              image={thumb}
+              time={time}
+              description={description}
+              handleDelete={() => deleteRecipe(id)}
+            />
+          ))}
+        </FavoritesListContent>
+      )}
+    </FavoritesContainer>
   );
 };

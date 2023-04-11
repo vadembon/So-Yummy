@@ -8,7 +8,7 @@ export const PageBox = styled.div`
   min-height: 100vh;
   padding-bottom: 100px;
   color: ${({ theme: { colors } }) => colors.primaryLightText};
-  /* background: ${({ theme: { colors } }) => colors.backgroundLight}; */
+  background-color: ${({ theme: { colors } }) => colors.lightBackground};
   overflow: hidden;
   padding-left: 16px;
   padding-right: 16px;

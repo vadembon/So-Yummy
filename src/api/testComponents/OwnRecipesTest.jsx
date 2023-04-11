@@ -43,6 +43,14 @@ export const OwnRecipesTest = () => {
         id: '640c2dd963a319ea671e3694',
         measure: '2',
       },
+      {
+        id: '640c2dd963a319ea671e366d',
+        measure: '6',
+      },
+      {
+        id: '640c2dd963a319ea671e3679',
+        measure: '2',
+      },
     ];
     const title = e.target.title.value;
     const category = e.target.category.value;

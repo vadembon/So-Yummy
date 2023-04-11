@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { ButtonDel } from '../../commonComponents/ButtonDelete/ButtonDelete';
 import SuperBtn from '../../commonComponents/SuperBtn/SuperBtn';
+
 import {
   CardItem,
   ImageCard,
@@ -20,9 +21,10 @@ export const MyRecipesItem = ({
   thumb,
   category,
   title,
-  handleDelete,
   description,
   time,
+  handleDelete,
+  id,
 }) => {
   const location = useLocation();
 
@@ -36,9 +38,11 @@ export const MyRecipesItem = ({
           <TitleRecipe>{title}</TitleRecipe>
           <ButtonDelete>
             <ButtonDel
-              handleDelete={e => {
-                handleDelete(e);
-              }}
+              handleDelete={handleDelete}
+              bgColor="#8baa36"
+              hoverColor="#EBF3D4"
+              iconColor="white"
+              iconHoverColor="black"
             />
           </ButtonDelete>
         </WrapperButtons>
@@ -49,7 +53,7 @@ export const MyRecipesItem = ({
             <SuperBtn
               title="See recipe"
               lnk
-              // to={`/recipe/${id}`}
+              to={`/recipe/${id}`}
               statefrom={{ from: location }}
             />
           </SuperBtnWrapper>

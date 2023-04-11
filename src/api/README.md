@@ -351,7 +351,7 @@ mutate(id);
 ### _Shopping list_: `GET/shopping-list`
 
 - **header**: `{Authorization: 'Bearer <token>'}`
-- **response**: `[{id, ttl, thb, recipe, measure}]`
+- **response**: `[{id, recipe, ttl, thb, measure}]`
 
 ```js
 import { useShoppingList } from './api/hooks';
@@ -362,26 +362,27 @@ const { data, error, isLoading } = useShoppingList();
 ### _Add to shopping list_: `POST/shopping-list`
 
 - **header**: `{Authorization: 'Bearer <token>'}`
-- **body**: `{id, ttl, thb, recipe, measure}`
-- **response**: `{id, ttl, thb, recipe, measure}`
+- **body**: `{id, recipe, ttl, thb, measure}`
+- **response**: `{ id, recipe, ttl, thb, measure}`
 
 ```js
 import { useAddShoppingList } from './api/hooks';
 
 const { mutate, error, isLoading } = useAddShoppingList();
-mutate({ id, ttl, thb, recipe, measure });
+mutate({ id, recipe, ttl, thb, measure });
 ```
 
-### _Delete from shopping list_: `DELETE/shopping-list/:id`
+### _Delete from shopping list_: `DELETE/shopping-list`
 
 - **header**: `{Authorization: 'Bearer <token>'}`
-- **response**: `{id, ttl, thb, recipe, measure}`
+- **body**: `[{id, recipe}]`
+- **response**: `{}`
 
 ```js
 import { useDeleteShoppingList } from './api/hooks';
 
 const { mutate, error, isLoading } = useDeleteShoppingList();
-mutate(id);
+mutate([{ id, recipe }]);
 ```
 
 ---
