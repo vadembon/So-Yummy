@@ -12,7 +12,7 @@ import {
   BurgerButton,
   MobileMenuWrapper,
   MobileMenuHeaderContainer,
-  // MobileMenuThemeTogglerWrapper,
+  MobileMenuThemeTogglerWrapper,
 } from './Header.styled';
 
 import logo_desk from "images/commonSvgImg/logo_desk.svg";
@@ -97,9 +97,9 @@ export const Header = () => {
              <HeaderNavigation
                setShowBurgerMenu={setShowBurgerMenu}
              />
-             {/* <MobileMenuThemeTogglerWrapper>
+             <MobileMenuThemeTogglerWrapper>
                <ThemeToggler />
-             </MobileMenuThemeTogglerWrapper> */}
+             </MobileMenuThemeTogglerWrapper>
            </MobileMenuWrapper>
          </>
        )}
