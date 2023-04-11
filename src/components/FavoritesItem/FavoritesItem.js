@@ -1,12 +1,16 @@
-// import { Link } from 'react-router-dom';
+import SuperBtn from 'commonComponents/SuperBtn/SuperBtn';
+import { ButtonDel } from 'commonComponents/ButtonDelete/ButtonDelete';
+import { useLocation } from 'react-router-dom';
 import {
+  FavoritesContentLi,
   ImageFavoriteCard,
-  FavoritesContentWrapper,
   FavoriteDishTitel,
   FavoriteDescription,
   FavoriteTime,
+  FavoriteDeleteBtn,
+  FavoriteBtnWrapper,
+  FavoriteSeeBtn,
 } from './FavoritesItem.styled';
-import SuperBtn from 'commonComponents/SuperBtn/SuperBtn';
 
 export const FavoritesItem = ({
   id,
@@ -16,22 +20,37 @@ export const FavoritesItem = ({
   description,
   handleDelete,
 }) => {
+  const location = useLocation();
+
   return (
     <>
-      <FavoritesContentWrapper>
+      <FavoritesContentLi>
         <ImageFavoriteCard src={image} alt={title} />
-        <div>
+        <FavoriteBtnWrapper>
           <FavoriteDishTitel to={`/recipe/${id}`}>{title}</FavoriteDishTitel>
+          <FavoriteDeleteBtn>
+            <ButtonDel
+              handleDelete={handleDelete}
+              bgColor="#EBF3D4"
+              hoverColor="#8baa36"
+              iconColor="black"
+              iconHoverColor="white"
+            />
+          </FavoriteDeleteBtn>
           <FavoriteDescription>{description}</FavoriteDescription>
           <FavoriteTime>{time} min</FavoriteTime>
-          <SuperBtn
-            color="#22252A"
-            hoverColor="#8baa36"
-            title="See recipe"
-            lnk
-          />
-        </div>
-      </FavoritesContentWrapper>
+          <FavoriteSeeBtn>
+            <SuperBtn
+              color="#22252A"
+              hoverColor="#8baa36"
+              title="See recipe"
+              lnk
+              to={`/recipe/${id}`}
+              statefrom={{ from: location }}
+            />
+          </FavoriteSeeBtn>
+        </FavoriteBtnWrapper>
+      </FavoritesContentLi>
     </>
   );
 };
