@@ -22,6 +22,7 @@ export const lightTheme = {
   myRecipyDeleteButton: '#8BAA36', // my recipe  delete button background, no change
   normalGrey: '#f0f0f0', /// border in search form
   whiteBackgroundToBlack: '#ffffff', /// favorites bg
+  blackCloseIconToWhite: '#333333', // icon close at shopping list
 
   //  no change
   whiteText: '#ffffff',
@@ -55,7 +56,7 @@ export const darkTheme = {
   primaryLightTextNoChange: '#FAFAFA', //  shoppingList
   normalDark: '#1E1F28', // buttons
   primaryDarkText: '#FAFAFA', /// long text of recipy
-  primaryDarkTextNoChange: '#23262A', ///  
+  primaryDarkTextNoChange: '#23262A', ///
   secondaryDarkText: '#FAFAFA', /// titles of recipy, ingredients
   tertiaryDarkText: ' #FAFAFA', /// title of pages (Favorites, My receipies, categories, search, shopping list
   mainPageButtons: '#8AA936', /// main page buttons except footer!
@@ -90,13 +91,14 @@ export const darkTheme = {
   secondaryGrey: '#656565',
   secondaryGreyBg: '#C4C4C4',
 
-  shoppingListProductName: '#3e4462',
+  shoppingListProductName: '#FAFAFA',
   darkAccent: '#22252A', // footer
   lightGray: '#bdbdbd', //categories list text
   secondaryAccent: '#EBF3D4',
   whiteBackground: '#ffffff',
   whiteBackgroundDish: '#1E1F28',
   secondaryLightBackground: '#ECECEC',
+  blackCloseIconToWhite: '#FAFAFA;', // icon close at shopping list
 };
 
 // white -> black
