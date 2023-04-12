@@ -6,7 +6,6 @@ import { SubscribeForm } from './SubscribeForm';
 import { FollowUs } from './FollowUs';
 import { Rights } from './Rights';
 
-// import { Container } from 'commonComponents/Container';
 import {
   FooterStyle,
   FoterBox,
@@ -16,7 +15,6 @@ import {
 
 export const Footer = () => {
   return (
-    // <Container>
     <FooterStyle>
       <FoterBox>
         <MainFooterContainer>
@@ -30,6 +28,5 @@ export const Footer = () => {
       </FoterBox>
       <Rights />
     </FooterStyle>
-    // </Container>
   );
 };
