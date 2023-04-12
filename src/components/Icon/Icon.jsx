@@ -2,17 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { InputIcon } from './Icon.styled';
 
-export const Icon = ({
-  element: Element,
-  color,
-  size,
-}) => {
+export const Icon = ({ element: Element, color, size }) => {
   return (
-    <InputIcon >
-      <Element
-        color={color}
-        size={size}
-      />
+    <InputIcon>
+      <Element color={color} size={size} />
     </InputIcon>
   );
 };

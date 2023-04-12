@@ -1,6 +1,7 @@
 import imgLogo from '../../images/footer/logo.svg';
 
 import {
+  Spinach,
   TitleBox,
   Logo,
   TitleText,
@@ -16,6 +17,7 @@ export const Title = () => {
   return (
     <div>
       <TitleBox>
+        <Spinach></Spinach>
         <Styledlink to="/main" onClick={scrollToTop}>
           <Logo src={imgLogo} alt="logo" />
         </Styledlink>

@@ -1,27 +1,45 @@
-// import styled from 'styled-components';
 import styled from 'styled-components';
-// import { theme } from 'constants';
+
 import { NavLink } from 'react-router-dom';
-import emailIcon from '../../images/footer/email.svg';
+
 import spinachMob from '../../images/background/spinach_bottom_right_mob_1x.png';
 import spinachTab from '../../images/background/spinach_bottom_right_tab_1x.png';
 import spinachDesk from '../../images/background/spinach_bottom_right_desk_1x.png';
-// import upSpinach from '../../images/background/spinach_bottom_left_mob_1x.png';
-
+import upSpinachMob from '../../images/background/spinach_bottom_left_mob_1x.png';
+import upSpinachTab from '../../images/background/spinach_bottom_left_tab_1x.png';
+import upSpinachDesk from '../../images/background/spinach_bottom_left_desk_1x.png';
 export const FooterStyle = styled.footer`
   font-family: ${p => p.theme.fonts.primary};
-  /* padding-top: 50px; */
-  /* padding-bottom: 32px; */
-  /* text-align: center; */
-  background-color: ${p => p.theme.colors.footerBG};
-`;
+  position: relative;
+  background-color: ${p => p.theme.colors.darkAccent};
 
+`;
+export const Spinach = styled.div`
+  position: absolute;
+  z-index: -1;
+  bottom: 364px;
+  left: 0px;
+  width: 256px;
+  height: 392px;
+  background-image: url(${upSpinachMob});
+  @media screen and (min-width: 768px) {
+    bottom: 266px;
+
+    width: 423px;
+    height: 646px;
+    background-image: url(${upSpinachTab});
+  }
+  @media screen and (min-width: 1440px) {
+    bottom: 208px;
+
+    width: 558px;
+    height: 852px;
+    background-image: url(${upSpinachDesk});
+  }
+`;
 export const FoterBox = styled.div`
   margin-left: auto;
   margin-right: auto;
-  // width: 1200px;
-  /* padding-left: 15px; */
-  /* padding-right: 15px; */
 
   color: ${p => p.theme.colors.primaryLightText};
   padding-top: 28px;
@@ -158,7 +176,6 @@ export const Styledlink = styled(NavLink)`
 
 ///////////////  Styled SubscribeForm /////////
 export const SubscribeContainer = styled.div`
-  /* display: none; */
   @media screen and (min-width: 1440px) {
     display: flex;
     flex-direction: column;
@@ -207,7 +224,23 @@ export const Form = styled.form`
     margin-bottom: 0px;
   }
 `;
-
+export const Label = styled.label`
+  position: relative;
+`;
+export const InputIcon = styled.span`
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+`;
+export const Icon = styled.img`
+  width: 16px;
+  height: 12px;
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 16px;
+  }
+`;
 export const Input = styled.input`
   width: 204px;
   height: 38px;
@@ -220,12 +253,6 @@ export const Input = styled.input`
   font-size: 10px;
   line-height: 1.5;
   padding-left: 42px;
-
-  margin-bottom: 8px;
-  background-image: url(${emailIcon});
-  background-size: 16px 12px;
-  background-repeat: no-repeat;
-  background-position: 15px;
 
   &::placeholder {
     font-size: 10px;
@@ -241,8 +268,7 @@ export const Input = styled.input`
     -moz-box-shadow: none;
     box-shadow: none;
     -webkit-text-fill-color: ${p => p.theme.colors.primaryLightText} !important;
-    background-color: transparent !important;
-    background-image: url(${emailIcon});
+    caret-color: white;
   }
 
   @media screen and (min-width: 768px) {
@@ -253,7 +279,7 @@ export const Input = styled.input`
     height: 50px;
     font-size: 14px;
     line-height: 21px;
-    background-size: 20px 16px;
+
     &::placeholder {
       font-size: 14px;
       line-height: 1.5;
@@ -264,7 +290,6 @@ export const Input = styled.input`
     width: 339px;
     height: 60px;
     margin-right: 0;
-    margin-bottom: 16px;
     font-size: 18px;
     line-height: 1.5;
     &::placeholder {
@@ -283,6 +308,7 @@ export const Btn = styled.button`
   background-color: ${p => p.theme.colors.greenAccent};
   font-size: 14px;
   line-height: 1.14;
+  margin-top: 8px;
   margin-bottom: 44px;
 
   &:valid {
@@ -301,6 +327,7 @@ export const Btn = styled.button`
     line-height: 1.12;
   }
   @media screen and (min-width: 1440px) {
+    margin-top: 16px;
     width: 339px;
     height: 60px;
   }
