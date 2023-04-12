@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
+import { useTheme } from 'styled-components';
 
 import { SearchForm } from 'components/SearchForm';
 import SearchTypeSelector from 'components/SearchTypeSelector/SearchTypeSelector';
@@ -29,9 +30,12 @@ export const SearchBar = () => {
   const filter = ingredient
     ? { ingredient, limit: 12, page }
     : { title, limit: 12, page };
-  console.log(filter);
+  // console.log(filter);
   const { data, isLoading } = useRecipes(filter);
   const [formValue, setFormValue] = useState(title ? title : ingredient);
+
+  const theme = useTheme();
+  const color = theme.colors.greenAccent;
 
   // console.log(data);
   // console.log(isLoading);
@@ -67,7 +71,7 @@ export const SearchBar = () => {
         <SearchForm
           onSubmit={handleSubmit}
           // onChange={handleChange}
-          color={'#8baa36'}
+          color={color}
           defaultValue={formValue}
         />
         <WrapperSelector>
