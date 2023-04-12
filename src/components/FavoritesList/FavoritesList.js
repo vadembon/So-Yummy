@@ -3,7 +3,6 @@ import { Loader } from 'components/Loader/Loader';
 import { FavoritesItem } from '../FavoritesItem/FavoritesItem';
 import {
   FavoritesContainer,
-  FavoritTitle,
   FavoritesListContent,
 } from './FavoritesList.styled';
 
@@ -23,7 +22,6 @@ export const FavoritesList = ({ favorite }) => {
 
   return (
     <FavoritesContainer>
-      <FavoritTitle>Favorites</FavoritTitle>
       {recipes && (
         <FavoritesListContent>
           {recipes?.map(({ _id: id, title, thumb, time, description }) => (
