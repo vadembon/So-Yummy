@@ -8,8 +8,8 @@ export const TitleBox = styled.div`
   padding-left: 16px;
   padding-right: 16px;
 
-  color: ${({ theme: { colors } }) => colors.primaryLightText};
-  background-color: ${({ theme: { colors } }) => colors.lightBackground};
+  /* color: ${({ theme: { colors } }) => colors.primaryLightText}; */
+  /* background-color: ${({ theme: { colors } }) => colors.lightBackground}; */
 
   @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
     height: 208px;
