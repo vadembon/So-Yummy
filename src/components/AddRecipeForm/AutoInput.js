@@ -102,9 +102,10 @@ export const AutoInput = ({
 const Wrapper = styled.div`
   position: relative;
   display: flex;
+  /* flex: 1 100%; */
   /* flex-grow: 1; */
   /* width: ${({ width }) => (width ? width : '100%')}; */
-  /* width: 100%; */
+  width: 100%;
   /* color: black; */
   color: ${({ theme: { colors } }) => colors.blackText};
   /* background-color: ${({ theme: { colors } }) => colors.lightBackground}; */
@@ -112,15 +113,23 @@ const Wrapper = styled.div`
 
 const InputWrapper = styled.div`
   display: flex;
-  /* flex: 1; */
+  width: 100%;
+  /* flex: 1 80%; */
   /* width: ${({ width }) => (width ? width : '100%')}; */
 `;
 
 const Input = styled.input`
-  /* width: 100%; */
-  width: ${({ width }) => (width ? width : '100%')};
+  width: 100%;
+
+  font-family: ${({ theme: { fonts } }) => fonts.primary};
+  font-size: 14px;
+  font-weight: ${({ theme: { fontWeights } }) => fontWeights.regular};
+  color: ${({ theme: { colors } }) => colors.primaryDarkText};
+  background-color: ${({ theme: { colors } }) => colors.recipyLightBgItem};
+
+  /* width: ${({ width }) => (width ? width : '100%')}; */
   /* width: 50px; */
-  /* flex: 1; */
+  /* flex: 1 80%; */
   /* padding: 16px; */
   /* height: 53px; */
   outline: none;
@@ -129,6 +138,10 @@ const Input = styled.input`
   border-bottom: 1px solid black;
   /* border-radius: 4px 4px 0 0; */
   /* background-color: #d9d9d9; */
+
+  @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
+    font-size: 18px;
+  }
 `;
 
 const ControlButton = styled.button`

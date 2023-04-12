@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const FavoritesContainer = styled.div`
-  padding: 50px 0px 100px;
+  padding-top: 4px;
+  padding-bottom: 40px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -9,12 +10,13 @@ export const FavoritesContainer = styled.div`
   height: auto;
   margin: 0 auto;
   @media screen and (min-width: 768px) {
-    padding: 72px 0px 200px;
+    padding-top: 65px;
+    padding-bottom: 50px;
     width: 704px;
   }
 
   @media screen and (min-width: 1440px) {
-    padding: 100px 0px 100px;
+    padding-top: 54px;
     width: 1240px;
   }
 `;

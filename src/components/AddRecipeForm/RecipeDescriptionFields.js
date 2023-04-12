@@ -1,7 +1,5 @@
-import { useState, useEffect } from 'react';
-import { getCategories } from 'api/queries';
-import { showError } from 'components/Message';
-import { VBox, InputForm, LabelBox, Label } from './AddRecipeForm.styled';
+import { useCategories } from 'api/hooks';
+import { VBox, InputForm, LabelBox, Label, Dbox } from './AddRecipeForm.styled';
 import { AutoInput } from './AutoInput';
 
 const times = [
@@ -19,15 +17,7 @@ export const RecipeDescriptionFields = ({
   handleFormData,
   handleAutoinput,
 }) => {
-  const [categoryList, setCategoryList] = useState([]);
-
-  useEffect(() => {
-    getCategories()
-      .then(data => {
-        setCategoryList(data);
-      })
-      .catch(err => showError(err));
-  }, []);
+  const categories = useCategories();
 
   return (
     <VBox>
@@ -49,28 +39,33 @@ export const RecipeDescriptionFields = ({
       />
       <LabelBox>
         <Label>Category</Label>
-        <AutoInput
-          list={categoryList}
-          field="name"
-          inputName="category"
-          handleAutoinput={handleAutoinput}
-          required
-          width="123px"
-          height="43px"
-        />
+        <Dbox>
+          {' '}
+          <AutoInput
+            list={categories.data ?? []}
+            field="name"
+            inputName="category"
+            handleAutoinput={handleAutoinput}
+            required
+            width="123px"
+            height="43px"
+          />
+        </Dbox>
       </LabelBox>
       <LabelBox>
         <Label>Cooking time</Label>
-        <AutoInput
-          list={times}
-          field="t"
-          addText=" min"
-          inputName="time"
-          handleAutoinput={handleAutoinput}
-          required
-          width="123px"
-          height="43px"
-        />
+        <Dbox>
+          <AutoInput
+            list={times}
+            field="t"
+            addText=" min"
+            inputName="time"
+            handleAutoinput={handleAutoinput}
+            required
+            width="123px"
+            height="43px"
+          />
+        </Dbox>
       </LabelBox>
     </VBox>
   );

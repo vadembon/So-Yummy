@@ -24,18 +24,16 @@ const ControlButton = styled.div`
 const ControlBox = styled.div`
   display: flex;
   justify-content: space-around;
-  align-items:center; 
+  align-items: center;
   width: 92px;
   height: 28px;
   border: 1px solid;
   border-radius: 20px;
-  color: ${({ theme: { colors } }) => colors.greenAccent}; 
-  border-color: color: ${({ theme: { colors } }) => colors.greenAccent};
+  color: ${({ theme: { colors } }) => colors.greenAccent};
+  border-color: ${({ theme: { colors } }) => colors.greenAccent};
 
   @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
     width: 110px;
-  height: 32px;
+    height: 32px;
   }
-
-  
 `;

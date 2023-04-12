@@ -6,7 +6,7 @@ export const TitleBar = styled.div`
   padding-left: 16px;
   padding-right: 16px;
 
-  background-color: ${({ theme: { colors } }) => colors.lightBackground};
+  /* background-color: ${({ theme: { colors } }) => colors.lightBackground}; */
 
   @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
     height: 60px;

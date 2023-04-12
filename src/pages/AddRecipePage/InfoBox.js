@@ -7,3 +7,9 @@ export const InfoBox = styled.div`
     width: 320px;
   }
 `;
+
+export const FlexBox = styled.div`
+  @media (min-width: ${({ theme: { devices } }) => devices.desktop}) {
+    display: flex;
+  }
+`;
