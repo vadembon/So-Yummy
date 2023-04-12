@@ -28,6 +28,19 @@ export const SearchInput = styled.input`
   border-radius: 60px 120px 60px 120px;
   outline: none;
 
+  // &:-webkit-autofill,
+  // &:-webkit-autofill:hover,
+  // &:-webkit-autofill:focus {
+  //   -webkit-box-shadow: 0 0 0 30px ${p =>
+    p.theme.colors.darkAccent} inset !important;
+  //   -webkit-box-shadow: none;
+  //   -moz-box-shadow: none;
+  //   box-shadow: none;
+  //   -webkit-text-fill-color: ${p =>
+    p.theme.colors.primaryLightText} !important;
+  //   caret-color: white;
+  // }
+
   @media screen and (min-width: 768px) {
     font-size: ${props => props.theme.fontSizes[4]}px;
     width: 369px;
@@ -53,7 +66,6 @@ export const SearchButton = styled.button`
   color: ${props => props.theme.colors.primaryLightText};
   background: ${props => props.color};
 
-  //background: ${props => props.theme.colors.greenAccent},
   border: 1px solid #f0f0f0;
   border-radius: 60px 120px 60px 120px;
 

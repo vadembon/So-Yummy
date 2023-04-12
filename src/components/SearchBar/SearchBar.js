@@ -10,6 +10,7 @@ import {
 } from './SearchBar.styled';
 import { Loader } from 'components/Loader';
 import { SearchedRecipesList } from 'components/SearchedRecipesList';
+import { Paginator } from 'components/Paginator';
 import { useRecipes } from 'api/hooks';
 
 export const SearchBar = () => {
@@ -19,15 +20,21 @@ export const SearchBar = () => {
     value: state ? 'ingredient' : 'title',
     label: state ? 'Ingredient' : 'Title',
   });
+  const [page, setPage] = useState(1);
+  const [limit] = useState(12);
 
   const [searchParams, setSearchParams] = useSearchParams({});
   const title = searchParams.get('title') ?? '';
   const ingredient = searchParams.get('ingredient') ?? '';
-  const filter = ingredient ? { ingredient, limit: 12 } : { title, limit: 12 };
+  const filter = ingredient
+    ? { ingredient, limit: 12, page }
+    : { title, limit: 12, page };
+  console.log(filter);
   const { data, isLoading } = useRecipes(filter);
   const [formValue, setFormValue] = useState(title ? title : ingredient);
-  console.log(data);
-  console.log(isLoading);
+
+  // console.log(data);
+  // console.log(isLoading);
   // useEffect(() => {
   //   if (!data || data.length === 0) {
   //     toast('Not found recipes! Try again!');
@@ -50,6 +57,10 @@ export const SearchBar = () => {
     setSelectedOption(option);
   };
 
+  const handlePageChange = newPage => {
+    setPage(newPage);
+  };
+
   return (
     <>
       <WrapperSearchBar>
@@ -68,7 +79,16 @@ export const SearchBar = () => {
         </WrapperSelector>
       </WrapperSearchBar>
       {isLoading && <Loader />}
-      {data && <SearchedRecipesList items={data} />}
+      {data && (
+        <>
+          <SearchedRecipesList items={data} />
+          <Paginator
+            currentPage={page}
+            onPageChange={handlePageChange}
+            totalPages={Math.ceil(data.total / limit)}
+          />
+        </>
+      )}
     </>
   );
 };
