@@ -23,7 +23,7 @@ export const lightTheme = {
   normalGrey: '#f0f0f0', /// border in search form
   whiteBackgroundToBlack: '#ffffff', /// favorites bg
   blackCloseIconToWhite: '#333333', // icon close at shopping list
-
+  blackTextToWhite: '#000000',
   //  no change
   whiteText: '#ffffff',
   blackText: '#000000',
@@ -99,6 +99,7 @@ export const darkTheme = {
   whiteBackgroundDish: '#1E1F28',
   secondaryLightBackground: '#ECECEC',
   blackCloseIconToWhite: '#FAFAFA;', // icon close at shopping list
+  blackTextToWhite: '#FAFAFA',
 };
 
 // white -> black
