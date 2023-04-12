@@ -12,6 +12,7 @@ export const FooterStyle = styled.footer`
   font-family: ${p => p.theme.fonts.primary};
   position: relative;
   background-color: ${p => p.theme.colors.darkAccent};
+
 `;
 export const Spinach = styled.div`
   position: absolute;

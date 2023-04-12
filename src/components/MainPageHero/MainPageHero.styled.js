@@ -71,7 +71,7 @@ export const HeroText = styled.p`
   letter-spacing: -0.02em;
   margin-bottom: 364px;
 
-  color: ${p => p.theme.colors.primaryDarkText};
+  color: ${p => p.theme.colors.secondaryDarkText};
 
   @media screen and (min-width: 768px) {
     width: 346px;

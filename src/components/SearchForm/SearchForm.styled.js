@@ -35,7 +35,6 @@ export const SearchInput = styled.input`
   }
 
   @media screen and (min-width: 1440px) {
-
     font-size: ${props => props.theme.fontSizes[5]}px;
     width: 510px;
     height: 70px;
@@ -53,6 +52,8 @@ export const SearchButton = styled.button`
   cursor: pointer;
   color: ${props => props.theme.colors.primaryLightText};
   background: ${props => props.color};
+
+  //background: ${props => props.theme.colors.greenAccent},
   border: 1px solid #f0f0f0;
   border-radius: 60px 120px 60px 120px;
 
@@ -71,6 +72,16 @@ export const SearchButton = styled.button`
   @media screen and (min-width: 1440px) {
     width: 161px;
     height: 70px;
+
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+
+    :hover {
+      box-shadow: ${props =>
+        props.color === '#8baa36'
+          ? '0 0 40px 40px #22252a inset'
+          : '0 0 40px 40px #8baa36 inset'};
+    }
   }
 `;
 // Alex background: #22252a;

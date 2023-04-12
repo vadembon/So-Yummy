@@ -1,6 +1,7 @@
 import { InputForm, IngredBox } from './AddRecipeForm.styled';
-import { AutoInput } from 'commonComponents/AutoInput';
-import { InputBox } from 'components/AddRecipeForm/InputBox';
+import { AutoInput } from './AutoInput';
+
+import { handleKeyPress } from './lib';
 
 const units = [
   { t: 'g' },
@@ -29,68 +30,40 @@ export const RecipeIngredientsFields = ({
     handleAutoinput({ ...item, idx });
   };
 
-  // const defaultValues = {
-  //   index: 0,
-  //   quantity: 0,
-  //   unit: '',
-  // };
-
-  // const [filter, setFilter] = useState('');
-  // const [data, setData] = useState(defaultValues);
-
-  // const filteredingredientList = ingredientList.filter(item =>
-  //   item.ttl.toLowerCase().includes(filter.toLowerCase())
-  // );
-
-  // const handleFormData = ({ target: { name, value } }) => {
-  //   setData({ ...data, [name]: value });
-  // };
-
-  // const handleFilter = e => {
-  //   setFilter(e.target.value);
-  // };
-
-  // useEffect(() => {
-  //   if (data.quantity && data.unit) {
-  //     handleIngredientAdd(data);
-  //   }
-  // }, [data, handleIngredientAdd]);
-
   return (
     <IngredBox>
-      <InputBox w="50%" h="40px">
-        <AutoInput
-          list={ingredientList}
-          field="ttl"
-          inputName="ingredient"
-          handleAutoinput={handleAuto}
-          select
-          required
-          width="300px"
-        />{' '}
-      </InputBox>
+      <AutoInput
+        list={ingredientList}
+        field="ttl"
+        inputName="ingredient"
+        handleAutoinput={handleAuto}
+        required
+        flexGrow={1}
+        width="400px"
+        height="53px"
+      />
       <InputForm
         name="quantity"
         type="text"
-        placeholder="quantity"
+        // placeholder="quantity"
         onChange={handleInput}
+        onKeyPress={handleKeyPress}
         required
         variant="flushed"
         autoComplete="off"
         width="50px"
-        height="50px"
-        // fontSize="2xl"
+        height="53px"
+        marginLeft={32}
       />
-      <InputBox w="80px" h="40px">
-        <AutoInput
-          list={units}
-          field="t"
-          inputName="unit"
-          handleAutoinput={handleAuto}
-          select
-          required
-        />
-      </InputBox>
+      <AutoInput
+        list={units}
+        field="t"
+        inputName="unit"
+        handleAutoinput={handleAuto}
+        required
+        width="80px"
+        height="53px"
+      />
     </IngredBox>
   );
 };

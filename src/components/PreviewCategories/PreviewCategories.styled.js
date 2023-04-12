@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const PreviewCategoriesMain = styled.div`
+export const PreviewCategoriesMain = styled.section`
   padding: 64px 16px 100px;
   @media screen and (min-width: 768px) {
     padding: 72px 32px 100px;
@@ -25,12 +25,20 @@ export const PreviewCategoriesContainer = styled.div`
     max-width: 704px;
     max-height: 485px;
     margin: 0 auto 50px;
+
+    &:nth-child(4) {
+      margin-bottom: 32px;
+    }
   }
 
   @media screen and (min-width: 1440px) {
     max-width: 1240px;
     max-height: 505px;
     margin: 0 auto 100px;
+
+    &:nth-child(4) {
+      margin-bottom: 14px;
+    }
   }
 `;
 
@@ -60,7 +68,7 @@ export const PreviewCategoriesTitle = styled.h2`
   font-size: 28px;
   line-height: 28px;
   letter-spacing: -0.02em;
-  color: #001833;
+  color: ${p => p.theme.colors.tertiaryDarkText};
   margin-bottom: 32px;
   @media screen and (min-width: 768px) {
     font-size: 44px;

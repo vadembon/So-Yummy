@@ -1,7 +1,7 @@
-import { EditBtn, LogOutBtn, UserMenu } from './UserLogoModal.styled';
+import { FiEdit2 } from 'react-icons/fi';
+import { AiOutlineArrowRight } from 'react-icons/ai';
 
-import sicon_edit from 'images/commonSvgImg/icon-edit.svg';
-import icon_arrow_right from 'images/commonSvgImg/icon-arrow-right.svg';
+import { EditBtn, LogOutBtn, UserMenu } from './UserLogoModal.styled';
 
 export const UserLogoModal = ({ toggleModal }) => {
   return (
@@ -9,11 +9,11 @@ export const UserLogoModal = ({ toggleModal }) => {
       <UserMenu>
         <EditBtn type="button" onClick={() => toggleModal('edit')}>
           <span>Edit profile</span>
-          <img src={sicon_edit} alt="edit" />
+          <FiEdit2 />
         </EditBtn>
         <LogOutBtn type="button" onClick={() => toggleModal('logout')}>
           <span>Log Out</span>
-          <img src={icon_arrow_right} alt="arrow" />
+          <AiOutlineArrowRight />
         </LogOutBtn>
       </UserMenu>
     </>

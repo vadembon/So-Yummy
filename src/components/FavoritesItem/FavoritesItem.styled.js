@@ -9,7 +9,7 @@ export const FavoritesContentLi = styled.li`
   width: 343px;
   height: 152px;
   border-radius: 8px;
-  background-color: #ffffff;
+  background-color: ${p => p.theme.colors.whiteText};
 
   @media screen and (min-width: 768px) {
     width: 704px;
@@ -45,7 +45,7 @@ export const FavoriteDishTitel = styled(Link)`
   font-size: 14px;
   line-height: 14px;
   letter-spacing: -0.24px;
-  color: #3e4462;
+  color: ${p => p.theme.colors.secondaryDarkText};
 
   @media screen and (min-width: 768px) {
     font-size: 24px;
@@ -77,7 +77,7 @@ export const FavoriteDescription = styled.p`
   font-size: 8px;
   line-height: 10px;
   letter-spacing: -0.02em;
-  color: #23262a;
+  color: ${p => p.theme.colors.primaryDarkText};
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
@@ -92,24 +92,27 @@ export const FavoriteDescription = styled.p`
 export const FavoriteDeleteBtn = styled.div`
   position: absolute;
   right: 0;
-  bottom: 14px;
-
+  top: 0;
   @media screen and (min-width: 768px) {
-    top: 28px;
   }
   @media screen and (min-width: 1440px) {
-    top: 40px;
   }
 `;
 
 export const FavoriteSeeBtn = styled.div`
   position: absolute;
   right: 0;
+  bottom: 0;
+  width: 87px;
+  height: 27px;
+
   @media screen and (min-width: 768px) {
-    bottom: 28px;
+    width: 138px;
+    height: 45px;
   }
   @media screen and (min-width: 1440px) {
-    bottom: 40px;
+    width: 172px;
+    height: 59px;
   }
 `;
 
@@ -118,7 +121,7 @@ export const FavoriteTime = styled.p`
   font-size: 10px;
   line-height: 14px;
   letter-spacing: -0.24px;
-  color: #3e4462;
+  color: ${p => p.theme.colors.secondaryDarkText};
 
   @media screen and (min-width: 768px) {
     font-size: 14px;

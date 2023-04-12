@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   token: '',
+  theme: 'light',
 };
 
 export const userSlice = createSlice({
@@ -14,8 +15,11 @@ export const userSlice = createSlice({
     clearUser: state => {
       state.token = '';
     },
+    setTheme: (state, action) => {
+      state.theme = action.payload;
+    },
   },
 });
 
 export default userSlice;
-export const { setUser, clearUser } = userSlice.actions;
+export const { setUser, clearUser, setTheme } = userSlice.actions;

@@ -1,69 +1,61 @@
 import styled from 'styled-components';
+// import bucket_veggies_mob_1x from '../../images/search/bucket_veggies_mob_1x.png';
+// import bucket_veggies_tab_1x from '../../images/search/bucket_veggies_tab_1x.png';
+// import bucket_veggies_desk_1x from '../../images/search/bucket_veggies_desk_1x.png';
 
-// import NoRecipesImg from '../../images/notFound/bronot_found_people_tab1x.png';
-
-export const List = styled.div`
-  position: relative;
-  padding-top: 50px;
-  padding-bottom: 40px;
-`;
-
-export const Title = styled.h1`
-  padding-top: 50px;
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  color: black;
+export const MyRecipe = styled.div`
+  padding: 20px 0px 100px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 343px;
+  height: auto;
+  margin: 0 auto;
   @media screen and (min-width: 768px) {
-    font-size: 32px;
-    padding-top: 72px;
+    padding: 32px 0px 200px;
+    width: 704px;
   }
   @media screen and (min-width: 1440px) {
-    font-size: 44px;
-    padding-top: 100px;
+    padding: 40px 0px 100px;
+    width: 1240px;
   }
-`;
-
-export const MyRecipe = styled.section`
-  // padding-bottom: 100px;
-  // @media screen and (min-width: 768px) {
-  //   padding-bottom: 200px;
-  // }
-  // @media screen and (min-width: 1440px) {
-  //   margin-bottom: 200px;
-  // }
-  // text-align: center;
-  padding-left: 100px;
 `;
 
 export const CardList = styled.ul`
-  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  width: 343px;
+  gap: 18px;
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    gap: 40px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 1240px;
+    gap: 50px;
+  }
 `;
-// export const NoRecipesImg = styled.img`
+
+// export const NoRecipesImg = styled.div`
 //   width: 208px;
 //   height: 133px;
-//   margin: auto;
-//   background-image: url('../../images/notFound/bronot_found_people_tab1x.png');
-//   background-size: contain;
-//   margin-bottom: 33px;
-//   margin-top: 25px;
+//   background-repeat: no-repeat;
+//   background-position: center center;
+//   background-size: cover;
+//   margin: 40px;
+//   background-image: url(${bucket_veggies_mob_1x});
+//   @media screen and (max-width: 768px) {
+//     width: 350px;
+//     height: 225px;
+//     background-image: url(${bucket_veggies_tab_1x});
+//   }
+//   @media screen and (min-width: 1440px) {
+//     width: 520px;
+//     height: 333px;
+//     background-image: url(${bucket_veggies_desk_1x});
+//   }
 // `;
 
-export const Image = styled.div`
-  width: 208px;
-  height: 133px;
-  margin: auto;
-  margin-bottom: 33px;
-  margin-top: 25px;
-`;
-
-// export const noRecipesImg = styled.h1`
-//   width: 350px;
-//   height: 225px;
-//   margin-bottom: 33px;
-//   margin-top: 125px;
-// `;
 export const NoRecipesText = styled.p`
   text-align: center;
   font-weight: 500;
@@ -71,49 +63,12 @@ export const NoRecipesText = styled.p`
   line-height: 14px;
   letter-spacing: -0.02em;
   margin-bottom: 101px;
-  opacity: 0.5;
+  // opacity: 0.5;
   color: black;
-`;
-
-// export const noRecipesText = styled.h1`
-//     font-size: 24px;
-//     line-height: 24px;
-//     letter-spacing: -0.02em;
-//     margin-bottom: 200px;
-// `;
-// export const List = styled.div`
-//   position: relative;
-//   padding-top: 50px;
-//   padding-bottom: 40px;
-// `;
-
-export const PaginationWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-`;
-
-export const PaginationButton = styled.a`
-  text-decoration: none;
-  color: #999;
-  font-weight: bold;
-  margin: 0 5px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  transition: background-color 0.2s ease-in-out;
-
-  &:hover {
-    background-color: #f5f5f5;
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
   }
-`;
-
-export const ActivePaginationButton = styled(PaginationButton)`
-  color: #fff;
-  background-color: #008080;
-  cursor: default;
-
-  &:hover {
-    background-color: #008080;
+  @media screen and (min-width: 1440px) {
+    font-size: 18px;
   }
 `;

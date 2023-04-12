@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-import bgMobX1 from 'images/receipy/receipy_hero_bg_veggies_desk_1x.png';
-import bgMobX2 from 'images/receipy/receipy_hero_bg_veggies_desk_2x.png';
-import bgTabX1 from 'images/receipy/receipy_hero_bg_veggies_mob_1x.png';
-import bgTabX2 from 'images/receipy/receipy_hero_bg_veggies_mob_2x.png';
-import bgDeskX1 from 'images/receipy/receipy_hero_bg_veggies_tab_1x.png';
-import bgDeskX2 from 'images/receipy/receipy_hero_bg_veggies_tab_2x.png';
+import bgMobX1 from 'images/receipy/receipy_hero_bg_veggies_mob_1x.png';
+import bgMobX2 from 'images/receipy/receipy_hero_bg_veggies_mob_2x.png';
+import bgTabX1 from 'images/receipy/receipy_hero_bg_veggies_tab_1x.png';
+import bgTabX2 from 'images/receipy/receipy_hero_bg_veggies_tab_2x.png';
+import bgDeskX1 from 'images/receipy/receipy_hero_bg_veggies_desk_1x.png';
+import bgDeskX2 from 'images/receipy/receipy_hero_bg_veggies_desk_2x.png';
 
 export const SectionHero = styled.section`
   background-image: url(${bgMobX1});
@@ -42,8 +42,9 @@ export const SectionHero = styled.section`
 `;
 
 export const SectionHeroTitle = styled.h1`
-  ${props => props.theme.fonts.primary}
-  ${props => props.theme.fontSizes[3]}px;
+  font-family: ${props => props.theme.fonts.primary};
+  font-size: ${props => props.theme.fontSizes[3]};
+  color: ${props => props.theme.colors.greenAccent};
   line-height: 1;
   max-width: 360px;
   margin-right: auto;
@@ -74,12 +75,13 @@ export const SectionHeroDesc = styled.p`
 `;
 
 export const SectionHeroBtn = styled.button`
-  ${props => props.theme.fonts.primary}
-  ${props => props.theme.fontSizes[3]}
   background-color: transparent;
+  background: ${props => props.theme.colors.secondaryLightBackground};
   border-radius: 24px 44px;
-  border: 1px solid;
+  border: 2px solid ${props => props.theme.colors.greenAccent};
   padding: 10px 18px;
+  font-weight: 400;
+  font-size: 10px;
   line-height: 0.6;
   margin-bottom: 42px;
   cursor: pointer;
@@ -88,16 +90,15 @@ export const SectionHeroBtn = styled.button`
     font-size: 16px;
     padding: 18px 44px;
     margin-bottom: 60px;
-    border: 2px solid;
   }
   @media (min-width: 1440px) {
     margin-bottom: 48px;
   }
-  /* :hover,
+  :hover,
   :focus {
-    background-color: ;
-    color:;
-  } */
+    background-color: ${props => props.theme.colors.greenAccent};
+    color: ${props => props.theme.colors.lightBackground};
+  }
 `;
 
 export const TimeBlock = styled.div`

@@ -1,3 +1,19 @@
-export const Loader = () => {
-  return <div style={{ color: 'black' }}>LOADING.....</div>;
-};
+import React from 'react';
+import { Puff } from 'react-loader-spinner';
+import { LoaderWrapper} from './Loader.styled';
+
+export const Loader = () => (
+  <LoaderWrapper>
+    <Puff
+      height="80"
+      width="80"
+      radius={1}
+      color="#4fa94d"
+      ariaLabel="puff-loading"
+      wrapperStyle={{}}
+      wrapperClass=""
+      visible={true}
+    />
+  </LoaderWrapper>
+);
+

@@ -9,9 +9,15 @@ export const Button = styled.button`
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
+  border: none;
+  background-color: transparent;
   margin-right: 24px;
   gap: 14px;
   font-size: 14px;
+  font-family: ${p => p.theme.fonts.primary};
+  font-weight: ${p => p.theme.fontWeights.semibold};
+  line-height: ${p => p.theme.lineHeights.userLink};
+  color: ${p => p.theme.colors.primaryDarkText};
   cursor: pointer;
   transition: ${p => p.theme.transitions.main};
 

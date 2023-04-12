@@ -6,13 +6,12 @@ import {
   TextCount,
   RecipePreparationTitle,
 } from './RecipePreparation.styled';
-import { Container } from 'components/Container';
 
-export const RecipePreparation = ({ description }) => {
+export const RecipePreparation = ({ description, preview }) => {
   return (
-    <Container>
+    <>
       <SectionPreparationDescription>
-      <RecipePreparationTitle>Recipe Preparation</RecipePreparationTitle>
+        <RecipePreparationTitle>Recipe Preparation</RecipePreparationTitle>
         {description &&
           description.split('. ').map((el, i) => {
             return (
@@ -26,7 +25,10 @@ export const RecipePreparation = ({ description }) => {
               </li>
             );
           })}
+        <li>
+          <img style={{ borderRadius: '8px', marginTop: '53px', marginBottom: '100px' }} src={preview} alt="preview" />
+        </li>
       </SectionPreparationDescription>
-    </Container>
+    </>
   );
 };

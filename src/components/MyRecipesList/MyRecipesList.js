@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { Loader } from 'components/Loader/Loader';
 import { useOwnRecipes, useDeleteOwnRecipe } from '../../api/hooks';
 import { MyRecipesItem } from '../MyRecipesItem/MyRecipesItem';
-import { Paginator } from '../Paginator/Paginator';
 import { MyRecipe, CardList, NoRecipesText } from './MyRecipesList.styled.js';
+import { NoRecipesImg } from './NoRecipesImg.styled.js';
+import { Paginator } from '../Paginator/Paginator';
 
 export const MyRecipesList = () => {
   const [page, setPage] = useState(1);
@@ -16,25 +18,18 @@ export const MyRecipesList = () => {
     mutate(id);
   };
 
-  const handleNextPage = () => {
-    setPage(page => page + 1);
+  const handlePageChange = newPage => {
+    setPage(newPage);
   };
-
-  const handlePrevPage = () => {
-    setPage(page => Math.max(page - 1, 1));
-  };
-
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <MyRecipe>
-      <div>
-        <CardList>
-          {isLoading && <p>Loading...</p>}
-          {!isLoading && ownRecipes.length === 0 && (
-            <NoRecipesText>You don't have any recipe.</NoRecipesText>
-          )}
-          {!isLoading &&
-            ownRecipes &&
-            ownRecipes.map(recipe => (
+      {ownRecipes && ownRecipes.length ? (
+        <>
+          <CardList>
+            {ownRecipes.map(recipe => (
               <MyRecipesItem
                 id={recipe._id}
                 thumb={recipe.thumb}
@@ -46,15 +41,19 @@ export const MyRecipesList = () => {
                 handleDelete={() => deleteRecipe(recipe._id)}
               />
             ))}
-        </CardList>
-        <Paginator
-          page={page}
-          handleNextPage={handleNextPage}
-          handlePrevPage={handlePrevPage}
-          ownRecipes={ownRecipes}
-          limit={limit}
-        />
-      </div>
+          </CardList>
+          <Paginator
+            currentPage={page}
+            onPageChange={handlePageChange}
+            totalPages={Math.ceil(ownRecipes.total / limit)}
+          />
+        </>
+      ) : (
+        <NoRecipesText>
+          {isLoading ? 'Loading...' : 'You have not created any recipes yet.'}
+          <NoRecipesImg />
+        </NoRecipesText>
+      )}
     </MyRecipe>
   );
 };

@@ -8,12 +8,11 @@ import {
   HeaderWrapper,
   HeaderWrapperLogo,
   HeaderLogo,
-  // UserWrapper,
   BurgerWrapper,
   BurgerButton,
   MobileMenuWrapper,
   MobileMenuHeaderContainer,
-  // MobileMenuThemeTogglerWrapper,
+  MobileMenuThemeTogglerWrapper,
 } from './Header.styled';
 
 import logo_desk from "images/commonSvgImg/logo_desk.svg";
@@ -78,9 +77,6 @@ export const Header = () => {
                        <img src={iconburger_menu} alt="burger" />
                    </BurgerButton>
                  </BurgerWrapper>
-                 {/* <UserWrapper> */}
-                   
-                 {/* </UserWrapper> */}
                </HeaderWrapper>
              </Container>
            </HeaderStyled>
@@ -101,9 +97,9 @@ export const Header = () => {
              <HeaderNavigation
                setShowBurgerMenu={setShowBurgerMenu}
              />
-             {/* <MobileMenuThemeTogglerWrapper>
+             <MobileMenuThemeTogglerWrapper>
                <ThemeToggler />
-             </MobileMenuThemeTogglerWrapper> */}
+             </MobileMenuThemeTogglerWrapper>
            </MobileMenuWrapper>
          </>
        )}

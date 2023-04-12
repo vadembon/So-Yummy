@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${props => props.theme.fonts.primary};
     font-size: ${props => props.theme.fontSizes[3]}px;
     color: ${props => props.theme.colors.primaryDarkText};
-    background-color: ${props => props.theme.colors.lightBackground};
+    background-color: ${props => props.theme.colors.lightBackgroundBody};
   }
 
   img {
