@@ -3,6 +3,7 @@ export const lightTheme = {
   primaryLightTextNoChange: '#FAFAFA', //  shoppingList
   normalDark: '#1E1F28', // buttons
   primaryDarkText: '#23262A', /// long text of recipy? header text
+  primaryDarkTextNoChange: '#23262A', /// long text of recipy? header text
   secondaryDarkText: '#3E4462', /// titles of recipy, ingredients
   secondaryDarkTextNoChange: '#3E4462', ///
   tertiaryDarkText: '#001833', /// title of pages (Favorites, My receipies, categories, search, shopping list
@@ -54,6 +55,7 @@ export const darkTheme = {
   primaryLightTextNoChange: '#FAFAFA', //  shoppingList
   normalDark: '#1E1F28', // buttons
   primaryDarkText: '#FAFAFA', /// long text of recipy
+  primaryDarkTextNoChange: '#23262A', ///  
   secondaryDarkText: '#FAFAFA', /// titles of recipy, ingredients
   tertiaryDarkText: ' #FAFAFA', /// title of pages (Favorites, My receipies, categories, search, shopping list
   mainPageButtons: '#8AA936', /// main page buttons except footer!
