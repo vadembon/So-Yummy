@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+import { AutoInput } from './AutoInput';
 
 export const Form = styled.form`
+  width: 100%;
   /* & {
     outline: none;
   } */
@@ -27,6 +29,15 @@ export const InputForm = styled.input`
   outline: none;
   border: none;
   border-bottom: 1px solid black;
+  font-family: ${({ theme: { fonts } }) => fonts.primary};
+  font-size: 14px;
+  font-weight: ${({ theme: { fontWeights } }) => fontWeights.regular};
+  color: ${({ theme: { colors } }) => colors.primaryDarkText};
+  background-color: ${({ theme: { colors } }) => colors.recipyLightBgItem};
+
+  @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
+    font-size: 18px;
+  }
 `;
 
 export const TextForm = styled.textarea`
@@ -36,6 +47,16 @@ export const TextForm = styled.textarea`
   border: none;
   outline: none;
   resize: none;
+
+  font-family: ${({ theme: { fonts } }) => fonts.primary};
+  font-size: 14px;
+  font-weight: ${({ theme: { fontWeights } }) => fontWeights.regular};
+  color: ${({ theme: { colors } }) => colors.primaryDarkText};
+  background-color: ${({ theme: { colors } }) => colors.recipyLightBgItem};
+
+  @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
+    font-size: 18px;
+  }
 `;
 
 // export const SelectForm = styled.select`
@@ -51,8 +72,15 @@ export const Box = styled.div`
   justify-content: center;
   /* justify-content: space-between; */
   align-items: center;
+
+  width: 100%;
   @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
     align-items: start;
+    /* flex-wrap: nowrap; */
+  }
+  @media (min-width: ${({ theme: { devices } }) => devices.desktop}) {
+    gap: 50px;
+    width: 800px;
   }
 `;
 
@@ -64,6 +92,10 @@ export const VBox = styled.div`
   @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
     gap: 32px;
     width: 393px;
+  }
+  @media (min-width: ${({ theme: { devices } }) => devices.desktop}) {
+    gap: 40px;
+    /* width: 393px; */
   }
 `;
 
@@ -77,6 +109,9 @@ export const TitleBox = styled.div`
     margin-top: 100px;
     margin-bottom: 32px;
   }
+  @media (min-width: ${({ theme: { devices } }) => devices.desktop}) {
+    width: 610px;
+  }
 `;
 
 export const InstructionBox = styled.div`
@@ -89,8 +124,7 @@ export const IngredBox = styled.div`
   /* justify-content: space-between; */
   align-items: center;
   /* gap: 20px; */
-
-  width: 530px;
+  width: 100%;
 `;
 
 export const LabelBox = styled.div`
@@ -103,7 +137,39 @@ export const Label = styled.div`
   flex-basis: 200px;
   flex-grow: 1;
   height: 43px;
+  padding: 1px 0;
+  /* vertical-align: bottom; */
   /* padding: 16px; */
   color: black;
   border-bottom: 1px solid black;
+
+  font-family: ${({ theme: { fonts } }) => fonts.primary};
+  font-size: 14px;
+  font-weight: ${({ theme: { fontWeights } }) => fontWeights.regular};
+  color: ${({ theme: { colors } }) => colors.primaryDarkText};
+  background-color: ${({ theme: { colors } }) => colors.recipyLightBgItem};
+
+  @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
+    font-size: 18px;
+  }
+`;
+
+export const Ubox = styled.div`
+  width: 70px;
+`;
+
+export const Dbox = styled.div`
+  width: 180px;
+  font-family: ${({ theme: { fonts } }) => fonts.primary};
+  font-size: 28px;
+  font-weight: ${({ theme: { fontWeights } }) => fontWeights.semibold};
+  color: ${({ theme: { colors } }) => colors.greenAccent};
+`;
+
+export const AiIngredient = styled(AutoInput)`
+  font-family: ${({ theme: { fonts } }) => fonts.primary};
+  font-size: 28px;
+  font-weight: ${({ theme: { fontWeights } }) => fontWeights.semibold};
+  color: ${({ theme: { colors } }) => colors.greenAccent};
+  background-color: ${({ theme: { colors } }) => colors.greenAccent};
 `;

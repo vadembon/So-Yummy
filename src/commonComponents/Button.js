@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const primeryColor = ({ theme: { colors } }) => colors.primaryLightText;
-const greenColor = ({ theme: { colors } }) => colors.greenAccent;
-const darkColor = ({ theme: { colors } }) => colors.darkAccent;
+const primeryColor = ({ theme: { colors } }) => colors.primaryLightTextNoChange;
+const greenColor = ({ theme: { colors } }) => colors.footerSubscribeButtonBG;
+const darkColor = ({ theme: { colors } }) => colors.footerBG;
 
 export const Button = styled.button`
   color: ${primeryColor};

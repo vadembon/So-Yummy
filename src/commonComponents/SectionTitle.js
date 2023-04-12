@@ -6,8 +6,8 @@ export const SectionTitle = styled.h3`
   font-family: ${({ theme: { fonts } }) => fonts.primary};
   font-size: 24px;
   font-weight: ${({ theme: { fontWeights } }) => fontWeights.semibold};
-  color: ${({ theme: { colors } }) => colors.secondaryDarkText};
-  background-color: ${({ theme: { colors } }) => colors.lightBackground};
+  /* color: ${({ theme: { colors } }) => colors.secondaryDarkText}; */
+  /* background-color: ${({ theme: { colors } }) => colors.lightBackground}; */
 
   /* @media (min-width: ${({ theme: { devices } }) => devices.desktop}) {
     margin-bottom: 16px;

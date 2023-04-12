@@ -1,13 +1,5 @@
-import { useRef, useState, useEffect } from 'react';
-import { showError } from 'components/Message';
-
-//+
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { addOwnRecipe, getIngredients } from 'api/queries';
-//+
-//-
-// import { getIngredients } from 'api/queries';
-//-
 
 import { Button } from 'commonComponents/Button';
 import { ButtonBlock } from './ButtonBlock';
@@ -18,11 +10,19 @@ import { ImageButton } from 'commonComponents/ImageButton';
 import { IngredientList } from './IngredientList';
 import { Box, TitleBox, InstructionBox, Form } from './AddRecipeForm.styled';
 import { fQ } from './lib';
-
 import image from 'images/food-blank.svg';
+import { useAddOwnRecipe, useIngredients } from 'api/hooks';
 
 export const AddRecipeForm = () => {
-  const [ingredientList, setIngredientList] = useState([]);
+  const navigate = useNavigate();
+
+  const ingredients = useIngredients();
+  const addOwnRecipe = useAddOwnRecipe({
+    onSuccess: () => {
+      navigate('/my');
+    },
+  });
+
   const filePicker = useRef(null);
   const [recipeData, setRecipeData] = useState({
     instructions: '',
@@ -33,18 +33,6 @@ export const AddRecipeForm = () => {
 
   const [myIngredients, setMyIngredients] = useState([{}, {}, {}]);
   const [imageUrl, setImageUrl] = useState(image);
-
-  // +
-  const navigate = useNavigate();
-  // +
-
-  useEffect(() => {
-    getIngredients()
-      .then(data => {
-        setIngredientList(data);
-      })
-      .catch(err => showError(err));
-  }, []);
 
   const handlePick = () => {
     filePicker.current.click();
@@ -60,17 +48,9 @@ export const AddRecipeForm = () => {
       ...recipeData,
       ingredients,
     };
-    // -
-    // console.log(newData);
-    // -
 
-    // +
-    addOwnRecipe({ ...newData })
-      .then(() => {
-        navigate('/my');
-      })
-      .catch(err => showError(err));
-    // +
+    console.log(newData);
+    // addOwnRecipe.mutate({ ...newData });
   };
 
   const handleMinus = () => {
@@ -81,6 +61,7 @@ export const AddRecipeForm = () => {
   };
 
   const handleIngradientDelete = idx => {
+    idx = myIngredients.length - 1;
     setMyIngredients([
       ...myIngredients.slice(0, idx),
       ...myIngredients.slice(idx + 1),
@@ -137,7 +118,7 @@ export const AddRecipeForm = () => {
       </TitleBox>
 
       <IngredientList
-        ingredientList={ingredientList}
+        ingredientList={ingredients.data ?? []}
         myIngredients={myIngredients}
         handleIngradientDelete={handleIngradientDelete}
         handleAutoinput={handleAutoinput}
@@ -152,7 +133,7 @@ export const AddRecipeForm = () => {
           // largeButton
           // greenButton
           type="submit"
-          // disabled
+          disabled={addOwnRecipe.isLoading}
         >
           Add
         </Button>
