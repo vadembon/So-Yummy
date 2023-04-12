@@ -20,6 +20,8 @@ export const lightTheme = {
   recipyLightBgItem: '  #EBF3D4',
   myRecipyDeleteButton: '#8BAA36', // my recipe  delete button background, no change
   normalGrey: '#f0f0f0', /// border in search form
+  whiteBackgroundToBlack: '#ffffff', /// favorites bg
+
   //  no change
   whiteText: '#ffffff',
   blackText: '#000000',
@@ -67,6 +69,7 @@ export const darkTheme = {
   secondaryDarkBackground: '#8BAA36', ///  FAVORITES BUTTON
   recipyLightBgItem: '#2A2C36', //  receipe bACKGROUND of item
   myRecipyDeleteButton: '#8BAA36', // my recipe  delete button background, no change
+  whiteBackgroundToBlack: '#2A2C36', /// favorites bg
   //  no change
   normalGrey: '#f0f0f0', /// border in search form ! no change! added transparency 0.5 in search form
   whiteText: '#ffffff', // no change
