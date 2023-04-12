@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import icon_user_add_foto from 'images/commonSvgImg/icon-user-add-foto.svg';
 
+
 export const Form  = styled.form`
      input[type='file'] {
      width: 0;
@@ -75,8 +76,22 @@ export const UserIcon = styled.svg`
    width: 18px;
    height: 18px;
    top: 50%;
-   left: 16.5px;
+   left: 16.5px; 
    transform: translateY(-50%);
+   &::after{
+    content: url(${icon_user_add_foto});
+   }
+`;
+
+
+
+export const UserIconEdid = styled.svg`
+   /* position: absolute;
+   width: 18px;
+   height: 18px;
+   top: 50%;
+   left: 16.5px; 
+   transform: translateY(-50%); */
 `;
 
 export const NameInput = styled.input`
@@ -91,8 +106,9 @@ export const NameInput = styled.input`
   line-height: ${p => p.theme.lineHeights.subheader};
   color: ${p => p.theme.colors.primaryDarkText};
   outline: none;
-  border: 2px solid ${({ color }) => color};
+  border: ${p => p.theme.border.userProfile};
   background-color: transparent; 
+  opacity: 0.3;
 `;
 
 export const Button = styled.button`
@@ -140,4 +156,6 @@ export const InputsWrapper = styled.div`
 export const NameLabel = styled.label`
   width: 100%;
   position: relative;
+  opacity: 0.8;
+  color: ${p => p.theme.colors.primaryDarkText};
 `;
