@@ -9,7 +9,7 @@ export const FavoritesContentLi = styled.li`
   width: 343px;
   height: 152px;
   border-radius: 8px;
-  background-color: ${p => p.theme.colors.whiteText};
+  background-color: ${p => p.theme.colors.whiteBackgroundToBlack};
 
   @media screen and (min-width: 768px) {
     width: 704px;

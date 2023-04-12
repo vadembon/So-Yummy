@@ -21,30 +21,6 @@ export const FavoritesContainer = styled.div`
   }
 `;
 
-export const FavoritTitle = styled.h3`
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 28px;
-  letter-spacing: -0.02em;
-  color: ${p => p.theme.colors.tertiaryDarkText};
-
-  margin: 50px auto 50px 0px;
-
-  @media screen and (min-width: 768px) {
-    font-size: 32px;
-    line-height: 32px;
-
-    margin: 72px auto 100px 0px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    font-size: 44px;
-    line-height: 44px;
-
-    margin: 100px auto 100px 0px;
-  }
-`;
-
 export const FavoritesListContent = styled.ul`
   display: flex;
   flex-direction: column;
@@ -65,7 +41,7 @@ export const FavoritesListContent = styled.ul`
 export const FavoritesItemContent = styled.div`
   min-width: 343px;
   border-radius: 8px;
-  background-color: ${p => p.theme.colors.whiteText};
+  background-color: ${p => p.theme.colors.whiteBackgroundToBlack};
 
   @media screen and (min-width: 768px) {
     width: 704px;
