@@ -10,11 +10,12 @@ export const Overlay = styled.div`
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 10000;
+  z-index: 10;
 `;
 
 export const ModalWindow = styled.div`
   position: relative;
+  /* position: fixed; */
   width: 330px;
   height: fit-content;
   padding: ${p => (p.status === 'logout' ? '44px 24px' : '32px 24px')};
@@ -25,7 +26,7 @@ export const ModalWindow = styled.div`
   background-color: ${p => p.theme.colors.primaryLightText};
   border-radius: ${p => p.theme.radii.modal};
   opacity: 1;
-  z-index: 20000;
+  z-index: 20;
   overflow-y: hidden;
   overflow-x: hidden;
   
