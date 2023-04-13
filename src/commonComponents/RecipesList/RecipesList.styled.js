@@ -8,7 +8,7 @@ export const DishList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   margin-top: ${props => (props.isEmpty ? '50px' : '42px')};
-  margin-bottom: 50px;
+
   // min-height: 746px;
   width: 375px;
   margin-left: auto;
@@ -21,14 +21,12 @@ export const DishList = styled.ul`
     width: 768px;
     gap: 32px;
     margin-top: ${props => (props.isEmpty ? '50px' : '40px')};
-    margin-bottom: 50px;
   }
   @media screen and (min-width: 1440px) {
     width: 1440px;
     row-gap: 100px;
     column-gap: 14px;
     margin-top: ${props => (props.isEmpty ? '50px' : '90px')};
-    margin-bottom: 200px;
   }
 `;
 export const DishItem = styled.li`
