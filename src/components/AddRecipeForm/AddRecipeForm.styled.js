@@ -33,7 +33,7 @@ export const InputForm = styled.input`
   font-size: 14px;
   font-weight: ${({ theme: { fontWeights } }) => fontWeights.regular};
   color: ${({ theme: { colors } }) => colors.primaryDarkText};
-  background-color: ${({ theme: { colors } }) => colors.recipyLightBgItem};
+  background-color: ${({ theme: { colors } }) => colors.whiteBackgroundToBlack};
 
   @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
     font-size: 18px;
@@ -52,7 +52,7 @@ export const TextForm = styled.textarea`
   font-size: 14px;
   font-weight: ${({ theme: { fontWeights } }) => fontWeights.regular};
   color: ${({ theme: { colors } }) => colors.primaryDarkText};
-  background-color: ${({ theme: { colors } }) => colors.recipyLightBgItem};
+  background-color: ${({ theme: { colors } }) => colors.whiteBackgroundToBlack};
 
   @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
     font-size: 18px;
@@ -134,6 +134,8 @@ export const LabelBox = styled.div`
 
 export const Label = styled.div`
   /* width: 200px; */
+  display: flex;
+  align-items: center;
   flex-basis: 200px;
   flex-grow: 1;
   height: 43px;
@@ -147,7 +149,7 @@ export const Label = styled.div`
   font-size: 14px;
   font-weight: ${({ theme: { fontWeights } }) => fontWeights.regular};
   color: ${({ theme: { colors } }) => colors.primaryDarkText};
-  background-color: ${({ theme: { colors } }) => colors.recipyLightBgItem};
+  background-color: ${({ theme: { colors } }) => colors.whiteBackgroundToBlack};
 
   @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
     font-size: 18px;
@@ -155,21 +157,30 @@ export const Label = styled.div`
 `;
 
 export const Ubox = styled.div`
-  width: 70px;
+  width: 100px;
 `;
 
 export const Dbox = styled.div`
   width: 180px;
   font-family: ${({ theme: { fonts } }) => fonts.primary};
-  font-size: 28px;
-  font-weight: ${({ theme: { fontWeights } }) => fontWeights.semibold};
-  color: ${({ theme: { colors } }) => colors.greenAccent};
+  font-size: 14px;
+  font-weight: ${({ theme: { fontWeights } }) => fontWeights.regular};
+  color: ${({ theme: { colors } }) => colors.primaryDarkText};
+  background-color: ${({ theme: { colors } }) => colors.whiteBackgroundToBlack};
+
+  @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
+    font-size: 18px;
+  }
 `;
 
 export const AiIngredient = styled(AutoInput)`
   font-family: ${({ theme: { fonts } }) => fonts.primary};
-  font-size: 28px;
-  font-weight: ${({ theme: { fontWeights } }) => fontWeights.semibold};
-  color: ${({ theme: { colors } }) => colors.greenAccent};
-  background-color: ${({ theme: { colors } }) => colors.greenAccent};
+  font-size: 14px;
+  font-weight: ${({ theme: { fontWeights } }) => fontWeights.regular};
+  color: ${({ theme: { colors } }) => colors.primaryDarkText};
+  background-color: ${({ theme: { colors } }) => colors.whiteBackgroundToBlack};
+
+  @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
+    font-size: 18px;
+  }
 `;

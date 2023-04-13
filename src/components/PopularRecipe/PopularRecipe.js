@@ -15,7 +15,7 @@ import {
 
 export const PopularRecipe = () => {
   const { data, isLoading } = usePopular();
-
+  const isTablet = window.innerWidth >= 768 && window.innerWidth <= 1440;
   return (
     <>
       <SectionTitle>Popular recipe</SectionTitle>
@@ -23,7 +23,13 @@ export const PopularRecipe = () => {
         {isLoading ? (
           <Loader />
         ) : (
-          data.slice(0, 4).map(item => <Item key={item._id} {...item} />)
+          <>
+            {isTablet
+              ? data?.slice(0, 2).map(item => <Item key={item._id} {...item} />)
+              : data
+                  ?.slice(0, 4)
+                  .map(item => <Item key={item._id} {...item} />)}
+          </>
         )}
       </ListBox>
     </>

@@ -108,7 +108,7 @@ const Wrapper = styled.div`
   width: 100%;
   /* color: black; */
   color: ${({ theme: { colors } }) => colors.blackText};
-  /* background-color: ${({ theme: { colors } }) => colors.lightBackground}; */
+  background-color: ${({ theme: { colors } }) => colors.whiteBackgroundToBlack};
 `;
 
 const InputWrapper = styled.div`
@@ -125,7 +125,7 @@ const Input = styled.input`
   font-size: 14px;
   font-weight: ${({ theme: { fontWeights } }) => fontWeights.regular};
   color: ${({ theme: { colors } }) => colors.primaryDarkText};
-  background-color: ${({ theme: { colors } }) => colors.recipyLightBgItem};
+  background-color: ${({ theme: { colors } }) => colors.whiteBackgroundToBlack};
 
   /* width: ${({ width }) => (width ? width : '100%')}; */
   /* width: 50px; */
@@ -162,18 +162,28 @@ const OptionsList = styled.ul`
   top: 38px;
   left: 0;
   z-index: 1;
-  max-height: 200px;
+  max-height: 180px;
   width: 100%;
   overflow: auto;
   list-style-type: none;
   outline: none;
   padding: 0;
   margin: 0;
-  background-color: #fff;
-  border: 1px solid #ccc;
+
+  font-family: ${({ theme: { fonts } }) => fonts.primary};
+  font-size: 14px;
+  font-weight: ${({ theme: { fontWeights } }) => fontWeights.regular};
+  color: ${({ theme: { colors } }) => colors.primaryDarkText};
+
+  background-color: ${({ theme: { colors } }) => colors.lightSelector};
+  /* border: 1px solid #ccc; */
 
   border: none;
   border-radius: 4px;
+
+  @media (min-width: ${({ theme: { devices } }) => devices.tablet}) {
+    font-size: 18px;
+  }
 `;
 
 const Option = styled.li`
@@ -183,7 +193,7 @@ const Option = styled.li`
   cursor: pointer;
 
   &:hover {
-    color: ${({ theme: { colors } }) => colors.greenAccent};
+    color: ${({ theme: { colors } }) => colors.greenAccentSearch};
     color: opacity 1;
     /* background-color: #eee; */
   }
