@@ -74,17 +74,15 @@ export const SearchBar = () => {
         </WrapperSelector>
       </WrapperSearchBar>
       {isLoading && <Loader />}
-      {data && (
-        <>
-          <SearchedRecipesList items={data} />
-          <WrapperPaginator>
-            <Paginator
-              currentPage={page}
-              onPageChange={handlePageChange}
-              totalPages={Math.ceil(data.total / limit)}
-            />
-          </WrapperPaginator>
-        </>
+      {data && <SearchedRecipesList items={data} />}
+      {data && data.length !== 0 && (
+        <WrapperPaginator>
+          <Paginator
+            currentPage={page}
+            onPageChange={handlePageChange}
+            totalPages={Math.ceil(data.length / limit)}
+          />
+        </WrapperPaginator>
       )}
     </>
   );
