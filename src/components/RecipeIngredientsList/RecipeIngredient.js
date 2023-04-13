@@ -2,7 +2,7 @@ import { useDeleteShoppingList } from 'api/hooks';
 import { useAddShoppingList } from 'api/hooks';
 import { useState } from 'react';
 import {
-  IngedientsItemLi,
+  IngedientsItemList,
   IngedientsImg,
   Wrap,
   IngedientsTitle,
@@ -23,14 +23,13 @@ export const RecipeIngredient = ({ ingredient, isSelected, recipeId }) => {
     // якщо чекбокс був обраний, робимо запит на видалення інгредієнта з ShoppingList
     if (isChecked) {
       deleteShoppingList.mutate([{ id: _id, recipe: recipeId }]);
-
-      // якщо чекбокс не був обраний, робимо запит на додавання інгредієнта до ShoppingList
+    // якщо чекбокс не був обраний, робимо запит на додавання інгредієнта до ShoppingList
     } else {
       addShoppingList.mutate({ thb, id: _id, measure, ttl, recipe: recipeId });
     }
   }
   return (
-    <IngedientsItemLi>
+    <IngedientsItemList>
       <Wrap>
         {<IngedientsImg src={thb ? thb : ''} alt="Ingredient" />}
         <IngedientsTitle>{ttl}</IngedientsTitle>
@@ -46,6 +45,6 @@ export const RecipeIngredient = ({ ingredient, isSelected, recipeId }) => {
           <CheckBoxWrap>{isSelected && <CheckMarkIcon />}</CheckBoxWrap>
         </CheckBoxLabel>
       </Wrap>
-    </IngedientsItemLi>
+    </IngedientsItemList>
   );
 };

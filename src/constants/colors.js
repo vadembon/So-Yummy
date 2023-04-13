@@ -29,6 +29,8 @@ export const lightTheme = {
   blackCloseIconToWhite: '#333333', // icon close at shopping list
   blackTextToWhite: '#000000',
   iconDarkColor: '#23262A',
+  otherCategoriesMainPageBtn: '#22252A', // Main Page Btn otherCategories
+  mainPageLogo: '#22252A', // Main Logo
   //  no change
   whiteText: '#ffffff',
   blackText: '#000000',
@@ -87,6 +89,8 @@ export const darkTheme = {
   lightSelector: '#8BAA36', // background-color in search select option
   myRecipyDeleteButton: '#8BAA36', // my recipe  delete button background, no change
   whiteBackgroundToBlack: '#2A2C36', /// favorites bg
+  otherCategoriesMainPageBtn: '#FAFAFA', // Main Page Btn otherCategories
+  mainPageLogo: '#FAFAFA', // Main Logo
   //  no change
   normalGrey: '#f0f0f0', /// border in search form ! no change! added transparency 0.5 in search form
   whiteText: '#ffffff', // no change

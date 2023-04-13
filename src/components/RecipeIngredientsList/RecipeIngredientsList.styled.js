@@ -7,14 +7,21 @@ export const IngredientsList = styled.div`
   background-color: ${props => props.theme.colors.greenAccent};
   border-radius: 8px;
   display: grid;
-  grid-template-columns: repeat(3, 2fr);
-  grid-column-gap: 1px;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-column-gap: 5px;
   grid-row-gap: 2em;
+  @media (min-width: 768px) {
+    grid-template-columns: 4fr 2fr 1fr;
+  }
+  @media (min-width: 1440px) {
+    grid-template-columns: 4fr 2fr 1fr;
+  }
 `;
 
 export const Ingredients = styled.p`
   font-family: ${props => props.theme.fonts.primary};
-  font-size: ${props => props.theme.fontSizes[3]};
+  font-size: ${props => props.theme.fontSizes[8]};
+  font-weight: ${props => props.theme.fontWeights.semibold};
   line-height: 27px;
   padding-top: 21px;
   padding-bottom: 21px;
@@ -24,11 +31,17 @@ export const Ingredients = styled.p`
   justify-content: left;
   align-items: left;
   letter-spacing: 0.03em;
+  /* @media (min-width: 1440px)) {
+    font-size: ${props => props.theme.fontSizes[10]};
+    justify-content: left;
+  align-items: left;
+  } */
 `;
 
 export const Number = styled.p`
   font-family: ${props => props.theme.fonts.primary};
-  font-size: ${props => props.theme.fontSizes[3]};
+  font-size: ${props => props.theme.fontSizes[8]};
+  font-weight: ${props => props.theme.fontWeights.semibold};
   line-height: 27px;
   color: ${props => props.theme.colors.lightBackground};
   padding-top: 21px;
@@ -37,23 +50,34 @@ export const Number = styled.p`
   justify-content: right;
   align-items: right;
   letter-spacing: 0.03em;
+  @media (min-width: 768px) {
+    font-size: ${props => props.theme.fontSizes[10]};
+    justify-content: center;
+  align-items: center;
+  }
+  @media (min-width: 1440px) {
+    font-size: ${props => props.theme.fontSizes[10]};
+    justify-content: right;
+  align-items: right;
+  }
 `;
 
 export const AddToList = styled.p`
   font-family: ${props => props.theme.fonts.primary};
-  font-size: ${props => props.theme.fontSizes[3]};
+  font-size: ${props => props.theme.fontSizes[10]};
+  font-weight: ${props => props.theme.fontWeights.semibold};
   line-height: 27px;
   color: ${props => props.theme.colors.lightBackground};
   padding-top: 21px;
   padding-bottom: 21px;
   display: flex;
-  justify-content: right;
-  align-items: right;
+  justify-content: center;
+  align-items: center;
   margin-right: 15px;
   letter-spacing: 0.03em;
 `;
 
-export const IngedientsListUl = styled.ul`
+export const IngedientsListItems = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -62,9 +86,9 @@ export const IngedientsListUl = styled.ul`
   }
 `;
 
-export const IngedientsItemLi = styled.li`
+export const IngedientsItemList = styled.li`
   border-radius: 8px;
-  background: ${props => props.theme.colors.secondaryAccent};
+  background: ${props => props.theme.colors.recipyLightBgItem};
   display: flex;
   width: 100%;
   padding: 14px 29px 14px 14px;
@@ -100,16 +124,21 @@ export const Wrap = styled.div`
 
 export const IngedientsTitle = styled.p`
   font-family: ${props => props.theme.fonts.primary};
-  font-size: ${props => props.theme.fontSizes[3]};
-  line-height: 1.16;
+  font-size: ${props => props.theme.fontSizes[12]};
+  font-weight: ${props => props.theme.fontWeights.medium};
+  line-height: 1.6;
   max-width: 200px;
   @media (min-width: 768px) {
     max-width: 220px;
-    font-size: 24px;
-    line-height: 1;
+    font-size: ${props => props.theme.fontSizes[12]};
+    font-weight: ${props => props.theme.fontWeights.medium};
+    line-height: 1.6;
   }
   @media (min-width: 1440px) {
     max-width: 420px;
+    font-size: ${props => props.theme.fontSizes[24]};
+    font-weight: ${props => props.theme.fontWeights.medium};
+    line-height: 1;
   }
 `;
 
@@ -117,19 +146,27 @@ export const IngedientsMeasure = styled.span`
   margin-right: 28px;
   border-radius: 4px;
   padding: 4px;
+  min-width: 63px;
+  max-width: 126px;
+  text-align: center;
   font-family: ${props => props.theme.fonts.primary};
-  font-size: ${props => props.theme.fontSizes[3]};
+  font-size: ${props => props.theme.fontSizes[12]};
+  font-weight: ${props => props.theme.fontWeights.semibold};
   background-color: ${props => props.theme.colors.greenAccent};
   color: ${props => props.theme.colors.lightBackground};
   line-height: 1.5;
   @media (min-width: 768px) {
-    font-size: 18px;
+    font-size: ${props => props.theme.fontSizes[18]};
+    font-weight: ${props => props.theme.fontWeights.semibold};
     line-height: 1.5;
     padding: 4px 8px;
     margin-right: 78px;
   }
   @media (min-width: 1440px) {
-    margin-right: 151px;
+    margin-right: 100px;
+    line-height: 1.5;
+    font-weight: ${props => props.theme.fontWeights.semibold};
+    font-size: ${props => props.theme.fontSizes[18]};
   }
 `;
 

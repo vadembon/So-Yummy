@@ -1,12 +1,11 @@
 import { useShoppingList } from 'api/hooks';
-
 import { RecipeIngredient } from './RecipeIngredient';
 import {
   AddToList,
   Ingredients,
   IngredientsList,
   Number,
-  IngedientsListUl,
+  IngedientsListItems,
 } from './RecipeIngredientsList.styled';
 
 export const RecipeIngredientsList = ({ recipeId, ingredients }) => {
@@ -23,7 +22,7 @@ export const RecipeIngredientsList = ({ recipeId, ingredients }) => {
         <AddToList>Add to list</AddToList>
       </IngredientsList>
 
-      <IngedientsListUl>
+      <IngedientsListItems>
         {ingredients &&
           ingredients.map(ingredient => {
             return (
@@ -37,7 +36,7 @@ export const RecipeIngredientsList = ({ recipeId, ingredients }) => {
               />
             );
           })}
-      </IngedientsListUl>
+      </IngedientsListItems>
     </>
   );
 };
