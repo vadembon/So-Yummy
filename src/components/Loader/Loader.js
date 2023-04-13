@@ -10,8 +10,8 @@ export const Loader = () => (
       radius={1}
       ariaLabel="puff-loading"
       wrapperStyle={{}}
-      wrapperClass=""
       visible={true}
+      wrapperClass=""
     />
   </LoaderWrapper>
 );
