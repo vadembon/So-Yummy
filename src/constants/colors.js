@@ -28,6 +28,7 @@ export const lightTheme = {
   whiteBackgroundToBlack: '#ffffff', /// favorites bg
   blackCloseIconToWhite: '#333333', // icon close at shopping list
   blackTextToWhite: '#000000',
+  iconDarkColor: '#23262A',
   //  no change
   whiteText: '#ffffff',
   blackText: '#000000',
@@ -51,6 +52,11 @@ export const lightTheme = {
   whiteBackgroundDish: '#ffffff',
   secondaryLightBackground: '#ECECEC',
   shoppingListProductName: '#3e4462',
+
+  //favorite + myrecipe
+  buttonColor: '#22252A',
+  buttoHoverColor: '#8BAA36',
+  buttonTrashColor: '#8BAA36',
 };
 
 //////////////////////////////////////////
@@ -98,16 +104,22 @@ export const darkTheme = {
 
   secondaryGrey: '#656565',
   secondaryGreyBg: '#C4C4C4',
+  iconDarkColor: '#ffffff',
 
   shoppingListProductName: '#FAFAFA',
   darkAccent: '#22252A', // footer
   lightGray: '#bdbdbd', //categories list text
-  secondaryAccent: '#EBF3D4',
+  secondaryAccent: '#1E1F28',
   whiteBackground: '#ffffff',
   whiteBackgroundDish: '#1E1F28',
   secondaryLightBackground: '#ECECEC',
   blackCloseIconToWhite: '#FAFAFA;', // icon close at shopping list
   blackTextToWhite: '#FAFAFA',
+
+  //favorire + myrecipe
+  buttonColor: '#8BAA36',
+  buttoHoverColor: '#22252A',
+  buttonTrashColor: '#8BAA36',
 };
 
 // white -> black
