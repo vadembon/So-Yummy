@@ -59,7 +59,7 @@ export const SectionHeroTitle = styled.h1`
 `;
 
 export const SectionHeroDesc = styled.p`
-  color: #${props => props.color.fontWeights.quaternaryDarkText};
+  color: ${props => props.theme.colors.quaternaryDarkText};
   max-width: 300px;
   margin-right: auto;
   margin-left: auto;
