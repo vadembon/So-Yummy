@@ -92,13 +92,13 @@ export const theme = Object.freeze({
 
   devices: {
     minDevice: '320px',
-    mobile: '425px',
+    mobile: '375px',
     tablet: '768px',
     desktop: '1440px',
   },
 
   breakPoints: {
-    mobile: '425px',
+    mobile: '375px',
     tablet: '768px',
     desktop: '1440px',
   },
