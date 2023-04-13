@@ -1,6 +1,6 @@
-import { Dot } from 'commonComponents/Dot';
 import { TitleBox } from 'commonComponents/TitleBox';
 import { PageTitle } from 'commonComponents/PageTitle';
+import { Dot1, Dot2, Dot3 } from '../../commonComponents/Dots';
 
 export const MainTitle = ({ titleName, children }) => {
   return (
@@ -9,9 +9,9 @@ export const MainTitle = ({ titleName, children }) => {
         {titleName}
         {children}
       </PageTitle>
-      <Dot dotNumber={0} />
-      <Dot dotNumber={1} />
-      <Dot dotNumber={2} />
+      <Dot1 />
+      <Dot2 />
+      <Dot3 />
     </TitleBox>
   );
 };
