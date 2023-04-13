@@ -3,6 +3,7 @@ export const lightTheme = {
   primaryLightTextNoChange: '#FAFAFA', //  shoppingList
   normalDark: '#1E1F28', // buttons
   primaryDarkText: '#23262A', /// long text of recipy? header text
+  primaryDarkTextNoChange: '#23262A', /// long text of recipy? header text
   secondaryDarkText: '#3E4462', /// titles of recipy, ingredients
   secondaryDarkTextNoChange: '#3E4462', ///
   tertiaryDarkText: '#001833', /// title of pages (Favorites, My receipies, categories, search, shopping list
@@ -24,6 +25,9 @@ export const lightTheme = {
   normalGrey: '#f0f0f0', /// border in search form
   normalGreySelect: '#f0f0f0', /// background-color in search select
   lightSelector: '#FAFAFA', // background-color in search select option
+  whiteBackgroundToBlack: '#ffffff', /// favorites bg
+  blackCloseIconToWhite: '#333333', // icon close at shopping list
+  blackTextToWhite: '#000000',
   //  no change
   whiteText: '#ffffff',
   blackText: '#000000',
@@ -56,6 +60,7 @@ export const darkTheme = {
   primaryLightTextNoChange: '#FAFAFA', //  shoppingList
   normalDark: '#1E1F28', // buttons
   primaryDarkText: '#FAFAFA', /// long text of recipy
+  primaryDarkTextNoChange: '#23262A', ///
   secondaryDarkText: '#FAFAFA', /// titles of recipy, ingredients
   tertiaryDarkText: ' #FAFAFA', /// title of pages (Favorites, My receipies, categories, search, shopping list
   mainPageButtons: '#8AA936', /// main page buttons except footer!
@@ -75,6 +80,7 @@ export const darkTheme = {
   normalGreySelect: '#22252A', /// background-color in search select
   lightSelector: '#8BAA36', // background-color in search select option
   myRecipyDeleteButton: '#8BAA36', // my recipe  delete button background, no change
+  whiteBackgroundToBlack: '#2A2C36', /// favorites bg
   //  no change
   normalGrey: '#f0f0f0', /// border in search form ! no change! added transparency 0.5 in search form
   whiteText: '#ffffff', // no change
@@ -93,13 +99,15 @@ export const darkTheme = {
   secondaryGrey: '#656565',
   secondaryGreyBg: '#C4C4C4',
 
-  shoppingListProductName: '#3e4462',
+  shoppingListProductName: '#FAFAFA',
   darkAccent: '#22252A', // footer
   lightGray: '#bdbdbd', //categories list text
   secondaryAccent: '#EBF3D4',
   whiteBackground: '#ffffff',
   whiteBackgroundDish: '#1E1F28',
   secondaryLightBackground: '#ECECEC',
+  blackCloseIconToWhite: '#FAFAFA;', // icon close at shopping list
+  blackTextToWhite: '#FAFAFA',
 };
 
 // white -> black

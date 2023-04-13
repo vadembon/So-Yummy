@@ -81,7 +81,7 @@ export const HeaderNavigation = ({ setShowBurgerMenu = () => {} }) => {
           onClick={() => {
             setShowBurgerMenu(false);
           }}
-          to="/search?query=&type=title"
+          to="/search"
           selection={(active === 'search').toString()}
         >
         < AiOutlineSearch />
