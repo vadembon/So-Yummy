@@ -39,10 +39,7 @@ export const SigninForm = () => {
   
  
   const handleSignIn = () => {
-        setSignInData({
-    email: '',
-    password: '',
-  })
+
     const errors = validateFormFields(signInData);
 
     if (!isNil(errors)) {
