@@ -5,7 +5,7 @@ import { RecipeIngredientsList } from 'components/RecipeIngredientsList';
 import { RecipePageHero } from 'components/RecipePageHero';
 import { RecipePreparation } from 'components/RecipePreparation';
 import { Loader } from 'components/Loader';
-import { Container } from 'components/Container';
+import { Container } from 'commonComponents/Container';
 
 export const RecipePage = () => {
   const { recipeId } = useParams();
