@@ -13,7 +13,7 @@ import { StyledAuthPage, PersonImg, AuthFlex, FormLinkWraper, AuthInn } from './
 
 
 
-export const AuthPage = ({ type }) => {
+const AuthPage = ({ type }) => {
   return (
   //  <Container>
     <StyledAuthPage>
@@ -41,3 +41,5 @@ export const AuthPage = ({ type }) => {
   // </Container>
   );
 };
+
+export default AuthPage;
