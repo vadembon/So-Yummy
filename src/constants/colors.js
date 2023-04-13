@@ -9,6 +9,8 @@ export const lightTheme = {
   tertiaryDarkText: '#001833', /// title of pages (Favorites, My receipies, categories, search, shopping list
   mainPageButtons: '#8AA936', /// main page buttons except footer! also my receipy
   greenAccent: '#8BAA36', // buttons  , footer in darkTheme     !!!!!!!!!!!!!!!!  checkbox
+  greenAccentSearch: '#8BAA36', // search buttons
+
   SocialIcons: '#8BAA36', //  footer ND ADD RECEIPE social icons !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   footerSubscribeButtonBG: '#8BAA36', //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   footerTextLight: '#FAFAFA', // in foter text  !!!!!!!!!!!!!!!!!!!
@@ -21,6 +23,8 @@ export const lightTheme = {
   recipyLightBgItem: '  #EBF3D4',
   myRecipyDeleteButton: '#8BAA36', // my recipe  delete button background, no change
   normalGrey: '#f0f0f0', /// border in search form
+  normalGreySelect: '#f0f0f0', /// background-color in search select
+  lightSelector: '#FAFAFA', // background-color in search select option
   whiteBackgroundToBlack: '#ffffff', /// favorites bg
   blackCloseIconToWhite: '#333333', // icon close at shopping list
   blackTextToWhite: '#000000',
@@ -61,6 +65,8 @@ export const darkTheme = {
   tertiaryDarkText: ' #FAFAFA', /// title of pages (Favorites, My receipies, categories, search, shopping list
   mainPageButtons: '#8AA936', /// main page buttons except footer!
   greenAccent: '#8BAA36', // buttons  , footer in darkTheme
+
+  greenAccentSearch: '#22252A', // search-- buttons
   SocialIcons: '#8BAA36', //  footer ND ADD RECEIPE social icons !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   footerSubscribeButtonBG: '#1E1F28', //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   footerTextLight: '#FAFAFA', // in foter text !!!!!!!!!!!!!!!!!!
@@ -71,6 +77,8 @@ export const darkTheme = {
   categoriesAccent: '#8BAA36', ///  not changing!
   secondaryDarkBackground: '#8BAA36', ///  FAVORITES BUTTON
   recipyLightBgItem: '#2A2C36', //  receipe bACKGROUND of item
+  normalGreySelect: '#22252A', /// background-color in search select
+  lightSelector: '#8BAA36', // background-color in search select option
   myRecipyDeleteButton: '#8BAA36', // my recipe  delete button background, no change
   whiteBackgroundToBlack: '#2A2C36', /// favorites bg
   //  no change
