@@ -35,6 +35,12 @@ export const theme = Object.freeze({
     quaternaryDarkText: '#22252A',
     footerBG: '#22252A',
 
+    // favorire + MyRecipe
+    buttonColor: '#22252A',
+    buttoHoverColor: '#8BAA36',
+    buttonTrashColor: '#8BAA36',
+    iconDarkColor: '#23262A',
+
     blackText: '#000000',
 
     primaryLightText: '#FAFAFA', // in footer,  and in darkTheme
