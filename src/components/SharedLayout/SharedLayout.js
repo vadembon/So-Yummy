@@ -15,10 +15,9 @@ export const SharedLayout = () => {
   return (
     <div>
       <Header user={data} />
-      <Suspense fallback={null}> 
-      <Outlet />
-
-        </Suspense>
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
       <Footer />
     </div>
   );
