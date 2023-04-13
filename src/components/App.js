@@ -19,6 +19,8 @@ import { AuthPage } from 'pages/AuthPage';
 
 import { GlobalStyle } from './GlobalStyle';
 
+import {MotivatingModal} from './MotivatingModal'
+
 // const AuthPage = lazy(() => import('pages/AuthPage/AuthPage'));
 // const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 // const CategoriesPage = lazy(() => import('pages/CategoriesPage/CategoriesPage'));
@@ -63,6 +65,7 @@ export const App = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
+      <MotivatingModal/>
       <ToastContainer />
     </div>
   );
