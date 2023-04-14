@@ -14,7 +14,7 @@ export const lightTheme = {
   SocialIcons: '#8BAA36', //  footer ND ADD RECEIPE social icons !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   footerSubscribeButtonBG: '#8BAA36', //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   footerTextLight: '#FAFAFA', // in foter text  !!!!!!!!!!!!!!!!!!!
-  footerRightsReserved: '#22252A', // footer  text rights reserved
+  footerRightsReserved: '#fafafa', // footer  text rights reserved
   footerBG: '#22252A', // dark color in footer
   headerAccentText: '#8BAA36',
   categoriesNames: ' #BDBDBD ',
@@ -75,11 +75,11 @@ export const darkTheme = {
   greenAccent: '#8BAA36', // buttons  , footer in darkTheme
 
   greenAccentSearch: '#22252A', // search-- buttons
-  SocialIcons: '#8BAA36', //  footer ND ADD RECEIPE social icons !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  SocialIcons: '#fafafa', //  footer ND ADD RECEIPE social icons !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   footerSubscribeButtonBG: '#1E1F28', //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   footerTextLight: '#FAFAFA', // in foter text !!!!!!!!!!!!!!!!!!
   footerBG: '#8BAA36',
-  footerRightsReserved: '#FAFAFA', // footer  text rights reserved
+  footerRightsReserved: '#22252A', // footer  text rights reserved
   headerAccentText: '#8BAA36',
   categoriesNames: ' #FAFAFA ', //
   categoriesAccent: '#8BAA36', ///  not changing!
