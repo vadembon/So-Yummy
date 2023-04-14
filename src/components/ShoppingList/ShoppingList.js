@@ -12,6 +12,7 @@ export const ShoppingList = () => {
   if (isLoading) {
     return <Loader />;
   }
+
   const shoppingList = data?.sort((a, b) =>
     a.ttl.toLowerCase() > b.ttl.toLowerCase() ? 1 : -1
   );
@@ -34,14 +35,21 @@ export const ShoppingList = () => {
           </ul>
         </div>
       ) : (
+
         
+
           <NoRecipesText>
             {isLoading
               ? 'Loading...'
               : 'You have not added any ingredients to Shopping List.'}
+          </NoRecipesText>
+          <NoRecipesImg />
+        </>
+
             <NoRecipesImg />
           </NoRecipesText>
         
+
       )}
     </Container>
   );
