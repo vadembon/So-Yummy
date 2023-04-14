@@ -7,6 +7,6 @@ export const LoaderWrapper = styled.div`
   height: 350px;
   width: 100%;
   height: 100vh;
+  background-color: transparent;
   color: ${p => p.theme.colors.greenAccent};
-  background-color: ${p => p.theme.colors.whiteBackground};
-`
+`;

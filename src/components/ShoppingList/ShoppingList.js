@@ -5,7 +5,6 @@ import { NoRecipesText } from '../MyRecipesList/MyRecipesList.styled.js';
 import { NoRecipesImg } from '../MyRecipesList/NoRecipesImg.styled.js';
 import { Container } from 'commonComponents/Container';
 import { Loader } from 'components/Loader';
-import { prepareShoppingList } from 'utils/prepareShoppingList';
 
 export const ShoppingList = () => {
   const { data, isLoading } = useShoppingList();
@@ -13,7 +12,10 @@ export const ShoppingList = () => {
   if (isLoading) {
     return <Loader />;
   }
-  const shoppingList = prepareShoppingList(data ?? []);
+
+  const shoppingList = data?.sort((a, b) =>
+    a.ttl.toLowerCase() > b.ttl.toLowerCase() ? 1 : -1
+  );
 
   return (
     <Container>
@@ -21,28 +23,33 @@ export const ShoppingList = () => {
         <div>
           <ShoppingListHeader />
           <ul>
-            {shoppingList.map(item => (
+            {shoppingList.map(({ id, ttl, thb, recipe, measure }) => (
               <ShoppingListItem
-                key={item.keys}
-                ids={item.keys}
-                name={item.ttl}
-                sum={item.sum}
-                unit={item.unit}
-                image={item.thb}
+                key={JSON.stringify([id, recipe])}
+                payload={[{ id, recipe }]}
+                name={ttl}
+                measure={measure}
+                image={thb}
               />
             ))}
           </ul>
         </div>
       ) : (
-        <>
+
+        
+
           <NoRecipesText>
             {isLoading
               ? 'Loading...'
               : 'You have not added any ingredients to Shopping List.'}
-            {/* <NoRecipesImg /> */}
           </NoRecipesText>
           <NoRecipesImg />
         </>
+
+            <NoRecipesImg />
+          </NoRecipesText>
+        
+
       )}
     </Container>
   );

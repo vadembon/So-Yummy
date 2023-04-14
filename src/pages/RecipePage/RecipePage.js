@@ -39,7 +39,7 @@ export const RecipePage = () => {
           favorites={favorites}
           time={time}
         ></RecipePageHero>
-        <Container>
+        <Container style={{ paddingLeft: + 1 +'px', paddingRight: + 1 +'px' }}>
           <RecipeIngredientsList
             recipeId={recipeId}
             ingredients={ingredients}
