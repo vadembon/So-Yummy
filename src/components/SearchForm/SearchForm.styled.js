@@ -93,7 +93,7 @@ export const SearchButton = styled.button`
 
     
     }
-  }
+  
 `;
 // Alex background: #22252a;
 

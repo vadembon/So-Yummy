@@ -73,7 +73,6 @@ export const InputField = styled.input`
  padding: 18px 16px 18px 48px; 
  font-size: 18px;
   }
-
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus {
