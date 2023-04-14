@@ -35,8 +35,6 @@ export const SearchBar = () => {
   const { data, isLoading } = useRecipes(filter);
   const [formValue, setFormValue] = useState(title ? title : ingredient);
 
-  // const total = data.total;
-
   const theme = useTheme();
   const color = theme.colors.greenAccent;
 
@@ -82,7 +80,7 @@ export const SearchBar = () => {
           <Paginator
             currentPage={page}
             onPageChange={handlePageChange}
-            totalPages={Math.ceil(data.length / limit)}
+            totalPages={Math.ceil(data.total / limit)}
           />
         </WrapperPaginator>
       )}
