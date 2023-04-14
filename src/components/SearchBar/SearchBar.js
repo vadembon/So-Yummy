@@ -31,7 +31,7 @@ export const SearchBar = () => {
   const filter = ingredient
     ? { ingredient, limit: 12, page }
     : { title, limit: 12, page };
-  // console.log(filter);
+   
   const { data, isLoading } = useRecipes(filter);
   const [formValue, setFormValue] = useState(title ? title : ingredient);
 
@@ -43,7 +43,7 @@ export const SearchBar = () => {
     const form = e.currentTarget;
     const valueForm = form.elements.query.value;
     setSearchParams({ [selectedOption.value]: valueForm });
-    // console.log(valueForm, selectedOption);
+    // 
     form.reset();
     setFormValue('');
   };
