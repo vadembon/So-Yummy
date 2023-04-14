@@ -37,7 +37,7 @@ export const SearchInput = styled.input`
     -moz-box-shadow: none;
     box-shadow: none;
     -webkit-text-fill-color: ${p =>
-      p.theme.colors.footerRightsReserved} !important;
+      p.theme.colors.secondaryDarkText} !important;
     caret-color: white;
   }
 

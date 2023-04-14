@@ -34,7 +34,7 @@ export const SearchBar = () => {
    
   const { data, isLoading } = useRecipes(filter);
   const [formValue, setFormValue] = useState(title ? title : ingredient);
-
+  // console.log(data);
   const theme = useTheme();
   const color = theme.colors.greenAccent;
 
@@ -43,7 +43,9 @@ export const SearchBar = () => {
     const form = e.currentTarget;
     const valueForm = form.elements.query.value;
     setSearchParams({ [selectedOption.value]: valueForm });
-    // 
+
+    setPage(1); // reset page to 1
+
     form.reset();
     setFormValue('');
   };
