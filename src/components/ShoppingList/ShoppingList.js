@@ -14,7 +14,6 @@ export const ShoppingList = () => {
     return <Loader />;
   }
   const shoppingList = prepareShoppingList(data ?? []);
-  
 
   return (
     <Container>
@@ -35,12 +34,15 @@ export const ShoppingList = () => {
           </ul>
         </div>
       ) : (
-        <NoRecipesText>
-          {isLoading
-            ? 'Loading...'
-            : 'You have not added any ingredients to Shopping List.'}
+        <>
+          <NoRecipesText>
+            {isLoading
+              ? 'Loading...'
+              : 'You have not added any ingredients to Shopping List.'}
+            {/* <NoRecipesImg /> */}
+          </NoRecipesText>
           <NoRecipesImg />
-        </NoRecipesText>
+        </>
       )}
     </Container>
   );
