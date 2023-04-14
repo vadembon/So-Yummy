@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const Navigation = styled.nav`
 display: flex; 
@@ -19,6 +19,20 @@ gap: 32px;
   }
 `;
 
+
+export const LocationList = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`;
+
+
 export const LocationLink = styled(NavLink)`
   display: flex;
   gap: 8px;
@@ -34,13 +48,15 @@ export const LocationLink = styled(NavLink)`
   
   :hover,
   :focus-visible {
-     color: ${p => p.theme.colors.greenAccent};
-   }
-   &:hover svg,
-   &:focus svg {
+
+    color: ${p => p.theme.colors.greenAccent};
+  }
+  &:hover svg,
+  &:focus svg {
     stroke: ${p => p.theme.colors.greenAccent};
-   }
-   @media screen and (min-width: 1440px) {
+  }
+  @media screen and (min-width: 1440px) {
+
     font-size: 24px;
   }
   @media screen and (min-width: 1440px) {
