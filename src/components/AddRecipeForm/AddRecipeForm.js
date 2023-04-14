@@ -49,8 +49,7 @@ export const AddRecipeForm = () => {
       ingredients,
     };
 
-    console.log(newData);
-    // addOwnRecipe.mutate({ ...newData });
+    addOwnRecipe.mutate({ ...newData });
   };
 
   const handleMinus = () => {
