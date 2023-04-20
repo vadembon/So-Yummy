@@ -54,10 +54,12 @@ export const MyRecipesList = ({ recipe }) => {
           />
         </>
       ) : (
-        <NoRecipesText>
-          {isLoading ? 'Loading...' : 'You have not created any recipes yet.'}
+        <>
+          <NoRecipesText>
+            {isLoading ? 'Loading...' : 'You have not created any recipes yet.'}
+          </NoRecipesText>
           <NoRecipesImg />
-        </NoRecipesText>
+        </>
       )}
     </MyRecipe>
   );

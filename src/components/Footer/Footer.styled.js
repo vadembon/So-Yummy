@@ -316,6 +316,10 @@ export const Btn = styled.button`
     color: ${p => p.theme.colors.primaryLightTextNoChange};
   }
 
+  &:disabled {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
   &:hover:valid,
   :focus:valid {
     color: ${p => p.theme.colors.buttonColor};
