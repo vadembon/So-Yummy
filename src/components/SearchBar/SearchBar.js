@@ -31,10 +31,10 @@ export const SearchBar = () => {
   const filter = ingredient
     ? { ingredient, limit: 12, page }
     : { title, limit: 12, page };
-   
+
   const { data, isLoading } = useRecipes(filter);
   const [formValue, setFormValue] = useState(title ? title : ingredient);
-  // console.log(data);
+
   const theme = useTheme();
   const color = theme.colors.greenAccent;
 

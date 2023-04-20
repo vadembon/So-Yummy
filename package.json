@@ -2,7 +2,7 @@
   "name": "react-command-project",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://DariaTufar.github.io/command_project_React_Node/",
+  "homepage": "https://vadembon.github.io/command_project_React_Node/",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
