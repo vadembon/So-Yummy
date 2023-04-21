@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-// import { ThemeProvider } from 'styled-components';
+
 import {
   QueryClient,
   QueryClientProvider,
@@ -14,7 +14,7 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Toaster } from 'react-hot-toast';
 import { App } from 'components/App';
-// import { theme } from './constants';
+
 import { persistor } from 'redux/store';
 import { handleErrors } from 'api/helpers';
 import './index.css';
